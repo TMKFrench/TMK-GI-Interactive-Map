@@ -13,6 +13,7 @@ media/*.jpg
 media/*.gif
 media/tiles/
 nextstage.png
+Markerlbm.js
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
