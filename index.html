@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-language" content="fr" />
+	<meta charset="utf-8">
+	<meta name="keywords" content="Map Interactive; Genshin Impact; coffre; Anemoculus; Geoculus; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
+	<meta name="description" content="Map Interactive Genshin Impact" />
+	<meta name="google-site-verification" content="bliVr8lt1OPhn3qLBDpT03pxeT5zdVY0xu12OmXtZis" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Map Interactive Genshin Impact</title>
+	<link rel="icon" href="media/icones/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="assets/inc/tailwind.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/inc/leaflet.css">
+    <link rel="stylesheet" type="text/css" href="assets/inc/easy-button.css">
+    <link rel="stylesheet" type="text/css" href="assets/inc/lity.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script type="text/javascript" src="assets/inc/jquery.js"></script>
+	<script type="text/javascript">window.L_DISABLE_3D=true;</script>
+	<script type="text/javascript" src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="text/javascript" src="assets/inc/easy-button.js"></script>
+    <script type="text/javascript" src="assets/inc/lity.js"></script>
+	<script type="text/javascript" src="assets/js/text.js"></script>
+
+</head>
+
+<body class="show-menu">
+	<div class="flex flex-wrap h-full">
+		<div id="menu" class="hidden bg-gray-50">
+			<div id="menuFR" class="hidden">
+				<img src="media/banniere.jpg" class="mx-auto" />
+				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
+	
+				<div class="flex space-x-2 text-center m-4">
+					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
+					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">EN</a>
+					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
+					<a id="BtnExport" href="#!" title="Sauvegarder les Markers" download="GenshinMapMarker.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnImport" href="#" title="Charger les Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
+					<input type="file" id="ImportBox" accept=".txt" class="hidden">
+				</div>
+				<!-- <div class="flex justify-items-stretch text-center m-4">
+					<a id="BtnGolden" href="#" title="Accès Map Archipel de la Pomme Dorée" class="btngolden py-1 px-2 bg-yellow-300 rounded text-xs text-black font-bold w-full">Map de l'Archipel de la Pommes Dorée</a>
+				</div> -->
+				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
+					<!-- <li class="accordion title text-red-600">Evènement Fracas du Tonnerre</li>
+					<div class="panel">
+						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-sm">
+							<li class="marker"><a id="btnFRviteclair" href="#!" data-type="viteclair"><img src="media/icones/viteclair.png" /> <span>A la vitesse de l'éclair</span></a></li>
+							<li class="marker"><a id="btnFRoceanide2" href="#!" data-type="oceanide2"><img src="media/icones/oceanide2.png" /> <span>Jour 2</span></a></li>
+							<li class="marker"><a id="btnFRoceanide3" href="#!" data-type="oceanide3"><img src="media/icones/oceanide3.png" /> <span>Jour 3</span></a></li>
+							<li class="marker"><a id="btnFRoceanide4" href="#!" data-type="oceanide4"><img src="media/icones/oceanide4.png" /> <span>Jour 4</span></a></li>
+							<li class="marker"><a id="btnFRoceanide5" href="#!" data-type="oceanide5"><img src="media/icones/oceanide5.png" /> <span>Jour 5</span></a></li>
+						</ul>
+					</div> -->
+					<li class="accordion title">Exploration</li>
+					<div class="panel">
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-sm">
+							<li class="marker"><a id="btnFRstatue" href="#!" data-type="statue" class="itembtn active"><img src="media/icones/statuem.png" /> <span>Statues des 7</span></a></li>
+							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport" class="itembtn active"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
+							<li class="marker"><a id="btnFRtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>TP Barge</span></a></li>
+							<li class="marker"><a id="btnFRelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Portail électro</span></a></li>
+							<li class="marker"><a id="btnFRpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Point de pêche</span></a></li>
+							<li class="marker"><a id="btnFRsucces" href="#!" data-type="succes" class="itembtn"><img src="media/icones/succes.png" /> <span>Succès</span></a></li>
+							<li class="marker"><a id="btnFRpano" href="#!" data-type="pano" class="itembtn"><img src="media/icones/pano.png" /> <span>Panorama</span></a></li>
+							<li class="marker"><a id="btnFRanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
+							<li class="marker"><a id="btnFRgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
+							<li class="marker"><a id="btnFReleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
+							<li class="marker"><a id="btnFRagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Agates pourpres</span></a></li>
+							<li class="marker"><a id="btnFRsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Sceaux Géo</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Coffres</li>
+					<div class="panel">
+						<ul class="grid grid-cols-3 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
+							<li class="markerc"><a id="btnFRmond" href="#!" data-type="mond" class="regionFR">Mondstadt</a></li>
+							<li class="markerc"><a id="btnFRliyu" href="#!" data-type="liyu" class="regionFR">Liyue</a></li>
+							<li class="markerc"><a id="btnFRinaz" href="#!" data-type="inaz" class="regionFR">Inazuma</a></li>
+						</ul>
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+							<li class="marker"><a id="btnFRcordi" href="#!" data-type="cordi" class="chestFR"><img src="media/icones/cordim.png"/> <span>Ordinaires</span></a></li>
+							<li class="marker"><a id="btnFRcdelic" href="#!" data-type="cdelic" class="chestFR"><img src="media/icones/cdelicm.png"/> <span>Délicats</span></a></li>
+							<li class="marker"><a id="btnFRcprec" href="#!" data-type="cprec" class="chestFR"><img src="media/icones/cprecm.png"/> <span>Précieux</span></a></li>
+							<li class="marker"><a id="btnFRcluxe" href="#!" data-type="cluxe" class="chestFR"><img src="media/icones/cluxem.png"/> <span>Luxueux</span></a></li>
+							<li class="marker"><a id="btnFRcdefi" href="#!" data-type="cdefi" class="chestFR"><img src="media/icones/cdefim.png"/> <span>Défi</span></a></li>
+							<li class="marker"><a id="btnFRcfee" href="#!" data-type="cfee" class="chestFR"><img src="media/icones/cfeem.png"/> <span>Fées</span></a></li>
+							<li class="marker"><a id="btnFRcfeee" href="#!" data-type="cfeee" class="chestFR"><img src="media/icones/cfeeem.png"/> <span>Fées Electro</span></a></li>
+							<li class="marker"><a id="btnFRcetr" href="#!" data-type="cetr" class="chestFR"><img src="media/icones/cetrm.png"/> <span>Étranges</span></a></li>
+						</ul>
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 pt-2 text-xs">
+							<li class="marker"><a id="btnFRsanctum" href="#!" data-type="sanctum" class="itembtn"><img src="media/icones/sanctumm.png"/> <span>Sanctu. Mondstadt</span></a></li>
+							<li class="marker"><a id="btnFRsanctul" href="#!" data-type="sanctul" class="itembtn"><img src="media/icones/sanctulm.png"/> <span>Sanctuaire Liyue</span></a></li>
+							<li class="marker"><a id="btnFRsanctui" href="#!" data-type="sanctui" class="itembtn"><img src="media/icones/sanctuim.png"/> <span>Sanctuaire Inazuma</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Ennemis</li>
+					<div class="panel">
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+							<li class="markerb"><a id="btnFRbetrang" href="#!" data-type="betrang" class="itembtn"><img src="media/icones/betrangm.png"/> <span>Bruto Etrange</span></a></li>
+							<li class="markerb"><a id="btnFRbshaman" href="#!" data-type="bshaman" class="itembtn"><img src="media/icones/bshamanm.png"/> <span>Bruto Shaman</span></a></li>
+							<li class="markerb"><a id="btnFRbviandu" href="#!" data-type="bviandu" class="itembtn"><img src="media/icones/bviandum.png"/> <span>Brutoviandu</span></a></li>
+							<li class="markerb"><a id="btnFRbgivre" href="#!" data-type="bgivre" class="itembtn"><img src="media/icones/bgivrem.png"/> <span>Chef Brutogivré</span></a></li>
+							<li class="markerb"><a id="btnFRbrocheux" href="#!" data-type="brocheux" class="itembtn"><img src="media/icones/brocheuxm.png"/> <span>Chef Brutorocheux</span></a></li>
+							<li class="markerb"><a id="btnFRchasseur" href="#!" data-type="chasseur" class="itembtn"><img src="media/icones/chasseurm.png"/> <span>Chasseur des ruines</span></a></li>
+							<li class="markerb"><a id="btnFRcolosse" href="#!" data-type="colosse" class="itembtn"><img src="media/icones/colossem.png"/> <span>Colosse des ruines</span></a></li>
+							<li class="markerb"><a id="btnFRgardien" href="#!" data-type="gardien" class="itembtn"><img src="media/icones/gardienm.png"/> <span>Gardien des ruines</span></a></li>
+							<li class="markerb"><a id="btnFRfmens" href="#!" data-type="fmens" class="itembtn"><img src="media/icones/fmensm.png"/> <span>Fleur Mensongère</span></a></li>
+							<li class="markerb"><a id="btnFRgeosaure" href="#!" data-type="geosaure" class="itembtn"><img src="media/icones/geosaurem.png"/> <span>Géosaure</span></a></li>
+							<li class="markerb"><a id="btnFRmagea" href="#!" data-type="magea" class="itembtn"><img src="media/icones/mageam.png"/> <span>Mage de l'Abîme</span></a></li>
+							<li class="markerb"><a id="btnFRmagel" href="#!" data-type="magel" class="itembtn"><img src="media/icones/magelm.png"/> <span>Mage Luciole</span></a></li>
+							<li class="markerb"><a id="btnFRfrap" href="#!" data-type="frap" class="itembtn"><img src="media/icones/frapm.png"/> <span>Frappeur</span></a></li>
+							<li class="markerb"><a id="btnFRmitrail" href="#!" data-type="mitrail" class="itembtn"><img src="media/icones/mitrailm.png"/> <span>Mitrailleur</span></a></li>
+							<li class="markerb"><a id="btnFRmerc" href="#!" data-type="merc" class="itembtn"><img src="media/icones/mercm.png"/> <span>Mercenaire</span></a></li>
+							<li class="markerb"><a id="btnFRpilleur" href="#!" data-type="pilleur" class="itembtn"><img src="media/icones/pilleurm.png"/> <span>Pilleur de trésor</span></a></li>
+							<li class="markerb"><a id="btnFRusurier" href="#!" data-type="usurier" class="itembtn"><img src="media/icones/usurierm.png"/> <span>Usurier</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Matériaux et Minerais</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Fer Blanc"><img id="btnFRferblanc" class="matbtn" data-type="ferblanc" src="media/icones/ferblancoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Minerais d'argétoile"><img id="btnFRargetoile" class="matbtn" data-type="argetoile" src="media/icones/argetoileoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Cristal"><img id="btnFRcristal" class="matbtn" data-type="cristal" src="media/icones/cristaloff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Electro Cristal"><img id="btnFRelectrocris" class="matbtn" data-type="electrocris" src="media/icones/electrocrisoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Eclat de Cristal Magique"><img id="btnFReclatcm" class="matbtn" data-type="eclatcm" src="media/icones/eclatcmoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Artéfact"><img id="btnFRartefact" class="matbtn" data-type="artefact" src="media/icones/artefactoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Dent Étrange"><img id="btnFRdent" class="matbtn" data-type="dent" src="media/icones/dentoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Coeur de Lapis"><img id="btnFRlapis" class="matbtn" data-type="lapis" src="media/icones/lapisoff.png"/></a></li>
+						</ul>
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Jade Noctiluque"><img id="btnFRjade" class="matbtn jur" data-type="jade" src="media/icones/jadeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Noyaux Cristallins"><img id="btnFRnoyauc" class="matbtn jur" data-type="noyauc" src="media/icones/noyaucoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Perles de Loche"><img id="btnFRperle" class="matbtn jur" data-type="perle" src="media/icones/perleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Conques d'Etoiles"><img id="btnFRconque" class="matbtn jur" data-type="conque" src="media/icones/conqueoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Morceau d'améthyste"><img id="btnFRamethyste" class="matbtn" data-type="amethyste" src="media/icones/amethysteoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Plantes Communes</li>
+					<div class="panel">
+						<ul class="flex justify-items-start">
+							<li class="icone"><a href="#!" title="Fleurs de Feu"><img id="btnFRffeu" class="matbtn jur" data-type="ffeu" src="media/icones/ffeuoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fleurs de Brume"><img id="btnFRfbrume" class="matbtn jur" data-type="fbrume" src="media/icones/fbrumeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Gueule de Loup"><img id="btnFRgdloup" class="matbtn jur" data-type="gdloup" src="media/icones/gdloupoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Pommes"><img id="btnFRpomme" class="matbtn jur" data-type="pomme" src="media/icones/pommeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Carottes"><img id="btnFRcarotte" class="matbtn jur" data-type="carotte" src="media/icones/carotteoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Radis"><img id="btnFRradis" class="matbtn" data-type="radis" src="media/icones/radisoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Produits de Mondstadt</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Herbes à Lampe"><img id="btnFRhalampe" class="matbtn" data-type="halampe" src="media/icones/halampeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Chrysanthèmes à aubes"><img id="btnFRchrysantheme" class="matbtn" data-type="chrysantheme" src="media/icones/chrysanthemeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Lys Calla"><img id="btnFRlyscalla" class="matbtn" data-type="lyscalla" src="media/icones/lyscallaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Tombaies"><img id="btnFRtombaie" class="matbtn" data-type="tombaie" src="media/icones/tombaieoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Baies à crochet"><img id="btnFRbacrochet" class="matbtn" data-type="bacrochet" src="media/icones/bacrochetoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Graines de Pissenlit"><img id="btnFRpissenlit" class="matbtn" data-type="pissenlit" src="media/icones/pissenlitoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Cécilias"><img id="btnFRcecilia" class="matbtn" data-type="cecilia" src="media/icones/ceciliaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Champignons Anémophiles"><img id="btnFRchanemo" class="matbtn" data-type="chanemo" src="media/icones/chanemooff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Produits de Liyue</li>
+					<div class="panel">
+						<ul class="flex justify-items-start">
+							<li class="icone"><a href="#!" title="Qingxin"><img id="btnFRqingxin" class="matbtn jur" data-type="qingxin" src="media/icones/qingxinoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Muguet Bleu"><img id="btnFRmuguet" class="matbtn jur" data-type="muguet" src="media/icones/muguetoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Piment de Jueyun"><img id="btnFRpiment" class="matbtn jur" data-type="piment" src="media/icones/pimentoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Lys Vernis"><img id="btnFRlysverni" class="matbtn jur" data-type="lysverni" src="media/icones/lysvernioff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fleurs de Soie"><img id="btnFRfsoie" class="matbtn jur" data-type="fsoie" src="media/icones/fsoieoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Pousses de Bambou"><img id="btnFRbambou" class="matbtn jur" data-type="bambou" src="media/icones/bambouoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fruits du Lotus"><img id="btnFRlotus" class="matbtn" data-type="lotus" src="media/icones/lotusoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Produits d'Inazuma</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Anguille"><img id="btnFRanguille" class="matbtn" data-type="anguille" src="media/icones/anguilleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Champignon Fluorescent"><img id="btnFRcfluo" class="matbtn" data-type="cfluo" src="media/icones/cfluooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Dendrobium sanglant"><img id="btnFRdendro" class="matbtn" data-type="dendro" src="media/icones/dendrooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fruit d'Amakumo"><img id="btnFRfamakumo" class="matbtn" data-type="famakumo" src="media/icones/famakumooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fleur de cerisier"><img id="btnFRfcerisier" class="matbtn" data-type="fcerisier" src="media/icones/fcerisieroff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Ganoderma marin"><img id="btnFRganoderma" class="matbtn" data-type="ganoderma" src="media/icones/ganodermaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Herbes à sanglots"><img id="btnFRhsanglot" class="matbtn" data-type="hsanglot" src="media/icones/hsanglotoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Herbes marines"><img id="btnFRherbem" class="matbtn" data-type="herbem" src="media/icones/herbemoff.png"/></a></li>
+						</ul>
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Melons lavande"><img id="btnFRmelonl" class="matbtn jur" data-type="melonl" src="media/icones/melonloff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Moelle cristalline"><img id="btnFRmoelle" class="matbtn jur" data-type="moelle" src="media/icones/moelleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Perle de corail"><img id="btnFRcorail" class="matbtn jur" data-type="corail" src="media/icones/corailoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Scarabuto"><img id="btnFRscarabuto" class="matbtn" data-type="scarabuto" src="media/icones/scarabutooff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Animaux et Insectes</li>
+					<div class="panel">
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Grenouilles"><img id="btnFRgrenouille" class="matbtn jur" data-type="grenouille" src="media/icones/grenouilleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Lézards"><img id="btnFRlezard" class="matbtn jur" data-type="lezard" src="media/icones/lezardoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Ailes de Papillon"><img id="btnFRpapillon" class="matbtn jur" data-type="papillon" src="media/icones/papillonoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Abdomens Luminescents"><img id="btnFRluciole" class="matbtn jur" data-type="luciole" src="media/icones/lucioleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Crabes"><img id="btnFRcrabe" class="matbtn jur" data-type="crabe" src="media/icones/crabeoff.png"/></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="menuEN" class="">
+				<img src="media/banniere.jpg" class="mx-auto" />
+				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Interactive Map by TMKFrench<br/><span id="totalEN" class="mx-auto my-0 text-xs text-center uppercase text-black">Loading Markers...</span></div>
+	
+				<div class="flex space-x-2 text-center m-4">
+					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
+					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">FR</a>
+					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
+					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinMapMarker.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
+					<!-- <input type="file" id="ImportBox" accept=".txt" class="hidden"> -->
+				</div>
+				<!-- <div class="flex justify-items-stretch text-center m-4">
+					<a id="BtnGolden" href="#" title="Access to Golden Apple Archipelago Map" class="btngolden py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Golden Apple Archipelago Map</a>
+				</div> -->
+				<div id="MarkerSelect" class="p-2 pt-0">
+					<!-- <li class="accordion title text-red-600">Event Thunder Sojourn</li>
+					<div class="panel">
+						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-sm">
+							<li class="marker"><a id="btnENviteclair" href="#!" data-type="viteclair"><img src="media/icones/viteclair.png" /> <span>Bolt Blitz</span></a></li>
+							<li class="marker"><a id="btnENoceanide2" href="#!" data-type="oceanide2"><img src="media/icones/oceanide2.png" /> <span>Day 2</span></a></li>
+							<li class="marker"><a id="btnENoceanide3" href="#!" data-type="oceanide3"><img src="media/icones/oceanide3.png" /> <span>Day 3</span></a></li>
+							<li class="marker"><a id="btnENoceanide4" href="#!" data-type="oceanide4"><img src="media/icones/oceanide4.png" /> <span>Day 4</span></a></li>
+							<li class="marker"><a id="btnENoceanide5" href="#!" data-type="oceanide5"><img src="media/icones/oceanide5.png" /> <span>Day 5</span></a></li>
+						</ul>
+					</div> -->
+					<li class="accordion title">Exploration</li>
+					<div class="panel">
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-sm">
+							<li class="marker"><a id="btnENstatue" href="#!" data-type="statue" class="itembtn active"><img src="media/icones/statuem.png" /> <span>Statues of 7</span></a></li>
+							<li class="marker"><a id="btnENteleport" href="#!" data-type="teleport" class="itembtn active"><img src="media/icones/teleportm.png" /> <span>Teleports</span></a></li>
+							<li class="marker"><a id="btnENtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>Waveriders</span></a></li>
+							<li class="marker"><a id="btnENelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Phase Gate</span></a></li>
+							<li class="marker"><a id="btnENpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Fishing Spot</span></a></li>
+							<li class="marker"><a id="btnENsucces" href="#!" data-type="succes" class="itembtn"><img src="media/icones/succes.png" /> <span>Achievements</span></a></li>
+							<li class="marker"><a id="btnENpano" href="#!" data-type="pano" class="itembtn"><img src="media/icones/pano.png" /> <span>Viewpoints</span></a></li>
+							<li class="marker"><a id="btnENanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
+							<li class="marker"><a id="btnENgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
+							<li class="marker"><a id="btnENeleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
+							<li class="marker"><a id="btnENagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Crimson Agates</span></a></li>
+							<li class="marker"><a id="btnENsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Geo Sigils</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Chests</li>
+					<div class="panel">
+						<ul class="grid grid-cols-3 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
+							<li class="markerc"><a id="btnENmond" href="#!" data-type="mond" class="regionEN">Mondstadt</a></li>
+							<li class="markerc"><a id="btnENliyu" href="#!" data-type="liyu" class="regionEN">Liyue</a></li>
+							<li class="markerc"><a id="btnENinaz" href="#!" data-type="inaz" class="regionEN">Inazuma</a></li>
+						</ul>
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+							<li class="marker"><a id="btnENcordi" href="#!" data-type="cordi" class="chestEN"><img src="media/icones/cordim.png"/> <span>Commons</span></a></li>
+							<li class="marker"><a id="btnENcdelic" href="#!" data-type="cdelic" class="chestEN"><img src="media/icones/cdelicm.png"/> <span>Exquisites</span></a></li>
+							<li class="marker"><a id="btnENcprec" href="#!" data-type="cprec" class="chestEN"><img src="media/icones/cprecm.png"/> <span>Precious</span></a></li>
+							<li class="marker"><a id="btnENcluxe" href="#!" data-type="cluxe" class="chestEN"><img src="media/icones/cluxem.png"/> <span>Luxurious</span></a></li>
+							<li class="marker"><a id="btnENcdefi" href="#!" data-type="cdefi" class="chestEN"><img src="media/icones/cdefim.png"/> <span>Challenges</span></a></li>
+							<li class="marker"><a id="btnENcfee" href="#!" data-type="cfee" class="chestEN"><img src="media/icones/cfeem.png"/> <span>Seelies</span></a></li>
+							<li class="marker"><a id="btnENcfeee" href="#!" data-type="cfeee" class="chestEN"><img src="media/icones/cfeeem.png"/> <span>Electro Seelies</span></a></li>
+							<li class="marker"><a id="btnENcetr" href="#!" data-type="cetr" class="chestEN"><img src="media/icones/cetrm.png"/> <span>Remarkable</span></a></li>
+						</ul>
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 pt-2 text-xs">
+							<li class="marker"><a id="btnENsanctum" href="#!" data-type="sanctum"><img src="media/icones/sanctumm.png"/> <span>Mondstadt Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctul" href="#!" data-type="sanctul"><img src="media/icones/sanctulm.png"/> <span>Liyue Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctui" href="#!" data-type="sanctui"><img src="media/icones/sanctuim.png"/> <span>Inazuma Shrine</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Enemies</li>
+					<div class="panel">
+						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+							<li class="markerb"><a id="btnENbetrang" href="#!" data-type="betrang"><img src="media/icones/betrangm.png"/> <span>Unusual Hilichurl</span></a></li>
+							<li class="markerb"><a id="btnENbshaman" href="#!" data-type="bshaman"><img src="media/icones/bshamanm.png"/> <span>Samachurls</span></a></li>
+							<li class="markerb"><a id="btnENbviandu" href="#!" data-type="bviandu"><img src="media/icones/bviandum.png"/> <span>Mitachurl</span></a></li>
+							<li class="markerb"><a id="btnENbgivre" href="#!" data-type="bgivre"><img src="media/icones/bgivrem.png"/> <span>Hilichurl Frostarm</span></a></li>
+							<li class="markerb"><a id="btnENbrocheux" href="#!" data-type="brocheux"><img src="media/icones/brocheuxm.png"/> <span>Hilichurl Stonehide</span></a></li>
+							<li class="markerb"><a id="btnENchasseur" href="#!" data-type="chasseur"><img src="media/icones/chasseurm.png"/> <span>Ruin Hunter</span></a></li>
+							<li class="markerb"><a id="btnENcolosse" href="#!" data-type="colosse"><img src="media/icones/colossem.png"/> <span>Ruin Grader</span></a></li>
+							<li class="markerb"><a id="btnENgardien" href="#!" data-type="gardien"><img src="media/icones/gardienm.png"/> <span>Ruin Guard</span></a></li>
+							<li class="markerb"><a id="btnENfmens" href="#!" data-type="fmens"><img src="media/icones/fmensm.png"/> <span>Whopperflower</span></a></li>
+							<li class="markerb"><a id="btnENgeosaure" href="#!" data-type="geosaure"><img src="media/icones/geosaurem.png"/> <span>Geovishap</span></a></li>
+							<li class="markerb"><a id="btnENmagea" href="#!" data-type="magea"><img src="media/icones/mageam.png"/> <span>Abyss Mage</span></a></li>
+							<li class="markerb"><a id="btnENmagel" href="#!" data-type="magel"><img src="media/icones/magelm.png"/> <span>Cicin Mage</span></a></li>
+							<li class="markerb"><a id="btnENfrap" href="#!" data-type="frap"><img src="media/icones/frapm.png"/> <span>Vanguard</span></a></li>
+							<li class="markerb"><a id="btnENmitrail" href="#!" data-type="mitrail"><img src="media/icones/mitrailm.png"/> <span>Legionnaire</span></a></li>
+							<li class="markerb"><a id="btnENmerc" href="#!" data-type="merc"><img src="media/icones/mercm.png"/> <span>Bracer</span></a></li>
+							<li class="markerb"><a id="btnENpilleur" href="#!" data-type="pilleur"><img src="media/icones/pilleurm.png"/> <span>Treasure Hoarder</span></a></li>
+							<li class="markerb"><a id="btnENusurier" href="#!" data-type="usurier"><img src="media/icones/usurierm.png"/> <span>Fatui Agent</span></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Materials and Minerals</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="White Iron"><img id="btnENferblanc" class="matbtn" data-type="ferblanc" src="media/icones/ferblancoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Starsilver"><img id="btnENargetoile" class="matbtn" data-type="argetoile" src="media/icones/argetoileoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Crystal"><img id="btnENcristal" class="matbtn" data-type="cristal" src="media/icones/cristaloff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Electro Crystal"><img id="btnENelectrocris" class="matbtn" data-type="electrocris" src="media/icones/electrocrisoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Magical Crystal Chunk"><img id="btnENeclatcm" class="matbtn" data-type="eclatcm" src="media/icones/eclatcmoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Strange Tooth"><img id="btnENdent" class="matbtn" data-type="dent" src="media/icones/dentoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Artifact"><img id="btnENartifact" class="matbtn" data-type="artifact" src="media/icones/artefactoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Cor Lapis"><img id="btnENlapis" class="matbtn" data-type="lapis" src="media/icones/lapisoff.png"/></a></li>
+						</ul>
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Noctilucous Jade"><img id="btnENjade" class="matbtn jur" data-type="jade" src="media/icones/jadeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Crystal Core"><img id="btnENnoyauc" class="matbtn jur" data-type="noyauc" src="media/icones/noyaucoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Loach Pearl"><img id="btnENperle" class="matbtn jur" data-type="perle" src="media/icones/perleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Starconch"><img id="btnENconque" class="matbtn jur" data-type="conque" src="media/icones/conqueoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Amethyst Lump"><img id="btnENamethyste" class="matbtn" data-type="amethyste" src="media/icones/amethysteoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Common Plants</li>
+					<div class="panel">
+						<ul class="flex justify-items-start">
+							<li class="icone"><a href="#!" title="Flaming Flowers"><img id="btnENffeu" class="matbtn jur" data-type="ffeu" src="media/icones/ffeuoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Mist Flowers"><img id="btnENfbrume" class="matbtn jur" data-type="fbrume" src="media/icones/fbrumeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Snapdragon"><img id="btnENgdloup" class="matbtn jur" data-type="gdloup" src="media/icones/gdloupoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Apples"><img id="btnENpomme" class="matbtn jur" data-type="pomme" src="media/icones/pommeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Carrots"><img id="btnENcarotte" class="matbtn jur" data-type="carotte" src="media/icones/carotteoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Radish"><img id="btnENradis" class="matbtn" data-type="radis" src="media/icones/radisoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Products of Mondstadt</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Small Lamp Grass"><img id="btnENhalampe" class="matbtn" data-type="halampe" src="media/icones/halampeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Windwheel Aster"><img id="btnENchrysantheme" class="matbtn" data-type="chrysantheme" src="media/icones/chrysanthemeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Calla Lily"><img id="btnENlyscalla" class="matbtn" data-type="lyscalla" src="media/icones/lyscallaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Valberry"><img id="btnENtombaie" class="matbtn" data-type="tombaie" src="media/icones/tombaieoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Wolfhook"><img id="btnENbacrochet" class="matbtn" data-type="bacrochet" src="media/icones/bacrochetoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Dandelion Seeds"><img id="btnENpissenlit" class="matbtn" data-type="pissenlit" src="media/icones/pissenlitoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Cecilias"><img id="btnENcecilia" class="matbtn" data-type="cecilia" src="media/icones/ceciliaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Philanemo Mushrooms"><img id="btnENchanemo" class="matbtn" data-type="chanemo" src="media/icones/chanemooff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Products of Liyue</li>
+					<div class="panel">
+						<ul class="flex justify-items-start">
+							<li class="icone"><a href="#!" title="Qingxin"><img id="btnENqingxin" class="matbtn jur" data-type="qingxin" src="media/icones/qingxinoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Violet grass"><img id="btnENmuguet" class="matbtn jur" data-type="muguet" src="media/icones/muguetoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Jueyun Chili"><img id="btnENpiment" class="matbtn jur" data-type="piment" src="media/icones/pimentoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Glaze Lily"><img id="btnENlysverni" class="matbtn jur" data-type="lysverni" src="media/icones/lysvernioff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Silk Flowers"><img id="btnENfsoie" class="matbtn jur" data-type="fsoie" src="media/icones/fsoieoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Bamboo Shoots"><img id="btnENbambou" class="matbtn jur" data-type="bambou" src="media/icones/bambouoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Lotus Heads"><img id="btnENlotus" class="matbtn" data-type="lotus" src="media/icones/lotusoff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Products of Inazuma</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Unagi Meat"><img id="btnENanguille" class="matbtn" data-type="anguille" src="media/icones/anguilleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fluorescent Fungus"><img id="btnENcfluo" class="matbtn" data-type="cfluo" src="media/icones/cfluooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Dendrobium"><img id="btnENdendro" class="matbtn" data-type="dendro" src="media/icones/dendrooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Amakumo Fruit"><img id="btnENfamakumo" class="matbtn" data-type="famakumo" src="media/icones/famakumooff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Sakura Bloom"><img id="btnENfcerisier" class="matbtn" data-type="fcerisier" src="media/icones/fcerisieroff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Sea Ganoderma"><img id="btnENganoderma" class="matbtn" data-type="ganoderma" src="media/icones/ganodermaoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Naku Weed"><img id="btnENhsanglot" class="matbtn" data-type="hsanglot" src="media/icones/hsanglotoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Seagrass"><img id="btnENherbem" class="matbtn" data-type="herbem" src="media/icones/herbemoff.png"/></a></li>
+						</ul>
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Lavender Melon"><img id="btnENmelonl" class="matbtn jur" data-type="melonl" src="media/icones/melonloff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Crystal Marrow"><img id="btnENmoelle" class="matbtn jur" data-type="moelle" src="media/icones/moelleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Sango Pearl"><img id="btnENcorail" class="matbtn jur" data-type="corail" src="media/icones/corailoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Scarabuto"><img id="btnENscarabuto" class="matbtn" data-type="scarabuto" src="media/icones/scarabutooff.png"/></a></li>
+						</ul>
+					</div>
+					<li class="accordion title">Animals and Insects</li>
+					<div class="panel">
+						<ul class="flex justify-items-start pt-1">
+							<li class="icone"><a href="#!" title="Frogs"><img id="btnENgrenouille" class="matbtn jur" data-type="grenouille" src="media/icones/grenouilleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Lizards"><img id="btnENlezard" class="matbtn jur" data-type="lezard" src="media/icones/lezardoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Butterfly Wings"><img id="btnENpapillon" class="matbtn jur" data-type="papillon" src="media/icones/papillonoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Luminescent Spines"><img id="btnENluciole" class="matbtn jur" data-type="luciole" src="media/icones/lucioleoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Crabs"><img id="btnENcrabe" class="matbtn" data-type="crabe" src="media/icones/crabeoff.png"/></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="" id="map-wrap">
+			<div id="mapid" class="leaflet-container leaflet-fade-anim w-full h-full" tabindex="0"></div>
+		</div>
+	</div>
+	<div id="infoFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
+		<img class="m-auto" src="media/logo.jpg"/>
+		<h4>TMKFrench - LGDC</h4>
+		<h3>Bienvenue sur notre Map interactive !</h3>
+		<p>Cliquez sur un marqueur de votre choix pour plus d'information.<br>Utilisez la molette de la souris pour zoomer et le menu pour afficher ou masquer les POIs.</p>
+		<p class="font-bold text-red-500 mt-4">Release V5.7 du 15/10/2021</p>
+		<p class="mt-4">Si vous voulez participer en m'envoyant de nouveaux emplacements, n'hésitez pas à me contacter :<br>
+			- par mail à tmkfrench@gmail.com<br>
+			<span class="text-red-600">- par MP sur discord : TMKFrench#4221</span></p>
+		<h4 class="mt-4">Suivi des marqueurs<br></h4>
+		<p>Notre carte utilise le localStorage pour enregistrer le suivi de vos marqueurs, c'est-à-dire que ces informations sont stockées directement dans votre navigateur.
+			Vous pouvez les exporter afin de les utiliser sur un autre support ou si vous avez plusieurs comptes pour les permuter.
+		</p>
+		<p class="text-xl font-bold mt-4">Remerciements</p>
+		<p class="text-red-500 font-semibold"><a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc</p>
+	</div>
+	<div id="infoEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
+		<img class="m-auto" src="media/logo.jpg"/>
+		<h4>TMKFrench - LGDC</h4>
+		<h3>Welcome to our Interactive Map !</h3>
+		<p>Clic on a Marker of your choice for more information.<br>Use mouse wheel to zoom and the menu buttons to toggle POIs.</p>
+		<p class="font-bold text-red-500 mt-4">Release V5.7 of 10/15/2021</p>
+		<p class="mt-4">If you want to participate, giving me new location on map, feel free to contact me :<br>
+			- by mail at tmkfrench@gmail.com<br>
+			<span class="text-red-600">- by Discord PM : TMKFrench#4221></span></p>
+		<h4 class="mt-4">Saving Markers<br></h4>
+		<p>Our map use the localStorage to save checked markers. Informations are stored localy in your brownser.
+			You can export them to use them on another device or if you have multi-account.
+		</p>
+		<p class="text-xl font-bold mt-4">Thanks to</p>
+		<p class="text-red-500 font-semibold"><a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc</p>
+	</div>
+	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
+		<img class="m-auto" src="media/logo.jpg"/>
+		<h4>TMKFrench - LGDC</h4>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 5.7 du 15/10/2021</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Ajout sur l'île de Tsurumi d'Inazuma :</span><br>
+						- Ajout des Champignons Fluorescents<br>
+						- Ajout des Coffres Étranges<br>
+						- Ajout de nombreux Screens et vidéos<br>
+						- Ajout de différents coffres, défis</p>
+		<p class="mt-4 font-bold text-red-600">Pensez à recharger la Map avec les touches CTRL + F5<br>
+			pour mettre à jour le cache de votre navigateur et avoir<br><span class="text-red-600">la dernière version des marqueurs.</span>
+		</p>
+	</div>
+	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
+		<img class="m-auto" src="media/logo.jpg"/>
+		<h4>TMKFrench - LGDC</h4>
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 5.7 of 10/15/2021</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Adding on Inazuma's Tsurumi Island :</span><br>
+						- Adding Fluorescent Fungus<br>
+						- Adding Remarkable Chests<br>
+						- Adding many screens and videos<br>
+						- Adding different chests and challenges</p>
+		<p class="mt-4 font-bold text-red-600">Think about refreshing Map with CTRL + F5<br>
+			to clear the browser cache and get <span class="text-red-600">the last markers update.</span>
+		</p>
+	</div>
+
+	<script type="text/javascript">
+	if (!localStorage.getItem('MapLng')) {
+    localStorage.MapLng = "EN";
+	};
+	if (localStorage.MapLng === "FR") {
+    var langue = langFR;
+    var lgmenu = "FR";
+    $('#menuEN').addClass('hidden');
+    $('#menuFR').removeClass('hidden');
+	} else {
+    var langue = langEN;
+    var lgmenu = "EN";
+	};
+
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+    		this.classList.toggle("ouvert");
+	    	var panel = this.nextElementSibling;
+	    	if (panel.style.maxHeight) {
+    			panel.style.maxHeight = null;
+    		} else {
+    			panel.style.maxHeight = panel.scrollHeight + "px";
+    		} 
+  		});
+	}
+	</script>
+	<script type="text/javascript" src="assets/js/icon.js"></script>
+	<script type="text/javascript" src="assets/js/markers.js"></script>
+	<script type="text/javascript" src="assets/js/map.js?v=5.7.1"></script>
+
+</body>
+
+</html>
