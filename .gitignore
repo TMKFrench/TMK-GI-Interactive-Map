@@ -12,6 +12,8 @@
 media/*.jpg
 media/*.gif
 media/tiles/
+menubg.png
+nextstage.png
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
