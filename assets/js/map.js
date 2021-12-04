@@ -42,8 +42,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.7")) {
-            localStorage.Mapvers = "5.7";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.8")) {
+            localStorage.Mapvers = "5.8";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -128,6 +128,12 @@
     };
 
     function reselectmenu(){
+
+        if (!localStorage.getItem("menuclear") || !(localStorage.menuclear === "1")) {
+            localStorage.MenumapgenshinItem = [];
+            localStorage.menuclear = "1";
+        };
+
         $('.itembtn').each(function(){
             if ($(this).hasClass('active')) {
                 mymap.addLayer(window[$(this).data('type') + 'Group']);

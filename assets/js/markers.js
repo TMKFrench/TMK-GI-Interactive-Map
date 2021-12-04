@@ -200,7 +200,7 @@ var listcordi = [
     [0,[14870,11656]],[0,[13780,12038],langue.com093],[0,[13300,11656],langue.com059],[0,[13880,10800],langue.com093],[0,[14706,10918],langue.com059],[0,[12166, 8518]],[0,[15616, 7614]],[0,[14326,11854],langue.com059],[0,[12326,10814]],[0,[11982, 8200],langue.com003],
     [0,[14126, 8914]],[0,[13790, 8852]],[0,[15236, 8000]],[0,[13054, 9932]],[0,[14142, 9872]],[0,[13680,10118]],[0,[14028,10188],langue.com059],[0,[14476,10058]],[0,[14790, 9544]],[0,[14658,10532]],
     [0,[15074,10988]],[0,[15130,11074],langue.com050],[0,[15430,11000],langue.com003],[0,[14220,11094],langue.com059],[0,[11544, 8390],langue.com003],[0,[11560, 8400],langue.com003],[0,[13072,11606]],[0,[13448,11230],langue.com059],[0,[13825,10452]],[0,[13804,10879]],
-    [0,[13320,11023],langue.com059]
+    [0,[13320,11023],langue.com059],[0,[14605,10541]]
 ];
 
 var listcordil = [
@@ -274,7 +274,7 @@ var listcordii = [
     [0,[17861,26246],langue.com003],[0,[17934,26128],langue.com003],[0,[17190,25632],langue.com003],[0,[17313,24936],langue.com003],[0,[17639,24930],langue.com066],[0,[17311,25779],langue.com003],[0,[17423,26156],langue.com003],[0,[17443,25814],langue.com003],[0,[17404,26231],langue.com003],[0,[17450,25438],langue.com003],
     [0,[17457,25290],langue.com258],[5,[17892,25809],"Q3ixCxI2-Uw",langue.com203],[5,[17723,25593],"E3jy1isi1JI",langue.com203],[0,[17893,26114],langue.com003],[0,[17465,25265]],[5,[17641,26884],"rPNoZhbh9wU",langue.com203],[0,[17416,21353],langue.com240],[0,[16516,21193],langue.com240],[5,[18074,25415],"axNsVRoczq8",langue.com192],[5,[17991,25460],"Ba3i35Pwe2Y",langue.com202],
     [5,[17456,24933],"mqV30UydQ8E",langue.com195],[5,[17432,24892],"WfOS81yoA68",langue.com195],[0,[17247,25478],langue.com220],[0,[17257,24921],langue.com003],[0,[18068,25361],langue.com003],[0,[18188,25481],langue.com003],[0,[17974,25514],langue.com003],[0,[17625,25498],langue.com003],[5,[17044,25852],"Da1FFcQ4vZs",langue.com191],[5,[18866,25401],"-GtNa_K0y6c",langue.com262+langue.br+langue.com263+langue.br+langue.com192],
-    [5,[17239,25937],"EC5DZ9FWOfc",langue.com192],[5,[17643,25821],"UxMaSce7cFo",langue.com192],[5,[17382,25788],"s9aeQs4EG7c",langue.com195],[5,[18380,20399],"c5sZPlWSGOE",langue.com220]
+    [5,[17239,25937],"EC5DZ9FWOfc",langue.com192],[5,[17643,25821],"UxMaSce7cFo",langue.com192],[5,[17382,25788],"s9aeQs4EG7c",langue.com195],[5,[18380,20399],"c5sZPlWSGOE",langue.com220],[0,[21413,19803]],[3,[18351,21145],langue.com003]
 ];
 
 // Coffres Délicats genshin,coffre,délicat,exquisite,chest,map,liyue genshin,coffre,délicat,exquisite,chest,map,inazuma
@@ -297,7 +297,7 @@ var listcdelic = [
     [0,[12118, 7916]],[0,[14056,10608],langue.com059],[0,[14110,10462],langue.com003],[0,[14632,10778],langue.com003],[0,[14008,11442]],[0,[14080,11412],langue.com003],[0,[14216,11336],langue.com003],[0,[14202,11494],langue.com093],[0,[14290,11018],langue.com003],[0,[14062,11206],langue.com003],
     [0,[13856,11220],langue.com003],[0,[13964,11038],langue.com003],[0,[14016,11284],langue.com003],[0,[13908,11242],langue.com104],[0,[13952,11440],langue.com055],[0,[14042,11390],langue.com055],[0,[13614,11680]],[0,[14582,10326],langue.com003],[0,[14224,10006],langue.com003],[0,[14358,11330],langue.com108],
     [0,[14294,10876],langue.com003],[5,[14258,11010],"8Mb8IIyg8po"],[5,[14296,10992],"8Mb8IIyg8po"],[5,[14280,11040],"8Mb8IIyg8po"],[0,[14812,11820],langue.com133],[0,[13852,11572]],[0,[12492, 7568],langue.com003],[0,[16524,10172]],[0,[15576, 7478]],[5,[13776,10134],"_SNbF5l2084",langue.com157],
-    [0,[14688,12142]],[0,[12992,10298],langue.com003],[0,[14000,11996],langue.com003],[0,[14890,10814],langue.com068],[5,[13616,11788],"XJfNfbaxFn0",langue.com176],[0,[14954, 8628],langue.com183]
+    [0,[14688,12142]],[0,[12992,10298],langue.com003],[0,[14000,11996],langue.com003],[0,[14890,10814],langue.com068],[5,[13616,11788],"XJfNfbaxFn0",langue.com176],[0,[14954, 8628],langue.com183],[0,[14298,11103]],[0,[13742,11483],langue.com055]
 ];
 
 var listcdelicl = [
@@ -339,7 +339,7 @@ var listcdelicl = [
     [0,[12676,12342],langue.com003],[0,[12608,12450],langue.com125],[0,[12436,12492],langue.com003],[0,[12494,12514],langue.com179],[0,[12364,12350],langue.com003],[0,[11976,12876],langue.com060],[0,[11938,10194],langue.com055],[0,[11406,13240],langue.com052],[0,[10128,13942],langue.com026],[0,[ 9722,12242],langue.com180],
     [0,[10448,15274],langue.com123],[0,[10414,14688],langue.com021],[0,[10260,15112],langue.com003],[0,[10440,14948],langue.com003],[5,[ 9888,14216],"sGh6HIo1y1o",langue.com181],[5,[ 9900,14210],"sGh6HIo1y1o",langue.com181],[5,[ 9814,14210],"X34BfsPGWgo",langue.com057],[0,[ 9834,11142],langue.com003],[0,[10728,11420],langue.com022],[0,[11122,10274],langue.com055],
     [0,[11078, 9682],langue.com074],[0,[12772,12170],langue.com021],[0,[ 9650,11756],langue.com184],[0,[ 9738,11754],langue.com055],[0,[ 9522,12106],langue.com029],[0,[ 9670,12028],langue.com088],[0,[ 9222,11464],langue.com055],[0,[ 9506,12902],langue.com029],[0,[10400,13862],langue.com021],[0,[10304,13800],langue.com052],
-    [0,[10442,13760],langue.com003],[0,[10119,13020],langue.com003]
+    [0,[10442,13760],langue.com003],[0,[10119,13020],langue.com003],[0,[14175,13890]]
 ];
 
 var listcdelici = [
@@ -355,7 +355,7 @@ var listcdelici = [
     [0,[14488,21504],langue.com003],[5,[14415,21298],"IvkneH_62L8",langue.com191],[0,[13798,20619],langue.com003],[5,[13938,20507],"9D2C9V452S4",langue.com191],[0,[14307,20622],langue.com003],[0,[14289,20721],langue.com003],[5,[14179,20647],"qRwqrN5QYmk",langue.com195],[5,[13504,20757],"fBq97Bi2YF8",langue.com191],[5,[14089,20965],"DXylW0wGfjw",langue.com195],[5,[13807,20778],"BTxm5pAMQ1I",langue.com203],
     [5,[18177,25796],"0OqOjJrBgqQ",langue.com191],[0,[17689,25952],langue.com003],[0,[17644,26807],langue.com003],[5,[17420,25274],"QiGor-hK5B4",langue.com259],[5,[17606,25154],"f-YW9zyyxTE",langue.com203],[5,[17698,25250],"DGjrTBUYk8A",langue.com259],[0,[17815,25145],langue.com260],[5,[17809,25304],"i7QIN_EnqWE",langue.com262+langue.br+langue.com263+langue.br+langue.com265],[5,[17608,25016],"0ij4AXjiQ7Y",langue.com262+langue.br+langue.com264+langue.br+langue.com265],[5,[17830,25592],"NBHiHBejcK8",langue.com262+langue.br+langue.com263+langue.br+langue.com266],
     [0,[17797,25499],langue.com003],[5,[17591,25297],"ppxQDUOkGt0",langue.com267],[5,[17643,26746],"IClObN4pjdo",langue.com257],[5,[17152,25330],"rX50qQUIRGw",langue.com202],[0,[17226,25871],langue.com003],[5,[17372,25686],"QqwsLov4jLU",langue.com191],[5,[17601,26091],"faYsU7--Kck",langue.com203],[0,[17061,26125],langue.com003],[5,[17432,26070],"8Nra29M8cPM",langue.com262+langue.br+langue.com263+langue.br+langue.com032],[0,[13454,20635],langue.com003],
-    [5,[18076,25418],"qnX14DXT0aU",langue.com268],[5,[17819,25329],"NGDyEfhF7jE",langue.com268]
+    [5,[18076,25418],"qnX14DXT0aU",langue.com268],[5,[17819,25329],"NGDyEfhF7jE",langue.com268],[5,[17958,25816],"3FWIhLbcvh0",langue.com268],[0,[21354,20030]]
 ];
 
 // Coffres Précieux genshin,coffre,précieux,precious,chest,map,inazuma,liyue
@@ -377,14 +377,14 @@ var listcprecl = [
     [0,[11762,13598],langue.com055],[5,[11100,14620],"ZmHMrnVUCFY"],[0,[ 9638,13290],langue.com146],[0,[10520,15090],langue.com003],[0,[10788,12570],langue.com148],[0,[11712,10128],langue.com003],[0,[10838,13508],langue.com088],[0,[10780,13282],langue.com149],[0,[ 9704,15050],langue.com003],[0,[10630,12014],langue.com003],
     [0,[10960,12634],langue.com068],[0,[12224,10234],langue.com003],[0,[ 9958,13608],langue.com003],[0,[10100,13406],langue.com159],[0,[11080,13936],langue.com003],[0,[13526,13930],langue.com003],[0,[ 9696,14610],langue.com003],[5,[ 9608,12320],"P9V1r1Ttz4w",langue.com166],[0,[10416,11320],langue.com066],[5,[12494,10334],"d5qPyT016vk",langue.com003],
     [0,[10276,12628],langue.com168],[0,[11314,13556],langue.com003],[5,[12670,12668],"ztRkxcjSPpM",langue.com173],[0,[12334,12438]],[0,[10556,12318],langue.com003],[0,[10436,14988],langue.com003],[5,[ 9892,14212],"sGh6HIo1y1o",langue.com181],[5,[ 9866,14166],"oybtAvEbKow",langue.com087],[0,[10810,11648],langue.com003],[5,[10592,13784],"Z7bhpvav798",langue.com185],
-    [0,[12096,13444],langue.com003]
+    [0,[12096,13444],langue.com003],[0,[11311,11987],langue.com003],[0,[10062,10740],langue.com003]
 ];
 
 var listcpreci = [
     [0,[20519,18332],langue.com003],[0,[20617,19169],langue.com003],[0,[18342,21057],langue.com003],[0,[21506,20164]],[0,[17157,21220],langue.com003],[5,[17690,20247],"DFkR26pR6Fc",langue.com204],[0,[20693,18194],langue.com003],[0,[20794,17906]],[5,[20802,17954],"sLZxYvHXwds"],[0,[15612,20824],langue.com003],
     [5,[16716,20835],"BfeVNutyUto",langue.com203],[5,[20616,18268],"xhKrwGYVicY",langue.com203],[5,[20709,17969],"sslAwNkYxls",langue.com211+langue.br+langue.com195],[5,[18424,20963],"bdvxga3Lk1g",langue.com217],[5,[20834,17927],"wWMP7btWFuM",langue.com195],[0,[21068,17524],langue.com003],[5,[18678,20556],"kKeUhGHhBbc",langue.com203],[5,[14944,20872],"DHdrIpKggp0"],[0,[20707,17866],langue.com003],[0,[20549,18558],langue.com003],
     [0,[21255,21819],langue.com003],[5,[20603,22680],"n7P-ziqq3P4"],[5,[19793,22188],"TRp96X7VUyk",langue.com235],[5,[20817,22652],"R0le_QzuUHw"],[5,[21056,19551],"dVWlBAqZrV4"],[5,[19968,21704],"Am2OYad_c8U",langue.com191],[0,[20729,23313],langue.com003],[0,[14416,21108],langue.com247+langue.br+langue.com221],[0,[14419,20853],langue.com251+langue.br+langue.com007],[5,[18292,25671],"N8P9ZTKDe88",langue.com261],
-    [0,[17708,25747],langue.com003],[0,[17666,25984]],[5,[17633,25052],"GiW1LZxcPGc",langue.com262+langue.br+langue.com264+langue.br+langue.com191],[0,[20881,16971]],[5,[17868,25412],"HhHtg29LqsQ",langue.com268],[5,[17441,25843],"6bnBRqYnMD8",langue.com268],[5,[17675,25939],"PVRydyEnqgk",langue.com268],[5,[17002,25698],"5hVPg4Bo3xg",langue.com268],[5,[17846,25642],"xSNLBNkLSm0",langue.com268]
+    [0,[17708,25747],langue.com003],[0,[17666,25984]],[5,[17633,25052],"GiW1LZxcPGc",langue.com262+langue.br+langue.com264+langue.br+langue.com191],[0,[20881,16971]],[5,[17868,25412],"HhHtg29LqsQ",langue.com268],[5,[17441,25843],"6bnBRqYnMD8",langue.com268],[5,[17675,25939],"PVRydyEnqgk",langue.com268],[5,[17002,25698],"5hVPg4Bo3xg",langue.com268],[5,[17846,25642],"xSNLBNkLSm0",langue.com268],[5,[17534,25309],"i5E2cu5Lpe8",langue.com268]
 ];
 
 // Coffres Luxueux genshin,coffre,luxueux,luxurious,chest,map,liyue genshin,coffre,luxueux,luxurious,chest,map,inazuma
@@ -432,7 +432,7 @@ var listcdefii = [
     [5,[19096,20212],"xdCoiXUFWUs",langue.defik+90+langue.defis],[5,[18422,20576],"ZUqcKr-qaeM",langue.defic+60+langue.defis],[5,[18293,20660],"UxBpCxUEV74",langue.defip+40+langue.defis],[5,[18464,20290],"L4odm-atCFY",langue.defic+30+langue.defis],[5,[17155,21509],"72853Wdz1Ac",langue.defip+40+langue.defis],[5,[17161,20959],"Mjak3gOWbkU",langue.defib+60+langue.defis],[5,[19554,21841],"Ar9rYVO3R10",langue.defib+105+langue.defis],[5,[20498,22588],"rPVsblyKDnY",langue.defik+90+langue.defis],[5,[21488,23214],"l9agxjav_vI",langue.defib+25+langue.defis],[5,[14449,21035],"Vc_YiQeE3nk",langue.defip+60+langue.defis],
     [5,[14094,21370],"f7lmI60q2tw",langue.defip+60+langue.defis],[5,[13641,21188],"21MYn4r6I60",langue.defip+60+langue.defis],[5,[13044,21367],"YLugWOeJIgk",langue.defib+60+langue.defis],[5,[13282,21079],"Tm5S0vP3YlY",langue.defip+40+langue.defis],[5,[13499,20151],"az7fkomXemI",langue.defib+60+langue.defis],[5,[13575,20572],"G0K5Lw4TL3c",langue.defic+60+langue.defis],[5,[14091,20459],"Wm8RYYyyeqg",langue.defic+30+langue.defis],[5,[14298,20764],"yqSrfTo3zRY",langue.defip+60+langue.defis],[5,[14214,21092],"Hj61SNIVyH0",langue.defic+30+langue.defis],[5,[14093,21115],"LcjHVAqgOO0",langue.defik+90+langue.defis],
     [5,[13817,21279],"DSkMAhKvfnU",langue.defib+30+langue.defis],[5,[18919,25558],"vLBRkaz0cNc",langue.defip+40+langue.defis],[5,[17529,25089],"5Exg1gKREgc",langue.defik+70+langue.defis],[5,[17166,23338],"ynpkl0SoERs",langue.defip+120+langue.defis],[5,[17280,22935],"OYl3ZUSZ_O8",langue.defik+80+langue.defis],[5,[17646,23339],"hjT_KKlfInY",langue.defib+120+langue.defis],[5,[17928,25998],"iC8blTUqa-I",langue.defip+120+langue.defis],[5,[17958,25775],"srjzHJ_MXW8",langue.defip+80+langue.defis],[5,[17725,25276],"N06K2T5X6g4",langue.defik+120+langue.defis],[5,[17531,25323],"TNI4AWNupUI",langue.defik+50+langue.defis],
-    [5,[21658,18918],"NukCyyN_tUE",langue.defik+120+langue.defis],[5,[17742,25030],"V5LMGnrNzl8",langue.defip+120+langue.defis],[5,[17222,25543],"KKC6dvMWRVY",langue.defic+30+langue.defis],[5,[17638,25984],"VEdI3vBiQB0",langue.defip+120+langue.defis],[5,[17657,26084],"wPi36rM9hXY",langue.defic+120+langue.defis],[5,[17411,25925],"ipe3IfV7etU",langue.defib+30+langue.defis],[5,[17301,26139],"wL5FoyTLc5E",langue.defik+70+langue.defis],[5,[17214,26008],"ci9gPMK_iFE",langue.defip+40+langue.defis]
+    [5,[21658,18918],"NukCyyN_tUE",langue.defik+120+langue.defis],[5,[17742,25030],"V5LMGnrNzl8",langue.defip+120+langue.defis],[5,[17222,25543],"KKC6dvMWRVY",langue.defic+30+langue.defis],[5,[17638,25984],"VEdI3vBiQB0",langue.defip+120+langue.defis],[5,[17657,26084],"wPi36rM9hXY",langue.defic+120+langue.defis],[5,[17411,25925],"ipe3IfV7etU",langue.defib+30+langue.defis],[5,[17301,26139],"wL5FoyTLc5E",langue.defik+70+langue.defis],[5,[17214,26008],"ci9gPMK_iFE",langue.defip+40+langue.defis],[5,[18892,20493],"id3PyB-gdvM",langue.defik+60+langue.defis]
 ];
 
 // Coffres des Fées genshin,coffre,fée,seelie,chest,map,inazuma,électro,electro
@@ -1039,7 +1039,7 @@ var listlotus = [
 var listanguille = [
     [12,[14534,21182]],[12,[14877,20934]],[12,[14618,21096]],[12,[14752,20474]],[12,[16514,20115]],[12,[16502,20106]],[12,[20259,19735]],[12,[13642,20374]],[12,[13940,21474]],[12,[14899,20945]],
     [12,[14241,21192]],[12,[13755,21440]],[12,[13768,21443]],[12,[13738,21440]],[12,[13212,21207]],[12,[13157,21195]],[12,[13463,20331]],[12,[14475,20283]],[12,[14567,20266]],[12,[14646,20265]],
-    [12,[14528,21315]],[12,[14264,21032]],[12,[14044,20986]],[12,[18391,25707]]
+    [12,[14528,21315]],[12,[14264,21032]],[12,[14044,20986]],[12,[18391,25707]],[12,[18450,21236]]
 ];
 
 // Champignon Fluorescent

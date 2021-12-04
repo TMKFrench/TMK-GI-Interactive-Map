@@ -207,7 +207,8 @@ function conv4() {
 	var grpid = document.getElementById("groupid").value;
 	var numbers = JSON.parse('['+document.getElementById("arraytoconv").value+']');
 	numbers.forEach(myFunctionLBM);
-	document.getElementById("resultconv").innerHTML = '{id:\''+grpid+'\',group:'+grpid+'Group,format:\''+document.getElementById("grpformat").value+'\',title:\''+document.getElementById("grouptitle").value+'\',icon:'+grpid+'Icon,checkbox:'+document.getElementById("chkbox").value+',markers:['+text+']}';
+	var grptitle = (document.getElementById("grouptitle").value !== '') ? '\',title:\''+document.getElementById("grouptitle").value : "";
+	document.getElementById("resultconv").innerHTML = '{id:\''+grpid+'\',group:'+grpid+'Group,format:\''+document.getElementById("grpformat").value+grptitle+'\',icon:'+grpid+'Icon,checkbox:'+document.getElementById("chkbox").value+',markers:['+text+']}';
 };
 
 function conv5() {
@@ -215,7 +216,8 @@ function conv5() {
 	window['counter'] = 1;
 	var grpid = document.getElementById("groupid").value;
 	listlbm.forEach(myFunctionLBM);
-	document.getElementById("resultconv").innerHTML = '{id:\''+grpid+'\',group:'+grpid+'Group,format:\''+document.getElementById("grpformat").value+'\',title:\''+document.getElementById("grouptitle").value+'\',icon:'+grpid+'Icon,checkbox:'+document.getElementById("chkbox").value+',markers:['+text+']}';
+	var grptitle = (document.getElementById("grouptitle").value !== '') ? '\',title:\''+document.getElementById("grouptitle").value : "";
+	document.getElementById("resultconv").innerHTML = '{id:\''+grpid+'\',group:'+grpid+'Group,format:\''+document.getElementById("grpformat").value+grptitle+'\',icon:'+grpid+'Icon,checkbox:'+document.getElementById("chkbox").value+',markers:['+text+']}';
 };
 
 function myFunction(item, index, arr) {
