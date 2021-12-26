@@ -197,6 +197,11 @@ var langFR = {
     'succest044': 'Palais de l\'étang',
     'succest045': 'Moshiri Kara',
     'succesh045': 'Terminez les 3 défis pour déverrouiller les totems<br>et activez-les pour déverrouiller le donjon',
+    'succest046': 'Le conte d\'une sirène',
+    'succest047': 'Minute papillon !',
+    'succesh047': 'Capturez un papillon cristalin avec l\'Omnifilet d\'ubiquité',
+    'succest048': 'Dans les mailles du filet',
+    'succesh048': 'Capturez un pinson avec l\'Omnifilet d\'ubiquité',
 
     // Panoramas
     'pano1': 'Cité du Vent',
@@ -243,6 +248,7 @@ var langFR = {
     'pano42': 'Les profondeurs baignées de lune',
     'pano43': 'Le village du peuple des tréfonds',
     'pano44': 'Île de Tsurumi<br><a style="color:red;">Accessible à la fin de la quête<br>« La roue solaire et le mont Kanna »</a>',
+    'pano45': 'Là où la grande prêtresse suppléante réside<br><a style="color:red;">Accessible à la fin de la quête<br>« Neko est un chat »</a>',
 
     // Pêche
 
@@ -551,7 +557,8 @@ var langFR = {
     'com265': 'Allumez les torches comme sur la fresque',
     'com266': 'activez la série de Rocs tonnerre<br>et de statues',
     'com267': 'Activez les pierres dans l\'ordre montré par la fée électro',
-    'com268': 'Coffre accessible après avoir terminé<br>la quête La roue solaire et le Mont Kanna'
+    'com268': 'Coffre accessible après avoir terminé<br>la quête La roue solaire et le Mont Kanna',
+    'com269': 'Vous devez desactiver les 6 épées électro<br>réparties sur l\'île pour<br>déverrouiller le coffre'
 };
 
 var langEN = {
@@ -753,6 +760,11 @@ var langEN = {
     'succest044': 'Palace in a Pool',
     'succest045': 'Moshiri Kara',
     'succesh045': 'Complete the 3 challenges to unlock the totems<br>and active them to unlock the dungeon',
+    'succest046': 'A Mermaid\'s Tale',
+    'succest047': 'Not Flyin Away This Time !',
+    'succesh047': 'Capture 1 Crystalfly with the Omni-Ubiquity Net',
+    'succest048': 'The Net Closes In',
+    'succesh048': 'Capture 1 Finch with the Omni-Ubiquity Net',
 
     // Panoramas
     'pano1': 'The City of Wind',
@@ -798,7 +810,8 @@ var langEN = {
     'pano41': 'The Pearlescent Palace',
     'pano42': 'The Moon-Bathed Deep',
     'pano43': 'Village of the People of the Deep',
-    'pano44': 'Tsurumi Island<br><a style="color:red;">Accessible at the end of quête<br>« The Sun-Wheel and Mt. Kanna »</a>',
+    'pano44': 'Tsurumi Island<br><a style="color:red;">Accessible at the end of the quest<br>« The Sun-Wheel and Mt. Kanna »</a>',
+    'pano45': 'Là où la grande prêtresse suppléante réside<br><a style="color:red;">Accessible at the end of the quest<br>« Neko is a cat »</a>',
 
     // Pêche
 
@@ -1107,5 +1120,6 @@ var langEN = {
     'com265': 'Light the torches like on the wall paint',
     'com266': 'activate the thunder rocks and statues',
     'com267': 'Activate the stones in the order shown be the electro seelie',
-    'com268': 'This chest is accessible after finishing<br>the Sun-Wheel and Mt. Kanna quest'
+    'com268': 'This chest is accessible after finishing<br>the Sun-Wheel and Mt. Kanna quest',
+    'com269': 'You must deactivate the 6 electro swords<br>around the island to unlock the chest'
 };

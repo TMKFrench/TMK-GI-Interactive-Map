@@ -278,7 +278,7 @@ BoutonMenu.addTo(mymap);
                     break;
                 case 5 : // Video (txt+cb)
                     txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
-                    popup = '<iframe width="560" height="315" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
+                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 11 : // null (+cb)
                     popup = '<h1>'+marq[2]+checkbox+'</h1>';

@@ -102,7 +102,7 @@ var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor
 
 var popupOptions =
     {
-        'minWidth': '640px',
-        'minHeight': '480px',
+        // 'minWidth': '480px',
+        // 'minHeight': '270px',
         'closeButton': false
     };

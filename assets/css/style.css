@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Genshin';
-  src: url("../fonts/genshin.eot");
-  src: url("../fonts/genshin.eot?#iefix") format("embedded-opentype"), url("../fonts/genshin.woff2") format("woff2"), url("../fonts/genshin.woff") format("woff"), url("../fonts/genshin.ttf") format("truetype"), url("../fonts/genshin.svg#Genshin") format("svg");
+  src: url("../fonts/genshin.ttf") format("truetype");
   font-weight: normal;
   font-display: swap;
 }
@@ -17,7 +16,7 @@ html, body, #mapid {
 }
 
 .leaflet-popup {
-  min-width: 250px;
+  min-width: 480px;
 }
 
 .leaflet-popup .leaflet-popup-content-wrapper {
@@ -28,7 +27,7 @@ html, body, #mapid {
   font-family: 'Genshin', 'comic sans ms', sans-serif;
   white-space: nowrap;
   margin: 0px;
-  width: auto;
+  min-width: 480px;
   text-align: center !important;
 }
 
@@ -173,7 +172,8 @@ html, body, #mapid {
 
 .thumb {
   border-radius: 2px;
-  width: 450px;
+  width: 480px;
+  height: 270px;
   cursor: url(../../media/icones/zoomin.cur), zoom-in !important;
 }
 
