@@ -40,9 +40,9 @@
 					<a id="BtnImport" href="#" title="Charger les Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
 					<input type="file" id="ImportBox" accept=".txt" class="hidden">
 				</div>
-				<!-- <div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnGolden" href="#" title="Accès Map Archipel de la Pomme Dorée" class="btngolden py-1 px-2 bg-yellow-300 rounded text-xs text-black font-bold w-full">Map de l'Archipel de la Pommes Dorée</a>
-				</div> -->
+				<div class="flex justify-items-stretch text-center m-4">
+					<a id="BtnEnka" href="#" title="Accès Map d'Enkanomiya" class="btnenka py-1 px-2 bg-yellow-300 rounded text-xs text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
+				</div>
 				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
 					<!-- <li class="accordion title text-red-600">Evènement Fracas du Tonnerre</li>
 					<div class="panel">
@@ -215,9 +215,9 @@
 					<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
 					<!-- <input type="file" id="ImportBox" accept=".txt" class="hidden"> -->
 				</div>
-				<!-- <div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnGolden" href="#" title="Access to Golden Apple Archipelago Map" class="btngolden py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Golden Apple Archipelago Map</a>
-				</div> -->
+				<div class="flex justify-items-stretch text-center m-4">
+					<a id="BtnEnka" href="#" title="Access to Enkanomiya Map" class="btnenka py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to Enkanomiya Map</a>
+				</div>
 				<div id="MarkerSelect" class="p-2 pt-0">
 					<!-- <li class="accordion title text-red-600">Event Thunder Sojourn</li>
 					<div class="panel">
@@ -264,31 +264,31 @@
 							<li class="marker"><a id="btnENcetr" href="#!" data-type="cetr" class="chestEN"><img src="media/icones/cetrm.png"/> <span>Remarkable</span></a></li>
 						</ul>
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 pt-2 text-xs">
-							<li class="marker"><a id="btnENsanctum" href="#!" data-type="sanctum"><img src="media/icones/sanctumm.png"/> <span>Mondstadt Shrine</span></a></li>
-							<li class="marker"><a id="btnENsanctul" href="#!" data-type="sanctul"><img src="media/icones/sanctulm.png"/> <span>Liyue Shrine</span></a></li>
-							<li class="marker"><a id="btnENsanctui" href="#!" data-type="sanctui"><img src="media/icones/sanctuim.png"/> <span>Inazuma Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctum" href="#!" data-type="sanctum" class="itembtn"><img src="media/icones/sanctumm.png"/> <span>Mondstadt Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctul" href="#!" data-type="sanctul" class="itembtn"><img src="media/icones/sanctulm.png"/> <span>Liyue Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctui" href="#!" data-type="sanctui" class="itembtn"><img src="media/icones/sanctuim.png"/> <span>Inazuma Shrine</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Enemies</li>
 					<div class="panel">
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
-							<li class="markerb"><a id="btnENbetrang" href="#!" data-type="betrang"><img src="media/icones/betrangm.png"/> <span>Unusual Hilichurl</span></a></li>
-							<li class="markerb"><a id="btnENbshaman" href="#!" data-type="bshaman"><img src="media/icones/bshamanm.png"/> <span>Samachurls</span></a></li>
-							<li class="markerb"><a id="btnENbviandu" href="#!" data-type="bviandu"><img src="media/icones/bviandum.png"/> <span>Mitachurl</span></a></li>
-							<li class="markerb"><a id="btnENbgivre" href="#!" data-type="bgivre"><img src="media/icones/bgivrem.png"/> <span>Hilichurl Frostarm</span></a></li>
-							<li class="markerb"><a id="btnENbrocheux" href="#!" data-type="brocheux"><img src="media/icones/brocheuxm.png"/> <span>Hilichurl Stonehide</span></a></li>
-							<li class="markerb"><a id="btnENchasseur" href="#!" data-type="chasseur"><img src="media/icones/chasseurm.png"/> <span>Ruin Hunter</span></a></li>
-							<li class="markerb"><a id="btnENcolosse" href="#!" data-type="colosse"><img src="media/icones/colossem.png"/> <span>Ruin Grader</span></a></li>
-							<li class="markerb"><a id="btnENgardien" href="#!" data-type="gardien"><img src="media/icones/gardienm.png"/> <span>Ruin Guard</span></a></li>
-							<li class="markerb"><a id="btnENfmens" href="#!" data-type="fmens"><img src="media/icones/fmensm.png"/> <span>Whopperflower</span></a></li>
-							<li class="markerb"><a id="btnENgeosaure" href="#!" data-type="geosaure"><img src="media/icones/geosaurem.png"/> <span>Geovishap</span></a></li>
-							<li class="markerb"><a id="btnENmagea" href="#!" data-type="magea"><img src="media/icones/mageam.png"/> <span>Abyss Mage</span></a></li>
-							<li class="markerb"><a id="btnENmagel" href="#!" data-type="magel"><img src="media/icones/magelm.png"/> <span>Cicin Mage</span></a></li>
-							<li class="markerb"><a id="btnENfrap" href="#!" data-type="frap"><img src="media/icones/frapm.png"/> <span>Vanguard</span></a></li>
-							<li class="markerb"><a id="btnENmitrail" href="#!" data-type="mitrail"><img src="media/icones/mitrailm.png"/> <span>Legionnaire</span></a></li>
-							<li class="markerb"><a id="btnENmerc" href="#!" data-type="merc"><img src="media/icones/mercm.png"/> <span>Bracer</span></a></li>
-							<li class="markerb"><a id="btnENpilleur" href="#!" data-type="pilleur"><img src="media/icones/pilleurm.png"/> <span>Treasure Hoarder</span></a></li>
-							<li class="markerb"><a id="btnENusurier" href="#!" data-type="usurier"><img src="media/icones/usurierm.png"/> <span>Fatui Agent</span></a></li>
+							<li class="markerb"><a id="btnENbetrang" href="#!" data-type="betrang" class="itembtn"><img src="media/icones/betrangm.png"/> <span>Unusual Hilichurl</span></a></li>
+							<li class="markerb"><a id="btnENbshaman" href="#!" data-type="bshaman" class="itembtn"><img src="media/icones/bshamanm.png"/> <span>Samachurls</span></a></li>
+							<li class="markerb"><a id="btnENbviandu" href="#!" data-type="bviandu" class="itembtn"><img src="media/icones/bviandum.png"/> <span>Mitachurl</span></a></li>
+							<li class="markerb"><a id="btnENbgivre" href="#!" data-type="bgivre" class="itembtn"><img src="media/icones/bgivrem.png"/> <span>Hilichurl Frostarm</span></a></li>
+							<li class="markerb"><a id="btnENbrocheux" href="#!" data-type="brocheux" class="itembtn"><img src="media/icones/brocheuxm.png"/> <span>Hilichurl Stonehide</span></a></li>
+							<li class="markerb"><a id="btnENchasseur" href="#!" data-type="chasseur" class="itembtn"><img src="media/icones/chasseurm.png"/> <span>Ruin Hunter</span></a></li>
+							<li class="markerb"><a id="btnENcolosse" href="#!" data-type="colosse" class="itembtn"><img src="media/icones/colossem.png"/> <span>Ruin Grader</span></a></li>
+							<li class="markerb"><a id="btnENgardien" href="#!" data-type="gardien" class="itembtn"><img src="media/icones/gardienm.png"/> <span>Ruin Guard</span></a></li>
+							<li class="markerb"><a id="btnENfmens" href="#!" data-type="fmens" class="itembtn"><img src="media/icones/fmensm.png"/> <span>Whopperflower</span></a></li>
+							<li class="markerb"><a id="btnENgeosaure" href="#!" data-type="geosaure" class="itembtn"><img src="media/icones/geosaurem.png"/> <span>Geovishap</span></a></li>
+							<li class="markerb"><a id="btnENmagea" href="#!" data-type="magea" class="itembtn"><img src="media/icones/mageam.png"/> <span>Abyss Mage</span></a></li>
+							<li class="markerb"><a id="btnENmagel" href="#!" data-type="magel" class="itembtn"><img src="media/icones/magelm.png"/> <span>Cicin Mage</span></a></li>
+							<li class="markerb"><a id="btnENfrap" href="#!" data-type="frap" class="itembtn"><img src="media/icones/frapm.png"/> <span>Vanguard</span></a></li>
+							<li class="markerb"><a id="btnENmitrail" href="#!" data-type="mitrail" class="itembtn"><img src="media/icones/mitrailm.png"/> <span>Legionnaire</span></a></li>
+							<li class="markerb"><a id="btnENmerc" href="#!" data-type="merc" class="itembtn"><img src="media/icones/mercm.png"/> <span>Bracer</span></a></li>
+							<li class="markerb"><a id="btnENpilleur" href="#!" data-type="pilleur" class="itembtn"><img src="media/icones/pilleurm.png"/> <span>Treasure Hoarder</span></a></li>
+							<li class="markerb"><a id="btnENusurier" href="#!" data-type="usurier" class="itembtn"><img src="media/icones/usurierm.png"/> <span>Fatui Agent</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Materials and Minerals</li>
@@ -418,12 +418,8 @@
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 5.8 du 04/12/2021</h3>
-		<p class="mt-4"><span class="font-bold text-red-600">Ajout dans la section des coffres d'Inazuma :</span><br>
-						- Ajout des Coffres Étranges<br>
-						- Ajout des fées électro<br>
-						- Ajout d'une protection pour effacer la mémorisation du menu (une fois)<br>
-						pour éviter un bug de resélection.</p>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 5.9 du 05/01/2022</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Ajout de la Map d'Enkanomiya</span></p>
 		<p class="mt-4 font-bold text-red-600">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur et avoir<br><span class="text-red-600">la dernière version des marqueurs.</span>
 		</p>
@@ -431,12 +427,8 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 5.8 of 12/04/2021</h3>
-		<p class="mt-4"><span class="font-bold text-red-600">Adding on Inazuma's chest section :</span><br>
-						- Adding Remarkable Chests<br>
-						- Adding Electro Seelies<br>
-						- Adding a protection to clear last selected item in the menu<br>
-						to prevent a reselect bug.</p>
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 5.9 of 01/05/2022</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Adding Enkanomiya Map</span></p>
 		<p class="mt-4 font-bold text-red-600">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache and get <span class="text-red-600">the last markers update.</span>
 		</p>
@@ -473,7 +465,7 @@
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
 	<script type="text/javascript" src="assets/js/markers.js"></script>
-	<script type="text/javascript" src="assets/js/map.js?v=5.8"></script>
+	<script type="text/javascript" src="assets/js/map.js?v=5.9"></script>
 
 </body>
 

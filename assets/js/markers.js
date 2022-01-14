@@ -340,7 +340,7 @@ var listcdelicl = [
     [0,[12676,12342],langue.com003],[0,[12608,12450],langue.com125],[0,[12436,12492],langue.com003],[0,[12494,12514],langue.com179],[0,[12364,12350],langue.com003],[0,[11976,12876],langue.com060],[0,[11938,10194],langue.com055],[0,[11406,13240],langue.com052],[0,[10128,13942],langue.com026],[0,[ 9722,12242],langue.com180],
     [0,[10448,15274],langue.com123],[0,[10414,14688],langue.com021],[0,[10260,15112],langue.com003],[0,[10440,14948],langue.com003],[5,[ 9888,14216],"sGh6HIo1y1o",langue.com181],[5,[ 9900,14210],"sGh6HIo1y1o",langue.com181],[5,[ 9814,14210],"X34BfsPGWgo",langue.com057],[0,[ 9834,11142],langue.com003],[0,[10728,11420],langue.com022],[0,[11122,10274],langue.com055],
     [0,[11078, 9682],langue.com074],[0,[12772,12170],langue.com021],[0,[ 9650,11756],langue.com184],[0,[ 9738,11754],langue.com055],[0,[ 9522,12106],langue.com029],[0,[ 9670,12028],langue.com088],[0,[ 9222,11464],langue.com055],[0,[ 9506,12902],langue.com029],[0,[10400,13862],langue.com021],[0,[10304,13800],langue.com052],
-    [0,[10442,13760],langue.com003],[0,[10119,13020],langue.com003],[0,[14175,13890]],[0,[11875,10531],langue.com123]
+    [0,[10442,13760],langue.com003],[0,[10119,13020],langue.com003],[0,[14175,13890]],[0,[11875,10531],langue.com123],[0,[10076,11937],langue.com055],[0,[10015,13130],langue.com021]
 ];
 
 var listcdelici = [
@@ -573,7 +573,7 @@ var listgardien = [
 // Colosse des ruines
 
 var listcolosse = [
-    [0,[14678,12244]]
+    [0,[14678,12244]],[0,[20771,17890]]
 ];
 
 // Géosaure

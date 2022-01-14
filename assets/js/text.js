@@ -9,6 +9,7 @@ var langFR = {
     'ui-import': 'Marqueurs chargés. La page va se rafraîchir...',
     'ui-fileerror': 'Fichier de marqueurs invalide !!!',
     'ui-export': 'Le fichier GenshinMapMarker.txt va être téléchargé dans le répertoire par défaut de Téléchargement de votre navigateur.',
+    'ui-exportenka': 'Le fichier GenshinMapMarkerEnkanomiya.txt va être téléchargé dans le répertoire par défaut de Téléchargement de votre navigateur.',
     'ui-close': 'Cacher le Menu',
     'ui-open': 'Afficher le Menu',
     'ui-info': 'Texte d\'information',
@@ -113,6 +114,15 @@ var langFR = {
     'cat97': 'Perle de Corail',
     'cat98': 'Champignon Fluorescent',
     'cat99': 'Coffre Etrange',
+    'cat100': 'Porte phasée',
+    'cat101': 'Inter Jour/Nuit',
+    'cat102': 'Mécanisme triangulaire',
+    'cat103': 'Pierre cassée',
+    'cat104': 'Sigil-Clé type 1',
+    'cat105': 'Sigil-Clé type 2',
+    'cat106': 'Sigil-Clé type 3',
+    'cat107': 'Sigil-Clé type 4',
+    'cat108': 'Sigil-Clé type 5',
 
     // Succès
     'succest001': 'Chouchou de l\'Archon Anemo',
@@ -558,7 +568,11 @@ var langFR = {
     'com266': 'activez la série de Rocs tonnerre<br>et de statues',
     'com267': 'Activez les pierres dans l\'ordre montré par la fée électro',
     'com268': 'Coffre accessible après avoir terminé<br>la quête La roue solaire et le Mont Kanna',
-    'com269': 'Vous devez desactiver les 6 épées électro<br>réparties sur l\'île pour<br>déverrouiller le coffre'
+    'com269': 'Vous devez desactiver les 6 épées électro<br>réparties sur l\'île pour<br>déverrouiller le coffre',
+    'com270': 'Vous devez libérer le sceau avec le Sigil-clé correspondant<br>pour faire apparaître le coffre',
+    'com271': 'Vous devez libérer les sceaux avec les Sigil-clés correspondants<br>pour faire apparaître le coffre',
+    'com272': 'Déverrouillez la porte à l\'aide du mécanisme triangulaire',
+    'com273': 'Déverrouillez les portes à l\'aide des mécanismes triangulaires'
 };
 
 var langEN = {
@@ -572,6 +586,7 @@ var langEN = {
     'ui-import': 'Markers loaded. Refreshing...',
     'ui-fileerror': 'Invalid Markers File !!!',
     'ui-export': 'GenshinMapMarker.txt file will be downloaded to your Web Browser download default folder.',
+    'ui-exportenka': 'GenshinMapMarkerEnkanomiya.txt file will be downloaded to your Web Browser download default folder.',
     'ui-close': 'Hide Menu',
     'ui-open': 'Show Menu',
     'ui-info': 'Information',
@@ -676,6 +691,15 @@ var langEN = {
     'cat97': 'Sango Pearl',
     'cat98': 'Fluorescent Fungus',
     'cat99': 'Remarkable Chest',
+    'cat100': 'Phase Gate',
+    'cat101': 'Day/Night Switch',
+    'cat102': 'Triangular Mechanism',
+    'cat103': 'Smashed Stone',
+    'cat104': 'Sigil-Key type 1',
+    'cat105': 'Sigil-Key type 2',
+    'cat106': 'Sigil-Key type 3',
+    'cat107': 'Sigil-Key type 4',
+    'cat108': 'Sigil-Key type 5',
 
     // Succès
     'succest001': 'Beloved of the Anemo Archon',
@@ -1121,5 +1145,9 @@ var langEN = {
     'com266': 'activate the thunder rocks and statues',
     'com267': 'Activate the stones in the order shown be the electro seelie',
     'com268': 'This chest is accessible after finishing<br>the Sun-Wheel and Mt. Kanna quest',
-    'com269': 'You must deactivate the 6 electro swords<br>around the island to unlock the chest'
+    'com269': 'You must deactivate the 6 electro swords<br>around the island to unlock the chest',
+    'com270': 'You must release the seal with the corresponding Key Sigil<br>to make the chest appear',
+    'com271': 'You must release the seals with the corresponding Keys Sigil<br>to make the chest appear',
+    'com272': 'Unlock the door using the triangular mechanism',
+    'com273': 'Unlock the doors using the triangular mechanisms'
 };

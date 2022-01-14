@@ -42,8 +42,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.8")) {
-            localStorage.Mapvers = "5.8";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.9")) {
+            localStorage.Mapvers = "5.9";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -368,7 +368,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listfmcryo,Fmcryo,1,"fmens",langue.cat53,"fmcryo");
         loadmarker(listfmpyro,Fmpyro,1,"fmens",langue.cat54,"fmpyro");
         loadmarker(listchasseur,Chasseur,1,"chasseur",langue.cat66,"chasseur");
-        loadmarker(listcolosse,Colosse,1,"colosse",langue.cat75,"chasseur");
+        loadmarker(listcolosse,Colosse,1,"colosse",langue.cat75,"colosse");
         loadmarker(listgardien,Gardien,1,"gardien",langue.cat52,"gardien");
         loadmarker(listgeosaure,Geosaure,1,"geosaure",langue.cat55,"geosaure");
         loadmarker(listmagecryo,Magecryo,1,"magea",langue.cat56,"magec");
@@ -599,8 +599,8 @@ BoutonMenu.addTo(mymap);
         fr_.readAsText(this.files[0]);
     });
 
-    $('.btngolden').on('click', function () {
-        document.location.href='index2.html';
+    $('.btnenka').on('click', function () {
+        document.location.href='indexenka.html';
     });
 
     // }); // Fin Fonction globale
