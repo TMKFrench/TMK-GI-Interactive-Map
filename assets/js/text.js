@@ -572,7 +572,9 @@ var langFR = {
     'com270': 'Vous devez libérer le sceau avec le Sigil-clé correspondant<br>pour faire apparaître le coffre',
     'com271': 'Vous devez libérer les sceaux avec les Sigil-clés correspondants<br>pour faire apparaître le coffre',
     'com272': 'Déverrouillez la porte à l\'aide du mécanisme triangulaire',
-    'com273': 'Déverrouillez les portes à l\'aide des mécanismes triangulaires'
+    'com273': 'Déverrouillez les portes à l\'aide des mécanismes triangulaires',
+    'com274': 'Active les poissons fantomatiques<br><br>',
+    'com275': 'Activer les 4 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour déverrouiller le coffre'
 };
 
 var langEN = {
@@ -1149,5 +1151,7 @@ var langEN = {
     'com270': 'You must release the seal with the corresponding Key Sigil<br>to make the chest appear',
     'com271': 'You must release the seals with the corresponding Keys Sigil<br>to make the chest appear',
     'com272': 'Unlock the door using the triangular mechanism',
-    'com273': 'Unlock the doors using the triangular mechanisms'
+    'com273': 'Unlock the doors using the triangular mechanisms',
+    'com274': 'Activate Ghostfishes<br><br>',
+    'com275': 'Activate all 4 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to unlock the chest'
 };

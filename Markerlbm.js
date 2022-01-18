@@ -278,3 +278,12 @@ var marker = [
         ]
       }
     ];
+    
+    var peche = [
+      {id:'enkanomiyafishing',group:fishingGroup,format:'popup',title:'Point de pêche',guide:'https://gaming.lebusmagique.fr/genshin-impact/fonctionnalites/la-peche/',icon:fishinghookIcon,markers: [
+        {id:'01',coords:[674,2568],text:'&bull; Poisson cristal<br>&bull; &Eacute;pinoche pulmonée<br>&bull; Raie divda<br>&bull; Raie formalo'},
+        {id:'02',coords:[1675,2193],text:'&bull; Attrape-aube<br>&bull; Akai maou<br>&bull; Raie divda<br>&bull; Raie formalo'},
+        {id:'03',coords:[1579,2242],text:'&bull; Attrape-aube<br>&bull; Poisson-papillon violet<br>&bull; Raie divda<br>&bull; Raie formalo'}
+        ]
+      }
+    ];

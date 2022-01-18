@@ -29,8 +29,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.2")) {
-            localStorage.Mapversenka = "1.2";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.2.2")) {
+            localStorage.Mapversenka = "1.2.2";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -282,6 +282,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpe");
         loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
         loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
+        loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
         loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
         loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
         loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");

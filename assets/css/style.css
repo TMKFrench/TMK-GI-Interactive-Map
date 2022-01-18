@@ -15,6 +15,10 @@ html, body, #mapid {
   height: 100%;
 }
 
+#mapid {
+  background: #121921;
+}
+
 .leaflet-popup {
   min-width: 480px;
 }
