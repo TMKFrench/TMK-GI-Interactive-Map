@@ -300,6 +300,8 @@ var langFR = {
     // Coms
 
     'br': '<br>',
+    'nuit': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit sans fin</a>',
+    'jour': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit Blanche</a>',
     'com001': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a><br>et tuer les ennemis qui apparaissent',
     'com002': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a>',
     'com003': 'Tuer les ennemis pour déverrouiller le coffre',
@@ -574,7 +576,10 @@ var langFR = {
     'com272': 'Déverrouillez la porte à l\'aide du mécanisme triangulaire',
     'com273': 'Déverrouillez les portes à l\'aide des mécanismes triangulaires',
     'com274': 'Active les poissons fantomatiques<br><br>',
-    'com275': 'Activer les 4 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour déverrouiller le coffre'
+    'com275': 'Activer les 4 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour déverrouiller le coffre',
+    'com276': 'Fait pivoter le mur<br><br>',
+    'com277': 'Activer les totems dans l\'ordre indiqué avec une attaque<br>de type <a style="color:thistle;">ELECTRO</a> pour faire apparaître le coffre',
+    'com278': 'Ramenez les 2 fées environnantes pour accéder au le coffre',
 };
 
 var langEN = {
@@ -879,6 +884,8 @@ var langEN = {
     // Coms
 
     'br': '<br>',
+    'nuit': '<a style="color:red;">IMPORTANT ! Can be done in Evernight mode only</a>',
+    'jour': '<a style="color:red;">IMPORTANT ! Can be done in Whitenight mode only</a>',
     'com001': 'Destroy brambles with a <a style="color:red;">FIRE</a> attack<br>and then kill all enemies',
     'com002': 'Destroy brambles with a <a style="color:red;">FIRE</a> attack',
     'com003': 'Kill all enemies to unlock the chest',
@@ -1153,5 +1160,8 @@ var langEN = {
     'com272': 'Unlock the door using the triangular mechanism',
     'com273': 'Unlock the doors using the triangular mechanisms',
     'com274': 'Activate Ghostfishes<br><br>',
-    'com275': 'Activate all 4 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to unlock the chest'
+    'com275': 'Activate all 4 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to unlock the chest',
+    'com276': 'Rotate the wall<br><br>',
+    'com277': 'Activate all the totems in the order shown<br>with an <a style="color:thistle;">ELECTRO</a> type attack to make the chest appear',
+    'com278': 'Bring back the 2 surrounding seelies to access the chest'
 };

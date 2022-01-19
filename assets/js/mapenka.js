@@ -7,7 +7,7 @@
         'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
         'cordi','cdelic','cprec','cluxe','cdefi','cfee',
         'ferblanc','amethyste','electrocris','noyauc','perle','corail',
-        'ffeu','fbrume','herbem',
+        'ffeu','fbrume','ganoderma','herbem',
         'grenouille','crabe'];
     var nbtmark = 0;
     var langue, lgmenu;
@@ -29,8 +29,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.2.2")) {
-            localStorage.Mapversenka = "1.2.2";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.2.3")) {
+            localStorage.Mapversenka = "1.2.3";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -281,6 +281,7 @@ BoutonMenu.addTo(mymap);
 
         loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpe");
         loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
+        loadmarker(listcyclejn,Cyclejn,"cyclejn",langue.cat101);
         loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
         loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
         loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
@@ -303,6 +304,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listcorail,Corail,"corail",langue.cat97);
         loadmarker(listffeu,Ffeu,"ffeu",langue.cat14);
         loadmarker(listfbrume,Fbrume,"fbrume",langue.cat13);
+        loadmarker(listganoderma,Ganoderma,"ganoderma",langue.cat81);
         loadmarker(listherbem,Herbem,"herbem",langue.cat82);
         loadmarker(listgrenouille,Grenouille,"grenouille",langue.cat27);
         loadmarker(listcrabe,Crabe,"crabe",langue.cat64);
