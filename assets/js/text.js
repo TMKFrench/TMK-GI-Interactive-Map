@@ -213,6 +213,15 @@ var langFR = {
     'succest048': 'Dans les mailles du filet',
     'succesh048': 'Capturez un pinson avec l\'Omnifilet d\'ubiquité',
 
+    // Quêtes
+
+        // Enkanomiya
+
+    'queteent01': 'Antigonus',
+    'queteenh01': 'Prouvez l\'innocence d\'Antei et ses compagnons',
+    'queteent02': 'Le secret d\'Erebos',
+    'queteenh02': 'Réussissez les épreuves pour débloquer les 3 îles cachées',
+
     // Panoramas
     'pano1': 'Cité du Vent',
     'pano2': 'Marais des gardiens célestes',
@@ -300,8 +309,8 @@ var langFR = {
     // Coms
 
     'br': '<br>',
-    'nuit': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit sans fin</a>',
-    'jour': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit Blanche</a>',
+    'nuit': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit sans fin</a><br>',
+    'jour': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit Blanche</a><br>',
     'com001': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a><br>et tuer les ennemis qui apparaissent',
     'com002': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a>',
     'com003': 'Tuer les ennemis pour déverrouiller le coffre',
@@ -580,6 +589,13 @@ var langFR = {
     'com276': 'Fait pivoter le mur<br><br>',
     'com277': 'Activer les totems dans l\'ordre indiqué avec une attaque<br>de type <a style="color:thistle;">ELECTRO</a> pour faire apparaître le coffre',
     'com278': 'Ramenez les 2 fées environnantes pour accéder au le coffre',
+    'com279': 'Activable en mode Nuit blanche seulement après avoir activé<br>d\'abord le mécanisme de droite en mode Nuit sans fin',
+    'com280': 'Activer le totem avec une attaque de type <a style="color:steelblue;">HYDRO</a> puis<br>ramassez toutes les particules pour faire apparaitre le coffre',
+    'com281': 'Ramener les 3 fées cachées dans les coffres environants<br>jusqu\'à leur réceptacle pour déverrouiller le coffre',
+    'com282': 'Accessible durant la quête « Le secret d\'Erebos »',
+    'com283': 'Accessible durant la quête « Le défi de Date »',
+    'com284': 'Accessible à la fin de la quête « Recueils des dragons et serpents »<br>',
+    'com285': 'Activer les 3 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour détruire le champ de force'
 };
 
 var langEN = {
@@ -797,6 +813,15 @@ var langEN = {
     'succest048': 'The Net Closes In',
     'succesh048': 'Capture 1 Finch with the Omni-Ubiquity Net',
 
+    // Quêtes
+
+        // Enkanomiya
+
+    'queteent01': 'Antigonus',
+    'queteenh01': 'Prove the innocence of Antei and his companions',
+    'queteent02': 'Erebos\' Secret',
+    'queteenh02': 'Succeed the challenges to unlock the 3 hidden islands',
+    
     // Panoramas
     'pano1': 'The City of Wind',
     'pano2': 'The Marsh of Celestial Guardians',
@@ -884,8 +909,8 @@ var langEN = {
     // Coms
 
     'br': '<br>',
-    'nuit': '<a style="color:red;">IMPORTANT ! Can be done in Evernight mode only</a>',
-    'jour': '<a style="color:red;">IMPORTANT ! Can be done in Whitenight mode only</a>',
+    'nuit': '<a style="color:red;">IMPORTANT ! Can be done in Evernight mode only</a><br>',
+    'jour': '<a style="color:red;">IMPORTANT ! Can be done in Whitenight mode only</a><br>',
     'com001': 'Destroy brambles with a <a style="color:red;">FIRE</a> attack<br>and then kill all enemies',
     'com002': 'Destroy brambles with a <a style="color:red;">FIRE</a> attack',
     'com003': 'Kill all enemies to unlock the chest',
@@ -1153,7 +1178,7 @@ var langEN = {
     'com265': 'Light the torches like on the wall paint',
     'com266': 'activate the thunder rocks and statues',
     'com267': 'Activate the stones in the order shown be the electro seelie',
-    'com268': 'This chest is accessible after finishing<br>the Sun-Wheel and Mt. Kanna quest',
+    'com268': 'This chest is reachable after finishing<br>the Sun-Wheel and Mt. Kanna quest',
     'com269': 'You must deactivate the 6 electro swords<br>around the island to unlock the chest',
     'com270': 'You must release the seal with the corresponding Key Sigil<br>to make the chest appear',
     'com271': 'You must release the seals with the corresponding Keys Sigil<br>to make the chest appear',
@@ -1163,5 +1188,12 @@ var langEN = {
     'com275': 'Activate all 4 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to unlock the chest',
     'com276': 'Rotate the wall<br><br>',
     'com277': 'Activate all the totems in the order shown<br>with an <a style="color:thistle;">ELECTRO</a> type attack to make the chest appear',
-    'com278': 'Bring back the 2 surrounding seelies to access the chest'
+    'com278': 'Bring back the 2 surrounding seelies to access the chest',
+    'com279': 'Activated in Whitenight mode only after first<br>activating the right mechanism in Evernight mode',
+    'com280': 'Activate the totem with an <a style=\"color:steelblue;\">HYDRO</a> type attack<br>then take all particles to make the chest appear',
+    'com281': 'Bring the 3 seelies hide in nearl chests<br>back to their receptacle to unlock the chest',
+    'com282': 'Reachable during Erebos\' Secret quest',
+    'com283': 'Reachable during Date\'s Challenge quest',
+    'com284': 'Reachable at the end of the « Collection of Dragons and Snakes »<br>',
+    'com285': 'Activate all 3 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to remove the force field'
 };

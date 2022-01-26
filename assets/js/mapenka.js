@@ -3,9 +3,9 @@
     var catmarkers = [];
     var savearray = [];
     var teyvatarray = [
-        'teleport','enkagate','cyclejn','triangle','pierrekc','peche','succes',
+        'teleport','enkagate','cyclejn','triangle','peche','succes',
         'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
-        'cordi','cdelic','cprec','cluxe','cdefi','cfee',
+        'cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc',
         'ferblanc','amethyste','electrocris','noyauc','perle','corail',
         'ffeu','fbrume','ganoderma','herbem',
         'grenouille','crabe'];
@@ -29,8 +29,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.2.3")) {
-            localStorage.Mapversenka = "1.2.3";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.3.1")) {
+            localStorage.Mapversenka = "1.3.1";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -293,7 +293,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listcordi,Cordi,"cordi",langue.cat04,"oce","cordie");
         loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dce","cdelice");
         loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pce","cprece");
-        // loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lce","cluxee");
+        loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lce","cluxee");
         loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"defie","cdefie");
         loadmarker(listcfee,Cfee,"cfee",langue.cat09,"","cfeeenko");
         loadmarker(listferblanc,Ferblanc,"ferblanc",langue.cat25);
