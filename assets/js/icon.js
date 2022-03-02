@@ -1,6 +1,7 @@
 // Déclaration des types marqueurs
 
 var Statue = L.icon({iconUrl:'media/icones/statue.png', iconSize:[25, 40], iconAnchor:[12, 40], popupAnchor:[0, -40]});
+var Vassal = L.icon({iconUrl:'media/icones/vassal.png', iconSize:[40, 40], iconAnchor:[20, 20], popupAnchor:[0, -20]});
 var Teleport = L.icon({iconUrl:'media/icones/teleport.png', iconSize:[25, 40], iconAnchor:[12, 40], popupAnchor:[0, -40]});
 var Tpbarge = L.icon({iconUrl:'media/icones/tpbarge.png', iconSize:[30, 30], iconAnchor:[15, 30], popupAnchor:[0, -30]});
 var Elecgate = L.icon({iconUrl:'media/icones/elecgate2.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -8,6 +9,8 @@ var Enkagate = L.icon({iconUrl:'media/icones/enkagate.png', iconSize:[30, 48], i
 var Cyclejn = L.icon({iconUrl:'media/icones/cyclejn.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Triangle = L.icon({iconUrl:'media/icones/triangle.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Pierrekc = L.icon({iconUrl:'media/icones/pierrekc.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Ptnrj = L.icon({iconUrl:'media/icones/ptnrj.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Stele = L.icon({iconUrl:'media/icones/stele.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Peche = L.icon({iconUrl:'media/icones/peche2.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
 var Succes = L.icon({iconUrl:'media/icones/succes2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Pano = L.icon({iconUrl:'media/icones/pano2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
@@ -29,6 +32,8 @@ var Cdefi = L.icon({iconUrl:'media/icones/cdefi.png', iconSize:[30, 48], iconAnc
 var Cfee = L.icon({iconUrl:'media/icones/cfee.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Cetr = L.icon({iconUrl:'media/icones/cetr.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Cfeee = L.icon({iconUrl:'media/icones/cfeee.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Ceremonie = L.icon({iconUrl:'media/icones/ceremonie.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Epreuve = L.icon({iconUrl:'media/icones/epreuve.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Sanctum = L.icon({iconUrl:'media/icones/sanctum.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Sanctul = L.icon({iconUrl:'media/icones/sanctul.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Sanctui = L.icon({iconUrl:'media/icones/sanctui.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -69,6 +74,8 @@ var Noyauc = L.icon({iconUrl:'media/icones/noyauc.png', iconSize:[30, 30], iconA
 var Perle = L.icon({iconUrl:'media/icones/perle.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Conque = L.icon({iconUrl:'media/icones/conque.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Amethyste = L.icon({iconUrl:'media/icones/amethyste.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Abyssium = L.icon({iconUrl:'media/icones/abyssium.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Tilleul = L.icon({iconUrl:'media/icones/tilleul.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Ffeu = L.icon({iconUrl:'media/icones/ffeu.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Fbrume = L.icon({iconUrl:'media/icones/fbrume.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Gdloup = L.icon({iconUrl:'media/icones/gdloup.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});

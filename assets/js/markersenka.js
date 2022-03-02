@@ -28,7 +28,7 @@ var listcyclejn = [
 // Mecanisme Triangulaire
 
 var listtriangle = [
-    [3,[4764,6007]],[5,[4992,5655],"6h3akxw7_YM"],[0,[5651,5416]],[0,[6264,5628]],[0,[5684,5256]],[0,[5784,5208]],[3,[5898,5082],langue.nuit],[3,[5584,6152],langue.nuit],[5,[9459,6797],"DySSXDQTZgE",langue.nuit],[0,[5584,5873]],
+    [3,[4764,6007],langue.jour],[5,[4992,5655],"6h3akxw7_YM"],[0,[5651,5416],langue.jour],[0,[6264,5628],langue.jour],[0,[5684,5256]],[0,[5784,5208]],[3,[5898,5082],langue.nuit],[3,[5584,6152],langue.nuit],[5,[9459,6797],"DySSXDQTZgE",langue.nuit],[0,[5584,5873],langue.jour],
     [0,[7367,8752],langue.jour+langue.com283],[0,[7529,8738],langue.jour+langue.com283],[0,[4748,6857],langue.nuit]
 ];
 
@@ -36,13 +36,19 @@ var listtriangle = [
 
 var listtrianglenocb = [
     [0,[7894,6940],langue.com274],[0,[7668,8844],langue.com274],[3,[4700,5944],langue.nuit+langue.com276],[3,[6209,5606],langue.nuit+langue.com276],[0,[6264,5496],langue.com274],[0,[6993,7247],langue.com279],[0,[6976,7305],langue.nuit],[5,[6278,9042],"Zmeo6yTrZuA",langue.nuit],[5,[6322, 9044],"IrITk5yRdVg",langue.jour],[3,[9879,5913],langue.jour+langue.com276],
-    [3,[9881,5968],langue.jour+langue.com276],[5,[9407,6920],"yy1Tdm5hNqg",langue.nuit],[3,[9901,7390],langue.jour+langue.com276],[3,[4809,2796],langue.nuit+langue.com282],[0,[4765,2920],langue.jour+langue.com282],[0,[4805,2918],langue.nuit+langue.com282]
+    [3,[9881,5968],langue.jour+langue.com276],[5,[9407,6920],"yy1Tdm5hNqg",langue.nuit],[3,[9901,7390],langue.jour+langue.com276],[3,[4809,2796],langue.nuit+langue.com282],[0,[4765,2920],langue.jour+langue.com282],[0,[4805,2918],langue.nuit+langue.com282],[0,[9503,7082],langue.nuit+langue.com276]
 ];
 
 // Quêtes
 
 var listquete = [
     [0,[6540,7632],langue.nuit+langue.queteenh01,langue.queteent01],[0,[6626,8672],langue.nuit+langue.queteenh02,langue.queteent02]
+];
+
+// Succès genshin,succès,achievement,quête,quest,map,Inazuma,Liyue,Mondstadt
+
+var listsucces = [
+    [3,[7344,7115],langue.succeseh001,langue.succeset001]
 ];
 
 // Clé Sigil 1
@@ -67,7 +73,7 @@ var listclesigil3 = [
 // Clé Sigil 4
 
 var listclesigil4 = [
-    [0,[4705,6154]],[0,[6106,5322]],[0,[5020,2794],langue.com282],[5,[7708,4432],"Vy9lqjfYZAw"],[0,[7841,7165]],[0,[9882,6010]],[0,[9074,6581]],[0,[9702,7448]],[0,[10016,7404]],[0,[8194,8300]],
+    [0,[4705,6154]],[0,[6106,5322]],[0,[5020,2794],langue.com282],[5,[7708,4432],"Vy9lqjfYZAw"],[0,[7841,7165]],[0,[9882,6010],langue.jour],[0,[9074,6581]],[0,[9702,7448]],[0,[10016,7404]],[0,[8194,8300]],
     [0,[6386,8915]],[0,[6369,9092]],[0,[7337,9001]],[0,[6464,10300]]
 ];
 
@@ -82,12 +88,12 @@ var listclesigil5 = [
 
 var listcordi = [
     [0,[2419,9910],langue.com003],[0,[2112,9967],langue.com003],[0,[1770,9890],langue.com210],[0,[1714,9745],langue.com003],[0,[1852,9231],langue.com003],[0,[1912,8056],langue.com003],[0,[1992,8340],langue.com003],[0,[2212,8847],langue.com210],[0,[2425,8250],langue.com003],[0,[2890,7850],langue.com003],
-    [0,[3323,7763],langue.com003],[0,[4639,6936],langue.com003],[0,[4517,7113],langue.com003],[0,[4465,6732],langue.com003],[0,[4492,6221],langue.com003],[5,[4782,6316],"54CHGIeaI0M",langue.com271],[0,[5062,6139],langue.com003],[0,[5258,5841],langue.com003],[0,[6094,5504],langue.com003],[0,[5935,5769],langue.com003],
+    [0,[3323,7763],langue.com003],[0,[4639,6936],langue.com003],[0,[4517,7113],langue.com003],[0,[4465,6732],langue.com003],[0,[4492,6221],langue.com003],[5,[4782,6316],"54CHGIeaI0M",langue.jour+langue.com271],[0,[5062,6139],langue.com003],[0,[5258,5841],langue.com003],[0,[6094,5504],langue.com003],[0,[5935,5769],langue.com003],
     [0,[5756,6036],langue.com003],[0,[5858,6203],langue.com003],[0,[6047,6049],langue.com003],[0,[6287,5973],langue.com003],[0,[6214,5608],langue.com272],[0,[7227,6349],langue.com003],[0,[6915,6476],langue.com003],[0,[7725,6854],langue.com003],[3,[7686,6772],langue.com271],[0,[7096,6584],langue.com003],
     [0,[7858,6902],langue.com003],[0,[7972,6754],langue.com003],[0,[7674,9254],langue.com003],[0,[7264,7702],langue.com003],[0,[6728,7626],langue.com003],[0,[6458,7278],langue.com003],[0,[7112,6706],langue.com003],[0,[7150,6914],langue.com003],[0,[7581,7207],langue.com003],[3,[7078,6471],langue.com271],
     [0,[7754,9167],langue.com003],[0,[7312,8671],langue.com003],[0,[6950,8730],langue.com003],[0,[5976,10454],langue.com003],[0,[6572,9388],langue.com003],[0,[6789,7402],langue.com003],[0,[6735,6804],langue.com003],[0,[6982,7612],langue.com003],[0,[7330,7675],langue.com003],[0,[7595,7059],langue.com275],
     [0,[9155,6615],langue.com003],[0,[8999,6704],langue.com003],[0,[8858,6522],langue.com003],[0,[9550,7198],langue.com003],[0,[9984,7204],langue.com003],[0,[8994,7126],langue.com003],[5,[4791,5922],"JcBqo2lpXD8",langue.nuit],[0,[5114,6312],langue.nuit],[0,[6210,5659],langue.com273],[5,[7720,4310],"_cTUcphRUoA",langue.nuit+langue.com271],
-    [5,[7068,6566],"WfzBqYHfMV0",langue.com177],[3,[7674,9130],langue.nuit+langue.com271],[0,[9700,6039],langue.nuit],[5,[5202,5610],"-ef4WlU0crk",langue.nuit],[0,[7476,6799],langue.com003]
+    [5,[7068,6566],"WfzBqYHfMV0",langue.com177],[3,[7674,9130],langue.nuit+langue.com271],[0,[9700,6039],langue.nuit],[5,[5202,5610],"-ef4WlU0crk",langue.nuit],[0,[7476,6799],langue.com003],[5,[6454,8771],"cWDPo6B9eZs",langue.nuit],[0,[6597,8918],langue.nuit+langue.com288]
 ];
 
 // Coffres Délicats 
@@ -96,20 +102,21 @@ var listcdelic = [
     [0,[4816,7038],langue.com003],[5,[5723,5165],"ABH71JGWbJs",langue.com273],[0,[7077,5776],langue.com003],[0,[8000,8418],langue.com003],[0,[6862,9184],langue.com003],[0,[6071,10111],langue.com003],[0,[7094,7272],langue.com003],[0,[7565,8631],langue.com003],[0,[6950,9374],langue.com003],[0,[6640,9548],langue.com003],
     [5,[6882,9260],"yB3eC6sOsP0",langue.com271],[0,[6624,7017],langue.com003],[0,[7072,7085],langue.com003],[0,[9095,6070],langue.com003],[0,[9658,6202],langue.com277],[0,[8962,6363],langue.com003],[0,[9814,7504],langue.com003],[0,[9360,7692],langue.com003],[0,[9112,7166],langue.com278],[0,[9282,6928],langue.com003],
     [5,[5612,6098],"ncec1h9yLe8",langue.nuit],[5,[5628,6170],"za5Y5bHfxok",langue.nuit],[5,[5874,5998],"aT29cqvyha8",langue.com271],[5,[7061,7219],"ymzED-VnHuQ",langue.nuit],[5,[8058,8456],"VxB7WBo1dS4",langue.nuit],[0,[6489,8928],langue.com003],[0,[6368,9042],langue.com272],[5,[6418,10311],"9qaYKFDj8hc",langue.nuit+langue.com271],[5,[10019,6103],"amqxLOLSmIw",langue.nuit+langue.com271],[0,[9294,6595],langue.nuit+langue.com003],
-    [3,[8892,6689],langue.nuit+langue.com271],[5,[8706,6530],"x0yxN244gpM",langue.nuit+langue.com280],[0,[9160,7159],langue.com078],[3,[9721,7079],langue.nuit+langue.com271],[5,[9850,7625],"3928gzC3F3Q",langue.jour],[3,[9164,7198],langue.nuit+langue.com271],[5,[6188,9054],"3928gzC3F3Q",langue.com271],[5,[6472,8776],"5otZBX29T9o"],[5,[7422,8975],"aXu_N95xawk",langue.com271],[0,[10279,5907],langue.com283]
+    [3,[8892,6689],langue.nuit+langue.com271],[5,[8706,6530],"x0yxN244gpM",langue.nuit+langue.com280],[0,[9160,7159],langue.com078],[3,[9721,7079],langue.nuit+langue.com271],[5,[9850,7625],"3928gzC3F3Q",langue.jour],[3,[9164,7198],langue.nuit+langue.com271],[5,[6188,9054],"3928gzC3F3Q",langue.com271],[5,[6472,8776],"5otZBX29T9o"],[5,[7422,8975],"aXu_N95xawk",langue.com271],[0,[10279,5907],langue.com283],
+    [5,[9460,7054],"HZzt9cyvfeQ",langue.nuit]
 ];
 
 // Coffres Précieux 
 
 var listcprec = [
     [0,[5981,5360],langue.com003],[0,[5642,5547],langue.com003],[0,[6708,9500],langue.com003],[0,[7586,9115],langue.com003],[0,[6694,10128],langue.com003],[0,[6203,8752],langue.com003],[0,[9372,6123],langue.com003],[5,[6806,7018],"WuECEHP_Ams",langue.nuit+langue.com271],[5,[6467,8743],"nh7kra3UOZo",langue.nuit+langue.com271],[0,[9918,6146],langue.com003],
-    [5,[9495,6827],"QeqYcPSty-Y",langue.nuit],[5,[9903,7640],"ZWlk8bdJyOo",langue.jour],[0,[4758,6676]],[5,[9657,7433],"IODgLS-rJY8",langue.nuit],[5,[7414,7013],"wS7Kb1_gyew",langue.nuit]
+    [5,[9495,6827],"QeqYcPSty-Y",langue.nuit],[5,[9903,7640],"ZWlk8bdJyOo",langue.jour],[5,[4758,6676],"wNwhcawrIq4"],[5,[9657,7433],"IODgLS-rJY8",langue.nuit],[5,[7414,7013],"wS7Kb1_gyew",langue.nuit]
 ];
 
 // Coffres Luxueux 
 
 var listcluxe = [
-    [5,[7220,8842],"-bLmlM80Pkk",langue.nuit],[5,[6280,10342],"P_IXo3irdEU",langue.jour],[5,[10072,5902],"NyEhUVHRdiE",langue.jour],[0,[9100,6541],langue.com281],[12,[7447,8873],"Défi de Date"],[5,[5710,5815],"hZHVFTdLa5M",langue.nuit+langue.com284],[0,[6472,8798],"grotte secrète"]
+    [5,[7220,8842],"-bLmlM80Pkk",langue.nuit],[5,[6280,10342],"P_IXo3irdEU",langue.jour],[5,[10072,5902],"NyEhUVHRdiE",langue.jour],[0,[9100,6541],langue.com281],[5,[7447,8873],"_p6N-sEgFBQ",langue.com286],[5,[5710,5815],"hZHVFTdLa5M",langue.nuit+langue.com284],[5,[6472,8798],"PHa9aIuScIc"]
 ];
 
 // Coffres Défis
@@ -136,7 +143,7 @@ var listpierrekc = [
     [0,[6836,8820]],[0,[6326,8834]],[0,[6170,10380]],[0,[6318,10067]],[0,[6246,10225]],[0,[7144,8332]],[0,[6922,7762]],[0,[6764,7546]],[0,[6706,7532]],[3,[6606,8810]],
     [0,[9515,6198]],[0,[9886,6022]],[0,[9094,6327]],[0,[9670,6849]],[0,[9990,7398]],[0,[9834,7686]],[0,[9716,7730]],[0,[9628,7508]],[0,[9686,7422]],[0,[9238,7572]],
     [0,[9082,7312]],[0,[5836,5056],langue.jour],[0,[5828,5074],langue.jour],[0,[5604,6106],langue.nuit],[5,[7032,7268],"TbA6NyJGDxE",langue.nuit],[5,[7361,7244],"n9GVoqFEPB0",langue.nuit],[0,[9451,6949],langue.nuit],[0,[9395,7390]],[0,[5008,2874],langue.com282],[0,[4896,2954],langue.com282],
-    [0,[4924,2934],langue.com282],[0,[11336,3036],langue.com282],[0,[11230,2846],langue.com282],[0,[8870,11140],langue.com282],[0,[8897,11182],langue.com282],[0,[4639,6963]],[0,[4704,6789]]
+    [0,[4924,2934],langue.com282],[0,[11336,3036],langue.com282],[0,[11230,2846],langue.com282],[0,[8870,11140],langue.com282],[0,[8897,11182],langue.com282],[0,[4639,6963]],[0,[4704,6789]],[0,[4768,3115]],[0,[11324,2984]],[0,[10066,7283]]
 ];
 
 // Fer Blanc

@@ -284,6 +284,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listcyclejn,Cyclejn,"cyclejn",langue.cat101);
         loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
         loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
+        loadmarker(listsucces,Succes,"succes",langue.cat46,"succese","succese");
         loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
         loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
         loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");

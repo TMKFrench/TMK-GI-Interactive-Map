@@ -10,6 +10,7 @@ var langFR = {
     'ui-fileerror': 'Fichier de marqueurs invalide !!!',
     'ui-export': 'Le fichier GenshinMapMarker.txt va être téléchargé dans le répertoire par défaut de Téléchargement de votre navigateur.',
     'ui-exportenka': 'Le fichier GenshinMapMarkerEnkanomiya.txt va être téléchargé dans le répertoire par défaut de Téléchargement de votre navigateur.',
+    'ui-exportdarkenka': 'Le fichier GenshinMapMarkerDarkEnkanomiya.txt va être téléchargé dans le répertoire par défaut de Téléchargement de votre navigateur.',
     'ui-close': 'Cacher le Menu',
     'ui-open': 'Afficher le Menu',
     'ui-info': 'Texte d\'information',
@@ -123,8 +124,18 @@ var langFR = {
     'cat106': 'Sigil-Clé type 3',
     'cat107': 'Sigil-Clé type 4',
     'cat108': 'Sigil-Clé type 5',
+    'cat109': 'Statue de vassal',
+    'cat110': 'Cérémonie de guidage de la lumière',
+    'cat111': 'Épreuve des mille lumières',
+    'cat112': 'Point d\'énergie',
+    'cat113': 'Minerai d\'abyssium',
+    'cat114': 'Tilleul de Tokoyo',
+    'cat115': 'Stèle endommagée',
 
     // Succès
+
+        // Teyvat
+
     'succest001': 'Chouchou de l\'Archon Anemo',
     'succesh001': 'Grimpez jusque dans les mains de la statue et asseyez-vous pour obtenir le succès.',
     'succest002': 'Les graines d\'Histoire apportées par le vent',
@@ -212,6 +223,20 @@ var langFR = {
     'succesh047': 'Capturez un papillon cristalin avec l\'Omnifilet d\'ubiquité',
     'succest048': 'Dans les mailles du filet',
     'succesh048': 'Capturez un pinson avec l\'Omnifilet d\'ubiquité',
+    'succest049': 'La fin des inugami (v2.5)',
+    'succesh049': 'Détruisez deux Crânes de faille en peu de temps',
+    'succest050': 'Quel œuil ! (v2.5)',
+    'succesh050': 'Tuez seulement l\'illusion de la Shogun qui fait des attaques en forme de X',
+    'succest051': 'Attention, chien méchant ! (v2.5)',
+    'succesh051': 'Vainquez le Limier de faille pendant son hurlement',
+    'succest052': 'Pratiquement inoffensif... (v2.5)',
+    'succesh052': 'Vainquez un Spectre qui n\'a pas accumulé de fureur',
+
+        // Enkanomiya
+
+    'succeset001': 'Atterrissage d\'urgence',
+    'succeseh001': 'Détruisez le pilier sur lequel est monté un Élémentosaure',
+
 
     // Quêtes
 
@@ -595,7 +620,19 @@ var langFR = {
     'com282': 'Accessible durant la quête « Le secret d\'Erebos »',
     'com283': 'Accessible durant la quête « Le défi de Date »',
     'com284': 'Accessible à la fin de la quête « Recueils des dragons et serpents »<br>',
-    'com285': 'Activer les 3 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour détruire le champ de force'
+    'com285': 'Activer les 3 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour détruire le champ de force',
+    'com286': 'Vous devez récupérer la Clé de Date en faisant la quête « Le défi de Date »',
+    'com287': 'Suivez le Tanuki jusqu\'au coffre',
+    'com288': 'Activer les 4 totems avec une attaque de type <a style="color:steelblue;">HYDRO</a><br>pour faire apparaître le coffre',
+    'com289': 'Allumez le feu pour faire apparaître le coffre',
+    'com290': 'Activer les totems dans l\'ordre avec une attaque de type <a style="color:thistle;">ELECTRO</a><br>puis tuez les ennemis pour deverrouiller le coffre',
+    'com291': 'Terminez les défis pour déverrouiller les totems puis<br>',
+    'com292': 'Allumez tous les brazeros pour déverrouiller le coffre',
+    'com293': 'Déverrouillez le coffre avec la Boîte de Bokuso',
+    'com294': 'Ramenez les 3 fées environnantes pour accéder au défi',
+    'com295': 'Activez les totems pour déverrouiller l\'interrupteur<br>puis tuez tous les ennemis pour déverrouiller le coffre',
+    'com296': 'Accessible à la fin de la quête principale',
+    'com297': 'Ramenez les 2 fées environnantes pour accéder au défi'
 };
 
 var langEN = {
@@ -610,6 +647,7 @@ var langEN = {
     'ui-fileerror': 'Invalid Markers File !!!',
     'ui-export': 'GenshinMapMarker.txt file will be downloaded to your Web Browser download default folder.',
     'ui-exportenka': 'GenshinMapMarkerEnkanomiya.txt file will be downloaded to your Web Browser download default folder.',
+    'ui-exportdarkenka': 'GenshinMapMarkerDarkEnkanomiya.txt file will be downloaded to your Web Browser download default folder.',
     'ui-close': 'Hide Menu',
     'ui-open': 'Show Menu',
     'ui-info': 'Information',
@@ -723,8 +761,18 @@ var langEN = {
     'cat106': 'Sigil-Key type 3',
     'cat107': 'Sigil-Key type 4',
     'cat108': 'Sigil-Key type 5',
+    'cat109': 'Statue of the Vassals',
+    'cat110': 'Light Guiding Ceremony',
+    'cat111': 'Sentou Trial',
+    'cat112': 'Energy Point',
+    'cat113': 'Aphotium Ore',
+    'cat114': 'Tokoyo Legume',
+    'cat115': 'Damaged Stone Slate',
 
     // Succès
+
+        // Teyvat
+
     'succest001': 'Beloved of the Anemo Archon',
     'succesh001': 'Climb up into the hands of the statue and sit down to achieve success.',
     'succest002': 'Seeds of Stories, Brought by the wind',
@@ -812,6 +860,20 @@ var langEN = {
     'succesh047': 'Capture 1 Crystalfly with the Omni-Ubiquity Net',
     'succest048': 'The Net Closes In',
     'succesh048': 'Capture 1 Finch with the Omni-Ubiquity Net',
+    'succest049': 'Inugami\'s End (v2.5)',
+    'succesh049': 'Destroy two Rifthound Skulls within a short time',
+    'succest050': 'Impeccable Judgment',
+    'succesh050': 'Only kill the Shogun illusion that does X-shaped attacks',
+    'succest051': 'Beware of Angry Dog (v2.5)',
+    'succesh051': 'Defeat the Rifthound while he\'s roaring',
+    'succest052': 'Basically Harmless (v2.5)',
+    'succesh052': 'Defeat a Specter that has not accumulated any Fury',
+
+        // Enkanomiya
+
+    'succeset001': 'Hard Landing (v2.5)',
+    'succeseh001': 'Bring a climbing Bathysmal Vishap down',
+
 
     // Quêtes
 
@@ -1195,5 +1257,17 @@ var langEN = {
     'com282': 'Reachable during Erebos\' Secret quest',
     'com283': 'Reachable during Date\'s Challenge quest',
     'com284': 'Reachable at the end of the « Collection of Dragons and Snakes »<br>',
-    'com285': 'Activate all 3 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to remove the force field'
+    'com285': 'Activate all 3 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to remove the force field',
+    'com286': 'You have to get the Date\'s key from the « Date\'s Challenge » quest',
+    'com287': 'Follow the Tanuki to the chest',
+    'com288': 'Activate all 4 totems with a <a style=\"color:steelblue;\">HYDRO</a> type attack<br>to make the chest appear',
+    'com289': 'Light the fire to make the chest appear',
+    'com290': 'Activate all the totems in the order with a <a style="color:thistle;">ELECTRO</a> type attack<br>then kill ennemies to unlock the chest',
+    'com291': 'Finish the challenges to unlock the totems then<br>',
+    'com292': 'Light all the brazeros to unlock the chest',
+    'com293': 'Unlock the chest with the Bokuso Box',
+    'com294': 'Bring back the 3 surrounding seelies to access the challenge',
+    'com295': 'Activate the totems to unlock the switch<br>then kill all the enemies to unlock the chest',
+    'com296': 'Reachable at the end of the main quest',
+    'com297': 'Bring back the 2 surrounding seelies to access the challenge'
 };

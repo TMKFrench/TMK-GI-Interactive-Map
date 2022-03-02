@@ -103,6 +103,7 @@ langue.defis= "+langue.defis";
 	<select name="format" id="grpformat">
 		<option value="image" selected>Image</option>
 		<option value="video">Vidéo</option>
+		<option value="todo">ToDo</option>
 	</select><br><br>
 	<label>Grp Title :</label>
 	<input type="text" id="grouptitle">
@@ -258,7 +259,13 @@ function myFunctionLBM(item, index, arr) {
 	var rang = ((start+index) < 10) ? "0"+(start+index) : start+index;
 	var x = Math.trunc (coord[0]/2);
 	var y = Math.trunc (coord[1]/2);
-	var formatm = (item[0] == 0) ? 'image' : 'video';
+
+	if (item[0] == 0) formatm = 'image';
+	if (item[0] == 3) formatm = 'gif';
+	if (item[0] == 5) formatm = 'video';
+	if ((item[0] == 12) && (typeof item[2] !== 'undefined')) formatm = 'todo';
+
+	// var formatm = (item[0] == 0) ? 'image' : 'video';
 	// if (item[0]==12 || item[0]==11) {
     // 	var texte = (typeof item[2] !== 'undefined') ? ',"'+item[2]+'"' : "";
 	// }

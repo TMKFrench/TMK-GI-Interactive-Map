@@ -5,10 +5,10 @@
 	<meta http-equiv="content-language" content="fr" />
 	<meta charset="utf-8">
 	<meta name="keywords" content="Map Interactive; Genshin Impact; coffre; Anemoculus; Geoculus; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
-	<meta name="description" content="Map Interactive Genshin Impact - Enkanomiya" />
+	<meta name="description" content="Map Interactive Genshin Impact - Offrande d'accès aux 3 Royaumes" />
 	<meta name="google-site-verification" content="bliVr8lt1OPhn3qLBDpT03pxeT5zdVY0xu12OmXtZis" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Map Interactive Genshin Impact - Enkanomiya</title>
+	<title>Map Interactive Genshin Impact - Offrande d'accès aux 3 Royaumes</title>
 	<link rel="icon" href="media/icones/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="assets/inc/tailwind.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/inc/leaflet.css">
@@ -36,7 +36,7 @@
 					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
 					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">EN</a>
 					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Sauvegarder les Markers" download="GenshinMapMarkerEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnExport" href="#!" title="Sauvegarder les Markers" download="GenshinMapMarkerDarkEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
 					<a id="BtnImport" href="#" title="Charger les Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
 					<input type="file" id="ImportBox" accept=".txt" class="hidden">
 				</div>
@@ -44,62 +44,44 @@
 					<a id="BtnTeyvat" href="index.html" title="Accès Map Teyvat" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accès à la Map de TEYVAT</a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="indexdarkenka.html" title="Accès Offrande d'accès aux 3 Royaumes" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accés à la Map Offrande d'accès aux 3 Royaumes</a>
+					<a id="BtnDarkenka" href="indexenka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accés à la Map d'Enkanomiya</a>
 				</div>
 				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
 					<li class="accordion title">Exploration</li>
 					<div class="panel">
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+							<li class="marker"><a id="btnFRstatue" href="#!" data-type="statue" class="active"><img src="media/icones/vassal.png" /> <span>Statue de vassal</span></a></li>
 							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport" class="active"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
 							<li class="marker"><a id="btnFRenkagate" href="#!" data-type="enkagate"><img src="media/icones/enkagatem.png" /> <span>Porte phasée</span></a></li>
-							<li class="marker"><a id="btnFRcyclejn" href="#!" data-type="cyclejn"><img src="media/icones/cyclejnm.png" /> <span>Inter Jour/Nuit</span></a></li>
-							<li class="marker"><a id="btnFRtriangle" href="#!" data-type="triangle"><img src="media/icones/trianglem.png" /> <span>Méca. Triangulaire</span></a></li>
-							<li class="marker"><a id="btnFRsucces" href="#!" data-type="succes"><img src="media/icones/succes.png" /> <span>Succès</span></a></li>
-							<li class="marker"><a id="btnFRpeche" href="#!" data-type="peche"><img src="media/icones/pechem.png" /> <span>Point de pêche</span></a></li>
-						</ul>
-					</div>
-					<li class="accordion title">Sigil-Clés</li>
-					<div class="panel">
-						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
-							<li class="marker"><a id="btnFRclesigil1" href="#!" data-type="clesigil1"><img src="media/icones/clesigil1m.png" /> <span>Sigil Type 1</span></a></li>
-							<li class="marker"><a id="btnFRclesigil2" href="#!" data-type="clesigil2"><img src="media/icones/clesigil2m.png" /> <span>Sigil Type 2</span></a></li>
-							<li class="marker"><a id="btnFRclesigil3" href="#!" data-type="clesigil3"><img src="media/icones/clesigil3m.png" /> <span>Sigil Type 3</span></a></li>
-							<li class="marker"><a id="btnFRclesigil4" href="#!" data-type="clesigil4"><img src="media/icones/clesigil4m.png" /> <span>Sigil Type 4</span></a></li>
-							<li class="marker"><a id="btnFRclesigil5" href="#!" data-type="clesigil5"><img src="media/icones/clesigil5m.png" /> <span>Sigil Type 5</span></a></li>
+							<li class="marker"><a id="btnFRptnrj" href="#!" data-type="ptnrj"><img src="media/icones/ptnrjm.png" /> <span>Point d'énergie</span></a></li>
+							<li class="marker"><a id="btnFRstele" href="#!" data-type="stele"><img src="media/icones/stelem.png" /> <span>Stèle endommagée</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Coffres</li>
 					<div class="panel">
-						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-xs">
 							<li class="marker"><a id="btnFRcordi" href="#!" data-type="cordi"><img src="media/icones/cordim.png"/> <span>Ordinaires</span></a></li>
 							<li class="marker"><a id="btnFRcdelic" href="#!" data-type="cdelic"><img src="media/icones/cdelicm.png"/> <span>Délicats</span></a></li>
 							<li class="marker"><a id="btnFRcprec" href="#!" data-type="cprec"><img src="media/icones/cprecm.png"/> <span>Précieux</span></a></li>
 							<li class="marker"><a id="btnFRcluxe" href="#!" data-type="cluxe"><img src="media/icones/cluxem.png"/> <span>Luxueux</span></a></li>
 							<li class="marker"><a id="btnFRcdefi" href="#!" data-type="cdefi"><img src="media/icones/cdefim.png"/> <span>Défi</span></a></li>
 							<li class="marker"><a id="btnFRcfee" href="#!" data-type="cfee"><img src="media/icones/cfeem.png"/> <span>Fées</span></a></li>
-							<li class="marker"><a id="btnFRpierrekc" href="#!" data-type="pierrekc"><img src="media/icones/pierrekcm.png" /> <span>Pierre cassée</span></a></li>
+							<li class="marker"><a id="btnFRcfeee" href="#!" data-type="cfeee"><img src="media/icones/cfeeem.png"/> <span>Fées Electro</span></a></li>
+							<li class="marker"><a id="btnFRepreuve" href="#!" data-type="epreuve"><img src="media/icones/epreuvem.png" /> <span>Epreuve des mille lumières</span></a></li>
+							<li class="marker"><a id="btnFRceremonie" href="#!" data-type="ceremonie"><img src="media/icones/ceremoniem.png" /> <span>Cérémonie de guidage de la lumière</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Matériaux et Minerais</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
-							<li class="icone"><a href="#!" title="Fer Blanc"><img id="btnFRferblanc" class="matbtn jur" data-type="ferblanc" src="media/icones/ferblancoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Morceau d'améthyste"><img id="btnFRamethyste" class="matbtn jur" data-type="amethyste" src="media/icones/amethysteoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Electro Cristal"><img id="btnFRelectrocris" class="matbtn jur" data-type="electrocris" src="media/icones/electrocrisoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Minerai d'abyssium"><img id="btnFRabyssium" class="matbtn jur" data-type="abyssium" src="media/icones/abyssiumoff.png"/></a></li>
 							<li class="icone"><a href="#!" title="Noyaux Cristallins"><img id="btnFRnoyauc" class="matbtn jur" data-type="noyauc" src="media/icones/noyaucoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Perles de Loche"><img id="btnFRperle" class="matbtn jur" data-type="perle" src="media/icones/perleoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Perle de corail"><img id="btnFRcorail" class="matbtn jur" data-type="corail" src="media/icones/corailoff.png"/></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Animaux et Plantes</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
-							<li class="icone"><a href="#!" title="Grenouilles"><img id="btnFRgrenouille" class="matbtn jur" data-type="grenouille" src="media/icones/grenouilleoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Crabes"><img id="btnFRcrabe" class="matbtn jur" data-type="crabe" src="media/icones/crabeoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Fleurs de Feu"><img id="btnFRffeu" class="matbtn jur" data-type="ffeu" src="media/icones/ffeuoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Fleurs de Brume"><img id="btnFRfbrume" class="matbtn jur" data-type="fbrume" src="media/icones/fbrumeoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Ganoderma marin"><img id="btnFRganoderma" class="matbtn jur" data-type="ganoderma" src="media/icones/ganodermaoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Herbes marines"><img id="btnFRherbem" class="matbtn jur" data-type="herbem" src="media/icones/herbemoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Tilleul de Tokoyo"><img id="btnFRtilleul" class="matbtn jur" data-type="tilleul" src="media/icones/tilleuloff.png"/></a></li>
 						</ul>
 					</div>
 				</div>
@@ -112,70 +94,52 @@
 					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
 					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">FR</a>
 					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinMapMarkerEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinMapMarkerDarkEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
 					<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
-					<!-- <input type="file" id="ImportBox" accept=".txt" class="hidden"> -->
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
 					<a id="BtnTeyvat" href="index.html" title="Access to Teyvat Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to TEYVAT Map</a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="indexdarkenka.html" title="Acces to Three Realms Gateway Offering Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to 3 Realms Gateway Offering Map</a>
+					<a id="BtnDarkenka" href="indexenka.html" title="Acces to Enkanomiya Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to Enkanomiya Map</a>
 				</div>
 				<div id="MarkerSelect" class="p-2 pt-0">
 					<li class="accordion title">Exploration</li>
 					<div class="panel">
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-sm">
+							<li class="marker"><a id="btnENstatue" href="#!" data-type="statue" class="active"><img src="media/icones/vassal.png" /> <span>Statue of the Vassals</span></a></li>
 							<li class="marker"><a id="btnENteleport" href="#!" data-type="teleport" class="active"><img src="media/icones/teleportm.png" /> <span>Teleports</span></a></li>
 							<li class="marker"><a id="btnENenkagate" href="#!" data-type="enkagate"><img src="media/icones/enkagatem.png" /> <span>Phase Gate</span></a></li>
-							<li class="marker"><a id="btnENcyclejn" href="#!" data-type="cyclejn"><img src="media/icones/cyclejnm.png" /> <span>Day/Night Switchs</span></a></li>
-							<li class="marker"><a id="btnENtriangle" href="#!" data-type="triangle"><img src="media/icones/trianglem.png" /> <span>Triangular Mecanism</span></a></li>
-							<li class="marker"><a id="btnENsucces" href="#!" data-type="succes"><img src="media/icones/succes.png" /> <span>Achievements</span></a></li>
-							<li class="marker"><a id="btnENpeche" href="#!" data-type="peche"><img src="media/icones/pechem.png" /> <span>Fishing Spot</span></a></li>
-						</ul>
-					</div>
-					<li class="accordion title">Keys Sigil</li>
-					<div class="panel">
-						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
-							<li class="marker"><a id="btnENclesigil1" href="#!" data-type="clesigil1"><img src="media/icones/clesigil1m.png" /> <span>Sigil Type 1</span></a></li>
-							<li class="marker"><a id="btnENclesigil2" href="#!" data-type="clesigil2"><img src="media/icones/clesigil2m.png" /> <span>Sigil Type 2</span></a></li>
-							<li class="marker"><a id="btnENclesigil3" href="#!" data-type="clesigil3"><img src="media/icones/clesigil3m.png" /> <span>Sigil Type 3</span></a></li>
-							<li class="marker"><a id="btnENclesigil4" href="#!" data-type="clesigil4"><img src="media/icones/clesigil4m.png" /> <span>Sigil Type 4</span></a></li>
-							<li class="marker"><a id="btnENclesigil5" href="#!" data-type="clesigil5"><img src="media/icones/clesigil5m.png" /> <span>Sigil Type 5</span></a></li>
+							<li class="marker"><a id="btnENptnrj" href="#!" data-type="ptnrj"><img src="media/icones/ptnrjm.png" /> <span>Energy Point</span></a></li>
+							<li class="marker"><a id="btnENstele" href="#!" data-type="stele"><img src="media/icones/stelem.png" /> <span>Damaged Stone Slate</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Chests</li>
 					<div class="panel">
-						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
+						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-xs">
 							<li class="marker"><a id="btnENcordi" href="#!" data-type="cordi"><img src="media/icones/cordim.png"/> <span>Commons</span></a></li>
 							<li class="marker"><a id="btnENcdelic" href="#!" data-type="cdelic"><img src="media/icones/cdelicm.png"/> <span>Exquisites</span></a></li>
 							<li class="marker"><a id="btnENcprec" href="#!" data-type="cprec"><img src="media/icones/cprecm.png"/> <span>Precious</span></a></li>
 							<li class="marker"><a id="btnENcluxe" href="#!" data-type="cluxe"><img src="media/icones/cluxem.png"/> <span>Luxurious</span></a></li>
 							<li class="marker"><a id="btnENcdefi" href="#!" data-type="cdefi"><img src="media/icones/cdefim.png"/> <span>Challenges</span></a></li>
 							<li class="marker"><a id="btnENcfee" href="#!" data-type="cfee"><img src="media/icones/cfeem.png"/> <span>Seelies</span></a></li>
-							<li class="marker"><a id="btnENpierrekc" href="#!" data-type="pierrekc"><img src="media/icones/pierrekcm.png" /> <span>Smashed Stone</span></a></li>
+							<li class="marker"><a id="btnENcfeee" href="#!" data-type="cfeee"><img src="media/icones/cfeeem.png"/> <span>Electro Seelies</span></a></li>
+							<li class="marker"><a id="btnENepreuve" href="#!" data-type="epreuve"><img src="media/icones/epreuvem.png" /> <span>Sentou Trial</span></a></li>
+							<li class="marker"><a id="btnENceremonie" href="#!" data-type="ceremonie"><img src="media/icones/ceremoniem.png" /> <span>Light guiding Ceremony</span></a></li>
+							
 						</ul>
 					</div>
 					<li class="accordion title">Materials & Minerals</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
-							<li class="icone"><a href="#!" title="White Iron"><img id="btnENferblanc" class="matbtn jur" data-type="ferblanc" src="media/icones/ferblancoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Amethyst Lump"><img id="btnENamethyste" class="matbtn jur" data-type="amethyste" src="media/icones/amethysteoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Electro Crystal"><img id="btnENelectrocris" class="matbtn jur" data-type="electrocris" src="media/icones/electrocrisoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Aphotium Ore"><img id="btnENabyssium" class="matbtn jur" data-type="abyssium" src="media/icones/abyssiumoff.png"/></a></li>
 							<li class="icone"><a href="#!" title="Crystal Core"><img id="btnENnoyauc" class="matbtn jur" data-type="noyauc" src="media/icones/noyaucoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Loach Pearl"><img id="btnENperle" class="matbtn jur" data-type="perle" src="media/icones/perleoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Sango Pearl"><img id="btnENcorail" class="matbtn jur" data-type="corail" src="media/icones/corailoff.png"/></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Animals & Plants</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
-							<li class="icone"><a href="#!" title="Frogs"><img id="btnENgrenouille" class="matbtn jur" data-type="grenouille" src="media/icones/grenouilleoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Crabs"><img id="btnENcrabe" class="matbtn jur" data-type="crabe" src="media/icones/crabeoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Flaming Flowers"><img id="btnENffeu" class="matbtn jur" data-type="ffeu" src="media/icones/ffeuoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Mist Flowers"><img id="btnENfbrume" class="matbtn jur" data-type="fbrume" src="media/icones/fbrumeoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Sea Ganoderma"><img id="btnENganoderma" class="matbtn jur" data-type="ganoderma" src="media/icones/ganodermaoff.png"/></a></li>
-							<li class="icone"><a href="#!" title="Seagrass"><img id="btnENherbem" class="matbtn jur" data-type="herbem" src="media/icones/herbemoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Tokoyo Legume"><img id="btnENtilleul" class="matbtn jur" data-type="tilleul" src="media/icones/tilleuloff.png"/></a></li>
 						</ul>
 					</div>
 				</div>
@@ -188,21 +152,35 @@
 	<div id="infoFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3>Map interactive d'Enkanomiya</h3>
+		<h3>Map interactive d'Offrande d'accès aux 3 Royaumes</h3>
+        <p>Cliquez sur un marqueur de votre choix pour plus d'information.<br>Utilisez la molette de la souris pour zoomer et le menu pour afficher ou masquer les POIs.</p>
+        <p class="mt-4">Si vous voulez participer en m'envoyant de nouveaux emplacements, n'hésitez pas à me contacter :<br>
+			- par mail à tmkfrench@gmail.com<br>
+			<span class="text-red-600">- par MP sur discord : TMKFrench#4221</span></p>
+		<h4 class="mt-4">Suivi des marqueurs<br></h4>
+		<p>Notre carte utilise le localStorage pour enregistrer le suivi de vos marqueurs, c'est-à-dire que ces informations sont stockées directement dans votre navigateur.
+			Vous pouvez les exporter afin de les utiliser sur un autre support ou si vous avez plusieurs comptes pour les permuter.
+		</p>
 	</div>
 	<div id="infoEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3>Interactive Map of Enkanomiya</h3>
+		<h3>Interactive Map of 3 Realms Gateway Offering</h3>
+        <p>Clic on a Marker of your choice for more information.<br>Use mouse wheel to zoom and the menu buttons to toggle POIs.</p>
+        <p class="mt-4">If you want to participate, giving me new location on map, feel free to contact me :<br>
+			- by mail at tmkfrench@gmail.com<br>
+			<span class="text-red-600">- by Discord PM : TMKFrench#4221></span></p>
+		<h4 class="mt-4">Saving Markers<br></h4>
+		<p>Our map use the localStorage to save checked markers. Informations are stored localy in your brownser.
+			You can export them to use them on another device or if you have multi-account.
+		</p>
 	</div>
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 1.3.1 du 26/01/2022</h3>
-		<p class="mt-4">- Ajout des Coffres Luxueux<br>
-						- Ajout des derniers screens des Sigils et TP<br>
-						- Ajout d'images/vidéos de coffres, pierres cassées<br>
-						- Ajout d'emplacements de coffres</p>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 1.3 du 24/02/2022</h3>
+		<p class="mt-4">- Rajout du dernier coffre luxueux / Quête<br>
+						- Map Normallement complète :)</p>
 		<p class="mt-4">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur
 		</p>
@@ -210,11 +188,9 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 1.3.1 of 01/26/2022</h3>
-		<p class="mt-4">- Adding Luxurious Chests
-						- Adding the last screens of Sigils and TP<br>
-						- Adding Screens/Videos of Chests, Smashed stones<br>
-						- Adding many chests places</p>
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 1.3 of 02/24/2022</h3>
+		<p class="mt-4">- Adding the last luxurious chest<br>
+						- Map is Normally complete :)</p>
 		<p class="mt-4">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache
 		</p>
@@ -250,8 +226,8 @@
 	}
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
-	<script type="text/javascript" src="assets/js/markersenka.js"></script>
-	<script type="text/javascript" src="assets/js/mapenka.js?v=1.3"></script>
+	<script type="text/javascript" src="assets/js/markersdarkenka.js"></script>
+	<script type="text/javascript" src="assets/js/mapdarkenka.js?v=1.3"></script>
 
 </body>
 
