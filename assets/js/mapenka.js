@@ -1,19 +1,3 @@
-    var mymap;
-    var markeropa;
-    var catmarkers = [];
-    var savearray = [];
-    var teyvatarray = [
-        'teleport','enkagate','cyclejn','triangle','peche','succes',
-        'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
-        'cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc',
-        'ferblanc','amethyste','electrocris','noyauc','perle','corail',
-        'ffeu','fbrume','ganoderma','herbem',
-        'grenouille','crabe'];
-    var nbtmark = 0;
-    var langue, lgmenu;
-
-// $(window).load(function(){
-
 // Fonctions Interaction sur la Map
 
     function onMapClick(e) {
@@ -25,12 +9,12 @@
       }
     
     function onMarkerClick(e) {
-        markeropa = this;
+        currentMarker = this;
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.3.1")) {
-            localStorage.Mapversenka = "1.3.1";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.4")) {
+            localStorage.Mapversenka = "1.4";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -39,132 +23,208 @@
         }
     }
 
-// Fonctions de Gestion des Marqueurs
-
-    function getLscbx (name) {
-        lscbx = localStorage.getItem("chkbox" + name);
-        if(!lscbx) {
-            lscbx = [];
-        } else {
-            lscbx = JSON.parse(lscbx);
+    function oldtonew(e) {
+        if (!localStorage.getItem('updatesave')) {
+            var listcbx = ['cordi','cordil','cordii','cordie','cordide','cordig','cdelic','cdelicl','cdelici','cdelice','cdelicde','cdelicg','cprec','cprecl','cpreci','cprece','cprecde','cprecg',
+            'cluxe','cluxel','cluxei','cluxee','cluxede','cluxeg','cdefi','cdefil','cdefii','cdefie','cdefide','cdefig','cfee','cfeel','cfeei','cfeeenko','cfeedenko','cfeeg','cfeee','cfeeede',
+            'cetr','sanctum','sanctul','sanctui','pano','panol','panoi','succes','succesl','succese','anemo','geocul','eleccul','agate','sceaugeo','triangle','pierrekc',
+            'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5','stelede','cepreuve','cceremonie','echo1','echo2','echo3','echo4','echo5','echo6','echo7','cpeint','charp'
+            ];
+            var newusermarkers = [];
+            listcbx.forEach(function(e){
+                markers = (localStorage.getItem('chkbox'+e)) ? JSON.parse(localStorage.getItem('chkbox'+e)) : [];
+                markers.forEach(function(nb){
+                    newusermarkers.push(e+nb);
+                });
+                localStorage.removeItem('chkbox'+e);
+            });
+            localStorage.setItem('userMarkers', JSON.stringify(newusermarkers));
+            localStorage.updatesave = "1";
+            userMarkers = newusermarkers;
         }
-        return lscbx;
-    }
-
-    function initarray() {
-        catmarkers.forEach(function(e) {
-            window[e+'array'] = getLscbx(e);
-        });
-    }
-
-    function selectarray(mtype,mnumb,mstate) {
-        array = window[mtype+'array'];
-        if (mstate) {
-            array.push(mnumb);
-            markeropa.setOpacity(0.45);
-        } else {
-            array.splice((array.indexOf(""+mnumb)), 1);
-            markeropa.setOpacity(1);
-        }
-        localStorage.setItem("chkbox" + mtype, JSON.stringify(array));
     };
-
-    function activecb(mtype,mnumb) {
-        cooktl = getLscbx(mtype);
-        if (cooktl) {
-            if (cooktl.indexOf(""+mnumb) >= 0)
-                return true;
+    
+    function mergesave(servmarkers) {
+        var localmarkers = (localStorage.userMarkers) ? JSON.parse(localStorage.userMarkers) : [];
+        localmarkers.forEach(function(e){
+            if(servmarkers.indexOf(e)<0)
+                servmarkers.push(e);
+        });
+    
+        $.post('api/e/mergemarkers', {data : JSON.stringify(servmarkers)}, function(res) {
+            if(typeof(res.error) !== 'undefined') {
+                alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                window.location.reload();
+            };
+        });
+        alert(langue["ui-mergedone"]);
+        window.location.reload();
+    };
+    
+    function saveDBUserMarkers(idm, checked) {
+    
+        if(checked) {
+            $.post('api/e/addmarker/'+idm, function(res) {
+                if(typeof(res.error) !== 'undefined') {
+                    alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                    window.location.reload();
+                };
+    
+                currentMarker.setOpacity(.45);
+                userMarkers = res.markers;
+            });
+        } else {
+            $.post('api/e/removemarker/'+idm, function(res) {
+                if(typeof(res.error) !== 'undefined') {
+                    alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                    window.location.reload();
+                };
+    
+                currentMarker.setOpacity(1);
+                userMarkers = res.markers;
+            });
         };
-        return false;
     };
-
+    
+    function saveLocalUserMarkers(idm, checked) {
+    
+        var markers = getUserMarkers();
+    
+        if(checked) {
+          if(markers.indexOf(idm) < 0) {
+            markers.push(idm);
+          }
+          currentMarker.setOpacity(.45);
+        } else {
+          if(markers.indexOf(idm) >= 0) {
+            markers.splice(markers.indexOf(idm), 1);
+          }
+          currentMarker.setOpacity(1);
+        }
+    
+        localStorage.setItem('userMarkers', JSON.stringify(markers));
+        userMarkers = JSON.stringify(markers);
+    };
+    
+    function getUserMarkers() {
+        var markers = localStorage.getItem('userMarkers');
+    
+        if(!markers) {
+          markers = [];
+        } else {
+          markers = JSON.parse(markers);
+        }
+    
+        return markers;
+    };
+    
+    function popUpOpen(e) {
+        var content = e.popup.getContent();
+    
+        if($(content).find('input#mapbox').length > 0) {
+          if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('id') ) >= 0) {
+            $('input#mapbox[data-id="'+$(content).find('input#mapbox').first().data('id')+'"]').prop('checked', 'checked');
+          }
+        }
+      }
+    
     function resetmarkers() {
-        doreset();
+        if(userLocal) {
+            localStorage.removeItem('userMarkers');
+        } else {
+            $.post('api/e/resetmarkers', function(res) {
+                if(typeof(res.error) !== 'undefined') {
+                  alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                  window.location.reload();
+                }
+            });
+        };
         alert(langue["ui-reset"]);
-        return document.location.href = 'indexenka.html';
+        window.location.reload();
     };
-
-    function doreset () {
-        catmarkers.forEach(function(e) {
-            localStorage.removeItem("chkbox"+e);
-        });
-    };
-
-    function savemarkers() {
-        savearray = ["v2"];
-        catmarkers.forEach(function(e){
-            savearray.splice(savearray.length, 0, e, getLscbx(e));
-        });
-        return savearray;
-    };
-
+    
     function loadusermarkers(lstmrk) {
         if (lstmrk[0] == "v2") {
-            doreset();
+            // doreset();
             var i = 1, cbx;
             while (lstmrk[i]) {
-                cbx = "chkbox" + lstmrk[i];
-                localStorage.setItem(cbx, JSON.stringify(lstmrk[i+1]));
+                cbx = lstmrk[i];
+                lstmrk[i+1].forEach(function(e){
+                    userMarkers.push(cbx + e);
+                });
+                if (localStorage.getItem('chkbox'+cbx))
+                    localStorage.removeItem('chkbox'+cbx);
                 i = i + 2;
             };
-            alert(langue["ui-import"]);
-            return document.location.href = 'indexenka.html';
+            localStorage.setItem('userMarkers', JSON.stringify(userMarkers));
         } else {
-            alert(langue["ui-fileerror"]);
+            localStorage.setItem('userMarkers', JSON.stringify(lstmrk));
+        };
+        alert(langue["ui-import"]);
+        window.location.reload();
+    };
+        
+    function reselectmenu(ligne, btn){
+
+        if (!userLocal) {
+    
+            if(ligne){
+                ligne.forEach(function(element) {
+                    $("#btn" + lgmenu + element).addClass('active');
+                    mymap.addLayer(window[element + 'Group']);
+                });
+            };
+            if (btn){
+                btnstatut.forEach(function(element) {
+                    $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
+                    mymap.addLayer(window[element + 'Group']);
+                });
+            };
+        } else {
+            var lilocal = (localStorage.MenumapgenshinLiDarkEnka) ? JSON.parse(localStorage.MenumapgenshinLiDarkEnka) : [];
+            var btnlocal = (localStorage.MenumapgenshinBtnDarkEnka) ? JSON.parse(localStorage.MenumapgenshinBtnDarkEnka) : [];
+
+            if(lilocal){
+                lilocal.forEach(function(element) {
+                    $("#btn" + lgmenu + element).addClass('active');
+                    mymap.addLayer(window[element + 'Group']);
+                });
+            };
+            if (btnlocal){
+                btnlocal.forEach(function(element) {
+                    $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
+                    mymap.addLayer(window[element + 'Group']);
+                });
+            };
         };
     };
 
-    function reselectmenu(){
-        $('#menu a[data-type]').each(function(){
-            if ($(this).hasClass('active')) {
-                // $('.' + $(this).data('type')).show();
-                mymap.addLayer(window[$(this).data('type') + 'Group']);
-            }
-        });
-        $('.matbtn').each(function(){
-            if ($(this).hasClass('active')) {
-                // $('.' + $(this).data('type')).show();
-                mymap.addLayer(window[$(this).data('type') + 'Group']);
-            }
-        });
-        if (localStorage.MenumapgenshinLiEnka) {
-            var listatut = JSON.parse(localStorage.MenumapgenshinLiEnka);
-        } else {
-            localStorage.MenumapgenshinLiEnka = [];
-        };
-        if (localStorage.MenumapgenshinBtnEnka) {
-            var btnstatut = JSON.parse(localStorage.MenumapgenshinBtnEnka);
-        } else {
-            localStorage.MenumapgenshinBtnEnka = [];
-        };
+// Variables générales
 
-        if(listatut){
-            listatut.forEach(function(element) {
-                $("#btn" + lgmenu + element).addClass('active');
-                mymap.addLayer(window[element + 'Group']);
-            });
-        };
-        if (btnstatut){
-            btnstatut.forEach(function(element) {
-                $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
-                mymap.addLayer(window[element + 'Group']);
-            });
-        };
-
-    };
-
-    // $(function () {
+var mymap;
+var userMarkers = getUserMarkers();
+var userLocal = true;
+var listatut = [];
+var btnstatut = [];
+var teyvatarray = [
+    'teleport','enkagate','cyclejn','triangle','peche','succes',
+    'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
+    'cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc',
+    'ferblanc','amethyste','electrocris','noyauc','perle','corail',
+    'ffeu','fbrume','ganoderma','herbem',
+    'grenouille','crabe'];
+var nbtmark = 0;
+var langue, lgmenu;
 
 // Initialisation et chargement de la Map
 
     mymap = L.map('mapid', {
-        // crs: L.CRS.Simple,
         center : [0,0],
         zoom : 2
     });
 
     L.tileLayer('media/tilesenka/{z}/{x}/{y}.png', {
-        // attribution: none,
+        attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
         maxZoom: 6,
         minZoom: 2,
         continuousWorld: true,
@@ -208,20 +268,53 @@ BoutonMenu.addTo(mymap);
 
 // Initialisation des marqueurs
 
+// Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
+
+function initMarkers () {
+    loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpe");
+    loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
+    loadmarker(listcyclejn,Cyclejn,"cyclejn",langue.cat101);
+    loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
+    loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
+    loadmarker(listsucces,Succes,"succes",langue.cat46,"succese","succese");
+    loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
+    loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
+    loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");
+    loadmarker(listclesigil3,Clesigil3,"clesigil3",langue.cat106,"clesigil3-","clesigil3");
+    loadmarker(listclesigil4,Clesigil4,"clesigil4",langue.cat107,"clesigil4-","clesigil4");
+    loadmarker(listclesigil5,Clesigil5,"clesigil5",langue.cat108,"clesigil5-","clesigil5");
+    loadmarker(listcordi,Cordi,"cordi",langue.cat04,"oce","cordie");
+    loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dce","cdelice");
+    loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pce","cprece");
+    loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lce","cluxee");
+    loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"defie","cdefie");
+    loadmarker(listcfee,Cfee,"cfee",langue.cat09,"","cfeeenko");
+    loadmarker(listferblanc,Ferblanc,"ferblanc",langue.cat25);
+    loadmarker(listamethyste,Amethyste,"amethyste",langue.cat84);
+    loadmarker(listelectroc,Electrocris,"electrocris",langue.cat12);
+    loadmarker(listnoyauc,Noyauc,"noyauc",langue.cat44);
+    loadmarker(listperle,Perle,"perle",langue.cat32);
+    loadmarker(listcorail,Corail,"corail",langue.cat97);
+    loadmarker(listffeu,Ffeu,"ffeu",langue.cat14);
+    loadmarker(listfbrume,Fbrume,"fbrume",langue.cat13);
+    loadmarker(listganoderma,Ganoderma,"ganoderma",langue.cat81);
+    loadmarker(listherbem,Herbem,"herbem",langue.cat82);
+    loadmarker(listgrenouille,Grenouille,"grenouille",langue.cat27);
+    loadmarker(listcrabe,Crabe,"crabe",langue.cat64);
+
+    $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
+};
+
     function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
         var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt="", counternull=0;
-        var checkopa = getLscbx(cbxname);
         var lgrp = window[grp + 'Group'];
-        if(typeof cbxname !== 'undefined') 
-            catmarkers.push(cbxname);
-        // console.log(JSON.stringify(catmarkers));
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
             // console.log("mark n° "+ (i+1) + " " + JSON.stringify(marq)); // Pour Debug les marqueurs
             mtype = marq[0];
             nfichier = filename + (i+1);
             if(typeof cbxname !== 'undefined')
-            checkbox = '<br><h2><label><input id="mapbox" name="'+cbxname+'" value="'+(i+1)+'" type="checkbox" /> '+langue['ui-found']+'</h2>';
+            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+cbxname+(i+1)+'" /> '+langue['ui-found']+'</label></h2>';
 
             switch (mtype) {
                 case 0 : // Img (txt+cb)
@@ -267,7 +360,7 @@ BoutonMenu.addTo(mymap);
                 }
             };
 
-            if(checkopa.indexOf(""+(i+1)) >= 0)
+            if(userMarkers.indexOf(cbxname+(i+1)) >= 0)
             curmarker.setOpacity(0.45);
             curmarker.addTo(lgrp);
 
@@ -277,59 +370,10 @@ BoutonMenu.addTo(mymap);
         // console.log("nombre de marqueur Total chargés : " + nbtmark); // Pour debug
     };
 
-    // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
-
-        loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpe");
-        loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
-        loadmarker(listcyclejn,Cyclejn,"cyclejn",langue.cat101);
-        loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
-        loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
-        loadmarker(listsucces,Succes,"succes",langue.cat46,"succese","succese");
-        loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
-        loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
-        loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");
-        loadmarker(listclesigil3,Clesigil3,"clesigil3",langue.cat106,"clesigil3-","clesigil3");
-        loadmarker(listclesigil4,Clesigil4,"clesigil4",langue.cat107,"clesigil4-","clesigil4");
-        loadmarker(listclesigil5,Clesigil5,"clesigil5",langue.cat108,"clesigil5-","clesigil5");
-        loadmarker(listcordi,Cordi,"cordi",langue.cat04,"oce","cordie");
-        loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dce","cdelice");
-        loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pce","cprece");
-        loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lce","cluxee");
-        loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"defie","cdefie");
-        loadmarker(listcfee,Cfee,"cfee",langue.cat09,"","cfeeenko");
-        loadmarker(listferblanc,Ferblanc,"ferblanc",langue.cat25);
-        loadmarker(listamethyste,Amethyste,"amethyste",langue.cat84);
-        loadmarker(listelectroc,Electrocris,"electrocris",langue.cat12);
-        loadmarker(listnoyauc,Noyauc,"noyauc",langue.cat44);
-        loadmarker(listperle,Perle,"perle",langue.cat32);
-        loadmarker(listcorail,Corail,"corail",langue.cat97);
-        loadmarker(listffeu,Ffeu,"ffeu",langue.cat14);
-        loadmarker(listfbrume,Fbrume,"fbrume",langue.cat13);
-        loadmarker(listganoderma,Ganoderma,"ganoderma",langue.cat81);
-        loadmarker(listherbem,Herbem,"herbem",langue.cat82);
-        loadmarker(listgrenouille,Grenouille,"grenouille",langue.cat27);
-        loadmarker(listcrabe,Crabe,"crabe",langue.cat64);
-
-    $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
-
 // Fonctions Interaction Map
 
     mymap.on("click", onMapClick);
-
-    mymap.on('popupopen', function () {
-        $(":checkbox").on("change", function(){
-            var checkboxtype = this.name;
-            var checkboxnumber = this.value;
-            var checkboxstate = this.checked;
-            selectarray (checkboxtype, checkboxnumber, checkboxstate);
-        });
-        if(document.getElementById("mapbox")){
-            var checkboxtype = document.getElementById("mapbox").name;
-            var checkboxnumber = document.getElementById("mapbox").value;
-            var checkboxstate = activecb(checkboxtype,checkboxnumber);
-            $("#mapbox").prop('checked', checkboxstate);
-        };
-    });
+    mymap.on('popupopen', popUpOpen);
 
 // Gestion du Menu
 
@@ -340,18 +384,24 @@ BoutonMenu.addTo(mymap);
         $(this).toggleClass('active');
         if($(this).hasClass('active')) {
             mymap.addLayer(window[type+'Group']);
+            if(!userLocal)
+                $.post('api/e/addmenu/'+type);
         } else {
             mymap.removeLayer(window[type+'Group']);
+            if(!userLocal)
+                $.post('api/e/removemenu/'+type);
         };
 
-        var listatut = [];
-        $('#menu a[data-type]').each(function(){
-            if ($(this).hasClass('active') && (listatut.indexOf($(this).data('type')) < 0)) {
-                listatut.push($(this).data('type'));
+        if(userLocal) {
+            var listatut = [];
+            $('#menu a[data-type]').each(function(){
+                if ($(this).hasClass('active') && (listatut.indexOf($(this).data('type')) < 0)) {
+                    listatut.push($(this).data('type'));
+                };
+            });
+            localStorage.MenumapgenshinLiDarkEnka = JSON.stringify(listatut);
             };
         });
-        localStorage.MenumapgenshinLiEnka = JSON.stringify(listatut);
-    });
 
     $('.matbtn').on('click', function() {
         var ndf = $(this).data('type');
@@ -359,19 +409,25 @@ BoutonMenu.addTo(mymap);
             $(this).attr('src', "media/icones/" + ndf + "on.png");
             $(this).toggleClass('active');
             mymap.addLayer(window[ndf+'Group']);
+            if(!userLocal)
+                $.post('api/e/addbtn/'+ndf);
         } else {
             $(this).attr('src', "media/icones/" + ndf + "off.png");
             $(this).toggleClass('active');
             mymap.removeLayer(window[ndf+'Group']);
+            if(!userLocal)
+                $.post('api/e/removebtn/'+ndf);
         };
 
-        var btnstatut = [];
-        $('.matbtn').each(function(){
-            if ($(this).hasClass('active') && (btnstatut.indexOf($(this).data('type')) < 0)) {
-                btnstatut.push($(this).data('type'));
-            };
-        });
-        localStorage.MenumapgenshinBtnEnka = JSON.stringify(btnstatut);
+        if(userLocal) {
+            var btnstatut = [];
+            $('.matbtn').each(function(){
+                if ($(this).hasClass('active') && (btnstatut.indexOf($(this).data('type')) < 0)) {
+                    btnstatut.push($(this).data('type'));
+                };
+            });
+            localStorage.MenumapgenshinBtnDarkEnka = JSON.stringify(btnstatut);
+        }
     });
 
 // Gestion des Boutons Menu Haut
@@ -396,12 +452,18 @@ BoutonMenu.addTo(mymap);
         } else {
             localStorage.MapLng = "FR";
         };
-        document.location.href='indexenka.html';
+        window.location.reload();
     });
 
+    $('.btnmerge').on('click', function() {
+        if (confirm(langue["ui-merge"])) {
+            mergesave(userMarkers);
+        }
+    });
+     
     $('.btnsave').on('click', function() {
-        this.href=URL.createObjectURL(new Blob([JSON.stringify(savemarkers())]));
-        alert(langue["ui-exportenka"]);
+        this.href=URL.createObjectURL(new Blob([JSON.stringify(userMarkers)]));
+        alert(langue["ui-export"]);
     });
 
     $('.btnload').on('click', function (e) {
@@ -420,14 +482,57 @@ BoutonMenu.addTo(mymap);
         fr_.readAsText(this.files[0]);
     });
 
-    $('.btnteyvat').on('click', function () {
-        document.location.href='index.html';
+// Fin Fonction globale
+
+$(document).ready(function() {
+
+    // Update de l'ancien système de sauvegarde
+    oldtonew();
+
+    // Récupération des info users
+    $.get('api/e/user', function(res) {
+        if(typeof res.users !== 'undefined')
+        //   $('#total-users').text(res.users);
+        console.log("u: "+res.users);
+  
+        if(typeof res.visits !== 'undefined')
+        //   $('#total-visits').text(res.visits);
+        console.log("v: "+res.visits);
+          
+        if(typeof res.login !== 'undefined') {
+          $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
+          initMarkers();
+          reselectmenu();
+        }
+  
+        if(typeof res.uid !== 'undefined') {
+          $('#discord' + lgmenu)
+              .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
+              .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
+              .attr('href', res.logout);
+          $('#local' + lgmenu).toggleClass('hidden flex');
+          $('#distant' + lgmenu).toggleClass('hidden flex');
+          userLocal = false;
+          userMarkers = (res.markers !== null) ? res.markers : [];
+          listatut = (res.menu !== null) ? res.menu : [];
+          btnstatut = (res.btn !== null) ? res.btn : [];
+          initMarkers();
+          reselectmenu(listatut, btnstatut);
+        }
     });
 
-    // }); // Fin Fonction globale
+    $(document).on('change', 'input[type="checkbox"]', function() {
+        if(userLocal) {
+          saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
+        } else {
+          saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
+        }
+  
+      });
+  
+  
+});
 
-    initarray();
-    reselectmenu();
-    checkinfo();
+checkinfo();
 
-// }); // Fin Windows load
+// Fin Windows load

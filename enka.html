@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="content-language" content="fr" />
 	<meta charset="utf-8">
-	<meta name="keywords" content="Map Interactive; Genshin Impact; coffre; Anemoculus; Geoculus; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
+	<meta name="keywords" content="Map Interactive; Genshin Impact; Enkanomiya;coffre; Anemoculus; Geoculus; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
 	<meta name="description" content="Map Interactive Genshin Impact - Enkanomiya" />
 	<meta name="google-site-verification" content="bliVr8lt1OPhn3qLBDpT03pxeT5zdVY0xu12OmXtZis" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,8 +16,7 @@
     <link rel="stylesheet" type="text/css" href="assets/inc/lity.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<script type="text/javascript" src="assets/inc/jquery.js"></script>
-	<!-- <script type="text/javascript">window.L_DISABLE_3D=true;</script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="text/javascript" src="assets/inc/easy-button.js"></script>
     <script type="text/javascript" src="assets/inc/lity.js"></script>
@@ -32,25 +31,35 @@
 				<img src="media/banniere.jpg" class="mx-auto" />
 				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
 	
-				<div class="flex space-x-2 text-center m-4">
+				<div class="flex justify-items-stretch text-center m-4">
+					<a href="#!" id="discordFR" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
+						<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Se connecter avec Discord</a>
+				</div>
+				<div id="localFR" class="flex space-x-2 text-center m-4">
 					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
 					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">EN</a>
 					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Sauvegarder les Markers" download="GenshinMapMarkerEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
-					<a id="BtnImport" href="#" title="Charger les Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
+					<a id="BtnExport" href="#!" title="Sauvegarder les Markers locaux" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnImport" href="#" title="Charger les Markers locaux" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
 					<input type="file" id="ImportBox" accept=".txt" class="hidden">
+				</div>
+				<div id="distantFR" class="hidden space-x-2 text-center items-center m-4">
+					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
+					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">EN</a>
+					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
+					<a id="BtnMerge" href="#!" title="Fusion des Markers locaux avec le compte Discord" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Fusionner</span></a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
 					<a id="BtnTeyvat" href="index.html" title="Accès Map Teyvat" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accès à la Map de TEYVAT</a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="indexdarkenka.html" title="Accès Offrande d'accès aux 3 Royaumes" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accés à la Map Offrande d'accès aux 3 Royaumes</a>
+					<a id="BtnDarkenka" href="darkenka.html" title="Accès Offrande d'accès aux 3 Royaumes" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accés à la Map Offrande d'accès aux 3 Royaumes</a>
 				</div>
 				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
 					<li class="accordion title">Exploration</li>
 					<div class="panel">
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
-							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport" class="active"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
+							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
 							<li class="marker"><a id="btnFRenkagate" href="#!" data-type="enkagate"><img src="media/icones/enkagatem.png" /> <span>Porte phasée</span></a></li>
 							<li class="marker"><a id="btnFRcyclejn" href="#!" data-type="cyclejn"><img src="media/icones/cyclejnm.png" /> <span>Inter Jour/Nuit</span></a></li>
 							<li class="marker"><a id="btnFRtriangle" href="#!" data-type="triangle"><img src="media/icones/trianglem.png" /> <span>Méca. Triangulaire</span></a></li>
@@ -108,25 +117,34 @@
 				<img src="media/banniere.jpg" class="mx-auto" />
 				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Interactive Map by TMKFrench<br/><span id="totalEN" class="mx-auto my-0 text-xs text-center uppercase text-black">Loading Markers...</span></div>
 	
-				<div class="flex space-x-2 text-center m-4">
+				<div class="flex justify-items-stretch text-center m-4">
+					<a href="#!" id="discordEN" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
+						<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Log with Discord</a>
+				</div>
+				<div id="localEN" class="flex space-x-2 text-center m-4">
 					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
 					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">FR</a>
 					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinMapMarkerEnkanomiya.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
 					<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
-					<!-- <input type="file" id="ImportBox" accept=".txt" class="hidden"> -->
+				</div>
+				<div id="distantEN" class="hidden space-x-2 text-center items-center m-4">
+					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
+					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">FR</a>
+					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
+					<a id="BtnMerge" href="#!" title="Merge local Markers to Discord account" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Merge</span></a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
 					<a id="BtnTeyvat" href="index.html" title="Access to Teyvat Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to TEYVAT Map</a>
 				</div>
 				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="indexdarkenka.html" title="Acces to Three Realms Gateway Offering Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to 3 Realms Gateway Offering Map</a>
+					<a id="BtnDarkenka" href="darkenka.html" title="Acces to Three Realms Gateway Offering Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to 3 Realms Gateway Offering Map</a>
 				</div>
 				<div id="MarkerSelect" class="p-2 pt-0">
 					<li class="accordion title">Exploration</li>
 					<div class="panel">
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-sm">
-							<li class="marker"><a id="btnENteleport" href="#!" data-type="teleport" class="active"><img src="media/icones/teleportm.png" /> <span>Teleports</span></a></li>
+							<li class="marker"><a id="btnENteleport" href="#!" data-type="teleport"><img src="media/icones/teleportm.png" /> <span>Teleports</span></a></li>
 							<li class="marker"><a id="btnENenkagate" href="#!" data-type="enkagate"><img src="media/icones/enkagatem.png" /> <span>Phase Gate</span></a></li>
 							<li class="marker"><a id="btnENcyclejn" href="#!" data-type="cyclejn"><img src="media/icones/cyclejnm.png" /> <span>Day/Night Switchs</span></a></li>
 							<li class="marker"><a id="btnENtriangle" href="#!" data-type="triangle"><img src="media/icones/trianglem.png" /> <span>Triangular Mecanism</span></a></li>
@@ -189,20 +207,31 @@
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Map interactive d'Enkanomiya</h3>
+		<p>Notre carte utilise le localStorage pour enregistrer le suivi de vos marqueurs dans votre navigateur.<br>
+			Vous pouvez également vous connecter à l'aide de vos identifiant Discord<br>et sauvegarder vos marqueurs dans le cloud.<br>
+			Vous pouvez fusionner les marqueurs locaux avec ceux de votre compte discord,<br>afin de ne pas avoir à tous les revalider, à l'aide du bouton :<br>
+			<img class="m-auto" src="media/icones/fusion.png"/>
+		</p>
 	</div>
 	<div id="infoEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Interactive Map of Enkanomiya</h3>
+		<p>Our map use the localStorage to save checked markers in your brownser.<br>
+			You can also log with your Discord Account and save them in the cloud.<br>
+			You can merge local checked markers with your Discord markers,<br>to prevent you check them all again, with the button :<br>
+			<img class="m-auto" src="media/icones/fusion2.png"/>
+		</p>
 	</div>
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 1.3.1 du 26/01/2022</h3>
-		<p class="mt-4">- Ajout des Coffres Luxueux<br>
-						- Ajout des derniers screens des Sigils et TP<br>
-						- Ajout d'images/vidéos de coffres, pierres cassées<br>
-						- Ajout d'emplacements de coffres</p>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 1.4 du 16/03/2022</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Ajout de la fonction Login via Discord</span></p>
+		<p class="mt-4">Vous pouvez maintenant sauvegarder les marqueurs dans le cloud une fois identifié.<br>
+						Vous pouvez transférer les marqueurs locaux vers votre compte Discord 
+						à l'aide du bouton <img class="m-auto" src="media/icones/fusion.png"/> pour ne pas avoir<br>
+						à tous les reselectionner manuellement.</p>
 		<p class="mt-4">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur
 		</p>
@@ -210,11 +239,12 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 1.3.1 of 01/26/2022</h3>
-		<p class="mt-4">- Adding Luxurious Chests
-						- Adding the last screens of Sigils and TP<br>
-						- Adding Screens/Videos of Chests, Smashed stones<br>
-						- Adding many chests places</p>
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 1.4 of 03/16/2022</h3>
+		<p class="mt-4"><span class="font-bold text-red-600">Adding Discord login function</span></p>
+		<p class="mt-4">Now you can save your markers in the cloud when logged in.<br>
+						You can transfer local markers to your Discord account<br>
+						with the bouton <img class="m-auto" src="media/icones/fusion2.png"/>. Then you don't have<br>
+						to select again manually all your previous saved markers.</p>		
 		<p class="mt-4">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache
 		</p>
@@ -251,7 +281,7 @@
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
 	<script type="text/javascript" src="assets/js/markersenka.js"></script>
-	<script type="text/javascript" src="assets/js/mapenka.js?v=1.3"></script>
+	<script type="text/javascript" src="assets/js/mapenka.js?v=1.4"></script>
 
 </body>
 

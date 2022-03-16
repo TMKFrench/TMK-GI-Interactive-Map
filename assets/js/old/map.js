@@ -4,17 +4,17 @@
     var savearray = [];
     var teyvatarray = [
         'viteclair',
-        'statue','teleport','tpbarge','succes','pano','anemo','geocul','eleccul','agate','sceaugeo',
-        'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond',
-        'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu',
-        'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz',
-        'cfeee','sanctum','sanctul','sanctui',
+        'statue','teleport','tpbarge','elecgate','peche','succes','pano','anemo','geocul','eleccul','agate','sceaugeo',
+        'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
+        'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
+        'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
+        'sanctum','sanctul','sanctui',
         'betrang','bgivre','brocheux','bshaman','bviandu','fmens','chasseur','colosse','gardien','geosaure','magea','magel','frap','merc','mitrail','pilleur','usurier',
         'ferblanc','argetoile','cristal','electrocris','eclatcm','artefact','dent','noyauc',
         'ffeu','fbrume','gdloup','pomme','carotte','radis',
         'halampe','chrysantheme','lyscalla','tombaie','bacrochet','pissenlit','cecilia','chanemo',
         'qingxin','muguet','piment','lysverni','fsoie','bambou','lotus','lapis','jade','perle','conque',
-        'amethyste','dendro','fcerisier','ganoderma','hsanglot','herbem','melonl','moelle','scarabuto',
+        'amethyste','anguille','cfluo','corail','dendro','famakumo','fcerisier','ganoderma','hsanglot','herbem','melonl','moelle','scarabuto',
         'grenouille','lezard','papillon','luciole','crabe'];
     var nbtmark = 0;
     var langue, lgmenu;
@@ -24,7 +24,7 @@
 // Fonctions Interaction sur la Map
 
     function onMapClick(e) {
-        console.log(langue["ui-click"] + mymap.project([e.latlng.lat, e.latlng.lng], mymap.getMaxZoom()));
+        console.log(langue["ui-click"] + mymap.project([e.latlng.lat,e.latlng.lng], mymap.getMaxZoom()));
     }
 
     function unproject(coord) {
@@ -32,8 +32,8 @@
       }
     
     function convcoord(coord) {
-        var x = 2*(3584 + coord[1]);
-        var y = 2*(9728 - coord[0]);
+        var x = coord[0];
+        var y = coord[1];
         return [x,y];
     }
 
@@ -42,8 +42,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.3")) {
-            localStorage.Mapvers = "5.3";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "5.9")) {
+            localStorage.Mapvers = "5.9";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -128,6 +128,12 @@
     };
 
     function reselectmenu(){
+
+        if (!localStorage.getItem("menuclear") || !(localStorage.menuclear === "1")) {
+            localStorage.MenumapgenshinItem = [];
+            localStorage.menuclear = "1";
+        };
+
         $('.itembtn').each(function(){
             if ($(this).hasClass('active')) {
                 mymap.addLayer(window[$(this).data('type') + 'Group']);
@@ -210,7 +216,7 @@
     }).addTo(mymap);
     
     mymap.zoomControl.setPosition('topright')
-    mymap.setMaxBounds(new L.latLngBounds(unproject([7168,7168]), unproject([25600,25600])));
+    mymap.setMaxBounds(new L.latLngBounds(unproject([3584,5632]), unproject([28672,28672])));
 
     teyvatarray.forEach(function(e){
         window[e+'Group'] = L.layerGroup();
@@ -272,7 +278,7 @@ BoutonMenu.addTo(mymap);
                     break;
                 case 5 : // Video (txt+cb)
                     txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
-                    popup = '<iframe width="560" height="315" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
+                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 11 : // null (+cb)
                     popup = '<h1>'+marq[2]+checkbox+'</h1>';
@@ -315,43 +321,46 @@ BoutonMenu.addTo(mymap);
         // console.log("nombre de marqueur Total chargés : " + nbtmark); // Pour debug
     };
 
-    // Chargement des Marqueurs
+    // Chargement des Marqueurs marklist, markico, regmark, grp, marktitle, filename, cbxname
 
         loadmarker(liststatue,Statue,1,"statue",langue.cat01,"statue");
         loadmarker(listteleport,Teleport,1,"teleport",langue.cat02,"tp");
         loadmarker(listtpbarge,Tpbarge,1,"tpbarge",langue.cat79,"tpbi");
+        loadmarker(listelecgate,Elecgate,1,"elecgate",langue.cat93,"egate");
+        loadmarker(listpeche,Peche,1,"peche",langue.cat94,"peche");
         loadmarker(listsucces,Succes,1,"succes",langue.cat46,"succes","succes");
-        loadmarker(listpano,Pano,0,"pano",langue.cat03,"pano","pano");
-        loadmarker(listpanol,Pano,0,"pano",langue.cat03,"panol","panol");
+        loadmarker(listpano,Pano,1,"pano",langue.cat03,"pano","pano");
+        loadmarker(listpanol,Pano,1,"pano",langue.cat03,"panol","panol");
         loadmarker(listpanoi,Pano,1,"pano",langue.cat03,"panoi","panoi");
-        loadmarker(listanemo,Anemo,0,"anemo",langue.cat10,"anemo","anemo");
-        loadmarker(listgeocul,Geocul,0,"geocul",langue.cat29,"geoc","geocul");
+        loadmarker(listanemo,Anemo,1,"anemo",langue.cat10,"anemo","anemo");
+        loadmarker(listgeocul,Geocul,1,"geocul",langue.cat29,"geoc","geocul");
         loadmarker(listeleccul,Eleccul,1,"eleccul",langue.cat80,"eleccul","eleccul");
-        loadmarker(listagate,Agate,0,"agate",langue.cat47,"agate","agate");
-        loadmarker(listsceaugeo,Sceaugeo,0,"sceaugeo",langue.cat30,"sg","sceaugeo");
-        loadmarker(listcordi,Cordi,0,"cordimond",langue.cat04,"oc","cordi");
-        loadmarker(listcordil,Cordi,0,"cordiliyu",langue.cat04,"ocl","cordil");
+        loadmarker(listagate,Agate,1,"agate",langue.cat47,"agate","agate");
+        loadmarker(listsceaugeo,Sceaugeo,1,"sceaugeo",langue.cat30,"sg","sceaugeo");
+        loadmarker(listcordi,Cordi,1,"cordimond",langue.cat04,"oc","cordi");
+        loadmarker(listcordil,Cordi,1,"cordiliyu",langue.cat04,"ocl","cordil");
         loadmarker(listcordii,Cordi,1,"cordiinaz",langue.cat04,"oci","cordii");
-        loadmarker(listcdelic,Cdelic,0,"cdelicmond",langue.cat05,"dc","cdelic");
-        loadmarker(listcdelicl,Cdelic,0,"cdelicliyu",langue.cat05,"dcl","cdelicl");
+        loadmarker(listcdelic,Cdelic,1,"cdelicmond",langue.cat05,"dc","cdelic");
+        loadmarker(listcdelicl,Cdelic,1,"cdelicliyu",langue.cat05,"dcl","cdelicl");
         loadmarker(listcdelici,Cdelic,1,"cdelicinaz",langue.cat05,"dci","cdelici");
-        loadmarker(listcprec,Cprec,0,"cprecmond",langue.cat06,"pc","cprec");
-        loadmarker(listcprecl,Cprec,0,"cprecliyu",langue.cat06,"pcl","cprecl");
+        loadmarker(listcprec,Cprec,1,"cprecmond",langue.cat06,"pc","cprec");
+        loadmarker(listcprecl,Cprec,1,"cprecliyu",langue.cat06,"pcl","cprecl");
         loadmarker(listcpreci,Cprec,1,"cprecinaz",langue.cat06,"pci","cpreci");
-        loadmarker(listcluxe,Cluxe,0,"cluxemond",langue.cat07,"lc","cluxe");
-        loadmarker(listcluxel,Cluxe,0,"cluxeliyu",langue.cat07,"lcl","cluxel");
+        loadmarker(listcluxe,Cluxe,1,"cluxemond",langue.cat07,"lc","cluxe");
+        loadmarker(listcluxel,Cluxe,1,"cluxeliyu",langue.cat07,"lcl","cluxel");
         loadmarker(listcluxei,Cluxe,1,"cluxeinaz",langue.cat07,"lci","cluxei");
-        loadmarker(listcdefi,Cdefi,0,"cdefimond",langue.cat08,"defi","cdefi");
-        loadmarker(listcdefil,Cdefi,0,"cdefiliyu",langue.cat08,"defil","cdefil");
+        loadmarker(listcdefi,Cdefi,1,"cdefimond",langue.cat08,"defi","cdefi");
+        loadmarker(listcdefil,Cdefi,1,"cdefiliyu",langue.cat08,"defil","cdefil");
         loadmarker(listcdefii,Cdefi,1,"cdefiinaz",langue.cat08,"defii","cdefii");
-        loadmarker(listcfee,Cfee,0,"cfeemond",langue.cat09,"","cfee");
-        loadmarker(listcfeel,Cfee,0,"cfeeliyu",langue.cat09,"","cfeel");
+        loadmarker(listcfee,Cfee,1,"cfeemond",langue.cat09,"","cfee");
+        loadmarker(listcfeel,Cfee,1,"cfeeliyu",langue.cat09,"","cfeel");
         loadmarker(listcfeei,Cfee,1,"cfeeinaz",langue.cat09,"","cfeei");
-        loadmarker(listcfeee,Cfeee,1,"cfeee",langue.cat88,"cfeee","cfeee");
-        loadmarker(listsanctum,Sanctum,0,"sanctum",langue.cat70,"sanctum","sanctum");
-        loadmarker(listsanctul,Sanctul,0,"sanctul",langue.cat71,"sanctul","sanctul");
+        loadmarker(listcetr,Cetr,1,"cetrinaz",langue.cat99,"cei","cetr");
+        loadmarker(listcfeee,Cfeee,1,"cfeeeinaz",langue.cat88,"cfeee","cfeee");
+        loadmarker(listsanctum,Sanctum,1,"sanctum",langue.cat70,"sanctum","sanctum");
+        loadmarker(listsanctul,Sanctul,1,"sanctul",langue.cat71,"sanctul","sanctul");
         loadmarker(listsanctui,Sanctui,1,"sanctui",langue.cat91,"sanctui","sanctui");
-        loadmarker(listbetrang,Betrang,0,"betrang",langue.cat49,"betrang");
+        loadmarker(listbetrang,Betrang,1,"betrang",langue.cat49,"betrang");
         loadmarker(listbgivre,Bgivre,1,"bgivre",langue.cat67,"bgivre");
         loadmarker(listbrocheux,Brocheux,1,"brocheux",langue.cat65,"brocheux");
         loadmarker(listbshaman,Bshaman,1,"bshaman",langue.cat61);
@@ -359,7 +368,7 @@ BoutonMenu.addTo(mymap);
         loadmarker(listfmcryo,Fmcryo,1,"fmens",langue.cat53,"fmcryo");
         loadmarker(listfmpyro,Fmpyro,1,"fmens",langue.cat54,"fmpyro");
         loadmarker(listchasseur,Chasseur,1,"chasseur",langue.cat66,"chasseur");
-        loadmarker(listcolosse,Colosse,1,"colosse",langue.cat75,"chasseur");
+        loadmarker(listcolosse,Colosse,1,"colosse",langue.cat75,"colosse");
         loadmarker(listgardien,Gardien,1,"gardien",langue.cat52,"gardien");
         loadmarker(listgeosaure,Geosaure,1,"geosaure",langue.cat55,"geosaure");
         loadmarker(listmagecryo,Magecryo,1,"magea",langue.cat56,"magec");
@@ -376,51 +385,55 @@ BoutonMenu.addTo(mymap);
         loadmarker(listpilleur,Pilleur,1,"pilleur",langue.cat77,"pilleur");
         loadmarker(listusurier,Usurier,1,"usurier",langue.cat50,"usurier");
         loadmarker(listferblanc,Ferblanc,1,"ferblanc",langue.cat25);
-        loadmarker(listargetoile,Argetoile,0,"argetoile",langue.cat48);
+        loadmarker(listargetoile,Argetoile,1,"argetoile",langue.cat48);
         loadmarker(listcristal,Cristal,1,"cristal",langue.cat11);
         loadmarker(listelectroc,Electrocris,1,"electrocris",langue.cat12);
-        loadmarker(listeclatcm,Eclatcm,0,"eclatcm",langue.cat26);
-        loadmarker(listdent,Dent,0,"dent",langue.cat78,"dent");
+        loadmarker(listeclatcm,Eclatcm,1,"eclatcm",langue.cat26);
+        loadmarker(listdent,Dent,1,"dent",langue.cat78,"dent");
         loadmarker(listartefact,Artefact,1,"artefact",langue.cat76);
-        loadmarker(listlapis,Lapis,0,"lapis",langue.cat41);
-        loadmarker(listjade,Jade,0,"jade",langue.cat39);
-        loadmarker(listnoyauc,Noyauc,0,"noyauc",langue.cat44);
-        loadmarker(listperle,Perle,0,"perle",langue.cat32);
-        loadmarker(listconque,Conque,0,"conque",langue.cat40);
+        loadmarker(listlapis,Lapis,1,"lapis",langue.cat41);
+        loadmarker(listjade,Jade,1,"jade",langue.cat39);
+        loadmarker(listnoyauc,Noyauc,1,"noyauc",langue.cat44);
+        loadmarker(listperle,Perle,1,"perle",langue.cat32);
+        loadmarker(listconque,Conque,1,"conque",langue.cat40);
         loadmarker(listamethyste,Amethyste,1,"amethyste",langue.cat84);
-        loadmarker(listffeu,Ffeu,0,"ffeu",langue.cat14);
+        loadmarker(listffeu,Ffeu,1,"ffeu",langue.cat14);
         loadmarker(listfbrume,Fbrume,1,"fbrume",langue.cat13);
-        loadmarker(listgdloup,Gdloup,0,"gdloup",langue.cat45);
-        loadmarker(listpomme,Pomme,0,"pomme",langue.cat15);
+        loadmarker(listgdloup,Gdloup,1,"gdloup",langue.cat45);
+        loadmarker(listpomme,Pomme,1,"pomme",langue.cat15);
         loadmarker(listcarotte,Carotte,1,"carotte",langue.cat16);
         loadmarker(listradis,Radis,1,"radis",langue.cat17);
-        loadmarker(listhalampe,Halampe,0,"halampe",langue.cat20);
-        loadmarker(listchrysantheme,Chrysantheme,0,"chrysantheme",langue.cat21);
-        loadmarker(listlyscalla,Lyscalla,0,"lyscalla",langue.cat22);
-        loadmarker(listtombaie,Tombaie,0,"tombaie",langue.cat18);
-        loadmarker(listbacrochet,Bacrochet,0,"bacrochet",langue.cat24);
-        loadmarker(listpissenlit,Pissenlit,0,"pissenlit",langue.cat19);
-        loadmarker(listchanemo,Chanemo,0,"chanemo",langue.cat74)
-        loadmarker(listcecilia,Cecilia,0,"cecilia",langue.cat23);
-        loadmarker(listqingxin,Qingxin,0,"qingxin",langue.cat34);
-        loadmarker(listmuguet,Muguet,0,"muguet",langue.cat35,"muguet");
-        loadmarker(listpiment,Piment,0,"piment",langue.cat36);
-        loadmarker(listlysverni,Lysverni,0,"lysverni",langue.cat37);
-        loadmarker(listfsoie,Fsoie,0,"fsoie",langue.cat38);
-        loadmarker(listbambou,Bambou,0,"bambou",langue.cat31);
-        loadmarker(listlotus,Lotus,0,"lotus",langue.cat33);
+        loadmarker(listhalampe,Halampe,1,"halampe",langue.cat20);
+        loadmarker(listchrysantheme,Chrysantheme,1,"chrysantheme",langue.cat21);
+        loadmarker(listlyscalla,Lyscalla,1,"lyscalla",langue.cat22);
+        loadmarker(listtombaie,Tombaie,1,"tombaie",langue.cat18);
+        loadmarker(listbacrochet,Bacrochet,1,"bacrochet",langue.cat24);
+        loadmarker(listpissenlit,Pissenlit,1,"pissenlit",langue.cat19);
+        loadmarker(listchanemo,Chanemo,1,"chanemo",langue.cat74)
+        loadmarker(listcecilia,Cecilia,1,"cecilia",langue.cat23);
+        loadmarker(listqingxin,Qingxin,1,"qingxin",langue.cat34);
+        loadmarker(listmuguet,Muguet,1,"muguet",langue.cat35,"muguet");
+        loadmarker(listpiment,Piment,1,"piment",langue.cat36);
+        loadmarker(listlysverni,Lysverni,1,"lysverni",langue.cat37);
+        loadmarker(listfsoie,Fsoie,1,"fsoie",langue.cat38);
+        loadmarker(listbambou,Bambou,1,"bambou",langue.cat31);
+        loadmarker(listlotus,Lotus,1,"lotus",langue.cat33);
+        loadmarker(listanguille,Anguille,1,"anguille",langue.cat95);
+        loadmarker(listcfluo,Cfluo,1,"cfluo",langue.cat98);
         loadmarker(listdendro,Dendro,1,"dendro",langue.cat90);
+        loadmarker(listfamakumo,Famakumo,1,"famakumo",langue.cat96);
         loadmarker(listfcerisier,Fcerisier,1,"fcerisier",langue.cat85);
         loadmarker(listganoderma,Ganoderma,1,"ganoderma",langue.cat81);
         loadmarker(listhsanglot,Hsanglot,1,"hsanglot",langue.cat86);
         loadmarker(listherbem,Herbem,1,"herbem",langue.cat82);
         loadmarker(listmelonl,Melonl,1,"melonl",langue.cat83);
         loadmarker(listmoelle,Moelle,1,"moelle",langue.cat92);
+        loadmarker(listcorail,Corail,1,"corail",langue.cat97);
         loadmarker(listscarabuto,Scarabuto,1,"scarabuto",langue.cat87);
-        loadmarker(listgrenouille,Grenouille,0,"grenouille",langue.cat27);
-        loadmarker(listlezard,Lezard,0,"lezard",langue.cat28);
-        loadmarker(listpapillon,Papillon,0,"papillon",langue.cat42);
-        loadmarker(listluciole,Luciole,0,"luciole",langue.cat43);
+        loadmarker(listgrenouille,Grenouille,1,"grenouille",langue.cat27);
+        loadmarker(listlezard,Lezard,1,"lezard",langue.cat28);
+        loadmarker(listpapillon,Papillon,1,"papillon",langue.cat42);
+        loadmarker(listluciole,Luciole,1,"luciole",langue.cat43);
         loadmarker(listcrabe,Crabe,1,"crabe",langue.cat64);
         // loadmarker(listviteclair,Viteclair,1,"viteclair",langue.cat89,"","viteclair");
         // loadmarker(listoceanide2,Oceanide2,"oceanide2",langue.cat75,"oceanidepa");
@@ -586,8 +599,8 @@ BoutonMenu.addTo(mymap);
         fr_.readAsText(this.files[0]);
     });
 
-    $('.btngolden').on('click', function () {
-        document.location.href='index2.html';
+    $('.btnenka').on('click', function () {
+        document.location.href='indexenka.html';
     });
 
     // }); // Fin Fonction globale

@@ -14,6 +14,9 @@ var langFR = {
     'ui-close': 'Cacher le Menu',
     'ui-open': 'Afficher le Menu',
     'ui-info': 'Texte d\'information',
+    'ui-merge': 'Vous allez fusionner les marqueurs locaux avec votre sauvegarde Discord !!!\nVoulez-vous continuez ?',
+    'ui-mergedone': 'Fusion terminée. La page va se rafraîchir...',
+    'ui-deco': 'Déconnexion de ',
 
     // Cat Marker
     'cat01': 'Statue des 7',
@@ -651,6 +654,9 @@ var langEN = {
     'ui-close': 'Hide Menu',
     'ui-open': 'Show Menu',
     'ui-info': 'Information',
+    'ui-merge': 'You\'re about to merge local markers to your Discord save !!!\nProceed ?',
+    'ui-mergedone': 'Merge done. Refreshing...',
+    'ui-deco': 'Log out from ',
 
     // Cat Marker
     'cat01': 'Statue of 7',
