@@ -13,12 +13,22 @@ var Ptnrj = L.icon({iconUrl:'media/icones/ptnrj.png', iconSize:[30, 48], iconAnc
 var Stele = L.icon({iconUrl:'media/icones/stele.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Peche = L.icon({iconUrl:'media/icones/peche2.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
 var Succes = L.icon({iconUrl:'media/icones/succes2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Quete = L.icon({iconUrl:'media/icones/quete.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Pano = L.icon({iconUrl:'media/icones/pano2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Anemo = L.icon({iconUrl:'media/icones/anemo2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Geocul = L.icon({iconUrl:'media/icones/geocul2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Eleccul = L.icon({iconUrl:'media/icones/eleccul2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Agate = L.icon({iconUrl:'media/icones/agate2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Lumen = L.icon({iconUrl:'media/icones/lumen.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Lampe = L.icon({iconUrl:'media/icones/lampe.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Orbeprof = L.icon({iconUrl:'media/icones/orbeprof.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Message = L.icon({iconUrl:'media/icones/message.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Fossile = L.icon({iconUrl:'media/icones/fossile.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Offrandes = L.icon({iconUrl:'media/icones/offrandes.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Gyroc = L.icon({iconUrl:'media/icones/gyroc.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Sceaugeo = L.icon({iconUrl:'media/icones/sceaugeo.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Tasdepierre = L.icon({iconUrl:'media/icones/tasdepierre.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Pseculaire = L.icon({iconUrl:'media/icones/pseculaire.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Clesigil1 = L.icon({iconUrl:'media/icones/clesigil1.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Clesigil2 = L.icon({iconUrl:'media/icones/clesigil2.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Clesigil3 = L.icon({iconUrl:'media/icones/clesigil3.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -97,6 +107,7 @@ var Lysverni = L.icon({iconUrl:'media/icones/lysverni.png', iconSize:[30, 30], i
 var Fsoie = L.icon({iconUrl:'media/icones/fsoie.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Bambou = L.icon({iconUrl:'media/icones/bambou.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Lotus = L.icon({iconUrl:'media/icones/lotus.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Champitoile = L.icon({iconUrl:'media/icones/champitoile.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Anguille = L.icon({iconUrl:'media/icones/anguille.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Cfluo = L.icon({iconUrl:'media/icones/cfluo.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Dendro = L.icon({iconUrl:'media/icones/dendro.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
@@ -113,12 +124,21 @@ var Grenouille = L.icon({iconUrl:'media/icones/grenouille.png', iconSize:[30, 30
 var Lezard = L.icon({iconUrl:'media/icones/lezard.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Papillon = L.icon({iconUrl:'media/icones/papillon.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Luciole = L.icon({iconUrl:'media/icones/luciole.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Luciolichance = L.icon({iconUrl:'media/icones/luciolichance.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Crabe = L.icon({iconUrl:'media/icones/crabe.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Belette = L.icon({iconUrl:'media/icones/belette.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor:[2, 3], popupAnchor:[-3, -3]});
 
 var popupOptions =
     {
-        // 'minWidth': '480px',
+        'minWidth': '480px',
         // 'minHeight': '270px',
+        'closeButton': false
+    };
+
+    var popupOptions2 =
+    {
+        'minHeight': '350px',
+        'maxWidth': '350px',
         'closeButton': false
     };

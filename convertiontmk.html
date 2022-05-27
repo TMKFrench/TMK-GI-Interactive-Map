@@ -3,7 +3,7 @@
 <head>
 	<script>
 		var langue = {};
-for (i=1; i<270; i++) {
+for (i=1; i<300; i++) {
 	var prefixe = "";
 	if (i<10) {
 		prefixe = "00";
@@ -13,11 +13,11 @@ for (i=1; i<270; i++) {
 	name = "com"+prefixe+i;
 	langue[name]= "langue.com"+prefixe+i;
 };
-for (i=1; i<44; i++) {
+for (i=1; i<46; i++) {
 	name = "pano"+i;
 	langue[name]= "langue.pano"+i;
 }
-for (i=1; i<45; i++) {
+for (i=1; i<53; i++) {
 	var prefixe = "";
 	if (i<10) {
 		prefixe = "00";
@@ -29,7 +29,7 @@ for (i=1; i<45; i++) {
 	langue[namea]= "langue.succest"+prefixe+i;
 	langue[nameb]= "langue.succesh"+prefixe+i;
 }
-for (i=1; i<27; i++) {
+for (i=1; i<29; i++) {
 	name = "peche"+i;
 	langue[name]= "langue.peche"+i;
 }
@@ -40,8 +40,33 @@ langue.defic= "langue.defic+";
 langue.defik= "langue.defik+";
 langue.defip= "langue.defip+";
 langue.defis= "+langue.defis";
+
+	langue.gyro01= "Gyrocristal Radiant n°14";
+    langue.gyro02= "Gyrocristal Radiant n°15";
+    langue.gyro03= "Gyrocristal Radiant n°11";
+    langue.gyro04= "Gyrocristal Radiant n°4";
+    langue.gyro05= "Gyrocristal Radiant n°16";
+    langue.gyro06= "Gyrocristal Radiant n°1";
+    langue.gyro07= "Gyrocristal Radiant n°3";
+    langue.gyro08= "Gyrocristal Radiant n°19";
+    langue.gyro09= "Gyrocristal Radiant n°38";
+    langue.gyro10= "Gyrocristal Radiant n°39";
+    langue.gyro11= "Gyrocristal Radiant n°32";
+    langue.gyro12= "Gyrocristal Radiant n°28";
+    langue.gyro13= "Gyrocristal Radiant n°34";
+    langue.gyro14= "Gyrocristal Radiant n°24";
+    langue.gyro15= "Gyrocristal Radiant n°26";
+    langue.gyro16= "Gyrocristal Radiant n°27";
+    langue.gyro17= "Gyrocristal Radiant n°47";
+    langue.gyro18= "Gyrocristal Radiant n°53";
+    langue.gyro19= "Gyrocristal Radiant n°54";
+    langue.gyro20= "Gyrocristal Radiant n°50";
+    langue.gyro21= "Gyrocristal Radiant n°56";
+    langue.gyro22= "Gyrocristal Radiant n°52";
+    langue.gyro23= "Gyrocristal Radiant n°49";
+    langue.gyro24= "Gyrocristal Radiant n°48";
 	</script>
-	<script type="text/javascript" src="assets/js/markers.js"></script>
+	<script type="text/javascript" src="lbm.js"></script>
 </head>
 <style>
 	div#conv1 {
@@ -130,16 +155,16 @@ langue.defis= "+langue.defis";
 
 var lstgrp = [
 	{listname:'statue', entete:'<br>// Statues des 7<br><br>'},{listname:'teleport', entete:'<br>// Téléporteurs<br><br>'},{listname:'tpbarge', entete:'<br>// Téléporteurs de barge<br><br>'},
-    {listname:'elecgate', entete:'<br>// Portail électro<br><br>'},{listname:'peche', entete:'<br>// Spot de Pêche<br><br>'},{listname:'succes', entete:'<br>// Succès genshin,succès,achievement,quête,quest,map,Inazuma,Liyue,Mondstadt<br><br>'},
+    {listname:'elecgate', entete:'<br>// Portail électro<br><br>'},{listname:'peche', entete:'<br>// Spot de Pêche<br><br>'},{listname:'succes', entete:'<br>// Succès<br><br>'},
     {listname:'pano', entete:'<br>// Panoramas<br><br>'},{listname:'panol', entete:'<br>'},{listname:'panoi', entete:'<br>'},
-    {listname:'anemo', entete:'<br>// Anémoculus<br><br>'},{listname:'geocul', entete:'<br>// Géoculus<br><br>'},{listname:'eleccul', entete:'<br>// Electroculus genshin,impact,inazuma,electroculus,map<br><br>'},
-    {listname:'agate', entete:'<br>// Agates Pourpres<br><br>'},{listname:'sceaugeo', entete:'<br>// Sceaux Géo<br><br>'},{listname:'cordi', entete:'<br>// Coffres Ordinaires genshin,coffre,ordinaire,common,chest,map,liyue genshin,coffre,ordinaire,common,chest,map,inazuma<br><br>'},
-    {listname:'cordil', entete:'<br>'},{listname:'cordii', entete:'<br>'},{listname:'cdelic', entete:'<br>// Coffres Délicats genshin,coffre,délicat,exquisite,chest,map,liyue genshin,coffre,délicat,exquisite,chest,map,inazuma<br><br>'},
-    {listname:'cdelicl', entete:'<br>'},{listname:'cdelici', entete:'<br>'},{listname:'cprec', entete:'<br>// Coffres Précieux genshin,coffre,précieux,precious,chest,map,inazuma,liyue<br><br>'},
-    {listname:'cprecl', entete:'<br>'},{listname:'cpreci', entete:'<br>'},{listname:'cluxe', entete:'<br>// Coffres Luxueux genshin,coffre,luxueux,luxurious,chest,map,liyue genshin,coffre,luxueux,luxurious,chest,map,inazuma<br><br>'},
-    {listname:'cluxel', entete:'<br>'},{listname:'cluxei', entete:'<br>'},{listname:'cdefi', entete:'<br>// Coffres Défis genshin,coffre,défi,challenge,chest,map,inazuma<br><br>'},
-    {listname:'cdefil', entete:'<br>'},{listname:'cdefii', entete:'<br>'},{listname:'cfee', entete:'<br>// Coffres des Fées genshin,coffre,fée,seelie,chest,map,inazuma,électro,electro<br><br>'},
-    {listname:'cfeel', entete:'<br>'},{listname:'cfeei', entete:'<br>'},{listname:'cfeee', entete:'<br>'},{listname:'cetr', entete:'<br>// Coffres étranges genshin,coffre,étrange,remarkable,chest,map,inazuma<br><br>'},
+    {listname:'anemo', entete:'<br>// Anémoculus<br><br>'},{listname:'geocul', entete:'<br>// Géoculus<br><br>'},{listname:'eleccul', entete:'<br>// Electroculus<br><br>'},
+    {listname:'agate', entete:'<br>// Agates Pourpres<br><br>'},{listname:'sceaugeo', entete:'<br>// Sceaux Géo<br><br>'},{listname:'cordi', entete:'<br>// Coffres Ordinaires<br><br>'},
+    {listname:'cordil', entete:'<br>'},{listname:'cordii', entete:'<br>'},{listname:'cdelic', entete:'<br>// Coffres Délicats<br><br>'},
+    {listname:'cdelicl', entete:'<br>'},{listname:'cdelici', entete:'<br>'},{listname:'cprec', entete:'<br>// Coffres Précieux<br><br>'},
+    {listname:'cprecl', entete:'<br>'},{listname:'cpreci', entete:'<br>'},{listname:'cluxe', entete:'<br>// Coffres Luxueux<br><br>'},
+    {listname:'cluxel', entete:'<br>'},{listname:'cluxei', entete:'<br>'},{listname:'cdefi', entete:'<br>// Coffres Défis<br><br>'},
+    {listname:'cdefil', entete:'<br>'},{listname:'cdefii', entete:'<br>'},{listname:'cfee', entete:'<br>// Coffres des Fées<br><br>'},
+    {listname:'cfeel', entete:'<br>'},{listname:'cfeei', entete:'<br>'},{listname:'cfeee', entete:'<br>'},{listname:'cetr', entete:'<br>// Coffres étranges<br><br>'},
     {listname:'sanctum', entete:'<br>//sanctuaire<br><br>'},{listname:'sanctul', entete:'<br>'},{listname:'sanctui', entete:'<br>'},
     {listname:'betrang', entete:'<br>// Bruto Etrange<br><br>'},{listname:'bgivre', entete:'<br>// Bruto Givré<br><br>'},{listname:'brocheux', entete:'<br>// Bruto Rocheux<br><br>'},
     {listname:'bshaman', entete:'<br>// Bruto Shaman<br><br>'},{listname:'bviandu', entete:'<br>// Brutoviandu<br><br>'},{listname:'fmcryo', entete:'<br>// Fleur mensongère Cryo<br><br>'},
@@ -257,13 +282,13 @@ function myFunctionLBM(item, index, arr) {
 	var texte = "";
 	var start = Number(document.getElementById("startnb").value);
 	var rang = ((start+index) < 10) ? "0"+(start+index) : start+index;
-	var x = Math.trunc (coord[0]/2);
-	var y = Math.trunc (coord[1]/2);
+	var x = Math.trunc (coord[0]/4);
+	var y = Math.trunc (coord[1]/4);
 
 	if (item[0] == 0) formatm = 'image';
 	if (item[0] == 3) formatm = 'gif';
 	if (item[0] == 5) formatm = 'video';
-	if ((item[0] == 12) && (typeof item[2] !== 'undefined')) formatm = 'todo';
+	if (item[0] == 7) formatm = 'todo';
 
 	// var formatm = (item[0] == 0) ? 'image' : 'video';
 	// if (item[0]==12 || item[0]==11) {

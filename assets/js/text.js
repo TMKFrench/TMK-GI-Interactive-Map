@@ -17,6 +17,7 @@ var langFR = {
     'ui-merge': 'Vous allez fusionner les marqueurs locaux avec votre sauvegarde Discord !!!\nVoulez-vous continuez ?',
     'ui-mergedone': 'Fusion terminée. La page va se rafraîchir...',
     'ui-deco': 'Déconnexion de ',
+    'ui-todo': 'L\'image ou la vidéo arrive prochainement !!!',
 
     // Cat Marker
     'cat01': 'Statue des 7',
@@ -134,6 +135,19 @@ var langFR = {
     'cat113': 'Minerai d\'abyssium',
     'cat114': 'Tilleul de Tokoyo',
     'cat115': 'Stèle endommagée',
+    'cat116': 'Cristal de lumen',
+    'cat117': 'Lampe de lumen',
+    'cat118': 'Quête',
+    'cat119': 'Champitoile',
+    'cat120': 'Luciolichance',
+    'cat121': 'Belette foudrazurée',
+    'cat122': 'Gyrocristal Radiant',
+    'cat123': 'Tas de Pierres',
+    'cat124': 'Pierre séculaire',
+    'cat125': 'Orbe des profondeurs bleues',
+    'cat126': 'Message Secret',
+    'cat127': 'Fossile',
+    'cat128': 'Offrandes Perdues',
 
     // Succès
 
@@ -234,21 +248,113 @@ var langFR = {
     'succesh051': 'Vainquez le Limier de faille pendant son hurlement',
     'succest052': 'Pratiquement inoffensif... (v2.5)',
     'succesh052': 'Vainquez un Spectre qui n\'a pas accumulé de fureur',
+    'succest053': 'Vallée recluse',
+    'succesh053': 'Débloquez le donjon dans le Gouffre',
+    'succest054': 'Quand le sceau est brisé...',
+    'succesh054': 'Débloquez l\'accès aux mines souterraines dans le Gouffre',
+    'succest055': 'Bien joué, Stierlitz !',
+    'succesh055': 'Aider les Millelithes à nettoyer les camps de pilleurs de trésor<br>qui sévissent au Nord du gouffre',
+    'succest056': 'Nettoyage à sec',
+    'succesh056': 'Tuez l\'hypostase Hydro sans tuer aucun des blobs<br>qu\'il invoque sauf pendant la phase finale',
+    'succest057': '« Encore quelques bûches et du vinaigre... »',
+    'succesh057': 'Empruntez le passage secret qui conduit de la mine<br>à la surface, puis ouvrez la grille pour obtenir le succès',
+    'succest058': 'Du sel pour toi, de l\'eau pour moi',
+    'succesh058': 'Interceptez 3 bulles de soins pendant votre combat contre l\'hypostase',
+    'succest059': 'L\'heure de la destruction',
+    'succesh059': 'Cassez le cocon de glace de la Signora sans utiliser<br>de papillon du Lotus rouge',
+    'succest060': 'Go go, à nous le magot !',
+    'succesh060': 'Trouvez les 3 coffres dans la chasse au trésor de Chou',
+    'succest061': 'Les Millelithes sont éternels',
+    'succesh061': 'Terminez la quête Les montagnes Millénaires en examinant<br>la stèle près du trésor et en parlant à Wang',
 
         // Enkanomiya
 
     'succeset001': 'Atterrissage d\'urgence',
     'succeseh001': 'Détruisez le pilier sur lequel est monté un Élémentosaure',
 
+        // Mines du Gouffre
+    
+    'succesgot001': 'Peuple de la vallée de la vie',
+    'succesgoh001': 'Récuperez les 3 feuilles sur l\'arbre pour déverrouiller les totems,<br>activez-les avec l\'attaque élémentaire correspondante<br>pour déverrouiller le coffre et obtenir le succès',
+    'succesgot002': 'Full-Idiot Alchemist',
+    'succesgoh002': 'Libérez Clitopho de sa prison',
+    'succesgot003': 'Nid de Guêpe',
+    'succesgoh003': 'Réunissez les 2 parties de la carte au trésor des pilleurs<br>pour trouver l\'emplacement de leur cachette',
+    'succesgot004': 'Ouroboros',
+    'succesgoh004': 'Détruisez une concrétion visqueuse avec l\'Adjuvant de Lumen<br>pendant que le Serpent des Ruines recharge son énergie',
+    'succesgot005': 'À consommer avec modération !',
+    'succesgoh005': 'Rentrez dans le tronc d\'arbre et lisez le manuel<br>posé sur la table',
+    'succesgot006': 'Lumière Débordante',
+    'succesgoh006': '<a style="color:red;">Nécessite le niveau 10 de l\'Adjuvant de pierre de lumen !!!</a><br>Placez vous entre les deux concrétion visqueuse pour<br>pour les détruire en une seule attaque avec l\'adjuvant',
+    'succesgot007': 'Crede Tenebrae',
+    'succesgoh007': 'Récupérez les 9 orbes des profondeurs bleues afin<br>d\'ouvrir les portes de la salle secrète des mines',
+    'succesgot008': 'La rumeur en neuf mots',
+    'succesgoh008': 'Lisez les 9 messages secrets cachés dans les mines',
+    'succesgot009': 'Un champignon bien exigeant',
+    'succesgoh009': 'Aidez Xamaran à combattre l\'énergie néfaste',
+    'succesgot010': 'Rémanence de courage',
+    'succesgoh010': 'Aidez Zhiqiong durant son aventure<br><br><a style="color:red;">Obtenu à la fin de la serie de quêtes Rémanence de courage</a>',
+    'succesgot011': 'Analyses de l\'humanité',
+    'succesgoh011': 'Completez les 3 quêtes Enquête Hydrologique, Enquête mycologique,<br>et Enquête paléontologique et parlez à Khedive<br>pour obtenir le succès',
+    'succesgot012': 'Le récit de Taliesin',
+    'succesgoh012': 'Contez vos aventures dans le Gouffre à Taliesin<br><br>Pour cela vous devez terminer les quêtes suivantes :<br>- Requiem des profondeurs résonnantes<br>- La serie : Voyage au centre du Gouffre<br>- Appel à l\'aide d\'un champignon affaibbli<br>- Une unité disparue dans le Gouffre<br>et le succès Crede Tenebrae<br>Utilisez tous les sujets de discussion puis revenez<br>parlez à Taliesin après le Reset du serveur<br>pour obtenir le succès',
+    'succesgot013': 'Les chroniques minières du Gouffre',
+    'succesgoh013': 'Retrouvez les 3 documents d\'exploration du Gouffre',
+    'succesgot014': '« Qui d\'autre que moi ! »',
+    'succesgoh014': 'Retrouvez les 4 journaux d\'opération des Fatui',
 
     // Quêtes
 
+        // Teyvat
+
+    'quetet001': 'Fracture subreptice du sceau des Sept Étoiles',
+    'queteh001': '<b>Fracture subreptice du sceau des Sept Étoiles</b><br><br>Détruisez les 5 clés substratum pour débloquer l\'accès<br>aux Mines souterraines du Gouffre',
+    'quetet002': 'Infiltration réussie',
+    'queteh002': '<b>Infiltration réussie</b><br><br>Aider les Millelithes à nettoyer les camps de pilleurs de trésor<br>qui sévissent au Nord du gouffre',
+    'quetet003': 'Les paroles d\'un chercheur de pierres',
+    'queteh003': '<b>Les paroles d\'un chercheur de pierres</b><br><br>Récupérer 9 pierres séculaires pour les donner à Muning<br><br><span>Récompenses :3x 30 <img class="ico" src="media/icones/primo.png"/> et 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet004': 'Ô Archon, ai-je bien fait ?',
+    'queteh004': '<b>Ô Archon, ai-je bien fait ?</b><br><br>Aidez Shouta avec ses offrandes<br><br><span>Récompenses : 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet005': 'Les montagnes Millénaires',
+    'queteh005': '<b>Les montagnes Millénaires</b><br><br>Retrouvez les 6 offrandes perdues dans le gouffre<br>et rapportez-les à Wang<br>Voir section Exploration - Marqueurs Offrandes perdues<br><br><span>Récompenses : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 6x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet006': 'Le passé du chevalier des cimes',
+    'queteh006': '<b>Le passé du chevalier des cimes</b><br><br>Lancez la quête en ramassant les Fleurs de Qingxin près de Tang Wuchou<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+
         // Enkanomiya
 
-    'queteent01': 'Antigonus',
-    'queteenh01': 'Prouvez l\'innocence d\'Antei et ses compagnons',
-    'queteent02': 'Le secret d\'Erebos',
-    'queteenh02': 'Réussissez les épreuves pour débloquer les 3 îles cachées',
+    'queteet01': 'Antigonus',
+    'queteeh01': 'Prouvez l\'innocence d\'Antei et ses compagnons',
+    'queteet02': 'Le secret d\'Erebos',
+    'queteeh02': 'Réussissez les épreuves pour débloquer les 3 îles cachées',
+
+        // Mines du Gouffre
+
+    'quetegot01': 'Rémanence de courage',
+    'quetegoh01': '<b>Rémanence de courage</b><br><br>Placez les 5 balises pour Zhiqiong<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot02': 'Volé... par le propriétaire légitime',
+    'quetegoh02': '<b>Volé... par le propriétaire légitime</b><br><br>Aidez Taliesin à récupérer son anneau<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot03': 'Le don du Gouffre',
+    'quetegoh03': '<b>Le don du Gouffre</b><br><br>Aidez Qi Ding à retrouver la poupée de sa fille<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot04': 'Une unité disparue dans le gouffre',
+    'quetegoh04': '<b>Une unité disparue dans le gouffre</b><br><br>Aidez la companie de Fatui perdue dans les mines<br><br><span>Récompenses : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot05': 'Le mineur disparu',
+    'quetegoh05': '<b>Le mineur disparu</b><br><br>Aidez Oncle He à rejoindre le camp<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot06': 'L\'appel à l\'aide d\'un champignon affaibli',
+    'quetegoh06': '<b>L\'appel à l\'aide d\'un champignon affaibli</b><br><br>Aidez Xamaran à vaincre l\'énergie néfaste de la zone<br><br><span>Récompenses : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 3x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot07': 'Dans un pays étranger...',
+    'quetegoh07': '<b>Dans un pays étranger...</b><br><br>Après l\'avoir combattue, aidez Katarina<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot08': 'Rémanence de courage : Retour au couchant',
+    'quetegoh08': '<b>Rémanence de courage : Retour au couchant</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Rémanence de courage<br>et d\'attendre le Reset du serveur</span><br>Partez à la recherche de Zhiqiong<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot09': 'Rémanence de courage : Souvenir d\'une faible lueur',
+    'quetegoh09': '<b>Rémanence de courage : Souvenir d\'une faible lueur</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Rémanence de courage : Retour au couchant<br>et d\'attendre le Reset du serveur</span><br><br><span>Récompenses : 20x<img class="ico" src="media/icones/primo.png"/></span>',
+    'quetegot10': 'Dans un pays étranger : Sur la piste',
+    'quetegoh10': '<b>Dans un pays étranger : Sur la piste</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Dans un pays étranger...<br>et d\'attendre le Reset du serveur</span><br><br>Aidez Katarina à retrouver la trace de Kolya<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/> 20K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot11': 'Enquête Hydrologique dans le gouffre',
+    'quetegoh11': '<b>Enquête Hydrologique dans le gouffre</b><br><br>Obtenez l\'objet mystérieux en pêchant,<br>puis allez voir Khedive pour avoir plus d\'information<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 90K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot12': 'Enquête Mycologique dans le gouffre',
+    'quetegoh12': '<b>Enquête Mycologique dans le gouffre</b><br><br>Ramassez 8 Champitoile et ramenez-les à Khedive<br><br><span>Récompenses : 20x<img class="ico" src="media/icones/primo.png"/> 40K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot13': 'Enquête Paléontologique dans le gouffre',
+    'quetegoh13': '<b>Enquête Paléontologique dans le gouffre</b><br><br>Prenez en photo les 5 fossiles et ramenez-les à Khedive<br><br><span>Récompenses : 20x<img class="ico" src="media/icones/primo.png"/> 60K <img class="ico" src="media/icones/mora.png"/></span>',
 
     // Panoramas
     'pano1': 'Cité du Vent',
@@ -294,11 +400,25 @@ var langFR = {
     'pano41': 'Le palais nacré',
     'pano42': 'Les profondeurs baignées de lune',
     'pano43': 'Le village du peuple des tréfonds',
-    'pano44': 'Île de Tsurumi<br><a style="color:red;">Accessible à la fin de la quête<br>« La roue solaire et le mont Kanna »</a>',
-    'pano45': 'Là où la grande prêtresse suppléante réside<br><a style="color:red;">Accessible à la fin de la quête<br>« Neko est un chat »</a>',
+    'pano44': 'Île de Tsurumi<br><br><a style="color:red;">Accessible à la fin de la quête<br>« La roue solaire et le mont Kanna »</a>',
+    'pano45': 'Là où la grande prêtresse suppléante réside<br><br><a style="color:red;">Accessible à la fin de la quête<br>« Neko est un chat »</a>',
+    'pano46': 'Vue de la surface du Gouffre',
+    'pano47': 'Ancien champ de bataille du Vallon Fuao',
+    'pano48': 'Mâchoire de la grande mine',
+
+        // Mines souterraines
+
+    'panogo1': 'Tunnel bloqué',
+    'panogo2': 'Canal souterrain',
+    'panogo3': 'Fragment de cristal',
+    'panogo4': 'Mines souterraines',
+    'panogo5': 'Territoire du grand champignon<br><br><a style="color:red;">Accessible en lançant la quête<br>L\'appel à l\'aide d\'un champignon affaibli</a>',
+    'panogo6': 'Ville inversée<br><br><a style="color:red;">Accessible à la fin de la quête d\'Archon<br>Requiem des Profondeurs résonnantes</a>',
+    'panogo7': 'Cour des piliers<br><br><a style="color:red;">Accessible à la fin de la série de quêtes Rémanence de courage</a>',
 
     // Pêche
 
+        // Teyvat
     'peche1': '<ul class="peche"><li>• Médaka sucrant</li><li>• Médaka bleuté</li><li>• Attrape-aube</li><li>• Poisson cristal</li></ul>',
     'peche2': '<ul class="peche"><li>• Médaka sucrant</li><li>• Médaka bleuté</li><li>• Attrape-aube</li><li>• Poisson-papillon vert</li></ul>',
     'peche3': '<ul class="peche"><li>• Médaka sucrant</li><li>• Médaka bleuté</li><li>• Attrape-aube</li><li>• Poisson cristal</li><li>• Épinoche dovenin</li><li>• Poisson-papillon vert</li><li>• Koï doré</li></ul>',
@@ -325,6 +445,13 @@ var langFR = {
     'peche24': '<ul class="peche"><li>• Médaka</li><li>• Médaka verni</li><li>• Attrape-aube</li><li>• Poisson cristal</li><li>• Épinoche pulmonée</li><li>• Poisson-papillon violet</li></ul>',
     'peche25': '<ul class="peche"><li>• Médaka verni</li><li>• Épinoche pulmonée</li><li>• Akai maou</li><li>• Poisson-papillon violet</li><li>• Koï doré</li><li>• Koï rouillé</li></ul>',
     'peche26': '<ul class="peche"><li>• Médaka</li><li>• Attrape-aube</li><li>• Poisson cristal</li><li>• Poisson-papillon violet</li><li>• Poisson-globe</li></ul>',
+    'peche27': '<ul class="peche"><li>• Médaka</li><li>• Médaka sucrant</li><li>• Attrape-aube</li><li>• Poisson cristal</li></ul>',
+    'peche28': '<a style="color:red;">Vous devez utilisez La plume étrange sur la statue d\'oiseau<br>pour activer le point de pêche</a><br><br><ul class="peche"><li>• Médaka</li><li>• Épinoche pulmonée</li><li>• Akai maou</li><li>• Poisson-papillon violet</li></ul>',
+
+        // Enkanomiya
+    'pechee1': '<ul class="peche"><li>• Poisson cristal</li><li>• Épinoche pulmonée</li><li>• Raie divda</li><li>• Raie formalo</li></ul>',
+    'pechee2': '<ul class="peche"><li>• Attrape-aube</li><li>• Poisson-papillon violet</li><li>• Raie divda</li><li>• Raie formalo</li></ul>',
+    'pechee3': '<ul class="peche"><li>• Attrape-aube</li><li>• Akai maou</li><li>• Raie divda</li><li>• Raie formalo</li></ul>',
 
     // Défis
 
@@ -333,6 +460,42 @@ var langFR = {
     'defip': 'Récupérez toutes les particules en ',
     'defib': 'Détruisez tous les barils en ',
     'defis': ' secondes',
+
+    // Gyrocristaux Radiants
+
+    'gyro01': '<b>Gyrocristal Radiant n°14</b>',
+    'gyro02': '<b>Gyrocristal Radiant n°15</b>',
+    'gyro03': '<b>Gyrocristal Radiant n°11</b>',
+    'gyro04': '<b>Gyrocristal Radiant n°4</b>',
+    'gyro05': '<b>Gyrocristal Radiant n°16</b>',
+    'gyro06': '<b>Gyrocristal Radiant n°1</b>',
+    'gyro07': '<b>Gyrocristal Radiant n°3</b>',
+    'gyro08': '<b>Gyrocristal Radiant n°19</b>',
+    'gyro09': '<b>Gyrocristal Radiant n°38</b>',
+    'gyro10': '<b>Gyrocristal Radiant n°39</b>',
+    'gyro11': '<b>Gyrocristal Radiant n°32</b>',
+    'gyro12': '<b>Gyrocristal Radiant n°28</b>',
+    'gyro13': '<b>Gyrocristal Radiant n°34</b>',
+    'gyro14': '<b>Gyrocristal Radiant n°24</b>',
+    'gyro15': '<b>Gyrocristal Radiant n°26</b>',
+    'gyro16': '<b>Gyrocristal Radiant n°27</b>',
+    'gyro17': '<b>Gyrocristal Radiant n°47</b>',
+    'gyro18': '<b>Gyrocristal Radiant n°53</b>',
+    'gyro19': '<b>Gyrocristal Radiant n°54</b>',
+    'gyro20': '<b>Gyrocristal Radiant n°50</b>',
+    'gyro21': '<b>Gyrocristal Radiant n°56</b>',
+    'gyro22': '<b>Gyrocristal Radiant n°52</b>',
+    'gyro23': '<b>Gyrocristal Radiant n°49</b>',
+    'gyro24': '<b>Gyrocristal Radiant n°48</b>',
+
+    // Offrandes perdues des Millelithes
+
+    'offrande1': '<b>Cadran solaire des âges</b>',
+    'offrande2': '<b>Coupe des partages</b><br><br>Obtenue dans le coffre de récompense à la fin<br>de la quête Infiltration réussie',
+    'offrande3': '<b>Fleur de Clairvoyance</b>',
+    'offrande4': '<b>Lance de guerrier</b>',
+    'offrande5': '<b>Plume du ciel</b>',
+    'offrande6': '<b>Heaume de protection</b><br><br>Brulez la paille pour faire apparaître la cachette',
 
     // Coms
 
@@ -635,7 +798,44 @@ var langFR = {
     'com294': 'Ramenez les 3 fées environnantes pour accéder au défi',
     'com295': 'Activez les totems pour déverrouiller l\'interrupteur<br>puis tuez tous les ennemis pour déverrouiller le coffre',
     'com296': 'Accessible à la fin de la quête principale',
-    'com297': 'Ramenez les 2 fées environnantes pour accéder au défi'
+    'com297': 'Ramenez les 2 fées environnantes pour accéder au défi',
+    'com298': 'Cachette secrète de Sayu',
+    'com299': 'Utilisez la résonance Géo pour briser le rocher<br>et faire apparaître le coffre',
+    'com300': 'Posez un pilier et utilisez la résonance Géo pour briser le rocher<br>et faire apparaître le coffre',
+    'com301': 'Posez un pilier sur le socle et attrapez tous les cristaux<br>pour faire apparaître le coffre',
+    'com302': 'Vous devez avoir débloqué l\'accès au donjon<br>Vallée recluse pour accéder au coffre',
+    'com303': 'Utilisez la résonance pour activer tous les totems Géo<br>et faire apparaître le coffre',
+    'com304': '<a style="color:red;">N\'apparaît que lorsque la Clé Substratum est détruite !!!</a>',
+    'com305': 'Posez les piliers et utilisez la résonance Géo pour briser le rocher<br>et faire apparaître le coffre',
+    'com306': '<a style="color:red;">A faire en Mode Multijoueur !!!</a>',
+    'com307': 'Utilisez l\'Adjuvant de pierre de lumen pour allumer<br>les piliers et déverrouiller le coffre',
+    'com308': 'Chargez le coffre avec l\'Adjuvant de pierre de lumen<br>pour le déverrouiller',
+    'com309': 'Chargez le défi pour le déverrouiller',
+    'com310': 'Charger la branche puis cassez les cristaux<br>pour faire apparaître le coffre',
+    'com311': 'Cassez les vases pour faire apparaître le coffre',
+    'com312': 'Récuperez les 3 feuilles sur l\'arbre pour déverrouiller les totems,<br>activez-les avec l\'attaque élémentaire correspondante<br>pour déverrouiller le coffre',
+    'com313': 'Ramenez les 2 fées environnantes puis<br>',
+    'com314': '<a style="color:red;">Nécessite le niveau 2 de l\'Adjuvant de pierre de lumen !!!</a><br>',
+    'com315': 'Utilisez l\'Adjuvant de lumen sur la Concretion visqueuse<br>pour faire apparaître le coffre',
+    'com316': 'Utilisez l\'Adjuvant de lumen sur la Concretion visqueuse<br>pour débloquer le pillier lumineux<br>',
+    'com317': 'Récompense de quête',
+    'com318': 'Activer les 4 totems avec une attaque de type <a style="color:darkorange;">GEO</a><br>pour déverrouiller le coffre',
+    'com319': 'Activez le totem ANEMO et prenez le courant d\'air<br>pour atteindre le coffre',
+    'com320': '<a style="color:red;">Nécessite le niveau 6 de l\'Adjuvant de pierre de lumen !!!</a><br>',
+    'com321': 'Utilisez l\'Adjuvant de pierre de lumen pour faire<br>disparaître le mur de cristal',
+    'com322': 'Minerai de Lumen servant à l\'amélioration de l\'adjuvant',
+    'com323': 'Briser le mur pour libérer la fée',
+    'com324': 'Tuez le colosse des ruines pour faire apparaître le coffre',
+    'com325': 'Tuez les ennemis pour faire apparaître le coffre',
+    'com326': 'Utilisez l\'Adjuvant de pierre de lumen pour allumer<br>les piliers et faire apparaître le coffre',
+    'com327': 'Vous devez trouver les 9 orbes des profondeurs bleues<br>pour accéder à ce coffre',
+    'com328': 'Vous devez trouver la Clé des Mineurs pour ouvrir<br>la grille et accéder à ce coffre',
+    'com329': 'Tuez les ennemis pour obtenir l\'Orbe',
+    'com330': 'Explosez les barils pour detruire le mur<br>et faire apparaître le coffre',
+    'com331': 'Enflammez la paille pour faire apparaître le coffre',
+    'com332': 'Accessible durant la quête L\'appel à l\'aide d\'un champignon affaibli',
+    'com333': 'Obtenu en faisant la chasse au trésor de Chou<br>Si vous creusez une case vide les 4 alentour sont vides<br>Si vous creusez un légume, il y a 1 baril dans une case proche<br>Si vous creusez un minerai, il y a 2 barils dans les cases proches',
+    'com334': 'Caissez les caisses et tuez tous les ennemis pour faire apparaître le coffre'
 };
 
 var langEN = {
@@ -657,6 +857,7 @@ var langEN = {
     'ui-merge': 'You\'re about to merge local markers to your Discord save !!!\nProceed ?',
     'ui-mergedone': 'Merge done. Refreshing...',
     'ui-deco': 'Log out from ',
+    'ui-todo': 'Screen or video is coming soon !!!',
 
     // Cat Marker
     'cat01': 'Statue of 7',
@@ -774,6 +975,19 @@ var langEN = {
     'cat113': 'Aphotium Ore',
     'cat114': 'Tokoyo Legume',
     'cat115': 'Damaged Stone Slate',
+    'cat116': 'Lumenspar',
+    'cat117': 'Lumenlamp',
+    'cat118': 'Quest',
+    'cat119': 'Starshroom',
+    'cat120': 'Lucklight Fly',
+    'cat121': 'Bluethunder Weasel',
+    'cat122': 'Radiant Spincrystal',
+    'cat123': 'Rock Pile',
+    'cat124': 'Archaic Stone',
+    'cat125': 'Orb of the Blue Depths',
+    'cat126': 'Secret Message',
+    'cat127': 'Fossil',
+    'cat128': 'Lost Offerings',
 
     // Succès
 
@@ -874,22 +1088,114 @@ var langEN = {
     'succesh051': 'Defeat the Rifthound while he\'s roaring',
     'succest052': 'Basically Harmless (v2.5)',
     'succesh052': 'Defeat a Specter that has not accumulated any Fury',
+    'succest053': 'The Lost Valley',
+    'succesh053': 'Unlock the dungeon in the Chasm',
+    'succest054': 'When the Seal Is Broken...',
+    'succesh054': 'Unlock the access to The Chasm : Underground Mines',
+    'succest055': 'Well Done, Stierlitz !',
+    'succesh055': 'Help Milleliths to clean up Treasure Hoader camps<br>who rage north of the Chasm',
+    'succest056': 'Dry clean',
+    'succesh056': 'Defeat the Hydro hypostasis without killing a single one of its blobs<br>except in the final phase',
+    'succest057': '"All We Need Is Some Firewood and Some Vinegar... "',
+    'succesh057': 'Take the secret passage that leads from the mine<br>to the surface, then open the gate to get the achievement',
+    'succest058': 'Salt for My Foes, and Water for Me',
+    'succesh058': 'Intercept 3 heal bubbles during your fight against the hypostasis',
+    'succest059': 'Moment of Destruction',
+    'succesh059': 'Break Signora\'s Frozen Cocoon without using Crimson Lotus Moths',
+    'succest060': 'Ding Ding Ding, We Have a Winner ! Again !',
+    'succesh060': 'Find the 3 chests from Old Chou\'s minigame',
+    'succest061': 'The Millelith Shall Never Be Moved',
+    'succesh061': 'Finish the quest The Millennial Mountains by examin<br>Stone Tablet near the treasure and talk to Wang',
 
         // Enkanomiya
 
     'succeset001': 'Hard Landing (v2.5)',
     'succeseh001': 'Bring a climbing Bathysmal Vishap down',
 
+        // Mines du Gouffre
+    
+    'succesgot001': 'People of the Valley of Life',
+    'succesgoh001': 'Collect the 3 leaves on the tree to unlock the totems,<br>activate them with the corresponding elemental attack<br>to unlock the chest and get the achievement',
+    'succesgot002': 'The Alchemistake',
+    'succesgoh002': 'Free Clitopho from his jail',
+    'succesgot003': 'Den of Thieves',
+    'succesgoh003': 'Find the 2 parts of the Hoarder\'s treasure map<br>to locate their hidden place',
+    'succesgot004': 'Ouroboros',
+    'succesgoh004': 'Destroy Oozing Concretion with the Lumenstone Adjuvant<br>while the Ruin Serpent is gathering energy',
+    'succesgot005': 'Not for Long-Term Consumption',
+    'succesgoh005': 'Go inside the tree trunk and read the manual<br>placed on the table',
+    'succesgot006': 'Overflowing Light',
+    'succesgoh006': '<a style="color:red;">Need the lvl 10 of the Lumenstone Adjuvant !!!</a><br>Place yourself between two Oozing Concretion to<br>destroy them in one attack with the Adjuvant',
+    'succesgot007': 'Crede Tenebrae',
+    'succesgoh007': 'Collect the 9 Orbs from the Blue Depths<br>to open the doors to the Mines\' secret room',
+    'succesgot008': 'The Nine-Word Rumor',
+    'succesgoh008': 'Read the 9 secrets messages hidden in the mines',
+    'succesgot009': 'The Mushroom That Ask Too Much',
+    'succesgoh009': 'Help Xamaran fight the harmful energy',
+    'succesgot010': 'Valor\'s Afterglow<br><br><a style="color:red;">Get it at the end of the Valor\'s Afterglow quests serie</a>',
+    'succesgoh010': 'Help Zhiqiong during her adventure',
+    'succesgot011': 'Of the Human Heart Many Essays Written',
+    'succesgoh011': 'Complete the 3 quests Hydrological Investigation, Mycological Investigation,<br>and Paleontological Investigation then talk to Khedive<br>to get the achievement',
+    'succesgot012': 'The Tome of Taliesin',
+    'succesgoh012': 'Talk to Taliesin about your Chasm\'s adventures<br><br>You need to complete this Quests :<br>- Requiem of the Echoing Depths<br>- The Chasm Delvers Quests Series<br>- Dimming Mushroom\'s Call for Help<br>- A Company Vanishing Into the Deep<br>- and the achievement Crede Tenebrae<br><br>Use all the possible dialogue options then wait for Server Reset<br>and go back talk to Taliesin to get the achievement',
+    'succesgot013': 'The Chasm Mining Records',
+    'succesgoh013': 'Find the 3 documents about the Chasm exploration',
+    'succesgot014': 'If Not Us, Then Who ?',
+    'succesgoh014': 'Find the 4 Fatui\'s operation logs',
 
     // Quêtes
 
+        // Teyvat
+
+    'quetet001': 'Surreptitious Seven-Star Seal Sundering',
+    'queteh001': 'Destroy the 5 Bedrock keys to unlock the access<br>to The Chasm : Underground Mines',
+    'quetet002': 'Undetected Infiltration',
+    'queteh002': 'Help Millelithes to clean up Treasure Hoader camp<br>who rage north of the chasm',
+    'quetet003': 'Says He Who Seeks Stone',
+    'queteh003': '<b>Says He Who Seeks Stone</b><br><br>Find 9 Archaic Stones and give them to Muning<br><br><span>Rewards :3x 30 <img class="ico" src="media/icones/primo.png"/> et 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet004': 'O Archon, Have I Done Right ?',
+    'queteh004': '<b>O Archon, Have I Done Right ?</b><br><br>Help Shouta with this offers<br><br><span>Rewards : 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet005': 'The Millennial Mountains',
+    'queteh005': '<b>The Millennial Mountains</b><br><br>Find the 6 Lost offerings in the Chasm<br>and bring them back to Wang<br>Refer to Exploration section - Lost Offerings markers<br><br><span>Rewards : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 6x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet006': 'A Cliff-Side Hero\'s Past',
+    'queteh006': '<b>A Cliff-Side Hero\'s Past</b><br><br>Pick up Qingxin flower near Tang Wuchou to launch the quest<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    
         // Enkanomiya
 
-    'queteent01': 'Antigonus',
-    'queteenh01': 'Prove the innocence of Antei and his companions',
-    'queteent02': 'Erebos\' Secret',
-    'queteenh02': 'Succeed the challenges to unlock the 3 hidden islands',
-    
+    'queteet01': 'Antigonus',
+    'queteeh01': 'Prove the innocence of Antei and his companions',
+    'queteet02': 'Erebos\' Secret',
+    'queteeh02': 'Succeed the challenges to unlock the 3 hidden islands',
+
+        // Mines du Gouffre
+
+    'quetegot01': 'Valor\'s Afterglow',
+    'quetegoh01': 'Place the 5 beacons for Zhiqiong<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot02': 'Stolen, by the Rightful Owner',
+    'quetegoh02': 'Help Taliesin get his ring back<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot03': 'The Chasm\'s Bounty',
+    'quetegoh03': 'Help Qi Ding find his daughter\'s doll<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot04': 'A company Vanishing Into the Deep',
+    'quetegoh04': 'Help the Fatui Company lost in the chasm<br><br><span>Rewards : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot05': 'The Missing Miner',
+    'quetegoh05': 'Help Uncle He go back to the camp<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot06': 'Dimming Mushroom\'s Call for Help',
+    'quetegoh06': 'Help xamaran defeat the harmful energy in the area<br><br><span>Rewards : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 3x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot07': 'Lost in a Foreign Land',
+    'quetegoh07': '<b>Lost in a Foreign Land</b><br><br>After fighting her, help Katarina<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot08': 'Valor\'s Afterglow : Return by Sundown',
+    'quetegoh08': '<b>Valor\'s Afterglow : Return by Sundown</b><br><br><span style="color:red;">Need to do the quest Valor\'s Afterglow and wait the Server Reset</span><br><br>Go in search of Zhiqiong</span><br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegot09': 'Valor\'s Afterglow : The Faint Light Remembered',
+    'quetegoh09': '<b>Valor\'s Afterglow : The Faint Light Remembered</b><br><br><span style="color:red;">Need to do the quest Valor\'s Afterglow : Return by Sundown<br>and wait the Server Reset</span><br><br><span>Rewards : 20x<img class="ico" src="media/icones/primo.png"/></span>',
+    'quetegot10': 'Lost in a Foreign Land : Seeking',
+    'quetegoh10': '<b>Lost in a Foreign Land : Seeking</b><br><br><span style="color:red;">Need to do the quest Lost in a Foreign Land<br>and wait the Server Reset</span><br><br>Help Katarina track down Kolya<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/> 20K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot11': 'Hydrological Investigation in the Chasm',
+    'quetegoh11': '<b>Hydrological Investigation in the Chasm</b><br><br>Obtain the strange object by fishing, then go to Khedive for more information<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 90K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot12': 'Mycological Investigation in the Chasm',
+    'quetegoh12': '<b>Mycological Investigation in the Chasm</b><br><br>Pick up 8 Startshroom and bring them to Khedive<br><br><span>Rewards : 20x<img class="ico" src="media/icones/primo.png"/> 40K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetegot13': 'Paleontological Investigation in the Chasm',
+    'quetegoh13': '<b>Paleontological Investigation in the Chasm</b><br><br>Take a photo of the 5 fossils and bring them to Khedive<br><br><span>Rewards : 20x<img class="ico" src="media/icones/primo.png"/> 60K <img class="ico" src="media/icones/mora.png"/></span>',
+
     // Panoramas
     'pano1': 'The City of Wind',
     'pano2': 'The Marsh of Celestial Guardians',
@@ -934,11 +1240,25 @@ var langEN = {
     'pano41': 'The Pearlescent Palace',
     'pano42': 'The Moon-Bathed Deep',
     'pano43': 'Village of the People of the Deep',
-    'pano44': 'Tsurumi Island<br><a style="color:red;">Accessible at the end of the quest<br>« The Sun-Wheel and Mt. Kanna »</a>',
-    'pano45': 'Là où la grande prêtresse suppléante réside<br><a style="color:red;">Accessible at the end of the quest<br>« Neko is a cat »</a>',
+    'pano44': 'Tsurumi Island<br><br><a style="color:red;">Accessible at the end of the quest<br>« The Sun-Wheel and Mt. Kanna »</a>',
+    'pano45': 'Where the Provisional Head Priestess Lives<br><br><a style="color:red;">Accessible at the end of the quest<br>« Neko is a cat »</a>',
+    'pano46': 'View from The Chasm\'s Surface',
+    'pano47': 'The Ancient Battlefield of Fuao Vale',
+    'pano48': 'Mouth of the Great Mine',
 
-    // Pêche
+        // Mines souterraines
 
+    'panogo1': 'The Blocked Path',
+    'panogo2': 'Underground Waterway',
+    'panogo3': 'Crystal Fragment',
+    'panogo4': 'The Underground Mines',
+    'panogo5': 'The Glowing Narrows<br><br><a style="color:red;">Accessible when launching the quest<br>Dimming Mushroom\'s Call for Help</a>',
+    'panogo6': 'The Inverted City<br><br><a style="color:red;">Accessible at the end of the Archon quest<br>Requiem of the Echoing Depths</a>',
+    'panogo7': 'The Court of Pillars<br><br><a style="color:red;">Accessible at the end of the Valor\'s Afterglow quest serie</a>',
+
+        // Pêche
+
+        // Teyvat
     'peche1': '<ul class="peche"><li>• Sweet-flower Medaka</li><li>• Aizen Medaka</li><li>• Dawn catcher</li><li>• Crystalfish</li></ul>',
     'peche2': '<ul class="peche"><li>• Sweet-flower Medaka</li><li>• Aizen Medaka</li><li>• Dawn catcher</li><li>• Tea-colored Shirakodai</li></ul>',
     'peche3': '<ul class="peche"><li>• Sweet-flower Medaka</li><li>• Aizen Medaka</li><li>• Dawn catcher</li><li>• Crystalfish</li><li>• Venomspine Fish</li><li>• Tea-colored Shirakodai</li><li>• Golden Koi</li></ul>',
@@ -965,6 +1285,13 @@ var langEN = {
     'peche24': '<ul class="peche"><li>• Medaka</li><li>• Glaze Medaka</li><li>• Dawn catcher</li><li>• Crystalfish</li><li>• Lunged Stickleback</li><li>• Purple shirakodai</li></ul>',
     'peche25': '<ul class="peche"><li>• Glaze Medaka</li><li>• Lunged Stickleback</li><li>• Akai maou</li><li>• Purple shirakodai</li><li>• Golden Koi</li><li>• Rusty Koi</li></ul>',
     'peche26': '<ul class="peche"><li>• Medaka</li><li>• Dawn catcher</li><li>• Crystalfish</li><li>• Purple shirakodai</li><li>• Pufferfish</li></ul>',
+    'peche27': '<ul class="peche"><li>• Medaka</li><li>• Sweet-flower Medaka</li><li>• Dawn catcher</li><li>• Crystalfish</li></ul>',
+    'peche28': '<a style="color:red;">Use Peculiar Pinion on the bird statue<br>to activate the fishing spot</a><br><br><ul class="peche"><li>• Medaka</li><li>• Lunged Stickleback</li><li>• Akai maou</li><li>• Purple shirakodai</li></ul>',
+
+        // Enkanomiya
+    'pechee1': '<ul class="peche"><li>• Crystalfish</li><li>• Lunged Stickleback</li><li>• Divda Ray</li><li>• Formalo Ray</li></ul>',
+    'pechee2': '<ul class="peche"><li>• Dawn catcher</li><li>• Purple shirakodai</li><li>• Divda Ray</li><li>• Formalo Ray</li></ul>',
+    'pechee3': '<ul class="peche"><li>• Dawn catcher</li><li>• Akai maou</li><li>• Divda Ray</li><li>• Formalo Ray</li></ul>',
 
     // Défis
 
@@ -973,6 +1300,42 @@ var langEN = {
     'defip': 'Take all particles in ',
     'defib': 'Destroy all barrels in ',
     'defis': ' seconds',
+
+    // Gyrocristaux Radiants
+
+    'gyro01': '<b>Radiant Spincrystal n°14</b>',
+    'gyro02': '<b>Radiant Spincrystal n°15</b>',
+    'gyro03': '<b>Radiant Spincrystal n°11</b>',
+    'gyro04': '<b>Radiant Spincrystal n°4</b>',
+    'gyro05': '<b>Radiant Spincrystal n°16</b>',
+    'gyro06': '<b>Radiant Spincrystal n°1</b>',
+    'gyro07': '<b>Radiant Spincrystal n°3</b>',
+    'gyro08': '<b>Radiant Spincrystal n°19</b>',
+    'gyro09': '<b>Radiant Spincrystal n°38</b>',
+    'gyro10': '<b>Radiant Spincrystal n°39</b>',
+    'gyro11': '<b>Radiant Spincrystal n°32</b>',
+    'gyro12': '<b>Radiant Spincrystal n°28</b>',
+    'gyro13': '<b>Radiant Spincrystal n°34</b>',
+    'gyro14': '<b>Radiant Spincrystal n°24</b>',
+    'gyro15': '<b>Radiant Spincrystal n°26</b>',
+    'gyro16': '<b>Radiant Spincrystal n°27</b>',
+    'gyro17': '<b>Radiant Spincrystal n°47</b>',
+    'gyro18': '<b>Radiant Spincrystal n°53</b>',
+    'gyro19': '<b>Radiant Spincrystal n°54</b>',
+    'gyro20': '<b>Radiant Spincrystal n°50</b>',
+    'gyro21': '<b>Radiant Spincrystal n°56</b>',
+    'gyro22': '<b>Radiant Spincrystal n°52</b>',
+    'gyro23': '<b>Radiant Spincrystal n°49</b>',
+    'gyro24': '<b>Radiant Spincrystal n°48</b>',
+
+    // Offrandes perdues des Millelithes
+
+    'offrande1': '<b>Sundial of Ages</b>',
+    'offrande2': '<b>Cup of Commons</b><br><br>Get it in the reward chest at the end<br>of the quest Undetected Infiltration',
+    'offrande3': '<b>Flower of Farsight</b>',
+    'offrande4': '<b>Warrior\'s Spear</b>',
+    'offrande5': '<b>Sky Feather</b>',
+    'offrande6': '<b>Helm of Warding</b><br><br>Burn the straw to reveal the hiding place',
 
     // Coms
 
@@ -1275,5 +1638,42 @@ var langEN = {
     'com294': 'Bring back the 3 surrounding seelies to access the challenge',
     'com295': 'Activate the totems to unlock the switch<br>then kill all the enemies to unlock the chest',
     'com296': 'Reachable at the end of the main quest',
-    'com297': 'Bring back the 2 surrounding seelies to access the challenge'
+    'com297': 'Bring back the 2 surrounding seelies to access the challenge',
+    'com298': 'Sayu Secret Place',
+    'com299': 'Use Geo resonance to break the rock<br>and make the chest appear',
+    'com300': 'Drop a pillar and use Geo resonance to break the rock<br>to make the chest appear',
+    'com301': 'Drop a pillar on the slab and catch all crystals<br>to make the chest appear',
+    'com302': 'You must have unlocked The Lost Valley dungeon<br>to access this chest',
+    'com303': 'Use resonance to activate all the Geo totems<br>to make the chest appear',
+    'com304': '<a style="color:red;">Appears only when the Bedrock Key is destroyed !!!</a>',
+    'com305': 'Drop pillars and use Geo resonance to break the rock<br>to make the chest appear',
+    'com306': '<a style="color:red;">Do it in Multiplayer Mode !!!</a>',
+    'com307': 'Use the Lumenstone Adjuvant to light on the column<br>to unlock the chest',
+    'com308': 'Refill the chest with the Lumenstone Adjuvant<br>to unlock it',
+    'com309': 'Refill the challenge to unlock it',
+    'com310': 'Refill the branch the break the crystals<br>to make the chest appear',
+    'com311': 'Break the vases to make the chest appear',
+    'com312': 'Collect the 3 leaves on the tree to unlock the totems,<br>activate them with the corresponding elemental attack<br>to unlock the chest',
+    'com313': 'Bring back the 2 surrounding seelies then<br>',
+    'com314': '<a style="color:red;">Need the lvl 2 of the Lumenstone Adjuvant !!!</a><br>',
+    'com315': 'Use the Lumenstone Adjuvant on the Oozing Concretion<br>to make the chest appear',
+    'com316': 'Use the Lumenstone Adjuvant on the Oozing Concretion<br>to unlock the column<br>',
+    'com317': 'Quest reward',
+    'com318': 'Activate all 4 totems with a <a style="color:darkorange;">GEO</a> type attack<br>to unlock the chest',
+    'com319': 'Activate the ANEMO totem then use the air flow<br>to reach the chest',
+    'com320': '<a style="color:red;">Need the lvl 6 of the Lumenstone Adjuvant !!!</a><br>',
+    'com321': 'Use the Lumenstone Adjuvant to destroy the crystal wall',
+    'com322': 'Lumenstone Ore used to upgrade the Adjuvant',
+    'com323': 'Break the wall to free the Seelie',
+    'com324': 'Kill the Ruin Grader to make the chest appear',
+    'com325': 'Kill all the enemies to make the chest appear',
+    'com326': 'Use the Lumenstone Adjuvant to light on the column<br>to make the chest appear',
+    'com327': 'You must find the 9 Orb of the Blue Depths<br>to access this chest',
+    'com328': 'You must find the Miner\'s Key to open the gate<br>to access this chest',
+    'com329': 'Kill enemies to get the Orb',
+    'com330': 'Explode the barrels to destroy the wall<br>and make the chest appear',
+    'com331': 'Ignite the straw to make the chest appear',
+    'com332': 'Accessible in the quest Dimming Mushroom\'s Call for Help',
+    'com333': 'Obtained by doing Chou\'s treasure hunt<br>If you dig an empty space the 4 around are empty<br>If you dig a vegetable, there is 1 barrel in a nearby space<br>If you dig an ore, there are 2 barrels in the nearby spaces',
+    'com334': 'Break the crates then kill all enemies to make the chest appear'
 };

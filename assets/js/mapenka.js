@@ -13,8 +13,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.4")) {
-            localStorage.Mapversenka = "1.4";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.4.1")) {
+            localStorage.Mapversenka = "1.4.1";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -164,6 +164,8 @@
         window.location.reload();
     };
         
+    // IMPORTANT !!!!!! Penser à changer les valeurs de LocalStorage en cas de réutilisation du code pour une autre map !!!!!!!!!
+
     function reselectmenu(ligne, btn){
 
         if (!userLocal) {
@@ -181,8 +183,8 @@
                 });
             };
         } else {
-            var lilocal = (localStorage.MenumapgenshinLiDarkEnka) ? JSON.parse(localStorage.MenumapgenshinLiDarkEnka) : [];
-            var btnlocal = (localStorage.MenumapgenshinBtnDarkEnka) ? JSON.parse(localStorage.MenumapgenshinBtnDarkEnka) : [];
+            var lilocal = (localStorage.MenumapgenshinLiEnka) ? JSON.parse(localStorage.MenumapgenshinLiEnka) : [];
+            var btnlocal = (localStorage.MenumapgenshinBtnEnka) ? JSON.parse(localStorage.MenumapgenshinBtnEnka) : [];
 
             if(lilocal){
                 lilocal.forEach(function(element) {
@@ -207,7 +209,7 @@ var userLocal = true;
 var listatut = [];
 var btnstatut = [];
 var teyvatarray = [
-    'teleport','enkagate','cyclejn','triangle','peche','succes',
+    'teleport','enkagate','cyclejn','triangle','peche','succes','quete',
     'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
     'cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc',
     'ferblanc','amethyste','electrocris','noyauc','perle','corail',
@@ -277,6 +279,8 @@ function initMarkers () {
     loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
     loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
     loadmarker(listsucces,Succes,"succes",langue.cat46,"succese","succese");
+    loadmarker(listquete,Quete,"quete",langue.cat118,"quetee","quetee");
+    loadmarker(listpeche,Peche,"peche",langue.cat94,"pechee");
     loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
     loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
     loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");
@@ -329,6 +333,10 @@ function initMarkers () {
                     txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
                     popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
+                case 7 : // Todo
+                    txt = "<br><h1><b>"+marktitle+" "+(i+1)+"</b><br>"+langue['ui-todo']+"</h1>";
+                    popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
+                    break;
                 case 11 : // null (+cb)
                     popup = '<h1>'+marq[2]+checkbox+'</h1>';
                     break;
@@ -341,7 +349,7 @@ function initMarkers () {
                 if (mtype == 11) {
                     curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                     counternull += 1;
-                } else if (mtype == 12) {
+                } else if (mtype == 7) {
                     titlem = (typeof marq[2] !=='undefined') ? marktitle+" "+marq[2] : marktitle;
                     curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                 } else {
@@ -377,6 +385,8 @@ function initMarkers () {
 
 // Gestion du Menu
 
+    // IMPORTANT !!!!!! Penser à changer les valeurs de LocalStorage et de POST en cas de réutilisation du code pour une autre map !!!!!!!!!
+
     $('#menu a[data-type]').on('click', function(e){
         e.preventDefault();
   
@@ -399,7 +409,7 @@ function initMarkers () {
                     listatut.push($(this).data('type'));
                 };
             });
-            localStorage.MenumapgenshinLiDarkEnka = JSON.stringify(listatut);
+            localStorage.MenumapgenshinLiEnka = JSON.stringify(listatut);
             };
         });
 
@@ -426,7 +436,7 @@ function initMarkers () {
                     btnstatut.push($(this).data('type'));
                 };
             });
-            localStorage.MenumapgenshinBtnDarkEnka = JSON.stringify(btnstatut);
+            localStorage.MenumapgenshinBtnEnka = JSON.stringify(btnstatut);
         }
     });
 

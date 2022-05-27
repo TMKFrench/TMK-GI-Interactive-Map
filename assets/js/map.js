@@ -15,8 +15,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "6.0")) {
-            localStorage.Mapvers = "6.0";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "6.1.3")) {
+            localStorage.Mapvers = "6.1.3";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -219,7 +219,7 @@ var currentMarker;
 var userMarkers = getUserMarkers();
 var userLocal = true;
 var teyvatarray = [
-    'statue','teleport','tpbarge','elecgate','peche','succes','pano','anemo','geocul','eleccul','agate','sceaugeo',
+    'statue','teleport','tpbarge','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes',
     'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
     'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
     'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
@@ -241,10 +241,10 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-L.tileLayer('media/tiles/{z}/{x}/{y}.jpg', {
+L.tileLayer('media/tilesteyvat/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
-    minZoom: 3,
+    minZoom: 2,
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
     noWrap: true
@@ -294,6 +294,7 @@ function initMarkers () {
     loadmarker(listelecgate,Elecgate,"elecgate",langue.cat93,"egate");
     loadmarker(listpeche,Peche,"peche",langue.cat94,"peche");
     loadmarker(listsucces,Succes,"succes",langue.cat46,"succes","succes");
+    loadmarker(listquete,Quete,"quete",langue.cat118,"quete","quete");
     loadmarker(listpano,Pano,"pano",langue.cat03,"pano","pano");
     loadmarker(listpanol,Pano,"pano",langue.cat03,"panol","panol");
     loadmarker(listpanoi,Pano,"pano",langue.cat03,"panoi","panoi");
@@ -301,7 +302,11 @@ function initMarkers () {
     loadmarker(listgeocul,Geocul,"geocul",langue.cat29,"geoc","geocul");
     loadmarker(listeleccul,Eleccul,"eleccul",langue.cat80,"eleccul","eleccul");
     loadmarker(listagate,Agate,"agate",langue.cat47,"agate","agate");
+    loadmarker(listgyroc,Gyroc,"gyroc",langue.cat122,"gyroc","gyroc");
     loadmarker(listsceaugeo,Sceaugeo,"sceaugeo",langue.cat30,"sg","sceaugeo");
+    loadmarker(listtasdepierre,Tasdepierre,"tasdepierre",langue.cat123,"tas2pierre","tasdepierre");
+    loadmarker(listpseculaire,Pseculaire,"pseculaire",langue.cat124,"pseculaire","pseculaire");
+    loadmarker(listoffrandes,Offrandes,"offrandes",langue.cat128,"offrandes","offrandes");
     loadmarker(listcordi,Cordi,"cordimond",langue.cat04,"oc","cordi");
     loadmarker(listcordil,Cordi,"cordiliyu",langue.cat04,"ocl","cordil");
     loadmarker(listcordii,Cordi,"cordiinaz",langue.cat04,"oci","cordii");
@@ -428,6 +433,10 @@ function initMarkers () {
                     txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
                     popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
+                case 7 : // Todo
+                    txt = "<br><h1><b>"+marktitle+" "+(i+1)+"</b><br>"+langue['ui-todo']+"</h1>";
+                    popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
+                    break;
                 case 11 : // null (+cb)
                     popup = '<h1>'+marq[2]+checkbox+'</h1>';
                     break;
@@ -440,7 +449,7 @@ function initMarkers () {
                 if (mtype == 11) {
                     curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                     counternull += 1;
-                } else if (mtype == 12) {
+                } else if (mtype == 7) {
                     titlem = (typeof marq[2] !=='undefined') ? marktitle+" "+marq[2] : marktitle;
                     curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                 } else {

@@ -11,7 +11,8 @@
 *.sln.docstates
 media/*.jpg
 media/*.gif
-media/tiles/
+media/tilesteyvat/
+media/tilesgouffre/
 media/tilesenka/
 media/tilesdarkenka/
 nextstage.png
@@ -20,6 +21,11 @@ oldindex/
 config.ini
 tmkmap.db
 assets/js/old/
+convertiontmk.html
+lbm.js
+populate.php
+populatedb.html
+update.php
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

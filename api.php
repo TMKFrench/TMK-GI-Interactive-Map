@@ -92,6 +92,9 @@ if($method == 'GET' && $action == 'login') {
             } elseif ($map == 'e') {
                 $user['menu'] = ($dbUser) ? json_decode($dbUser->menue) : [];
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btne) : [];
+            } elseif ($map == 'go') {
+                $user['menu'] = ($dbUser) ? json_decode($dbUser->menugo) : [];
+                $user['btn'] = ($dbUser) ? json_decode($dbUser->btngo) : [];
             } elseif ($map == 'se') {
                 $user['menu'] = ($dbUser) ? json_decode($dbUser->menuse) : [];
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btnse) : [];
@@ -215,6 +218,12 @@ if($method == 'GET' && $action == 'login') {
                     $menu[] = $id;
                     $db->update('users', ['menue' => json_encode($menu)], ['uid' => $user['uid']]);
                 }
+            } elseif ($map == 'go') {
+                $menu = is_null($dbUser->menugo)?[]:json_decode($dbUser->menugo);
+                if(!in_array($id, $menu)) {
+                    $menu[] = $id;
+                    $db->update('users', ['menugo' => json_encode($menu)], ['uid' => $user['uid']]);
+                }
             } elseif ($map == 'se') {
                 $menu = is_null($dbUser->menuse)?[]:json_decode($dbUser->menuse);
                 if(!in_array($id, $menu)) {
@@ -244,6 +253,13 @@ if($method == 'GET' && $action == 'login') {
                     array_splice($menu, $k, 1);
                     $db->update('users', ['menue' => json_encode($menu)], ['uid' => $user['uid']]);
                 }                
+            } elseif ($map == 'go') {
+                $menu = json_decode($dbUser->menugo);
+                if(in_array($id, $menu)) {
+                    $k = array_search($id, $menu);
+                    array_splice($menu, $k, 1);
+                    $db->update('users', ['menugo' => json_encode($menu)], ['uid' => $user['uid']]);
+                }                
             } elseif ($map == 'se') {
                 $menu = json_decode($dbUser->menuse);
                 if(in_array($id, $menu)) {
@@ -271,6 +287,12 @@ if($method == 'GET' && $action == 'login') {
                 if(!in_array($id, $menu)) {
                     $menu[] = $id;
                     $db->update('users', ['btne' => json_encode($menu)], ['uid' => $user['uid']]);
+                }
+            } elseif ($map == 'go') {
+                $menu = is_null($dbUser->btngo)?[]:json_decode($dbUser->btngo);
+                if(!in_array($id, $menu)) {
+                    $menu[] = $id;
+                    $db->update('users', ['btngo' => json_encode($menu)], ['uid' => $user['uid']]);
                 }
             } elseif ($map == 'se') {
                 $menu = is_null($dbUser->btnse)?[]:json_decode($dbUser->btnse);
@@ -300,6 +322,13 @@ if($method == 'GET' && $action == 'login') {
                     $k = array_search($id, $menu);
                     array_splice($menu, $k, 1);
                     $db->update('users', ['btne' => json_encode($menu)], ['uid' => $user['uid']]);
+                }                
+            } elseif ($map == 'go') {
+                $menu = json_decode($dbUser->btngo);
+                if(in_array($id, $menu)) {
+                    $k = array_search($id, $menu);
+                    array_splice($menu, $k, 1);
+                    $db->update('users', ['btngo' => json_encode($menu)], ['uid' => $user['uid']]);
                 }                
             } elseif ($map == 'se') {
                 $menu = json_decode($dbUser->btnse);

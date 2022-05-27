@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="content-language" content="fr" />
 	<meta charset="utf-8">
-	<meta name="keywords" content="Map Interactive; Genshin Impact; coffre; Anemoculus; Geoculus; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
+	<meta name="keywords" content="Map Interactive; Genshin Impact; coffre; Anemoculus; Geoculus; Lumen; Statue of the 7; Mihoyo; RPG; Temple; Donjon; Exploration; Anémo; Dendro; Diluc; Électro; Archons élémentaire; combat système élémentaire; genshi; jeu genshi; jeu vidéo genshi; genshi impact; vidéo genshi; genshin; jeu genshin; jeu vidéo genshin; genshin impact 2020; amazon genshin impact; Android genshin impact; anime genshin impact; annonce genshin impact; genshin impact disponible; disponibilité genshin impact; genshin impact génial; sortie genshin impact; date de sortie genshin impact; genshin impact beta; bêta genshin impact; téléchargement genshin impact; jeu genshin impact; jeu vidéo genshin impact; genshin impact game; graphisme genshin impact; graphique genshin impact; introduction genshin impact; iPhone genshin impact; lancement genshin impact; genshin impact lance; manga genshin impact; mobile genshin impact; genshin impact officiel; genshin impact ouvert; ouverture genshin impact; PC genshin impact; PlayStation genshin impact; pré-inscription genshin impact; inscription genshin impact; aperçu genshin impact; test genshin impact; bêta test genshin impact; vidéo genshin impact; walkthrough genshin impact; genshin impact wiki; genshi; jeu genshi; jeu vidéo genshi; genshin impact; Hyrdo; Jean; Kaeya; Lisa; Port de Liyue; Paimon; jouer à genshin impact; héros; héroïne; Pyro; Razor; sept éléments; Teyvat; Venti; yuanshen game; mihoyo; mihoyo limited; miHoYo China; miHoYo Chine; miHoYo Japan; miHoYo Japon; histoire d&#x27;aventure; jeu monde ouvert; jeu vidéo monde ouvert; style anime; JRPG; MMORPG; jeux anime; jeu mobile; action RPG; jeu anime PS4; jeu multiplateforme; jeu vidéo multiplateforme; meilleur jeu mobile; asandbox adventure RPG; jeu mobile multijoueur; action jeu de rôle; action jeu vidéo de rôle;">
 	<meta name="description" content="Map Interactive Genshin Impact" />
 	<meta name="google-site-verification" content="bliVr8lt1OPhn3qLBDpT03pxeT5zdVY0xu12OmXtZis" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,11 +49,16 @@
 					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
 					<a id="BtnMerge" href="#!" title="Fusion des Markers locaux avec le compte Discord" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Fusionner</span></a>
 				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnEnka" href="enka.html" title="Accès Map d'Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
-				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="darkenka.html" title="Accès Offrande d'accès aux 3 Royaumes" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accès à la Map Offrande d'accès aux 3 Royaumes</a>
+				<div id="selectmap">
+					<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
+					<div class="panel">
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnEnka" href="enka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
+						</div>
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnGouffre" href="gouffre.html" title="Accès Map Gouffre:Mines souterraines" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map des Mines du Gouffre</a>
+						</div>
+					</div>						
 				</div>
 				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
 					<!-- <li class="accordion title text-red-600">Evènement Fracas du Tonnerre</li>
@@ -72,15 +77,20 @@
 							<li class="marker"><a id="btnFRstatue" href="#!" data-type="statue" class="itembtn"><img src="media/icones/statuem.png" /> <span>Statues des 7</span></a></li>
 							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport" class="itembtn"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
 							<li class="marker"><a id="btnFRtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>TP Barge</span></a></li>
-							<li class="marker"><a id="btnFRelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Portail électro</span></a></li>
-							<li class="marker"><a id="btnFRpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Point de pêche</span></a></li>
+							<li class="marker"><a id="btnFRelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Portails électro</span></a></li>
+							<li class="marker"><a id="btnFRpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Points de pêche</span></a></li>
+							<li class="marker"><a id="btnFRquete" href="#!" data-type="quete" class="itembtn"><img src="media/icones/quetem.png" /> <span>Quêtes</span></a></li>
 							<li class="marker"><a id="btnFRsucces" href="#!" data-type="succes" class="itembtn"><img src="media/icones/succes.png" /> <span>Succès</span></a></li>
-							<li class="marker"><a id="btnFRpano" href="#!" data-type="pano" class="itembtn"><img src="media/icones/pano.png" /> <span>Panorama</span></a></li>
+							<li class="marker"><a id="btnFRpano" href="#!" data-type="pano" class="itembtn"><img src="media/icones/pano.png" /> <span>Panoramas</span></a></li>
 							<li class="marker"><a id="btnFRanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
 							<li class="marker"><a id="btnFRgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
 							<li class="marker"><a id="btnFReleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
 							<li class="marker"><a id="btnFRagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Agates pourpres</span></a></li>
+							<li class="marker"><a id="btnFRgyroc" href="#!" data-type="gyroc" class="itembtn"><img src="media/icones/gyrocm.png" /> <span>Gyrocristaux Radiants</span></a></li>
 							<li class="marker"><a id="btnFRsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Sceaux Géo</span></a></li>
+							<li class="marker"><a id="btnFRtasdepierre" href="#!" data-type="tasdepierre" class="itembtn"><img src="media/icones/tasdepierrem.png" /> <span>Tas de pierres</span></a></li>
+							<li class="marker"><a id="btnFRpseculaire" href="#!" data-type="pseculaire" class="itembtn"><img src="media/icones/pseculairem.png" /> <span>Pierre séculaire</span></a></li>
+							<li class="marker"><a id="btnFRoffrandes" href="#!" data-type="offrandes" class="itembtn"><img src="media/icones/offrandesm.png" /> <span>Offrandes perdues</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Coffres</li>
@@ -236,11 +246,16 @@
 					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
 					<a id="BtnMerge" href="#!" title="Merge local Markers to Discord account" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Merge</span></a>
 				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnEnka" href="enka.html" title="Access to Enkanomiya Map" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Access to Enkanomiya Map</a>
-				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnDarkenka" href="darkenka.html" title="Acces to Three Realms Gateway Offering" class="py-1 px-2 bg-yellow-300 rounded text-xs text-black font-bold w-full">Access to 3 Realms Gateway Offering Map</a>
+				<div id="selectmap">
+					<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
+					<div class="panel">
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnEnka" href="enka.html" title="Access to Enkanomiya Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to Enkanomiya Map</a>
+						</div>
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnGouffre" href="gouffre.html" title="Access to The Chasm:Underground Mines Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to The Chasm Mines Map</a>
+						</div>
+					</div>						
 				</div>
 				<div id="MarkerSelect" class="p-2 pt-0">
 					<!-- <li class="accordion title text-red-600">Event Thunder Sojourn</li>
@@ -261,13 +276,18 @@
 							<li class="marker"><a id="btnENtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>Waveriders</span></a></li>
 							<li class="marker"><a id="btnENelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Phase Gate</span></a></li>
 							<li class="marker"><a id="btnENpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Fishing Spot</span></a></li>
+							<li class="marker"><a id="btnENquete" href="#!" data-type="quete" class="itembtn"><img src="media/icones/quetem.png" /> <span>Quests</span></a></li>
 							<li class="marker"><a id="btnENsucces" href="#!" data-type="succes" class="itembtn"><img src="media/icones/succes.png" /> <span>Achievements</span></a></li>
 							<li class="marker"><a id="btnENpano" href="#!" data-type="pano" class="itembtn"><img src="media/icones/pano.png" /> <span>Viewpoints</span></a></li>
 							<li class="marker"><a id="btnENanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
 							<li class="marker"><a id="btnENgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
 							<li class="marker"><a id="btnENeleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
 							<li class="marker"><a id="btnENagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Crimson Agates</span></a></li>
+							<li class="marker"><a id="btnENgyroc" href="#!" data-type="gyroc" class="itembtn"><img src="media/icones/gyrocm.png" /> <span>Radiant Spincrystals</span></a></li>
 							<li class="marker"><a id="btnENsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Geo Sigils</span></a></li>
+							<li class="marker"><a id="btnENtasdepierre" href="#!" data-type="tasdepierre" class="itembtn"><img src="media/icones/tasdepierrem.png" /> <span>Rock Piles</span></a></li>
+							<li class="marker"><a id="btnENpseculaire" href="#!" data-type="pseculaire" class="itembtn"><img src="media/icones/pseculairem.png" /> <span>Archaic Stones</span></a></li>
+							<li class="marker"><a id="btnENoffrandes" href="#!" data-type="offrandes" class="itembtn"><img src="media/icones/offrandesm.png" /> <span>Lost Offerings</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Chests</li>
@@ -404,7 +424,7 @@
 			</div>
 		</div>	
 		<div class="" id="map-wrap">
-			<div id="mapid" class="leaflet-container leaflet-fade-anim w-full h-full" tabindex="0"></div>
+			<div id="mapid" class="leaflet-container leaflet-fade-anim w-full h-full" tabindex="0" style="background-color: #0f181f;"></div>
 		</div>
 	</div>
 	<div id="infoFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
@@ -412,7 +432,10 @@
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Bienvenue sur notre Map interactive !</h3>
 		<p>Cliquez sur un marqueur de votre choix pour plus d'information.<br>Utilisez la molette de la souris pour zoomer et le menu pour afficher ou masquer les POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V6.0 du 14/03/2022</p>
+		<p class="font-bold text-red-500 mt-4">Release V6.1.3 du 25/05/2022</p>
+		<p class="mt-4">- Rajout de marqueurs de coffres<br>
+						- Rajout de Quêtes et Succès<br>
+						- Rajout des emplacements des Offrandes perdues dans le Gouffre</p>
 		<p class="mt-4">Si vous voulez participer en m'envoyant de nouveaux emplacements, n'hésitez pas à me contacter :<br>
 			- par mail à tmkfrench@gmail.com<br>
 			<span class="text-red-600">- par MP sur discord : TMKFrench#4221</span></p>
@@ -430,7 +453,10 @@
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Welcome to our Interactive Map !</h3>
 		<p>Clic on a Marker of your choice for more information.<br>Use mouse wheel to zoom and the menu buttons to toggle POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V6.0 of 03/14/2022</p>
+		<p class="font-bold text-red-500 mt-4">Release V6.1.3 of 05/25/2022</p>
+		<p class="mt-4">- Adding some Chests markers<br>
+						- Adding some Quests and Achievements<br>
+						- Adding Lost Offerings markers in the Chasm</p>
 		<p class="mt-4">If you want to participate, giving me new location on map, feel free to contact me :<br>
 			- by mail at tmkfrench@gmail.com<br>
 			<span class="text-red-600">- by Discord PM : TMKFrench#4221</span></p>
@@ -446,12 +472,10 @@
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 6.0 du 14/03/2022</h3>
-		<p class="mt-4"><span class="font-bold text-red-600">Ajout de la fonction Login via Discord</span></p>
-		<p class="mt-4">Vous pouvez maintenant sauvegarder les marqueurs dans le cloud une fois identifié.<br>
-						Vous pouvez transférer les marqueurs locaux vers votre compte Discord 
-						à l'aide du bouton <img class="m-auto" src="media/icones/fusion.png"/> pour ne pas avoir<br>
-						à tous les resélectionner manuellement.</p>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 6.1.3 du 25/05/2022</h3>
+		<p class="mt-4">- Rajout de marqueurs de coffres<br>
+			- Rajout de Quêtes et Succès<br>
+			- Rajout des emplacements des Offrandes perdues dans le Gouffre</p>
 		<p class="mt-4 font-bold text-red-600">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur et avoir<br><span class="text-red-600">la dernière version des marqueurs.</span>
 		</p>
@@ -459,12 +483,10 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 6.0 of 03/14/2022</h3>
-		<p class="mt-4"><span class="font-bold text-red-600">Adding Discord login function</span></p>
-		<p class="mt-4">Now you can save your markers in the cloud when logged in.<br>
-						You can transfer local markers to your Discord account<br>
-						with the bouton <img class="m-auto" src="media/icones/fusion2.png"/>Then you don't have 
-						to select again manually all your previous saved markers.</p>		
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 6.1.3 of 05/25/2022</h3>
+		<p class="mt-4">- Adding some Chests markers<br>
+			- Adding some Quests and Achievements<br>
+			- Adding Lost Offerings markers in the Chasm</p>
 		<p class="mt-4 font-bold text-red-600">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache and get <span class="text-red-600">the last markers update.</span>
 		</p>
@@ -485,6 +507,7 @@
 	};
 
 	var acc = document.getElementsByClassName("accordion");
+	var acc2 = document.getElementsByClassName("accordion2");
 	var i;
 
 	for (i = 0; i < acc.length; i++) {
@@ -498,10 +521,23 @@
     		} 
   		});
 	}
+
+	for (i = 0; i < acc2.length; i++) {
+		acc2[i].addEventListener("click", function() {
+    		this.classList.toggle("ouvert2");
+	    	var panel = this.nextElementSibling;
+	    	if (panel.style.maxHeight) {
+    			panel.style.maxHeight = null;
+    		} else {
+    			panel.style.maxHeight = panel.scrollHeight + "px";
+    		} 
+  		});
+	}
+	
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
-	<script type="text/javascript" src="assets/js/markers.js"></script>
-	<script type="text/javascript" src="assets/js/map.js?v=6.0"></script>
+	<script type="text/javascript" src="assets/js/markers-teyvat.js"></script>
+	<script type="text/javascript" src="assets/js/map.js?v=6.1.3"></script>
 
 </body>
 

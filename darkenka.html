@@ -30,7 +30,6 @@
 			<div id="menuFR" class="hidden">
 				<img src="media/banniere.jpg" class="mx-auto" />
 				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
-	
 				<div class="flex justify-items-stretch text-center m-4">
 					<a href="#!" id="discordFR" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
 						<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Se connecter avec Discord</a>
@@ -49,11 +48,16 @@
 					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
 					<a id="BtnMerge" href="#!" title="Fusion des Markers locaux avec le compte Discord" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Fusionner</span></a>
 				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnTeyvat" href="index.html" title="Accès Map Teyvat" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accès à la Map de TEYVAT</a>
-				</div>
-				<div class="flex justify-items-stretch text-center m-4">
-					<a id="BtnEnka" href="enka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-s text-black font-bold w-full">Accés à la Map d'Enkanomiya</a>
+				<div id="selectmap">
+					<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
+					<div class="panel">
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnTeyvat" href="index.html" title="Accès Map Teyvat" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map de TEYVAT</a>
+						</div>
+						<div class="flex justify-items-stretch text-center mx-4 my-1">
+							<a id="BtnEnka" href="enka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
+						</div>
+					</div>						
 				</div>
 				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
 					<li class="accordion title">Exploration</li>
@@ -240,6 +244,7 @@
 	};
 
 	var acc = document.getElementsByClassName("accordion");
+	var acc2 = document.getElementsByClassName("accordion2");
 	var i;
 
 	for (i = 0; i < acc.length; i++) {
@@ -253,6 +258,17 @@
     		} 
   		});
 	}
+		acc2[0].addEventListener("click", function() {
+    		this.classList.toggle("ouvert2");
+	    	var panel = this.nextElementSibling;
+	    	if (panel.style.maxHeight) {
+    			panel.style.maxHeight = null;
+    		} else {
+    			panel.style.maxHeight = panel.scrollHeight + "px";
+    		} 
+  		});
+
+
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
 	<script type="text/javascript" src="assets/js/markersdarkenka.js"></script>

@@ -13,8 +13,8 @@ function onMarkerClick(e) {
 }
 
 function checkinfo(e) {
-    if (!localStorage.getItem('Mapversdarkenka') || !(localStorage.Mapversdarkenka === "1.4")) {
-        localStorage.Mapversdarkenka = "1.4";
+    if (!localStorage.getItem('Mapversgouffre') || !(localStorage.Mapversgouffre === "1.2.3")) {
+        localStorage.Mapversgouffre = "1.2.3";
         if (localStorage.MapLng === "FR") {
             var infobox = lity('#infomajFR');
         } else {
@@ -51,7 +51,7 @@ function mergesave(servmarkers) {
             servmarkers.push(e);
     });
 
-    $.post('api/se/mergemarkers', {data : JSON.stringify(servmarkers)}, function(res) {
+    $.post('api/go/mergemarkers', {data : JSON.stringify(servmarkers)}, function(res) {
         if(typeof(res.error) !== 'undefined') {
             alert('Vous avez été déconnecté. La page va se rafraîchir.');
             window.location.reload();
@@ -64,7 +64,7 @@ function mergesave(servmarkers) {
 function saveDBUserMarkers(idm, checked) {
 
     if(checked) {
-        $.post('api/se/addmarker/'+idm, function(res) {
+        $.post('api/go/addmarker/'+idm, function(res) {
             if(typeof(res.error) !== 'undefined') {
                 alert('Vous avez été déconnecté. La page va se rafraîchir.');
                 window.location.reload();
@@ -74,7 +74,7 @@ function saveDBUserMarkers(idm, checked) {
             userMarkers = res.markers;
         });
     } else {
-        $.post('api/se/removemarker/'+idm, function(res) {
+        $.post('api/go/removemarker/'+idm, function(res) {
             if(typeof(res.error) !== 'undefined') {
                 alert('Vous avez été déconnecté. La page va se rafraîchir.');
                 window.location.reload();
@@ -132,7 +132,7 @@ function resetmarkers() {
     if(userLocal) {
         localStorage.removeItem('userMarkers');
     } else {
-        $.post('api/se/resetmarkers', function(res) {
+        $.post('api/go/resetmarkers', function(res) {
             if(typeof(res.error) !== 'undefined') {
               alert('Vous avez été déconnecté. La page va se rafraîchir.');
               window.location.reload();
@@ -143,16 +143,8 @@ function resetmarkers() {
     window.location.reload();
 };
 
-// function doreset () {
-//     // catmarkers = []
-//     catmarkers.forEach(function(e) {
-//         localStorage.removeItem("chkbox"+e);
-//     });
-// };
-
 function loadusermarkers(lstmrk) {
     if (lstmrk[0] == "v2") {
-        // doreset();
         var i = 1, cbx;
         while (lstmrk[i]) {
             cbx = lstmrk[i];
@@ -171,18 +163,9 @@ function loadusermarkers(lstmrk) {
     window.location.reload();
 };
 
-function reselectmenu(ligne, btn){
+    // IMPORTANT !!!!!! Penser à changer les valeurs de LocalStorage en cas de réutilisation du code pour une autre map !!!!!!!!!
 
-    // $('#menu a[data-type]').each(function(){
-    //     if ($(this).hasClass('active')) {
-    //         mymap.addLayer(window[$(this).data('type') + 'Group']);
-    //     }
-    // });
-    // $('.matbtn').each(function(){
-    //     if ($(this).hasClass('active')) {
-    //         mymap.addLayer(window[$(this).data('type') + 'Group']);
-    //     }
-    // });
+function reselectmenu(ligne, btn){
 
     if (!userLocal) {
 
@@ -199,18 +182,8 @@ function reselectmenu(ligne, btn){
             });
         };
     } else {
-        var lilocal = (localStorage.MenumapgenshinLiDarkEnka) ? JSON.parse(localStorage.MenumapgenshinLiDarkEnka) : [];
-        var btnlocal = (localStorage.MenumapgenshinBtnDarkEnka) ? JSON.parse(localStorage.MenumapgenshinBtnDarkEnka) : [];
-        // if (localStorage.MenumapgenshinLiDarkEnka) {
-        //     var listatut = JSON.parse(localStorage.MenumapgenshinLiDarkEnka);
-        // } else {
-        //     localStorage.MenumapgenshinLiDarkEnka = [];
-        // };
-        // if (localStorage.MenumapgenshinBtnDarkEnka) {
-        //     var btnstatut = JSON.parse(localStorage.MenumapgenshinBtnDarkEnka);
-        // } else {
-        //     localStorage.MenumapgenshinBtnDarkEnka = [];
-        // };
+        var lilocal = (localStorage.MenumapgenshinLiGouffre) ? JSON.parse(localStorage.MenumapgenshinLiGouffre) : [];
+        var btnlocal = (localStorage.MenumapgenshinBtnGouffre) ? JSON.parse(localStorage.MenumapgenshinBtnGouffre) : [];
 
         if(lilocal){
             lilocal.forEach(function(element) {
@@ -225,7 +198,6 @@ function reselectmenu(ligne, btn){
             });
         };
     };
-    // };
 };
 
 // Variables générales
@@ -236,10 +208,11 @@ var userLocal = true;
 var listatut = [];
 var btnstatut = [];
 var teyvatarray = [
-    'statue','teleport','enkagate','ptnrj','stele',
-    'cordi','cdelic','cprec','cluxe','cdefi','cfee','cfeee','epreuve','ceremonie',
-    'noyauc','abyssium','tilleul'
-];
+'teleport','lumen','lampe','peche','succes','quete','pano','tasdepierre','orbeprof','message','fossile',
+'cordi','cdelic','cprec','cluxe','cdefi','cfee',
+'ferblanc','cristal','lapis','jade','noyauc','artefact',
+'fbrume','gdloup','champitoile',
+'grenouille','lezard','luciolichance','belette'];
 var nbtmark = 0;
 var langue, lgmenu;
 
@@ -250,17 +223,17 @@ mymap = L.map('mapid', {
     zoom : 2
 });
 
-L.tileLayer('media/tilesdarkenka/{z}/{x}/{y}.png', {
+L.tileLayer('media/tilesgouffre/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
-    maxZoom: 5,
-    minZoom: 2,
+    maxZoom: 6,
+    minZoom: 3,
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
     noWrap: true
 }).addTo(mymap);
 
 mymap.zoomControl.setPosition('topright')
-mymap.setMaxBounds(new L.latLngBounds(unproject([0,-1000]), unproject([8192,8192])));
+mymap.setMaxBounds(new L.latLngBounds(unproject([0,0]), unproject([16384,16384])));
 
 teyvatarray.forEach(function(e){
     window[e+'Group'] = L.layerGroup();
@@ -298,25 +271,38 @@ BoutonMenu.addTo(mymap);
 // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
 
 function initMarkers () {
-    loadmarker(liststatue,Vassal,"statue",langue.cat109,"vassal");
-    loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpde");
-    loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
-    loadmarker(listptnrj,Ptnrj,"ptnrj",langue.cat112);
-    loadmarker(liststele,Stele,"stele",langue.cat115,"stele",'stelede');
-    loadmarker(listcordi,Cordi,"cordi",langue.cat04,"ocde","cordide");
-    loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dcde","cdelicde");
-    loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pcde","cprecde");
-    loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lcde","cluxede");
-    loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"","cdefide");
-    loadmarker(listcfee,Cfee,"cfee",langue.cat09,"","cfeedenko");
-    loadmarker(listcfeee,Cfeee,"cfeee",langue.cat88,"","cfeeede");
-    loadmarker(listepreuve,Epreuve,"epreuve",langue.cat111,"","cepreuve");
-    loadmarker(listceremonie,Ceremonie,"ceremonie",langue.cat110,"","cceremonie");
-    loadmarker(listnoyauc,Noyauc,"noyauc",langue.cat44);
-    loadmarker(listabyssium,Abyssium,"abyssium",langue.cat113);
-    loadmarker(listtilleul,Tilleul,"tilleul",langue.cat114);
+loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpgo");
+loadmarker(listlumen,Lumen,"lumen",langue.cat116,"lumen","lumen");
+loadmarker(listlampe,Lampe,"lampe",langue.cat117);
+loadmarker(listpeche,Peche,"peche",langue.cat94,"pechego");
+loadmarker(listquete,Quete,"quete",langue.cat118,"quetego","quetego");
+loadmarker(listsucces,Succes,"succes",langue.cat46,"succesgo","succesgo");
+loadmarker(listpano,Pano,"pano",langue.cat03,"panogo","panogo");
+loadmarker(listtasdepierre,Tasdepierre,"tasdepierre",langue.cat123,"tas2pierrego","tasdepierrego");
+loadmarker(listorbeprof,Orbeprof,"orbeprof",langue.cat125,"orbeprof","orbeprof");
+loadmarker(listmessage,Message,"message",langue.cat126,"messagego","messagego");
+loadmarker(listfossile,Fossile,"fossile",langue.cat127,"fossile","fossile");
+loadmarker(listcordi,Cordi,"cordi",langue.cat04,"ocgo","cordigo");
+loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dcgo","cdelicgo");
+loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pcgo","cprecgo");
+loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lcgo","cluxego");
+loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"defigo","cdefigo");
+loadmarker(listcfee,Cfee,"cfee",langue.cat09,"cfeego","cfeego");
+loadmarker(listferblanc,Ferblanc,"ferblanc",langue.cat25);
+loadmarker(listcristal,Cristal,"cristal",langue.cat11);
+loadmarker(listlapis,Lapis,"lapis",langue.cat41);
+loadmarker(listjade,Jade,"jade",langue.cat39);
+loadmarker(listnoyauc,Noyauc,"noyauc",langue.cat44);
+loadmarker(listartefact,Artefact,"artefact",langue.cat76);
+loadmarker(listfbrume,Fbrume,"fbrume",langue.cat13);
+loadmarker(listgdloup,Gdloup,"gdloup",langue.cat45);
+loadmarker(listchampitoile,Champitoile,"champitoile",langue.cat119);
+loadmarker(listgrenouille,Grenouille,"grenouille",langue.cat27);
+loadmarker(listlezard,Lezard,"lezard",langue.cat28);
+loadmarker(listluciolichance,Luciolichance,"luciolichance",langue.cat120);
+loadmarker(listbelette,Belette,"belette",langue.cat121);
 
-    $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
+$('#total' + lgmenu).text(nbtmark + langue['ui-load']);
 };
 
 function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
@@ -343,6 +329,10 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
                 txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
                 popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                 break;
+            case 7 : // Todo
+                txt = "<br><h1><b>"+marktitle+" "+(i+1)+"</b><br>"+langue['ui-todo']+"</h1>";
+                popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
+                break;
             case 11 : // null (+cb)
                 popup = '<h1>'+marq[2]+checkbox+'</h1>';
                 break;
@@ -355,9 +345,9 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
             if (mtype == 11) {
                 curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                 counternull += 1;
-            } else if (mtype == 12) {
+            } else if (mtype == 7) {
                 titlem = (typeof marq[2] !=='undefined') ? marktitle+" "+marq[2] : marktitle;
-                curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
+                curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions2);
             } else {
                 if (mtype == 5)
                     titlem = (typeof marq[4] !=='undefined') ? marq[4] : marktitle;
@@ -384,12 +374,14 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
     // console.log("nombre de marqueur Total chargés : " + nbtmark); // Pour debug
 };
 
-// Interaction Map
+// Fonctions Interaction Map
 
-mymap.on('click', onMapClick);
+mymap.on("click", onMapClick);
 mymap.on('popupopen', popUpOpen);
 
 // Gestion du Menu
+
+    // IMPORTANT !!!!!! Penser à changer les valeurs de LocalStorage et de POST en cas de réutilisation du code pour une autre map !!!!!!!!!
 
 $('#menu a[data-type]').on('click', function(e){
     e.preventDefault();
@@ -399,11 +391,11 @@ $('#menu a[data-type]').on('click', function(e){
     if($(this).hasClass('active')) {
         mymap.addLayer(window[type+'Group']);
         if(!userLocal)
-          $.post('api/se/addmenu/'+type);
+            $.post('api/go/addmenu/'+type);
     } else {
         mymap.removeLayer(window[type+'Group']);
         if(!userLocal)
-          $.post('api/se/removemenu/'+type);
+            $.post('api/go/removemenu/'+type);
     };
 
     if(userLocal) {
@@ -413,9 +405,9 @@ $('#menu a[data-type]').on('click', function(e){
                 listatut.push($(this).data('type'));
             };
         });
-    localStorage.MenumapgenshinLiDarkEnka = JSON.stringify(listatut);
-    };
-});
+        localStorage.MenumapgenshinLiGouffre = JSON.stringify(listatut);
+        };
+    });
 
 $('.matbtn').on('click', function() {
     var ndf = $(this).data('type');
@@ -424,13 +416,13 @@ $('.matbtn').on('click', function() {
         $(this).toggleClass('active');
         mymap.addLayer(window[ndf+'Group']);
         if(!userLocal)
-            $.post('api/se/addbtn/'+ndf);
+            $.post('api/go/addbtn/'+ndf);
     } else {
         $(this).attr('src', "media/icones/" + ndf + "off.png");
         $(this).toggleClass('active');
         mymap.removeLayer(window[ndf+'Group']);
         if(!userLocal)
-            $.post('api/se/removebtn/'+ndf);
+            $.post('api/go/removebtn/'+ndf);
     };
 
     if(userLocal) {
@@ -440,7 +432,7 @@ $('.matbtn').on('click', function() {
                 btnstatut.push($(this).data('type'));
             };
         });
-        localStorage.MenumapgenshinBtnDarkEnka = JSON.stringify(btnstatut);
+        localStorage.MenumapgenshinBtnGouffre = JSON.stringify(btnstatut);
     }
 });
 
@@ -470,11 +462,11 @@ $('.btnlg').on('click', function() {
 });
 
 $('.btnmerge').on('click', function() {
-   if (confirm(langue["ui-merge"])) {
+    if (confirm(langue["ui-merge"])) {
         mergesave(userMarkers);
     }
 });
-
+ 
 $('.btnsave').on('click', function() {
     this.href=URL.createObjectURL(new Blob([JSON.stringify(userMarkers)]));
     alert(langue["ui-export"]);
@@ -504,51 +496,46 @@ $(document).ready(function() {
     oldtonew();
 
     // Récupération des info users
-    $.get('api/se/user', function(res) {
+    $.get('api/go/user', function(res) {
         if(typeof res.users !== 'undefined')
         //   $('#total-users').text(res.users);
         console.log("u: "+res.users);
-  
+
         if(typeof res.visits !== 'undefined')
         //   $('#total-visits').text(res.visits);
         console.log("v: "+res.visits);
-          
+      
         if(typeof res.login !== 'undefined') {
-          $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
-          initMarkers();
-          reselectmenu();
-        }
-  
+            $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
+            initMarkers();
+            reselectmenu();
+        };
+
         if(typeof res.uid !== 'undefined') {
-          $('#discord' + lgmenu)
-              .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
-              .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
-              .attr('href', res.logout);
-          $('#local' + lgmenu).toggleClass('hidden flex');
-          $('#distant' + lgmenu).toggleClass('hidden flex');
-          userLocal = false;
-          userMarkers = (res.markers !== null) ? res.markers : [];
-          listatut = (res.menu !== null) ? res.menu : [];
-          btnstatut = (res.btn !== null) ? res.btn : [];
-          initMarkers();
-          reselectmenu(listatut, btnstatut);
+            $('#discord' + lgmenu)
+                .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
+                .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
+                .attr('href', res.logout);
+            $('#local' + lgmenu).toggleClass('hidden flex');
+            $('#distant' + lgmenu).toggleClass('hidden flex');
+            userLocal = false;
+            userMarkers = (res.markers !== null) ? res.markers : [];
+            listatut = (res.menu !== null) ? res.menu : [];
+            btnstatut = (res.btn !== null) ? res.btn : [];
+            initMarkers();
+            reselectmenu(listatut, btnstatut);
         }
     });
 
     $(document).on('change', 'input[type="checkbox"]', function() {
         if(userLocal) {
-          saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
+            saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
         } else {
-          saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
-        }
-  
-      });
-  
-  
+            saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
+        };
+    });
 });
 
-// initMarkers();
-// reselectmenu();
 checkinfo();
 
 // Fin Windows load

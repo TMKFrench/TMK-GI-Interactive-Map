@@ -15,14 +15,6 @@ html, body, #mapid {
   height: 100%;
 }
 
-#mapid {
-  background: #121921;
-}
-
-.leaflet-popup {
-  min-width: 480px;
-}
-
 .leaflet-popup .leaflet-popup-content-wrapper {
   border-radius: 2px;
 }
@@ -66,6 +58,12 @@ html, body, #mapid {
   margin: 0;
   font-size: 12pt;
   color: black;
+}
+
+.leaflet-popup .leaflet-popup-content img.ico {
+  display: unset;
+  width: 24px;
+  height: 24px;
 }
 
 .leaflet-container {
@@ -155,6 +153,14 @@ html, body, #mapid {
   margin-bottom: 7px;
 }
 
+#menu li.ouvert2 {
+  margin-bottom: 7px;
+}
+
+#menu li.nodot {
+  list-style-type: none;
+}
+
 #menu li.selectbtn a {
   display: flex;
   padding: .25rem;
@@ -181,6 +187,14 @@ html, body, #mapid {
   cursor: url(../../media/icones/zoomin.cur), zoom-in !important;
 }
 
+.thumb2 {
+  width: 297px;
+  height: 348px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: url(../../media/icones/zoomin.cur), zoom-in !important;
+}
+
 a:-any-link {
   color: black;
   text-decoration: none;
@@ -195,17 +209,22 @@ a:-any-link {
   transition: 0.4s;
 }
 
+.accordion2 {
+  cursor: pointer;
+  transition: 0.4s;
+}
+
 .ouvert, .accordion:hover {
   background-color: rgba(204, 204, 204, 0.5);
 }
 
-.accordion:after {
+.accordion:after, .accordion2:after {
   content: '\2B9F';
   float: right;
   margin-right: 7px;
 }
 
-.ouvert:after {
+.ouvert:after, .ouvert2:after {
   content: "\2B9D";
 }
 

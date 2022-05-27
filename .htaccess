@@ -1,1 +1,15 @@
 CheckSpelling Off
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !=443
+RewriteRule ^(.*)$ https://genshin.tmkfrench.fr/$1 [R=301,L]
+
+<Files "config.ini">
+  Order Allow,Deny
+  Deny from all
+</Files>
+
+<Files "tmkmapusers.db">
+  Order Allow,Deny
+  Deny from all
+</Files>
