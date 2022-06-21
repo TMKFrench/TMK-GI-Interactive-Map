@@ -282,8 +282,8 @@ function myFunctionLBM(item, index, arr) {
 	var texte = "";
 	var start = Number(document.getElementById("startnb").value);
 	var rang = ((start+index) < 10) ? "0"+(start+index) : start+index;
-	var x = Math.trunc (coord[0]/4);
-	var y = Math.trunc (coord[1]/4);
+	var x = Math.trunc (coord[0]/2);
+	var y = Math.trunc (coord[1]/2);
 
 	if (item[0] == 0) formatm = 'image';
 	if (item[0] == 3) formatm = 'gif';

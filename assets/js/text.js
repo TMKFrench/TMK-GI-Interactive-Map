@@ -266,6 +266,8 @@ var langFR = {
     'succesh060': 'Trouvez les 3 coffres dans la chasse au trésor de Chou',
     'succest061': 'Les Millelithes sont éternels',
     'succesh061': 'Terminez la quête Les montagnes Millénaires en examinant<br>la stèle près du trésor et en parlant à Wang',
+    'succest062': 'L\'immortel',
+    'succesh062': 'Esquivez toutes les vagues destructrices des vajras funestes pendant un tour du combat',
 
         // Enkanomiya
 
@@ -316,9 +318,17 @@ var langFR = {
     'quetet004': 'Ô Archon, ai-je bien fait ?',
     'queteh004': '<b>Ô Archon, ai-je bien fait ?</b><br><br>Aidez Shouta avec ses offrandes<br><br><span>Récompenses : 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
     'quetet005': 'Les montagnes Millénaires',
-    'queteh005': '<b>Les montagnes Millénaires</b><br><br>Retrouvez les 6 offrandes perdues dans le gouffre<br>et rapportez-les à Wang<br>Voir section Exploration - Marqueurs Offrandes perdues<br><br><span>Récompenses : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 6x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'queteh005': '<b>Les montagnes Millénaires</b><br><br>Retrouvez les 6 offrandes perdues dans le gouffre<br>et rapportez-les à Wang<br>Voir section Exploration - Marqueurs Offrandes perdues<br><br><span>Récompenses : 40 <img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 6x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
     'quetet006': 'Le passé du chevalier des cimes',
-    'queteh006': '<b>Le passé du chevalier des cimes</b><br><br>Lancez la quête en ramassant les Fleurs de Qingxin près de Tang Wuchou<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'queteh006': '<b>Le passé du chevalier des cimes</b><br><br>Lancez la quête en ramassant les Fleurs de Qingxin près de Tang Wuchou<br><br><span>Récompenses : 30 <img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet007': 'Brise de printemps sous un éventail',
+    'queteh007': '<b>Brise de printemps sous un éventail</b><br><br><span style="color:red;">Accessible à la fin de la quête d\'Archon : Sentier Périlleux</span><br><br><span>Récompense : Décoration de Sérénithéière « Merveille à travers les yeux du dragon »</span>',
+    'quetet008': 'Sur la scene et en-dehors',
+    'queteh008': '<b>Sur la scene et en-dehors</b><br><br><span>Récompenses : Décoration de Sérénithéière Scène des poiriers « Style de Yun-Han »<br>3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet009': 'À chacun son trésor',
+    'queteh009': '<b>À chacun son trésor</b><br><br>Trouvez le trésor caché dans les plaines de Guili<br><br><span>Récompenses : 1x<img class="ico" src="media/icones/cprecm.png"/> 30 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet010': 'Message d\'un ancien Gardien',
+    'queteh010': '<b>Message d\'un ancien Gardien</b><br><br>Relevez le défi laissé par le Yaksha Bosacius et obtenez les richesses qu\'il a laissé en récompense<br><br><span>Récompenses : 3x<img class="ico" src="media/icones/cprecm.png"/> 30 <img class="ico" src="media/icones/primo.png"/> 6x<img class="ico" src="media/icones/conseil.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
 
         // Enkanomiya
 
@@ -344,7 +354,7 @@ var langFR = {
     'quetegot07': 'Dans un pays étranger...',
     'quetegoh07': '<b>Dans un pays étranger...</b><br><br>Après l\'avoir combattue, aidez Katarina<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 2x<img class="ico" src="media/icones/lecon.png"/></span>',
     'quetegot08': 'Rémanence de courage : Retour au couchant',
-    'quetegoh08': '<b>Rémanence de courage : Retour au couchant</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Rémanence de courage<br>et d\'attendre le Reset du serveur</span><br>Partez à la recherche de Zhiqiong<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetegoh08': '<b>Rémanence de courage : Retour au couchant</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Rémanence de courage et d\'attendre le Reset du serveur</span><br>Partez à la recherche de Zhiqiong<br><br><span>Récompenses : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
     'quetegot09': 'Rémanence de courage : Souvenir d\'une faible lueur',
     'quetegoh09': '<b>Rémanence de courage : Souvenir d\'une faible lueur</b><br><br><span style="color:red;">Nécessite d\'avoir fait la quête Rémanence de courage : Retour au couchant<br>et d\'attendre le Reset du serveur</span><br><br><span>Récompenses : 20x<img class="ico" src="media/icones/primo.png"/></span>',
     'quetegot10': 'Dans un pays étranger : Sur la piste',
@@ -518,7 +528,7 @@ var langFR = {
     'com014': 'Tuer les ennemis qui apparaissent',
     'com015': 'Activez le totem avec une attaque type <a style="color:turquoise;">ANEMO</a><br>pour faire apparaitre le coffre',
     'com016': 'Tuer les blobs pour obtenir le coffre',
-    'com017': 'Ramasser les 4 carottes puis<br>tuer les blobs pour obtenir le coffre',
+    'com017': 'Ramasser les carottes puis<br>tuer les blobs pour obtenir le coffre',
     'com018': 'Détruire le rocher pour faire apparaître le coffre',
     'com019': 'Détruire la pierre HYDRO, puis tuer le Blob<br>pour faire apparaître le coffre',
     'com020': 'Enflammer les 3 totems pour faire apparaître le coffre',
@@ -632,7 +642,7 @@ var langFR = {
     'com128': 'Faites un pont de glace pour accéder à l\'île',
     'com129': 'Finissez la quête de Joël au camp<br>pour faire apparaître le coffre',
     'com130': 'Enflammez la plateforme et tuer les ennemis<br>pour faire apparaître le coffre',
-    'com131': 'Tuez le Dendro Blob<br>pour faire apparaître le coffre',
+    'com131': 'Tuez le Blob pour faire apparaître le coffre',
     'com132': 'Vous devez faire le succès Froides Sapèques<br>pour obtenir ce coffre',
     'com133': 'Activez le totem avec une attaque<br>de type <a style="color:deepskyblue;">CRYO</a><br>puis tuez les ennemis pour faire apparaître le coffre',
     'com134': 'Activer les totems dans l\'ordre avec une attaque de type <a style="color:darkorange;">GEO</a><br>puis tuer le noyau de tempête pour faire apparaitre le coffre',
@@ -835,7 +845,12 @@ var langFR = {
     'com331': 'Enflammez la paille pour faire apparaître le coffre',
     'com332': 'Accessible durant la quête L\'appel à l\'aide d\'un champignon affaibli',
     'com333': 'Obtenu en faisant la chasse au trésor de Chou<br>Si vous creusez une case vide les 4 alentour sont vides<br>Si vous creusez un légume, il y a 1 baril dans une case proche<br>Si vous creusez un minerai, il y a 2 barils dans les cases proches',
-    'com334': 'Caissez les caisses et tuez tous les ennemis pour faire apparaître le coffre'
+    'com334': 'Caissez les caisses et tuez tous les ennemis pour faire apparaître le coffre',
+    'com335': 'Posez 2 piliers et utilisez la résonance Géo pour briser le rocher<br>et accéder au coffre',
+    'com336': 'Détruisez les barils pour faire apparaître le coffre',
+    'com337': 'Faites sauter toutes les mines puis tuez les ennemis pour faire apparaître le coffre',
+    'com338': 'Tuez les 3 renards pour faire apparaître le coffre',
+    'com339': 'Activez la stèle et tuez tous les ennemis pour faire apparaître le coffre'
 };
 
 var langEN = {
@@ -1106,6 +1121,8 @@ var langEN = {
     'succesh060': 'Find the 3 chests from Old Chou\'s minigame',
     'succest061': 'The Millelith Shall Never Be Moved',
     'succesh061': 'Finish the quest The Millennial Mountains by examin<br>Stone Tablet near the treasure and talk to Wang',
+    'succest062': 'Death Proof',
+    'succesh062': 'Dodge one entire round of the Baleful Vajra\'s destructive waves',
 
         // Enkanomiya
 
@@ -1159,6 +1176,14 @@ var langEN = {
     'queteh005': '<b>The Millennial Mountains</b><br><br>Find the 6 Lost offerings in the Chasm<br>and bring them back to Wang<br>Refer to Exploration section - Lost Offerings markers<br><br><span>Rewards : 40x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 6x<img class="ico" src="media/icones/minmystique.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
     'quetet006': 'A Cliff-Side Hero\'s Past',
     'queteh006': '<b>A Cliff-Side Hero\'s Past</b><br><br>Pick up Qingxin flower near Tang Wuchou to launch the quest<br><br><span>Rewards : 30x<img class="ico" src="media/icones/primo.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet007': 'The Tales Behind the Fan',
+    'queteh007': '<b>The Tales Behind the Fan</b><br><br><span style="color:red;">Accessible at the end of the Archon\'s quest : Perilous Trail</span><br><br><span>Reward : Furnishing A Dragon\'s Wondrous Sight</span>',
+    'quetet008': 'On the Stage, Behind the Stage',
+    'queteh008': '<b>On the Stage, Behind the Stage</b><br><br><span>Rewards : Furnishing Pear Orchard Stage: Yun-Han Style<br>3x<img class="ico" src="media/icones/lecon.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet009': 'Share Not Your Treasures',
+    'queteh009': '<b>Share Not Your Treasures</b><br><br>Find the hidden treasure in the plains of Guili<br><br><span>Rewards : 1x<img class="ico" src="media/icones/cprecm.png"/> 30 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
+    'quetet010': 'The Yaksha\'s Wish',
+    'queteh010': '<b>The Yaksha\'s Wish</b><br><br>Complete the challenge left by the Yaksha Bosacius and get the riches he left as a reward<br><br><span>Rewards : 3x<img class="ico" src="media/icones/cprecm.png"/> 30 <img class="ico" src="media/icones/primo.png"/> 6x<img class="ico" src="media/icones/conseil.png"/> 30K <img class="ico" src="media/icones/mora.png"/></span>',
     
         // Enkanomiya
 
@@ -1472,7 +1497,7 @@ var langEN = {
     'com128': 'Make an ice bridge to access island',
     'com129': 'Complete Joël\'s quest at Camp<br>to reveal the chest',
     'com130': 'Ignite the platform and kill enemies<br>to make the chest appear',
-    'com131': 'Kill the Dendro Blob<br>to make the chest appear',
+    'com131': 'Kill the Blob to make the chest appear',
     'com132': 'You must finish Glacial Steel achievement<br>to get this chest',
     'com133': 'Activate the totem with a <a style="color:deepskyblue;">CRYO</a> attack<br>then kill all enemies to make the chest appear',
     'com134': 'Activate all the totems with a <a style="color:darkorange;">GEO</a> type attack<br>then kill the Eye of the storm to make the chest appear',
@@ -1675,5 +1700,10 @@ var langEN = {
     'com331': 'Ignite the straw to make the chest appear',
     'com332': 'Accessible in the quest Dimming Mushroom\'s Call for Help',
     'com333': 'Obtained by doing Chou\'s treasure hunt<br>If you dig an empty space the 4 around are empty<br>If you dig a vegetable, there is 1 barrel in a nearby space<br>If you dig an ore, there are 2 barrels in the nearby spaces',
-    'com334': 'Break the crates then kill all enemies to make the chest appear'
+    'com334': 'Break the crates then kill all enemies to make the chest appear',
+    'com335': 'Drop 2 pillars and use Geo resonance to break the rock<br>to access the chest',
+    'com336': 'Destroy the barrels to make the chest appear',
+    'com337': 'Blow up all the mines then kill enemies to reveal the chest',
+    'com338': 'Kill the 3 foxes to make the chest appear',
+    'com339': 'Activate the stele then kill all enemies to make the chest appear'
 };
