@@ -15,8 +15,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "6.1.3")) {
-            localStorage.Mapvers = "6.1.3";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "6.1.5")) {
+            localStorage.Mapvers = "6.1.5";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -469,7 +469,7 @@ function initMarkers () {
             };
 
             if(userMarkers.indexOf(cbxname+(i+1)) >= 0)
-            curmarker.setOpacity(0.43);
+            curmarker.setOpacity(0.35);
             curmarker.addTo(lgrp);
 
         };

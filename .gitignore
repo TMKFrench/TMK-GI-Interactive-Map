@@ -26,6 +26,7 @@ lbm.js
 populate.php
 populatedb.html
 update.php
+lbm/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

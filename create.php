@@ -1,7 +1,7 @@
 <?php require 'assets/inc/_fn.php';
 
 $_map = $_GET['map'];
-if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre")) {
+if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre" || $_map == "summer22")) {
     $_map = "-{$_map}";
 } else {
     echo "Nom de map absent ou éronné";
