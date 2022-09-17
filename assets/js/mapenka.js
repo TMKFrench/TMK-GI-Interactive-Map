@@ -314,11 +314,12 @@ function initMarkers () {
         var lgrp = window[grp + 'Group'];
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
+            id = (i < 9) ? "0"+(i+1) : (i+1);
             // console.log("mark n° "+ (i+1) + " " + JSON.stringify(marq)); // Pour Debug les marqueurs
             mtype = marq[0];
-            nfichier = filename + (i+1);
+            nfichier = filename + id;
             if(typeof cbxname !== 'undefined')
-            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+cbxname+(i+1)+'" /> '+langue['ui-found']+'</label></h2>';
+            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+cbxname+id+'" /> '+langue['ui-found']+'</label></h2>';
 
             switch (mtype) {
                 case 0 : // Img (txt+cb)
@@ -334,7 +335,7 @@ function initMarkers () {
                     popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 7 : // Todo
-                    txt = "<br><h1><b>"+marktitle+" "+(i+1)+"</b><br>"+langue['ui-todo']+"</h1>";
+                    txt = "<br><h1><b>"+marktitle+" "+id+"</b><br>"+langue['ui-todo']+"</h1>";
                     popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
                     break;
                 case 11 : // null (+cb)
@@ -496,6 +497,9 @@ function initMarkers () {
 
 $(document).ready(function() {
 
+    var heightmenu = window.innerHeight - $("#topmenu" + lgmenu).outerHeight(true);
+    $("#MarkerSelect" + lgmenu).css("max-height", heightmenu + 'px');
+
     // Update de l'ancien système de sauvegarde
     oldtonew();
 
@@ -536,10 +540,13 @@ $(document).ready(function() {
           saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
         } else {
           saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
-        }
+        }  
+    });
   
-      });
-  
+    $(window).resize(function() {
+        var heightmenu = window.innerHeight - $("#topmenu" + lgmenu).outerHeight(true);
+        $("#MarkerSelect" + lgmenu).css("max-height", heightmenu + 'px');
+    });
   
 });
 

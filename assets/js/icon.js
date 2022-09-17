@@ -4,6 +4,7 @@ var Statue = L.icon({iconUrl:'media/icones/statue.png', iconSize:[25, 40], iconA
 var Vassal = L.icon({iconUrl:'media/icones/vassal.png', iconSize:[40, 40], iconAnchor:[20, 20], popupAnchor:[0, -20]});
 var Teleport = L.icon({iconUrl:'media/icones/teleport.png', iconSize:[25, 40], iconAnchor:[12, 40], popupAnchor:[0, -40]});
 var Tpbarge = L.icon({iconUrl:'media/icones/tpbarge.png', iconSize:[30, 30], iconAnchor:[15, 30], popupAnchor:[0, -30]});
+var Grotte = L.icon({iconUrl:'media/icones/grotte.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Elecgate = L.icon({iconUrl:'media/icones/elecgate2.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Enkagate = L.icon({iconUrl:'media/icones/enkagate.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Cyclejn = L.icon({iconUrl:'media/icones/cyclejn.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -15,16 +16,17 @@ var Peche = L.icon({iconUrl:'media/icones/peche2.png', iconSize:[48, 48], iconAn
 var Succes = L.icon({iconUrl:'media/icones/succes2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Quete = L.icon({iconUrl:'media/icones/quete.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Pano = L.icon({iconUrl:'media/icones/pano2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
-var Anemo = L.icon({iconUrl:'media/icones/anemo2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
-var Geocul = L.icon({iconUrl:'media/icones/geocul2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
-var Eleccul = L.icon({iconUrl:'media/icones/eleccul2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Anemo = L.icon({iconUrl:'media/icones/anemo2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Geocul = L.icon({iconUrl:'media/icones/geocul2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Eleccul = L.icon({iconUrl:'media/icones/eleccul2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Dendrocul = L.icon({iconUrl:'media/icones/dendrocul2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Agate = L.icon({iconUrl:'media/icones/agate2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Lumen = L.icon({iconUrl:'media/icones/lumen.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Lampe = L.icon({iconUrl:'media/icones/lampe.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Orbeprof = L.icon({iconUrl:'media/icones/orbeprof.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Message = L.icon({iconUrl:'media/icones/message.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Fossile = L.icon({iconUrl:'media/icones/fossile.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Offrandes = L.icon({iconUrl:'media/icones/offrandes.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Offrandes = L.icon({iconUrl:'media/icones/offrandes.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Gyroc = L.icon({iconUrl:'media/icones/gyroc.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Sceaugeo = L.icon({iconUrl:'media/icones/sceaugeo.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Tasdepierre = L.icon({iconUrl:'media/icones/tasdepierre.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -34,19 +36,21 @@ var Clesigil2 = L.icon({iconUrl:'media/icones/clesigil2.png', iconSize:[30, 48],
 var Clesigil3 = L.icon({iconUrl:'media/icones/clesigil3.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Clesigil4 = L.icon({iconUrl:'media/icones/clesigil4.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Clesigil5 = L.icon({iconUrl:'media/icones/clesigil5.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cordi = L.icon({iconUrl:'media/icones/cordi.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cdelic = L.icon({iconUrl:'media/icones/cdelic.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cprec = L.icon({iconUrl:'media/icones/cprec.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cluxe = L.icon({iconUrl:'media/icones/cluxe.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cdefi = L.icon({iconUrl:'media/icones/cdefi.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cfee = L.icon({iconUrl:'media/icones/cfee.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cetr = L.icon({iconUrl:'media/icones/cetr.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Cfeee = L.icon({iconUrl:'media/icones/cfeee.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Cordi = L.icon({iconUrl:'media/icones/cordi.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cdelic = L.icon({iconUrl:'media/icones/cdelic.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cprec = L.icon({iconUrl:'media/icones/cprec.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cluxe = L.icon({iconUrl:'media/icones/cluxe.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cdefi = L.icon({iconUrl:'media/icones/cdefi.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cfee = L.icon({iconUrl:'media/icones/cfee.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cetr = L.icon({iconUrl:'media/icones/cetr.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Cfeee = L.icon({iconUrl:'media/icones/cfeee.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Ceremonie = L.icon({iconUrl:'media/icones/ceremonie.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Epreuve = L.icon({iconUrl:'media/icones/epreuve.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Sanctum = L.icon({iconUrl:'media/icones/sanctum.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Sanctul = L.icon({iconUrl:'media/icones/sanctul.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
-var Sanctui = L.icon({iconUrl:'media/icones/sanctui.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Cecho = L.icon({iconUrl:'media/icones/cecho.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Sanctum = L.icon({iconUrl:'media/icones/sanctum.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Sanctul = L.icon({iconUrl:'media/icones/sanctul.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Sanctui = L.icon({iconUrl:'media/icones/sanctui.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Sanctus = L.icon({iconUrl:'media/icones/sanctus.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Betrang = L.icon({iconUrl:'media/icones/betrang.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
 var Bgivre = L.icon({iconUrl:'media/icones/bgivre.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
 var Brocheux = L.icon({iconUrl:'media/icones/brocheux.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
@@ -127,18 +131,35 @@ var Luciole = L.icon({iconUrl:'media/icones/luciole.png', iconSize:[30, 30], ico
 var Luciolichance = L.icon({iconUrl:'media/icones/luciolichance.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Crabe = L.icon({iconUrl:'media/icones/crabe.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Belette = L.icon({iconUrl:'media/icones/belette.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Layers = L.icon({ iconUrl:'media/icones/layers.png', iconSize: [40,40], iconAnchor: [20,20], popupAnchor: [0,-20] });
+var Mnimbus = L.icon({iconUrl:'media/icones/mnimbus.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Champsacra = L.icon({iconUrl:'media/icones/champsacra.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Fruitharra = L.icon({iconUrl:'media/icones/fruitharra.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Kalpalotus = L.icon({iconUrl:'media/icones/kalpalotus.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Nilotpalotus = L.icon({iconUrl:'media/icones/nilotpalotus.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Padisachidee = L.icon({iconUrl:'media/icones/padisachidee.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Pechezaytun = L.icon({iconUrl:'media/icones/pechezaytun.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Rosesum = L.icon({iconUrl:'media/icones/rosesum.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Viparyas = L.icon({iconUrl:'media/icones/viparyas.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Animauxtrans = L.icon({iconUrl:'media/icones/animauxtrans.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Fcorbeau = L.icon({iconUrl:'media/icones/fcorbeau.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
+var Briseur = L.icon({ iconUrl:'media/icones/briseur.png', iconSize: [40,40], iconAnchor: [20,20], popupAnchor: [0,-20] });
+var Nucleus = L.icon({iconUrl:'media/icones/nucleus.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor:[2, 3], popupAnchor:[-3, -3]});
+
 
 var popupOptions =
     {
         'minWidth': '480px',
         // 'minHeight': '270px',
-        'closeButton': false
+        'closeButton': false,
+        'className' : 'normpop'
     };
 
     var popupOptions2 =
     {
         'minHeight': '350px',
         'maxWidth': '350px',
-        'closeButton': false
+        'closeButton': false,
+        'className' : 'normpop'
     };

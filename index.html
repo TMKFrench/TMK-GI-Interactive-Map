@@ -28,42 +28,44 @@
 	<div class="flex flex-wrap h-full">
 		<div id="menu" class="hidden bg-gray-50">
 			<div id="menuFR" class="hidden">
-				<img src="media/banniere.jpg" class="mx-auto" />
-				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
+				<div id="topmenuFR" class="bg-gray-50" style="position: sticky; top:0px; left: 0px; padding-bottom: 10px;">
+					<img src="media/banniere.jpg" class="mx-auto" />
+					<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
 	
-				<div class="flex justify-items-stretch text-center m-4">
-					<a href="#!" id="discordFR" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
-						<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Se connecter avec Discord</a>
-				</div>
-				<div id="localFR" class="flex space-x-2 text-center m-4">
-					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
-					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">EN</a>
-					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Sauvegarder les Markers locaux" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
-					<a id="BtnImport" href="#" title="Charger les Markers locaux" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
-					<input type="file" id="ImportBox" accept=".txt" class="hidden">
-				</div>
-				<div id="distantFR" class="hidden space-x-2 text-center items-center m-4">
-					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
-					<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">EN</a>
-					<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
-					<a id="BtnMerge" href="#!" title="Fusion des Markers locaux avec le compte Discord" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Fusionner</span></a>
-				</div>
-				<div id="selectmap">
-					<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
-					<div class="panel">
-						<div class="flex justify-items-stretch text-center mx-4 my-1">
-							<a id="BtnEnka" href="enka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
-						</div>
-						<div class="flex justify-items-stretch text-center mx-4 my-1">
-							<a id="BtnGouffre" href="gouffre.html" title="Accès Map Gouffre:Mines souterraines" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map des Mines du Gouffre</a>
-						</div>
+					<div class="flex justify-items-stretch text-center m-4">
+						<a href="#!" id="discordFR" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
+							<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Se connecter avec Discord</a>
+					</div>
+					<div id="localFR" class="flex space-x-2 text-center m-4">
+						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
+						<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">EN</a>
+						<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
+						<a id="BtnExport" href="#!" title="Sauvegarder les Markers locaux" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+						<a id="BtnImport" href="#" title="Charger les Markers locaux" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
+						<input type="file" id="ImportBox" accept=".txt" class="hidden">
+					</div>
+					<div id="distantFR" class="hidden space-x-2 text-center items-center m-4">
+						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
+						<a id="BtnLang" href="#!" title="English Version" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">EN</a>
+						<a id="BtnReset" href="#!" title="Reset des Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
+						<a id="BtnMerge" href="#!" title="Fusion des Markers locaux avec le compte Discord" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Fusionner</span></a>
+					</div>
+					<div id="selectmap">
+						<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
+						<div class="panel">
+							<div class="flex justify-items-stretch text-center mx-4 my-1">
+								<a id="BtnEnka" href="enka.html" title="Accès Map Enkanomiya" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map d'Enkanomiya</a>
+							</div>
+							<div class="flex justify-items-stretch text-center mx-4 my-1">
+								<a id="BtnGouffre" href="gouffre.html" title="Accès Map Gouffre:Mines souterraines" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à la Map des Mines du Gouffre</a>
+							</div>
 						<!-- <div class="flex justify-items-stretch text-center mx-4 my-1">
 							<a id="BtnGoldenapple" href="summer22.html" title="Accès Map Archipel de la pomme dorée" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Accès à l'Archipel de la pomme dorée</a>
 						</div> -->
-					</div>						
+						</div>						
+					</div>
 				</div>
-				<div id="MarkerSelect" class="overflow-y-auto p-2 pt-0">
+				<div id="MarkerSelectFR" class="p-2 pt-0 menulist">
 					<!-- <li class="accordion title text-red-600">Evènement Fracas du Tonnerre</li>
 					<div class="panel">
 						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-sm">
@@ -80,6 +82,7 @@
 							<li class="marker"><a id="btnFRstatue" href="#!" data-type="statue" class="itembtn"><img src="media/icones/statuem.png" /> <span>Statues des 7</span></a></li>
 							<li class="marker"><a id="btnFRteleport" href="#!" data-type="teleport" class="itembtn"><img src="media/icones/teleportm.png" /> <span>Téléporteurs</span></a></li>
 							<li class="marker"><a id="btnFRtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>TP Barge</span></a></li>
+							<li class="marker"><a id="btnFRgrotte" href="#!" data-type="grotte" class="itembtn"><img src="media/icones/grottem.png" /> <span>Accès grotte</span></a></li>
 							<li class="marker"><a id="btnFRelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Portails électro</span></a></li>
 							<li class="marker"><a id="btnFRpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Points de pêche</span></a></li>
 							<li class="marker"><a id="btnFRquete" href="#!" data-type="quete" class="itembtn"><img src="media/icones/quetem.png" /> <span>Quêtes</span></a></li>
@@ -88,6 +91,7 @@
 							<li class="marker"><a id="btnFRanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
 							<li class="marker"><a id="btnFRgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
 							<li class="marker"><a id="btnFReleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
+							<li class="marker"><a id="btnFRdendrocul" href="#!" data-type="dendrocul" class="itembtn"><img src="media/icones/dendrocul.png" /> <span>Dendroculus</span></a></li>
 							<li class="marker"><a id="btnFRagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Agates pourpres</span></a></li>
 							<li class="marker"><a id="btnFRgyroc" href="#!" data-type="gyroc" class="itembtn"><img src="media/icones/gyrocm.png" /> <span>Gyrocristaux Radiants</span></a></li>
 							<li class="marker"><a id="btnFRsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Sceaux Géo</span></a></li>
@@ -98,11 +102,13 @@
 					</div>
 					<li class="accordion title">Coffres</li>
 					<div class="panel">
-						<ul class="grid grid-cols-3 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
+						<ul class="grid grid-cols-2 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
 							<li class="markerc"><a id="btnFRmond" href="#!" data-type="mond" class="regionFR">Mondstadt</a></li>
 							<li class="markerc"><a id="btnFRliyu" href="#!" data-type="liyu" class="regionFR">Liyue</a></li>
 							<li class="markerc"><a id="btnFRinaz" href="#!" data-type="inaz" class="regionFR">Inazuma</a></li>
+							<li class="markerc"><a id="btnFRsume" href="#!" data-type="sume" class="regionFR">Sumeru</a></li>
 						</ul>
+						<div style="border-top: 1px solid #000; width : 200px; margin-bottom: 0.75rem; margin-left: 51px;"></div>
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
 							<li class="marker"><a id="btnFRcordi" href="#!" data-type="cordi" class="chestFR"><img src="media/icones/cordim.png"/> <span>Ordinaires</span></a></li>
 							<li class="marker"><a id="btnFRcdelic" href="#!" data-type="cdelic" class="chestFR"><img src="media/icones/cdelicm.png"/> <span>Délicats</span></a></li>
@@ -117,6 +123,7 @@
 							<li class="marker"><a id="btnFRsanctum" href="#!" data-type="sanctum" class="itembtn"><img src="media/icones/sanctumm.png"/> <span>Sanctu. Mondstadt</span></a></li>
 							<li class="marker"><a id="btnFRsanctul" href="#!" data-type="sanctul" class="itembtn"><img src="media/icones/sanctulm.png"/> <span>Sanctuaire Liyue</span></a></li>
 							<li class="marker"><a id="btnFRsanctui" href="#!" data-type="sanctui" class="itembtn"><img src="media/icones/sanctuim.png"/> <span>Sanctuaire Inazuma</span></a></li>
+							<li class="marker"><a id="btnFRsanctus" href="#!" data-type="sanctus" class="itembtn"><img src="media/icones/sanctusm.png"/> <span>Sanctuaire Sumeru</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Ennemis</li>
@@ -216,6 +223,19 @@
 							<li class="icone"><a href="#!" title="Scarabuto"><img id="btnFRscarabuto" class="matbtn" data-type="scarabuto" src="media/icones/scarabutooff.png"/></a></li>
 						</ul>
 					</div>
+					<li class="accordion title">Produits de Sumeru</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Champignon sacramental"><img id="btnFRchampsacra" class="matbtn" data-type="champsacra" src="media/icones/champsacraoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Fruit harra"><img id="btnFRfruitharra" class="matbtn" data-type="fruitharra" src="media/icones/fruitharraoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Kalpalotus"><img id="btnFRkalpalotus" class="matbtn" data-type="kalpalotus" src="media/icones/kalpalotusoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Nilotpalotus"><img id="btnFRnilotpalotus" class="matbtn" data-type="nilotpalotus" src="media/icones/nilotpalotusoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Padisachidée"><img id="btnFRpadisachidee" class="matbtn" data-type="padisachidee" src="media/icones/padisachideeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Pêche zaytun"><img id="btnFRpechezaytun" class="matbtn" data-type="pechezaytun" src="media/icones/pechezaytunoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Rose sumérienne"><img id="btnFRrosesum" class="matbtn" data-type="rosesum" src="media/icones/rosesumoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Viparyas"><img id="btnFRviparyas" class="matbtn" data-type="viparyas" src="media/icones/viparyasoff.png"/></a></li>
+						</ul>
+					</div>
 					<li class="accordion title">Animaux et Insectes</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
@@ -229,41 +249,42 @@
 				</div>
 			</div>
 			<div id="menuEN" class="">
-				<img src="media/banniere.jpg" class="mx-auto" />
-				<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Interactive Map by TMKFrench<br/><span id="totalEN" class="mx-auto my-0 text-xs text-center uppercase text-black">Loading Markers...</span></div>
-	
-				<div class="flex justify-items-stretch text-center m-4">
-					<a href="#!" id="discordEN" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
-						<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Log with Discord</a>
+				<div id="topmenuEN" class="bg-gray-50" style="position: sticky; top:0px; left: 0px; padding-bottom: 10px;">
+					<img src="media/banniere.jpg" class="mx-auto" />
+					<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Interactive Map by TMKFrench<br/><span id="totalEN" class="mx-auto my-0 text-xs text-center uppercase text-black">Loading Markers...</span></div>
+					<div class="flex justify-items-stretch text-center m-4">
+						<a href="#!" id="discordEN" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
+							<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Log with Discord</a>
+					</div>
+					<div id="localEN" class="flex space-x-2 text-center m-4">
+						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
+						<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">FR</a>
+						<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
+						<a id="BtnExport" href="#!" title="Save Markers" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
+						<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
+					</div>
+					<div id="distantEN" class="hidden space-x-2 text-center items-center m-4">
+						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
+						<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">FR</a>
+						<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
+						<a id="BtnMerge" href="#!" title="Merge local Markers to Discord account" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Merge</span></a>
+					</div>
+					<div id="selectmap">
+						<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
+						<div class="panel">
+							<div class="flex justify-items-stretch text-center mx-4 my-1">
+								<a id="BtnEnka" href="enka.html" title="Access to Enkanomiya Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to Enkanomiya Map</a>
+							</div>
+							<div class="flex justify-items-stretch text-center mx-4 my-1">
+								<a id="BtnGouffre" href="gouffre.html" title="Access to The Chasm:Underground Mines Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to The Chasm Mines Map</a>
+							</div>
+							<!-- <div class="flex justify-items-stretch text-center mx-4 my-1">
+								<a id="BtnGoldenapple" href="summer22.html" title="Acces to Golden Apple Archipelago Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to Golden Apple Archipelago</a>
+							</div> -->
+						</div>						
+					</div>
 				</div>
-				<div id="localEN" class="flex space-x-2 text-center m-4">
-					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
-					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-full">FR</a>
-					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-full">Reset</a>
-					<a id="BtnExport" href="#!" title="Save Markers" download="GenshinTMKMapMarkers.txt" class="btnsave py-1 px-2 bg-purple-600 rounded text-xs text-white w-full">Export</a>
-					<a id="BtnImport" href="#" title="Load Markers" class="btnload py-1 px-2 bg-green-600 rounded text-xs text-white w-full">Import</a>
-				</div>
-				<div id="distantEN" class="hidden space-x-2 text-center items-center m-4">
-					<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-1/5 align-middle">Info</a>
-					<a id="BtnLang" href="#!" title="Version Française" class="btnlg py-1 px-2 bg-blue-600 rounded text-xs text-white w-1/5 align-middle">FR</a>
-					<a id="BtnReset" href="#!" title="Reset Markers" class="btnreset py-1 px-2 bg-red-600 rounded text-xs text-white w-1/5 align-middle">Reset</a>
-					<a id="BtnMerge" href="#!" title="Merge local Markers to Discord account" class="btnmerge py-1 px-2 bg-purple-600 rounded text-xs text-white w-2/5 items-center flex"><img src="media/icones/merge.png" style="height: 18px;"/> <span class="w-full">Merge</span></a>
-				</div>
-				<div id="selectmap">
-					<li class="accordion2 nodot py-1 px-2 bg-yellow-300 rounded text-sm text-center text-black font-bold border-yellow-700 border-solid border-2 mt-4 mx-4">Sélection des autres cartes de GI</li>
-					<div class="panel">
-						<div class="flex justify-items-stretch text-center mx-4 my-1">
-							<a id="BtnEnka" href="enka.html" title="Access to Enkanomiya Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to Enkanomiya Map</a>
-						</div>
-						<div class="flex justify-items-stretch text-center mx-4 my-1">
-							<a id="BtnGouffre" href="gouffre.html" title="Access to The Chasm:Underground Mines Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Access to The Chasm Mines Map</a>
-						</div>
-						<!-- <div class="flex justify-items-stretch text-center mx-4 my-1">
-							<a id="BtnGoldenapple" href="summer22.html" title="Acces to Golden Apple Archipelago Map" class="py-1 px-2 bg-yellow-300 rounded text-sm text-black font-bold w-full">Acces to Golden Apple Archipelago</a>
-						</div> -->
-					</div>						
-				</div>
-				<div id="MarkerSelect" class="p-2 pt-0">
+				<div id="MarkerSelectEN" class="p-2 pt-0 menulist">
 					<!-- <li class="accordion title text-red-600">Event Thunder Sojourn</li>
 					<div class="panel">
 						<ul class="grid grid-cols-1 gap-2 space-y-0 text-gray-800 text-sm">
@@ -280,6 +301,7 @@
 							<li class="marker"><a id="btnENstatue" href="#!" data-type="statue" class="itembtn"><img src="media/icones/statuem.png" /> <span>Statues of 7</span></a></li>
 							<li class="marker"><a id="btnENteleport" href="#!" data-type="teleport" class="itembtn"><img src="media/icones/teleportm.png" /> <span>Teleports</span></a></li>
 							<li class="marker"><a id="btnENtpbarge" href="#!" data-type="tpbarge" class="itembtn"><img src="media/icones/tpbargem.png" /> <span>Waveriders</span></a></li>
+							<li class="marker"><a id="btnENgrotte" href="#!" data-type="grotte" class="itembtn"><img src="media/icones/grottem.png" /> <span>Cave access</span></a></li>
 							<li class="marker"><a id="btnENelecgate" href="#!" data-type="elecgate" class="itembtn"><img src="media/icones/elecgatem.png" /> <span>Phase Gate</span></a></li>
 							<li class="marker"><a id="btnENpeche" href="#!" data-type="peche" class="itembtn"><img src="media/icones/pechem.png" /> <span>Fishing Spot</span></a></li>
 							<li class="marker"><a id="btnENquete" href="#!" data-type="quete" class="itembtn"><img src="media/icones/quetem.png" /> <span>Quests</span></a></li>
@@ -288,6 +310,7 @@
 							<li class="marker"><a id="btnENanemo" href="#!" data-type="anemo" class="itembtn"><img src="media/icones/anemo.png" /> <span>Anemoculus</span></a></li>
 							<li class="marker"><a id="btnENgeocul" href="#!" data-type="geocul" class="itembtn"><img src="media/icones/geocul.png" /> <span>Geoculus</span></a></li>
 							<li class="marker"><a id="btnENeleccul" href="#!" data-type="eleccul" class="itembtn"><img src="media/icones/eleccul.png" /> <span>Electroculus</span></a></li>
+							<li class="marker"><a id="btnENdendrocul" href="#!" data-type="dendrocul" class="itembtn"><img src="media/icones/dendrocul.png" /> <span>Dendroculus</span></a></li>
 							<li class="marker"><a id="btnENagate" href="#!" data-type="agate" class="itembtn"><img src="media/icones/agate.png" /> <span>Crimson Agates</span></a></li>
 							<li class="marker"><a id="btnENgyroc" href="#!" data-type="gyroc" class="itembtn"><img src="media/icones/gyrocm.png" /> <span>Radiant Spincrystals</span></a></li>
 							<li class="marker"><a id="btnENsceaugeo" href="#!" data-type="sceaugeo" class="itembtn"><img src="media/icones/sceaugeo.png" /> <span>Geo Sigils</span></a></li>
@@ -298,10 +321,11 @@
 					</div>
 					<li class="accordion title">Chests</li>
 					<div class="panel">
-						<ul class="grid grid-cols-3 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
+						<ul class="grid grid-cols-2 gap-2 mb-3 text-gray-800 text-sm text-center w-full">
 							<li class="markerc"><a id="btnENmond" href="#!" data-type="mond" class="regionEN">Mondstadt</a></li>
 							<li class="markerc"><a id="btnENliyu" href="#!" data-type="liyu" class="regionEN">Liyue</a></li>
 							<li class="markerc"><a id="btnENinaz" href="#!" data-type="inaz" class="regionEN">Inazuma</a></li>
+							<li class="markerc"><a id="btnENsume" href="#!" data-type="sume" class="regionEN">Sumeru</a></li>
 						</ul>
 						<ul class="grid grid-cols-2 gap-2 space-y-0 text-gray-800 text-xs">
 							<li class="marker"><a id="btnENcordi" href="#!" data-type="cordi" class="chestEN"><img src="media/icones/cordim.png"/> <span>Commons</span></a></li>
@@ -317,6 +341,7 @@
 							<li class="marker"><a id="btnENsanctum" href="#!" data-type="sanctum" class="itembtn"><img src="media/icones/sanctumm.png"/> <span>Mondstadt Shrine</span></a></li>
 							<li class="marker"><a id="btnENsanctul" href="#!" data-type="sanctul" class="itembtn"><img src="media/icones/sanctulm.png"/> <span>Liyue Shrine</span></a></li>
 							<li class="marker"><a id="btnENsanctui" href="#!" data-type="sanctui" class="itembtn"><img src="media/icones/sanctuim.png"/> <span>Inazuma Shrine</span></a></li>
+							<li class="marker"><a id="btnENsanctus" href="#!" data-type="sanctus" class="itembtn"><img src="media/icones/sanctusm.png"/> <span>Sumeru Shrine</span></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Enemies</li>
@@ -416,6 +441,19 @@
 							<li class="icone"><a href="#!" title="Scarabuto"><img id="btnENscarabuto" class="matbtn" data-type="scarabuto" src="media/icones/scarabutooff.png"/></a></li>
 						</ul>
 					</div>
+					<li class="accordion title">Products of Sumeru</li>
+					<div class="panel">
+						<ul class="flex justify-between">
+							<li class="icone"><a href="#!" title="Rukkhashava Mushroom"><img id="btnENchampsacra" class="matbtn" data-type="champsacra" src="media/icones/champsacraoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Harra Fruit"><img id="btnENfruitharra" class="matbtn" data-type="fruitharra" src="media/icones/fruitharraoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Kalpalata Lotus"><img id="btnENkalpalotus" class="matbtn" data-type="kalpalotus" src="media/icones/kalpalotusoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Nilotpala Lotus"><img id="btnENnilotpalotus" class="matbtn" data-type="nilotpalotus" src="media/icones/nilotpalotusoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Padisarah"><img id="btnENpadisachidee" class="matbtn" data-type="padisachidee" src="media/icones/padisachideeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Zaytun Peach"><img id="btnENpechezaytun" class="matbtn" data-type="pechezaytun" src="media/icones/pechezaytunoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Sumeru Rose"><img id="btnENrosesum" class="matbtn" data-type="rosesum" src="media/icones/rosesumoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Viparyas"><img id="btnENviparyas" class="matbtn" data-type="viparyas" src="media/icones/viparyasoff.png"/></a></li>
+						</ul>
+					</div>
 					<li class="accordion title">Animals and Insects</li>
 					<div class="panel">
 						<ul class="flex justify-items-start pt-1">
@@ -430,7 +468,7 @@
 			</div>
 		</div>	
 		<div class="" id="map-wrap">
-			<div id="mapid" class="leaflet-container leaflet-fade-anim w-full h-full" tabindex="0" style="background-color: #0f181f;"></div>
+			<div id="mapid" class="leaflet-container leaflet-fade-anim w-full h-full" tabindex="0" style="background-color: #17181c;"></div>
 		</div>
 	</div>
 	<div id="infoFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
@@ -438,10 +476,12 @@
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Bienvenue sur notre Map interactive !</h3>
 		<p>Cliquez sur un marqueur de votre choix pour plus d'information.<br>Utilisez la molette de la souris pour zoomer et le menu pour afficher ou masquer les POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V6.1.5 du 13/07/2022</p>
-		<p class="mt-4">- Rajout des coffres manquants d'Inazuma<br>
-						- Rajout de Succès<br>
-						- MaJ de nombreux screeshots et vidéos (Meilleure qualité et/ou point de vue)</p>
+		<p class="font-bold text-red-500 mt-4">Release V6.3.1 du 17/09/2022</p>
+		<p class="mt-4">- Rajout dans la région de Sumeru des Défis, Fées, Sanctuaires et produits régionaux.<br>
+						- Correction d'un bug qui faisait que certains marqueurs apparaissaient fait à l'ouverture du Popup.
+						  Il en résulte que certains anciens marqueurs ont été réinitialisés. Il suffit simplement de les revalider.
+						  Désolé pour la gêne occasionnée...
+		</p>
 		<p class="mt-4">Si vous voulez participer en m'envoyant de nouveaux emplacements, n'hésitez pas à me contacter :<br>
 			- par mail à tmkfrench@gmail.com<br>
 			<span class="text-red-600">- par MP sur discord : TMKFrench#4221</span></p>
@@ -459,10 +499,12 @@
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Welcome to our Interactive Map !</h3>
 		<p>Clic on a Marker of your choice for more information.<br>Use mouse wheel to zoom and the menu buttons to toggle POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V6.1.5 of 07/13/2022</p>
-		<p class="mt-4">- Adding missing Chests markers of Inazuma<br>
-						- Adding some Achievements<br>
-						- Updating many screenshots and videos (Best quality and/or better pov)"></video></p>
+		<p class="font-bold text-red-500 mt-4">Release V6.3.1 of 09/17/2022</p>
+		<p class="mt-4">- Adding Challenges, Seelies, Shrines and local products in Sumeru area<br>
+						- Fixing a bug : Some markers appeared as Done when popup opened. Resulting of this fix, some old Done markers
+						  has been reseted. You just have to check them again.
+						  Sorry for this inconvenience...
+		</p>
 		<p class="mt-4">If you want to participate, giving me new location on map, feel free to contact me :<br>
 			- by mail at tmkfrench@gmail.com<br>
 			<span class="text-red-600">- by Discord PM : TMKFrench#4221</span></p>
@@ -478,10 +520,11 @@
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 6.1.5 du 13/07/2022</h3>
-		<p class="mt-4">- Rajout des coffres manquants d'Inazuma<br>
-			- Rajout de Succès<br>
-			- MaJ de nombreux screeshots et vidéos (Meilleure qualité et/ou point de vue)</p>
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 6.3.1 du 17/09/2022</h3>
+		<p class="mt-4">- Rajout dans la région de Sumeru des Défis, Fées, Sanctuaires et produits régionaux.<br>
+						- Correction d'un bug qui faisait que certains marqueurs apparaissaient fait à l'ouverture du Popup.
+			  			 Il en résulte que certains anciens marqueurs ont été réinitialisés. Il suffit simplement de les revalider.
+			  			 Désolé pour la gêne occasionnée...</p>
 		<p class="mt-4 font-bold text-red-600">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur et avoir<br><span class="text-red-600">la dernière version des marqueurs.</span>
 		</p>
@@ -489,10 +532,11 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 6.1.5 of 07/13/2022</h3>
-		<p class="mt-4">- Adding missing Chests markers of Inazuma<br>
-			- Adding some Achievements<br>
-			- Updating many screenshots and videos (Best quality and/or better pov)</p>
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 6.3.1 of 09/17/2022</h3>
+		<p class="mt-4">- Adding Challenges, Seelies, Shrines and local products in Sumeru area<br>
+						- Fixing a bug : Some markers appeared as Done when popup opened. Resulting of this fix, some old Done markers
+			  			  has been reseted. You just have to check them again.
+						  Sorry for this inconvenience...</p>
 		<p class="mt-4 font-bold text-red-600">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache and get <span class="text-red-600">the last markers update.</span>
 		</p>
@@ -543,7 +587,7 @@
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
 	<script type="text/javascript" src="assets/js/markers-teyvat.js"></script>
-	<script type="text/javascript" src="assets/js/map.js?v=6.1.5"></script>
+	<script type="text/javascript" src="assets/js/map.js?v=6.3.1"></script>
 
 </body>
 

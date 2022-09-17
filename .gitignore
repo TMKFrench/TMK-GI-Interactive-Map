@@ -11,21 +11,19 @@
 *.sln.docstates
 media/*.jpg
 media/*.gif
-media/tilesteyvat/
+media/tilesteyvat301/
 media/tilesgouffre/
 media/tilesenka/
-media/tilesdarkenka/
 nextstage.png
 Markerlbm.js
-oldindex/
 config.ini
 tmkmap.db
-assets/js/old/
 convertiontmk.html
 lbm.js
 populate.php
 populatedb.html
 update.php
+verif.php
 lbm/
 
 # User-specific files (MonoDevelop/Xamarin Studio)

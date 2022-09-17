@@ -15,11 +15,11 @@ html, body, #mapid {
   height: 100%;
 }
 
-.leaflet-popup .leaflet-popup-content-wrapper {
+.leaflet-popup.normpop .leaflet-popup-content-wrapper {
   border-radius: 2px;
 }
 
-.leaflet-popup .leaflet-popup-content {
+.leaflet-popup.normpop .leaflet-popup-content {
   font-family: 'Genshin', 'comic sans ms', sans-serif;
   overflow-wrap: break-word;
   margin: 0px;
@@ -27,43 +27,98 @@ html, body, #mapid {
   text-align: center !important;
 }
 
-.leaflet-popup .leaflet-popup-content h1 {
+.leaflet-popup.normpop .leaflet-popup-content h1 {
   font-size: 12px;
   color: #000;
   margin: 0 5px 2px;
 }
 
-.leaflet-popup .leaflet-popup-content h2 {
+.leaflet-popup.normpop .leaflet-popup-content h2 {
   font-size: 16px;
   font-weight: bold;
   color: #000;
   margin-top: .25em;
 }
 
-.leaflet-popup .leaflet-popup-content h3 {
+.leaflet-popup.normpop .leaflet-popup-content h3 {
   font-size: 20px;
   font-weight: bold;
   color: #bf4646;
   text-shadow: 2px 2px 3px #978980;
 }
 
-.leaflet-popup .leaflet-popup-content h4 {
+.leaflet-popup.normpop .leaflet-popup-content h4 {
   text-align: center;
   font-size: 28px;
   text-shadow: 3px 3px 4px #978980;
   color: #222121;
 }
 
-.leaflet-popup .leaflet-popup-content h5 {
+.leaflet-popup.normpop .leaflet-popup-content h5 {
   margin: 0;
   font-size: 12pt;
   color: black;
 }
 
-.leaflet-popup .leaflet-popup-content img.ico {
+.leaflet-popup.normpop .leaflet-popup-content img.ico {
   display: unset;
   width: 24px;
   height: 24px;
+}
+
+.leaflet-popup.radiopop {
+  min-width: 350px;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content-wrapper {
+  border-radius: 2px;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content {
+  margin: 20px;
+  width: 350px !important;
+  overflow-y: auto;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile {
+  display: none;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile + label {
+  width: 100%;
+  height: 60px;
+  margin: 2px 0px;
+  padding: 5px 3px;
+  font-size: 1.25em;
+  vertical-align: middle;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  color: #4b5563;
+  background-color: #e8e2d7;
+  border: 1px solid #9ca3af;
+  transition: all 0.5s ease-in-out;
+  display: inline-block;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile + label img {
+  width: 48px;
+  margin: 0px 2px;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile + label span {
+  display: flex;
+  align-items: center;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile:hover + label {
+  background-color: #9ca3af;
+  border-color: #2f3135;
+}
+
+.leaflet-popup.radiopop .leaflet-popup-content input[type="radio"].radioile:checked + label {
+  background-color: #9ca3af;
+  border-color: #353638;
+  color: #000;
 }
 
 .leaflet-container {
@@ -83,9 +138,14 @@ html, body, #mapid {
   text-align: left;
 }
 
+.menulist {
+  overflow-y: auto !important;
+}
+
 #menu {
   height: 100%;
-  overflow: auto;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
   background-image: url("../../media/menubg.png");
   background-repeat: no-repeat;
   background-size: 320px;
