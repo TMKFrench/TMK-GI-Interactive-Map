@@ -89,19 +89,24 @@ if($method == 'GET' && $action == 'login') {
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btnt) : [];
                 $user['region'] = ($dbUser) ? json_decode($dbUser->region) : [];
                 $user['chest'] = ($dbUser) ? json_decode($dbUser->chest) : [];
+                $user['markers'] = ($dbUser) ? json_decode($dbUser->markersteyvat) : [];
             } elseif ($map == 'e') {
                 $user['menu'] = ($dbUser) ? json_decode($dbUser->menue) : [];
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btne) : [];
+                $user['markers'] = ($dbUser) ? json_decode($dbUser->markersenka) : [];
             } elseif ($map == 'go') {
                 $user['menu'] = ($dbUser) ? json_decode($dbUser->menugo) : [];
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btngo) : [];
+                $user['markers'] = ($dbUser) ? json_decode($dbUser->markersgouffre) : [];
             } elseif ($map == 'se') {
                 $user['menu'] = ($dbUser) ? json_decode($dbUser->menuse) : [];
                 $user['btn'] = ($dbUser) ? json_decode($dbUser->btnse) : [];
+                $user['markers'] = ($dbUser) ? json_decode($dbUser->markersse) : [];
             }
-            $user['markers'] = ($dbUser) ? json_decode($dbUser->markers) : [];
             $user['users'] = $dbCountUsers->total;
             $user['visits'] = $counter;
+            $user['oldmarkers'] = ($dbUser) ? json_decode($dbUser->markers) : [];
+            $user['updatemv3'] = ($dbUser) ? json_decode($dbUser->updatemv3) : [];
 
             echo json_encode($user);
             die();
@@ -111,18 +116,60 @@ if($method == 'GET' && $action == 'login') {
     echo json_encode(['login' => $root . 'api/' . $map . '/login', 'users' => $dbCountUsers->total, 'visits' => $counter]);
     die();
 
+} elseif($method == 'POST' && $action == 'updatemarkers') {
+    header('Content-Type: application/json');
+
+    if($user = session('user')) {
+
+        $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
+        $user['updatemv3'] = json_decode($dbUser->updatemv3);
+
+        if($map == 't') {
+            $user['updatemv3'][] = 'teyvat';
+            $db->update('users', ['markersteyvat' => $_POST['newm']], ['uid' => $user['uid']]);            
+        } elseif ($map == 'e') {
+            $user['updatemv3'][] = 'enka';
+            $db->update('users', ['markersenka' => $_POST['newm']], ['uid' => $user['uid']]);            
+        } elseif ($map == 'go') {
+            $user['updatemv3'][] = 'gouffre';
+            $db->update('users', ['markersgouffre' => $_POST['newm']], ['uid' => $user['uid']]);            
+        }
+        $db->update('users', ['markers' => $_POST['oldm'], 'updatemv3' => json_encode($user['updatemv3'])], ['uid' => $user['uid']]);
+        echo 'Mise à jour marqueurs V3 effectuée';
+        die();
+    }
+
+    echo json_encode(['error' => 'Utilisateur introuvable...']);
+    die();
+    
 } elseif($method == 'POST' && $action == 'addmarker') {
     header('Content-Type: application/json');
 
     if($user = session('user')) {
 
         $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
-        // $user['menu'] = json_decode($dbUser->menu);
-        $user['markers'] = json_decode($dbUser->markers);
+
+        if($map == 't') {
+            $user['markers'] = json_decode($dbUser->markersteyvat);
+        } elseif ($map == 'e') {
+            $user['markers'] = json_decode($dbUser->markersenka);
+        } elseif ($map == 'go') {
+            $user['markers'] = json_decode($dbUser->markersgouffre);
+        } elseif ($map == 'se') {
+            $user['markers'] = json_decode($dbUser->markersse);
+        }
 
         if(!in_array($id, $user['markers'])) {
             $user['markers'][] = $id;
-            $db->update('users', ['markers' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            if($map == 't') {
+                $db->update('users', ['markersteyvat' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'e') {
+                $db->update('users', ['markersenka' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'go') {
+                $db->update('users', ['markersgouffre' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'se') {
+                $db->update('users', ['markersse' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            }
         }
         $reponse['markers'] = $user['markers'];
         echo json_encode($reponse);
@@ -137,14 +184,30 @@ if($method == 'GET' && $action == 'login') {
     if($user = session('user')) {
 
         $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
-        // $user['menu'] = json_decode($dbUser->menu);
-        $user['markers'] = json_decode($dbUser->markers);
+
+        if($map == 't') {
+            $user['markers'] = json_decode($dbUser->markersteyvat);
+        } elseif ($map == 'e') {
+            $user['markers'] = json_decode($dbUser->markersenka);
+        } elseif ($map == 'go') {
+            $user['markers'] = json_decode($dbUser->markersgouffre);
+        } elseif ($map == 'se') {
+            $user['markers'] = json_decode($dbUser->markersse);
+        }
 
         if($user['markers'] && in_array($id, $user['markers'])) {
             $k = array_search($id, $user['markers']);
             array_splice($user['markers'], $k, 1);
 
-            $db->update('users', ['markers' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            if($map == 't') {
+                $db->update('users', ['markersteyvat' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'e') {
+                $db->update('users', ['markersenka' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'go') {
+                $db->update('users', ['markersgouffre' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            } elseif ($map == 'se') {
+                $db->update('users', ['markersse' => json_encode($user['markers'])], ['uid' => $user['uid']]);
+            }
         }
         $reponse['markers'] = $user['markers'];
         echo json_encode($reponse);
@@ -160,7 +223,15 @@ if($method == 'GET' && $action == 'login') {
 
         $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
         if($dbUser) {
-            $db->update('users', ['markers' => json_encode([])], ['uid' => $user['uid']]);
+            if($map == 't') {
+                $db->update('users', ['markersteyvat' => json_encode([])], ['uid' => $user['uid']]);
+            } elseif ($map == 'e') {
+                $db->update('users', ['markersenka' => json_encode([])], ['uid' => $user['uid']]);
+            } elseif ($map == 'go') {
+                $db->update('users', ['markersgouffre' => json_encode([])], ['uid' => $user['uid']]);
+            } elseif ($map == 'se') {
+                $db->update('users', ['markersse' => json_encode([])], ['uid' => $user['uid']]);
+            }
         }
         echo 'Reset complete';
         die();
@@ -175,7 +246,7 @@ if($method == 'GET' && $action == 'login') {
 
         $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
         if($dbUser) {
-            $db->update('users', ['menuse' => json_encode([]), 'btnse' => json_encode([]), 'last_coordse' => json_encode([])], ['uid' => $user['uid']]);
+            $db->update('users', ['markersse' => json_encode([]), 'menuse' => json_encode([]), 'btnse' => json_encode([]), 'last_coordse' => json_encode([])], ['uid' => $user['uid']]);
         }
         echo 'Reset semap complete';
         die();
@@ -190,7 +261,15 @@ if($method == 'GET' && $action == 'login') {
 
         $dbUser = $db->get_row("SELECT * FROM users WHERE uid = {$user['uid']}");
         if($dbUser) {
-           $db->update('users', ['markers' => $_POST['data']], ['uid' => $user['uid']]);
+            if($map == 't') {
+                $db->update('users', ['markersteyvat' => $_POST['data']], ['uid' => $user['uid']]);
+            } elseif ($map == 'e') {
+                $db->update('users', ['markersenka' => $_POST['data']], ['uid' => $user['uid']]);
+            } elseif ($map == 'go') {
+                $db->update('users', ['markersgouffre' => $_POST['data']], ['uid' => $user['uid']]);
+            } elseif ($map == 'se') {
+                $db->update('users', ['markersse' => $_POST['data']], ['uid' => $user['uid']]);
+            }
         }
         echo 'Merge complete';
         die();

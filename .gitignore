@@ -25,6 +25,7 @@ populatedb.html
 update.php
 verif.php
 lbm/
+.hintrc
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

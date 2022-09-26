@@ -1,3 +1,5 @@
+// Genshin Impact Interactive Map routine (C)TMKFrench & LBM - Anthony
+
 // Fonctions Interaction sur la Map
 
     function onMapClick(e) {
@@ -13,8 +15,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "1.4.1")) {
-            localStorage.Mapversenka = "1.4.1";
+        if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "2.0.0")) {
+            localStorage.Mapversenka = "2.0.0";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -44,8 +46,17 @@
         }
     };
     
+    function sanityze (e) {
+        if (e) {
+            t1 = e.replace('"[','[');
+            t2 = t1.replaceAll('\\','');
+            t3 = t2.replace(']"',']')
+            return t3;
+        };
+    };
+
     function mergesave(servmarkers) {
-        var localmarkers = (localStorage.userMarkers) ? JSON.parse(localStorage.userMarkers) : [];
+        var localmarkers = (localStorage.userMarkersEnka) ? JSON.parse(localStorage.userMarkersEnka) : [];
         localmarkers.forEach(function(e){
             if(servmarkers.indexOf(e)<0)
                 servmarkers.push(e);
@@ -102,12 +113,12 @@
           currentMarker.setOpacity(1);
         }
     
-        localStorage.setItem('userMarkers', JSON.stringify(markers));
+        localStorage.setItem('userMarkersEnka', JSON.stringify(markers));
         userMarkers = JSON.stringify(markers);
     };
     
     function getUserMarkers() {
-        var markers = localStorage.getItem('userMarkers');
+        var markers = sanityze(localStorage.getItem('userMarkersEnka'));
     
         if(!markers) {
           markers = [];
@@ -130,7 +141,7 @@
     
     function resetmarkers() {
         if(userLocal) {
-            localStorage.removeItem('userMarkers');
+            localStorage.removeItem('userMarkersEnka');
         } else {
             $.post('api/e/resetmarkers', function(res) {
                 if(typeof(res.error) !== 'undefined') {
@@ -145,18 +156,20 @@
     
     function loadusermarkers(lstmrk) {
         if (lstmrk[0] == "v2") {
-            // doreset();
-            var i = 1, cbx;
+            var i = 1, cbx, markers = [];
             while (lstmrk[i]) {
                 cbx = lstmrk[i];
                 lstmrk[i+1].forEach(function(e){
-                    userMarkers.push(cbx + e);
+                    markers.push(cbx + e);
                 });
                 if (localStorage.getItem('chkbox'+cbx))
                     localStorage.removeItem('chkbox'+cbx);
                 i = i + 2;
             };
-            localStorage.setItem('userMarkers', JSON.stringify(userMarkers));
+            localStorage.setItem('userMarkers', JSON.stringify(markers));
+        } else if (lstmrk[0] == "v3enka") {
+            lstmrk.splice(0,1);
+            localStorage.setItem('userMarkersEnka', JSON.stringify(lstmrk));
         } else {
             localStorage.setItem('userMarkers', JSON.stringify(lstmrk));
         };
@@ -205,6 +218,7 @@
 
 var mymap;
 var userMarkers = getUserMarkers();
+var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
 var listatut = [];
 var btnstatut = [];
@@ -273,107 +287,118 @@ BoutonMenu.addTo(mymap);
 // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
 
 function initMarkers () {
-    loadmarker(listteleport,Teleport,"teleport",langue.cat02,"tpe");
-    loadmarker(listenkagate,Enkagate,"enkagate",langue.cat100,"egate");
-    loadmarker(listcyclejn,Cyclejn,"cyclejn",langue.cat101);
-    loadmarker(listtriangle,Triangle,"triangle",langue.cat102,"triangle","triangle");
-    loadmarker(listtrianglenocb,Triangle,"triangle",langue.cat102,"trianglenocb");
-    loadmarker(listsucces,Succes,"succes",langue.cat46,"succese","succese");
-    loadmarker(listquete,Quete,"quete",langue.cat118,"quetee","quetee");
-    loadmarker(listpeche,Peche,"peche",langue.cat94,"pechee");
-    loadmarker(listpierrekc,Pierrekc,"pierrekc",langue.cat103,"pierrekc","pierrekc");
-    loadmarker(listclesigil1,Clesigil1,"clesigil1",langue.cat104,"clesigil1-","clesigil1");
-    loadmarker(listclesigil2,Clesigil2,"clesigil2",langue.cat105,"clesigil2-","clesigil2");
-    loadmarker(listclesigil3,Clesigil3,"clesigil3",langue.cat106,"clesigil3-","clesigil3");
-    loadmarker(listclesigil4,Clesigil4,"clesigil4",langue.cat107,"clesigil4-","clesigil4");
-    loadmarker(listclesigil5,Clesigil5,"clesigil5",langue.cat108,"clesigil5-","clesigil5");
-    loadmarker(listcordi,Cordi,"cordi",langue.cat04,"oce","cordie");
-    loadmarker(listcdelic,Cdelic,"cdelic",langue.cat05,"dce","cdelice");
-    loadmarker(listcprec,Cprec,"cprec",langue.cat06,"pce","cprece");
-    loadmarker(listcluxe,Cluxe,"cluxe",langue.cat07,"lce","cluxee");
-    loadmarker(listcdefi,Cdefi,"cdefi",langue.cat08,"defie","cdefie");
-    loadmarker(listcfee,Cfee,"cfee",langue.cat09,"","cfeeenko");
-    loadmarker(listferblanc,Ferblanc,"ferblanc",langue.cat25);
-    loadmarker(listamethyste,Amethyste,"amethyste",langue.cat84);
-    loadmarker(listelectroc,Electrocris,"electrocris",langue.cat12);
-    loadmarker(listnoyauc,Noyauc,"noyauc",langue.cat44);
-    loadmarker(listperle,Perle,"perle",langue.cat32);
-    loadmarker(listcorail,Corail,"corail",langue.cat97);
-    loadmarker(listffeu,Ffeu,"ffeu",langue.cat14);
-    loadmarker(listfbrume,Fbrume,"fbrume",langue.cat13);
-    loadmarker(listganoderma,Ganoderma,"ganoderma",langue.cat81);
-    loadmarker(listherbem,Herbem,"herbem",langue.cat82);
-    loadmarker(listgrenouille,Grenouille,"grenouille",langue.cat27);
-    loadmarker(listcrabe,Crabe,"crabe",langue.cat64);
+    loadmarker(listteleport,"Teleport","teleport",langue.cat02,"tpe");
+    loadmarker(listenkagate,"Enkagate","enkagate",langue.cat100,"egate");
+    loadmarker(listcyclejn,"Cyclejn","cyclejn",langue.cat101);
+    loadmarker(listtriangle,"Triangle","triangle",langue.cat102,"triangle","triangle");
+    loadmarker(listtrianglenocb,"Triangle","triangle",langue.cat102,"trianglenocb");
+    loadmarker(listsucces,"Succes","succes",langue.cat46,"succese","succese");
+    loadmarker(listquete,"Quete","quete",langue.cat118,"quetee","quetee");
+    loadmarker(listpeche,"Peche","peche",langue.cat94,"pechee");
+    loadmarker(listpierrekc,"Pierrekc","pierrekc",langue.cat103,"pierrekc","pierrekc");
+    loadmarker(listclesigil1,"Clesigil1","clesigil1",langue.cat104,"clesigil1-","clesigil1");
+    loadmarker(listclesigil2,"Clesigil2","clesigil2",langue.cat105,"clesigil2-","clesigil2");
+    loadmarker(listclesigil3,"Clesigil3","clesigil3",langue.cat106,"clesigil3-","clesigil3");
+    loadmarker(listclesigil4,"Clesigil4","clesigil4",langue.cat107,"clesigil4-","clesigil4");
+    loadmarker(listclesigil5,"Clesigil5","clesigil5",langue.cat108,"clesigil5-","clesigil5");
+    loadmarker(listcordi,"Cordi","cordi",langue.cat04,"oce","cordie");
+    loadmarker(listcdelic,"Cdelic","cdelic",langue.cat05,"dce","cdelice");
+    loadmarker(listcprec,"Cprec","cprec",langue.cat06,"pce","cprece");
+    loadmarker(listcluxe,"Cluxe","cluxe",langue.cat07,"lce","cluxee");
+    loadmarker(listcdefi,"Cdefi","cdefi",langue.cat08,"defie","cdefie");
+    loadmarker(listcfee,"Cfee","cfee",langue.cat09,"","cfeeenko");
+    loadmarker(listferblanc,"Ferblanc","ferblanc",langue.cat25);
+    loadmarker(listamethyste,"Amethyste","amethyste",langue.cat84);
+    loadmarker(listelectroc,"Electrocris","electrocris",langue.cat12);
+    loadmarker(listnoyauc,"Noyauc","noyauc",langue.cat44);
+    loadmarker(listperle,"Perle","perle",langue.cat32);
+    loadmarker(listcorail,"Corail","corail",langue.cat97);
+    loadmarker(listffeu,"Ffeu","ffeu",langue.cat14);
+    loadmarker(listfbrume,"Fbrume","fbrume",langue.cat13);
+    loadmarker(listganoderma,"Ganoderma","ganoderma",langue.cat81);
+    loadmarker(listherbem,"Herbem","herbem",langue.cat82);
+    loadmarker(listgrenouille,"Grenouille","grenouille",langue.cat27);
+    loadmarker(listcrabe,"Crabe","crabe",langue.cat64);
 
     $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
 };
 
     function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
-        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt="", counternull=0;
+        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt="", minfo, micon, counternull=0;
         var lgrp = window[grp + 'Group'];
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
-            id = (i < 9) ? "0"+(i+1) : (i+1);
-            // console.log("mark n° "+ (i+1) + " " + JSON.stringify(marq)); // Pour Debug les marqueurs
             mtype = marq[0];
-            nfichier = filename + id;
+            minfo = marq[2];
+            nfichier = filename + minfo.mid;
+
+            if ((typeof minfo.icon !=='undefined') && (typeof minfo.under !=='undefined')) {
+                micon = window[minfo.icon +'u'];
+            } else if (typeof minfo.under !=='undefined') {
+                micon = window[markico +'u'];
+            } else {
+                micon = window[markico];
+            }
+
             if(typeof cbxname !== 'undefined')
-            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+cbxname+id+'" /> '+langue['ui-found']+'</label></h2>';
+            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /> '+langue['ui-found']+'</label></h2>';
 
             switch (mtype) {
                 case 0 : // Img (txt+cb)
-                    txt = (typeof marq[2] !=='undefined') ? "<br><h1>"+marq[2]+"</h1>" : "";
+                    txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
                     popup = '<a href="media/'+nfichier+'.jpg" data-lity><img class="thumb" src="media/'+nfichier+'.jpg"/></a>'+txt+checkbox;
                     break;
                 case 3 : // Gif (txt+cb)
-                    txt = (typeof marq[2] !=='undefined') ? "<br><h1>"+marq[2]+"</h1>" : "";
+                    txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
                     popup = '<a href="media/'+nfichier+'.gif" data-lity><img class="thumb" src="media/'+nfichier+'.gif"/></a>'+txt+checkbox;
                     break;
                 case 5 : // Video (txt+cb)
-                    txt = (typeof marq[3] !=='undefined') ? "<br><h1>"+marq[3]+"</h1>" : "";
-                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+marq[2]+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
+                    txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
+                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 7 : // Todo
-                    txt = "<br><h1><b>"+marktitle+" "+id+"</b><br>"+langue['ui-todo']+"</h1>";
+                    txt = "<br><h1><b>"+marktitle+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";
                     popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
                     break;
                 case 11 : // null (+cb)
-                    popup = '<h1>'+marq[2]+checkbox+'</h1>';
+                    popup = '<h1>'+minfo.text+checkbox+'</h1>';
                     break;
-                case 12 : // sans popup ou temporaire avant img
+                case 12 : // sans popup (sauf temporaire)
                     popup = '<h1>'+checkbox+'</h1>';
                     // Have a break, have a Kitkat
             };
 
+            titlem = (typeof minfo.title !=='undefined') ? minfo.title : marktitle+" Id:"+minfo.mid;
+
             if(typeof cbxname !== 'undefined') {
+                
                 if (mtype == 11) {
                     curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                     counternull += 1;
-                } else if (mtype == 7) {
-                    titlem = (typeof marq[2] !=='undefined') ? marktitle+" "+marq[2] : marktitle;
-                    curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                 } else {
-                    if (mtype == 5)
-                        titlem = (typeof marq[4] !=='undefined') ? marq[4] : marktitle;
-                    else if (mtype == 0 || mtype == 3)
-                        titlem = (typeof marq[3] !=='undefined') ? marq[3] : marktitle;
-                    curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
+                    curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                 }
             } else {
                 if (mtype !== 12) {
-                    curmarker = L.marker(unproject(marq[1]), {icon: markico, title: marktitle, riseOnHover: true}).bindPopup(popup, popupOptions);
+                    curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).bindPopup(popup, popupOptions);
                 } else {
-                    titlem = (typeof marq[2] !=='undefined') ? marktitle+" "+marq[2] : marktitle;
-                    curmarker = L.marker(unproject(marq[1]), {icon: markico, title: titlem, riseOnHover: true});
+                    curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true});
                 }
+
             };
 
-            if(userMarkers.indexOf(cbxname+(i+1)) >= 0)
-            curmarker.setOpacity(0.45);
+            if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
+                curmarker.setOpacity(0.35);
+                if(userMarkers.indexOf(minfo.id) < 0) {
+                    userMarkers.push(minfo.id);
+                    olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
+                }
+            }
+            
             curmarker.addTo(lgrp);
 
         };
+
         console.log(marktitle + " : " + (marklist.length - counternull) + langue["ui-load"]);
         nbtmark += (marklist.length - counternull);
         // console.log("nombre de marqueur Total chargés : " + nbtmark); // Pour debug
@@ -467,14 +492,16 @@ function initMarkers () {
     });
 
     $('.btnmerge').on('click', function() {
-        if (confirm(langue["ui-merge"])) {
+        if (confirm(langue["ui-mergeenka"])) {
             mergesave(userMarkers);
         }
     });
      
     $('.btnsave').on('click', function() {
-        this.href=URL.createObjectURL(new Blob([JSON.stringify(userMarkers)]));
-        alert(langue["ui-export"]);
+        var arr1 = ['v3enka'];
+        var save = arr1.concat(userMarkers);
+        this.href=URL.createObjectURL(new Blob([JSON.stringify(save)]));
+        alert(langue["ui-exportenka"]);
     });
 
     $('.btnload').on('click', function (e) {
@@ -488,7 +515,7 @@ function initMarkers () {
     $('#ImportBox').on('change', function(ev_) {
         var fr_;
         (fr_=new FileReader()).onload=function(ev_) {
-            loadusermarkers(JSON.parse(this.result));
+            loadusermarkers(JSON.parse(sanityze(this.result)));
         };
         fr_.readAsText(this.files[0]);
     });
@@ -516,6 +543,8 @@ $(document).ready(function() {
         if(typeof res.login !== 'undefined') {
           $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
           initMarkers();
+          localStorage.setItem('userMarkersEnka',JSON.stringify(userMarkers));
+          localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
           reselectmenu();
         }
   
@@ -528,9 +557,19 @@ $(document).ready(function() {
           $('#distant' + lgmenu).toggleClass('hidden flex');
           userLocal = false;
           userMarkers = (res.markers !== null) ? res.markers : [];
+          olduserMarkers = (res.oldmarkers !== null) ? res.oldmarkers : [];
           listatut = (res.menu !== null) ? res.menu : [];
           btnstatut = (res.btn !== null) ? res.btn : [];
+          updatemv3 = (res.updatemv3 !== null) ? res.updatemv3 : [];
           initMarkers();
+          if (updatemv3.indexOf('enka') < 0) {
+            $.post('api/e/updatemarkers', {newm : JSON.stringify(userMarkers), oldm : JSON.stringify(olduserMarkers)}, function(res) {
+                if(typeof(res.error) !== 'undefined') {
+                    alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                    window.location.reload();
+                };
+            });
+          }
           reselectmenu(listatut, btnstatut);
         }
     });
@@ -540,8 +579,9 @@ $(document).ready(function() {
           saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
         } else {
           saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
-        }  
-    });
+        }
+  
+      });
   
     $(window).resize(function() {
         var heightmenu = window.innerHeight - $("#topmenu" + lgmenu).outerHeight(true);

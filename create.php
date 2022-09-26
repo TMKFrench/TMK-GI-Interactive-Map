@@ -1,7 +1,7 @@
 <?php require 'assets/inc/_fn.php';
 
 $_map = $_GET['map'];
-if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre" || $_map == "summer22")) {
+if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre")) {
     $_map = "-{$_map}";
 } else {
     echo "Nom de map absent ou éronné";
@@ -14,6 +14,8 @@ $map = [];
 $nbtm = 0;
 $counter = 0;
 $i = 0;
+$uid = 0;
+$mid = 0;
 
 $groups = $db->get_rows('SELECT * FROM genshin_map_group');
 $markers = $db->get_rows('SELECT * FROM genshin_map_marker');
@@ -28,7 +30,8 @@ foreach($groups as $g => $group) {
 
 foreach($markers as $m => $marker) {
     $map[$marker->mgroup]['markers'][$m] = [
-        'id' => $marker->uid,
+        'uid' => $marker->uid,
+        'mid' => $marker->mid,
         'format' => $marker->format,
         'x' => $marker->x,
         'y' => $marker->y,
@@ -44,6 +47,14 @@ foreach($markers as $m => $marker) {
 
     if($marker->title) {
         $map[$marker->mgroup]['markers'][$m]['title'] = $marker->title;
+    };
+
+    if($marker->icon) {
+        $map[$marker->mgroup]['markers'][$m]['icon'] = $marker->icon;
+    };
+
+    if($marker->under) {
+        $map[$marker->mgroup]['markers'][$m]['under'] = $marker->under;
     };
 };
 
@@ -62,20 +73,38 @@ foreach($map as $group) {
 
         $xx = ($marker['x'] < 10000) ? " ".$marker['x'] : $marker['x'];
         $yy = ($marker['y'] < 10000) ? " ".$marker['y'] : $marker['y'];
-        $js .= "[{$marker['format']},[{$xx},{$yy}]";
+        $mid = ($marker['mid'] < 10) ? "0".$marker['mid'] : $marker['mid'];
+        if($marker['uid'] < 10) {
+            $uid = "0000".$marker['uid'];
+        } elseif ($marker['uid'] < 100) {
+            $uid = "000".$marker['uid'];
+        } elseif ($marker['uid'] < 1000) {
+            $uid = "00".$marker['uid'];
+        } elseif ($marker['uid'] < 10000) {
+            $uid = "0".$marker['uid'];
+        } elseif ($marker['uid'] > 9999) {
+            $uid = $marker['uid'];
+        };
+        $js .= "[{$marker['format']},[{$xx},{$yy}],{id:'{$uid}',mid:'{$mid}'";
         if(isset($marker['video'])) {
-            $js .= ",\"{$marker['video']}\"";
+            $js .= ",video:'{$marker['video']}'";
         };
         if(isset($marker['text'])) {
-            $js .= ",{$marker['text']}";
+            $js .= ",text:{$marker['text']}";
         };
         if(isset($marker['title'])) {
-            $js .= ",{$marker['title']}";
+            $js .= ",title:{$marker['title']}";
+        };
+        if(isset($marker['icon'])) {
+            $js .= ",icon:{$marker['icon']}";
+        };
+        if(isset($marker['under'])) {
+            $js .= ",under:{$marker['under']}";
         };
         if($i != $nbtm) {
-            $js .= "],";
+            $js .= "}],";
         } else {
-            $js .= "]";
+            $js .= "}]";
         };
         if($counter == 10 && $i != $nbtm) {
             $js .= "\n\t";
