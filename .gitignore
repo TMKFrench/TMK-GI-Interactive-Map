@@ -350,3 +350,6 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 TMK-GI-Interactive-Map.code-workspace
+/.buildpath
+/.project
+/.settings
