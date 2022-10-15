@@ -168,6 +168,9 @@ var langFR = {
     'cat144': 'Padisachidée',
     'cat145': 'Sanctuaire de Sumeru',
     'cat146': 'Access Grotte',
+    'cat147': 'Quand la musique sonne',
+    'cat148': 'Quand la fête enivre',
+    'cat149': 'Quand le contrecoup arrive',
 
     // Succès
 
@@ -361,6 +364,8 @@ var langFR = {
     'queteh011': '<b>Les Neufs Piliers</b><br><br>Explorez les ruines de la Pente Cuijue et obtenez les richesses qu\'elles renferment<br><br><span>Récompenses : 1x<img class="ico" src="media/icones/cprecm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 200K <img class="ico" src="media/icones/mora.png"/></span>',
     'quetet012': 'Estampe à Luhua',
     'queteh012': '<b>Estampe à Luhua</b><br><br>Aidez Vermeer à retrouver son materiel de peinture<br><br><span>Récompenses : 2x<img class="ico" src="media/icones/cdelicm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetet013': 'Du courage dans l\'aventure',
+    'queteh013': '<b>Du courage dans l\'aventure</b><br><br>Permet de débloquer les missions quotidiennes de Sumeru<br><br><span>Récompenses : 10K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/conseil.png"/></span>',
 
         // Enkanomiya
 
@@ -474,10 +479,10 @@ var langFR = {
     'pano56': 'Cité de toutes les connaissances',
     'pano57': 'Ville au-dessus de la forêt',
     'pano58': '',
-    'pano59': '',
+    'pano59': 'Jardin de la pensée profonde',
     'pano60': '',
     'pano61': '',
-    'pano62': '',
+    'pano62': 'Frontière sous le haut mur',
     'pano63': '',
     'pano64': '',
 
@@ -572,7 +577,7 @@ var langFR = {
     'gyro22': '<b>Gyrocristal Radiant n°52</b>',
     'gyro23': '<b>Gyrocristal Radiant n°49</b>',
     'gyro24': '<b>Gyrocristal Radiant n°48</b>',
-    'gyro25': '<b>Gyrocristal Radiant n°</b>',
+    'gyro25': '<b>Gyrocristal Radiant n°73</b>',
     'gyro26': '<b>Gyrocristal Radiant n°</b>',
     'gyro27': '<b>Gyrocristal Radiant n°78</b>',
     'gyro28': '<b>Gyrocristal Radiant n°80</b>',
@@ -612,6 +617,17 @@ var langFR = {
     'cecho6': 'Registre secret de mission VII',
     'cecho7': 'Registre secret de mission VI',
     'cecho8': 'Registre secret de mission VIII',
+
+    // Event Bénédiction féconde
+
+    'tonneau1': 'Tonneau n°1',
+    'tonneau2': 'Tonneau n°2',
+    'tonneau3': 'Tonneau n°3',
+    'tonneau4': 'Tonneau n°4',
+    'tonneau5': 'Tonneau n°5',
+    'tonneau6': 'Tonneau n°6',
+    'tonneau7': 'Tonneau n°7',
+    'tonneau8': 'Tonneau n°8',
     
     // Coms
 
@@ -1029,7 +1045,10 @@ var langFR = {
     'com409': 'Dans l\'Académie',
     'com410': 'Détruisez la Siccité pour faire apparaître le coffre',
     'com411': 'Activer les totems avec une attaque de type <a style="color:#A5C83B;">DENDRO</a> pour faire apparaître le coffre',
-    'com412': 'Ramassez les plantes pour faire apparaître les ennemis qu\'il faut éliminer pour déverrouiller le Dendroculus'
+    'com412': 'Ramassez les plantes pour faire apparaître les ennemis qu\'il faut éliminer pour déverrouiller le Dendroculus',
+    'com413': 'Tuez les ennemis puis prenez les dendrogranums pour détruire la pierre dendro avec une attaque chargée. Activez le totem avec une attaque <a style="color:#A5C83B;">DENDRO</a>',
+    'com414': 'Prenez les dendrogranums pour détruire la pierre dendro avec une attaque chargée',
+    'com415': 'Détruisez la partie supérieure de la Siccité et le totem pour faire baisser le niveau de l\'eau afin de récupérer le Dendroculus'
 };
 
 var langEN = {
@@ -1202,6 +1221,9 @@ var langEN = {
     'cat144': 'Padisarah',
     'cat145': 'Sumeru Shrine',
     'cat146': 'Cave Access',
+    'cat147': 'When the Music Sounds',
+    'cat148': 'The Feast in Full Swing',
+    'cat149': 'The Afterparty',
 
     // Succès
 
@@ -1395,6 +1417,8 @@ var langEN = {
     'queteh011': '<b>The Nine Pillars</b><br><br>Explore the ruins of Pente Cuijue and obtain the riches they contain<br><br><span>Rewards : 1x<img class="ico" src="media/icones/cprecm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 200K <img class="ico" src="media/icones/mora.png"/></span>',
     'quetet012': 'Luhua Landscape',
     'queteh012': '<b>Luhua Landscape</b><br><br>Help Vermeer find his painting supplies<br><br><span>Rewards : 2x<img class="ico" src="media/icones/cdelicm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetet013': 'Adventure Takes Courage !',
+    'queteh013': '<b>Adventure Takes Courage !</b><br><br>Unlock Sumeru\'s daily commissions<br><br><span>Rewards : 10K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/conseil.png"/></span>',
     
         // Enkanomiya
 
@@ -1511,7 +1535,7 @@ var langEN = {
     'pano59': '',
     'pano60': '',
     'pano61': '',
-    'pano62': '',
+    'pano62': 'The Frontier Beneath the High Wall',
     'pano63': '',
     'pano64': '',
 
@@ -1607,7 +1631,7 @@ var langEN = {
     'gyro22': '<b>Radiant Spincrystal n°52</b>',
     'gyro23': '<b>Radiant Spincrystal n°49</b>',
     'gyro24': '<b>Radiant Spincrystal n°48</b>',
-    'gyro25': '<b>Radiant Spincrystal n°</b>',
+    'gyro25': '<b>Radiant Spincrystal n°73</b>',
     'gyro26': '<b>Radiant Spincrystal n°</b>',
     'gyro27': '<b>Radiant Spincrystal n°78</b>',
     'gyro28': '<b>Radiant Spincrystal n°80</b>',
@@ -1648,6 +1672,17 @@ var langEN = {
     'cecho7': 'Registre secret de mission VI',
     'cecho8': 'Registre secret de mission VIII',
 
+    // Event Bénédiction féconde
+
+    'tonneau1': 'Fecund Hamper n°1',
+    'tonneau2': 'Fecund Hamper n°2',
+    'tonneau3': 'Fecund Hamper n°3',
+    'tonneau4': 'Fecund Hamper n°4',
+    'tonneau5': 'Fecund Hamper n°5',
+    'tonneau6': 'Fecund Hamper n°6',
+    'tonneau7': 'Fecund Hamper n°7',
+    'tonneau8': 'Fecund Hamper n°8',
+    
     // Coms
 
     'br': '<br>',
@@ -2062,7 +2097,10 @@ var langEN = {
     'com407': 'Take the dendrogranums, then shoot the dendro dreamcatcher(s) to make the chest appear',
     'com408': 'Into the Grand Bazaar',
     'com409': 'Into the Academy',
-    'com410': 'Destroy the Siccité to make the chest appear',
+    'com410': 'Destroy the Withering to make the chest appear',
     'com411': 'Activate all the totems with a <a style="color:#A5C83B;">DENDRO</a> type attack to make the chest appear',
-    'com412': 'Collect the plants to reveal the enemies that must be eliminated to unlock the Dendroculus'
+    'com412': 'Collect the plants to reveal the enemies that must be eliminated to unlock the Dendroculus',
+    'com413': 'Kill all enemies then take dendrogranums to break the dendro stone with a charged attack. Activate the totem with a <a style="color:#A5C83B;">DENDRO</a> attack',
+    'com414': 'Use dendrogranums to break the dendro stone with a charged attack',
+    'com415': 'Destroy upper part of the withering and activate the DENDRO totem to lower the water level and reach the Dendroculus'
 };

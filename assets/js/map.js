@@ -15,8 +15,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.0.0")) {
-            localStorage.Mapvers = "7.0.0";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.0.2")) {
+            localStorage.Mapvers = "7.0.2";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -232,6 +232,7 @@ var userMarkers = getUserMarkers();
 var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
 var teyvatarray = [
+    'musiquesonne','feteenivre','contrecoup',
     'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes',
     'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
     'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
@@ -256,7 +257,7 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-L.tileLayer('media/tilesteyvat301/{z}/{x}/{y}.png', {
+L.tileLayer('media/tilesteyvat31/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
@@ -266,7 +267,7 @@ L.tileLayer('media/tilesteyvat301/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 
 mymap.zoomControl.setPosition('topright')
-mymap.setMaxBounds(new L.latLngBounds(unproject([3584,5632]), unproject([28672,28672])));
+mymap.setMaxBounds(new L.latLngBounds(unproject([2048,4096]), unproject([28672,28672])));
 
 teyvatarray.forEach(function(e){
     window[e+'Group'] = L.layerGroup();
@@ -303,6 +304,9 @@ BoutonMenu.addTo(mymap);
     // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
 
 function initMarkers () {
+    loadmarker(listmusiquesonne,"Panierabondance","musiquesonne",langue.cat147,"musiquesonne");
+    loadmarker(listfeteenivre,"Panierabondance","feteenivre",langue.cat148,"feteenivre");
+    loadmarker(listcontrecoup,"Panierabondance","contrecoup",langue.cat149,"contrecoup");
     loadmarker(liststatue,"Statue","statue",langue.cat01,"statue");
     loadmarker(listteleport,"Teleport","teleport",langue.cat02,"tp");
     loadmarker(listtpbarge,"Tpbarge","tpbarge",langue.cat79,"tpb");

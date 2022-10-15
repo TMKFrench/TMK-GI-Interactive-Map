@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Sumeru</title>
+    <link rel="stylesheet" type="text/css" href="assets/inc/tailwind.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/inc/leaflet.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/inc/easy-button.css">
+    <link rel="stylesheet" type="text/css" href="assets/inc/lity.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/dev.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- <script type="text/javascript" src="assets/inc/easy-button.js"></script>
+    <script type="text/javascript" src="assets/inc/lity.js"></script> -->
+	<script type="text/javascript" src="assets/js/text.js"></script>
+
+</head>
+<body>
+    <div id="mainpage" class="flex flex-wrap h-full">
+        <div id="menu" class="overflow-y">
+           <div id="title" class="text-white font-bold">
+            Dev Map Sumeru
+           </div>
+           <div id="selector">
+            <form>
+                <input type="radio" id="item1" name="markselect" data-type="ferblanc" checked><label for="item1"><span><img src="media/icones/ferblanc.png" /> Fer Blanc</span></label><br>
+                <input type="radio" id="item2" name="markselect" data-type="cristal"><label for="item2"><span><img src="media/icones/cristal.png" /> Cristal</span></label><br>
+                <input type="radio" id="item3" name="markselect" data-type="noyauc"><label for="item3"><span><img src="media/icones/noyauc.png" /> Noyauc</span></label><br>
+                <input type="radio" id="item4" name="markselect" data-type="electroc"><label for="item4"><span><img src="media/icones/electrocris.png" /> Electrocris</span></label><br>
+                <input type="radio" id="item5" name="markselect" data-type="artefact"><label for="item5"><span><img src="media/icones/artefact.png" /> Artéfact</span></label><br>
+                <input type="radio" id="item6" name="markselect" data-type="ffeu"><label for="item6"><span><img src="media/icones/ffeu.png" /> Ffeu</span></label><br>
+                <input type="radio" id="item7" name="markselect" data-type="fbrume"><label for="item7"><span><img src="media/icones/fbrume.png" /> Fbrume</span></label><br>
+                <input type="radio" id="item8" name="markselect" data-type="pomme"><label for="item8"><span><img src="media/icones/pomme.png" /> Pomme</span></label><br>
+                <input type="radio" id="item9" name="markselect" data-type="grenouille"><label for="item9"><span><img src="media/icones/grenouille.png" /> Grenouille</span></label><br>
+                <input type="radio" id="item10" name="markselect" data-type="lezard"><label for="item10"><span><img src="media/icones/lezard.png" /> Lezard</span></label><br>
+                <input type="radio" id="item11" name="markselect" data-type="crabe"><label for="item11"><span><img src="media/icones/crabe.png" /> Crabe</span></label><br>
+                <input type="radio" id="item12" name="markselect" data-type="champsacra"><label for="item12"><span><img src="media/icones/champsacra.png" /> C. Sacra</span></label><br>
+                <input type="radio" id="item13" name="markselect" data-type="champitoile"><label for="item13"><span><img src="media/icones/champitoile.png" /> Champitoile</span></label><br>
+                <input type="radio" id="item14" name="markselect" data-type="fruitharra"><label for="item14"><span><img src="media/icones/fruitharra.png" /> F. Harra</span></label><br>
+                <input type="radio" id="item15" name="markselect" data-type="kalpalotus"><label for="item15"><span><img src="media/icones/kalpalotus.png" /> Kalpalotus</span></label><br>
+                <input type="radio" id="item16" name="markselect" data-type="nilotpalotus"><label for="item16"><span><img src="media/icones/nilotpalotus.png" /> Nilotpalotus</span></label><br>
+                <input type="radio" id="item17" name="markselect" data-type="padisachidee"><label for="item17"><span><img src="media/icones/padisachidee.png" /> Padisachidée</span></label><br>
+                <input type="radio" id="item18" name="markselect" data-type="pechezaytun"><label for="item18"><span><img src="media/icones/pechezaytun.png" /> P. Zaytun</span></label><br>
+                <input type="radio" id="item19" name="markselect" data-type="rosesum"><label for="item19"><span><img src="media/icones/rosesum.png" /> Rose sum.</span></label><br>
+                <input type="radio" id="item20" name="markselect" data-type="viparyas"><label for="item20"><span><img src="media/icones/viparyas.png" /> Viparyas</span></label>
+            </form>
+           </div>
+        </div>
+        <div id="map-wrap">
+            <div id="devmap"></div>
+        </div>        
+    </div>
+
+    <script type="text/javascript">
+        var langue = langFR;
+        </script>
+    <script type="text/javascript" src="assets/js/icondev.js"></script>
+	<script type="text/javascript" src="assets/js/markers-teyvat.js"></script>
+	<script type="text/javascript" src="assets/js/devsum.js"></script>
+
+</body>
+</html>
