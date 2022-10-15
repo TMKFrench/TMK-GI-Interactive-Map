@@ -43,4 +43,9 @@ class api {
             break;
         }
     }
+
+    public function responseError($erreur) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(["error" => $erreur]);
+    }
 }
