@@ -1,4 +1,8 @@
-<?php require 'assets/inc/_fn.php';
+<?php
+require_once "assets/inc/sqlite3database.class.php";
+require_once "assets/inc/mypdo.class.php";
+//require_once "assets/inc/api.class.php";
+//require 'assets/inc/_fn.php';
 
 $_map = $_GET['map'];
 if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre")) {

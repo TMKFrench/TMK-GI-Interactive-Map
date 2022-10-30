@@ -9,7 +9,7 @@ RewriteEngine On
   Deny from all
 </Files>
 
-<Files "tmkmapusers.db">
+<Files "*.db">
   Order Allow,Deny
   Deny from all
 </Files>
