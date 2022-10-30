@@ -15,8 +15,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.0.2")) {
-            localStorage.Mapvers = "7.0.2";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.0.3")) {
+            localStorage.Mapvers = "7.0.3";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -135,9 +135,10 @@
         if($(content).find('input#mapbox').length > 0) {
           if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('id') ) >= 0) {
             $('input#mapbox[data-id="'+$(content).find('input#mapbox').first().data('id')+'"]').prop('checked', 'checked');
+            $('#cbxtxt'+$(content).find('input#mapbox').first().data('id')).html(langue['ui-found']);
           }
         }
-      }
+    }
     
     function resetmarkers() {
         if(userLocal) {
@@ -233,7 +234,7 @@ var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localSto
 var userLocal = true;
 var teyvatarray = [
     'musiquesonne','feteenivre','contrecoup',
-    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes',
+    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre',
     'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
     'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
     'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
@@ -304,9 +305,9 @@ BoutonMenu.addTo(mymap);
     // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
 
 function initMarkers () {
-    loadmarker(listmusiquesonne,"Panierabondance","musiquesonne",langue.cat147,"musiquesonne");
-    loadmarker(listfeteenivre,"Panierabondance","feteenivre",langue.cat148,"feteenivre");
-    loadmarker(listcontrecoup,"Panierabondance","contrecoup",langue.cat149,"contrecoup");
+    // loadmarker(listmusiquesonne,"Panierabondance","musiquesonne",langue.cat147,"musiquesonne");
+    // loadmarker(listfeteenivre,"Panierabondance","feteenivre",langue.cat148,"feteenivre");
+    // loadmarker(listcontrecoup,"Panierabondance","contrecoup",langue.cat149,"contrecoup");
     loadmarker(liststatue,"Statue","statue",langue.cat01,"statue");
     loadmarker(listteleport,"Teleport","teleport",langue.cat02,"tp");
     loadmarker(listtpbarge,"Tpbarge","tpbarge",langue.cat79,"tpb");
@@ -322,13 +323,14 @@ function initMarkers () {
     loadmarker(listanemo,"Anemo","anemo",langue.cat10,"anemo","anemo");
     loadmarker(listgeocul,"Geocul","geocul",langue.cat29,"geoc","geocul");
     loadmarker(listeleccul,"Eleccul","eleccul",langue.cat80,"eleccul","eleccul");
-    loadmarker(listdendrocul,"Dendrocul","dendrocul",langue.cat136,"dendrocul","dendrocul");
+    loadmarker(listdendrocul,"Dendrocul","dendrocul",langue.cat136,"dendroculus","dendrocul");
     loadmarker(listagate,"Agate","agate",langue.cat47,"agate","agate");
     loadmarker(listgyroc,"Gyroc","gyroc",langue.cat122,"gyroc","gyroc");
     loadmarker(listsceaugeo,"Sceaugeo","sceaugeo",langue.cat30,"sg","sceaugeo");
     loadmarker(listtasdepierre,"Tasdepierre","tasdepierre",langue.cat123,"tas2pierre","tasdepierre");
     loadmarker(listpseculaire,"Pseculaire","pseculaire",langue.cat124,"pseculaire","pseculaire");
     loadmarker(listoffrandes,"Offrandes","offrandes",langue.cat128,"offrandes","offrandes");
+    loadmarker(listsceausacre,"Sceausacre","sceausacre",langue.cat150,"sacredseal","sceausacre");
     loadmarker(listcordi,"Cordi","cordimond",langue.cat04+" Mondstadt","oc","cordi");
     loadmarker(listcordil,"Cordi","cordiliyu",langue.cat04+" Liyue","ocl","cordil");
     loadmarker(listcordii,"Cordi","cordiinaz",langue.cat04+" Inazuma","oci","cordii");
@@ -431,6 +433,7 @@ function initMarkers () {
     loadmarker(listcorail,"Corail","corail",langue.cat97);
     loadmarker(listscarabuto,"Scarabuto","scarabuto",langue.cat87);
     loadmarker(listchampsacra,"Champsacra","champsacra",langue.cat143);
+    loadmarker(listchampitoile,"Champitoile","champitoile",langue.cat119);
     loadmarker(listfruitharra,"Fruitharra","fruitharra",langue.cat137);
     loadmarker(listkalpalotus,"Kalpalotus","kalpalotus",langue.cat142);
     loadmarker(listnilotpalotus,"Nilotpalotus","nilotpalotus",langue.cat141);
@@ -465,7 +468,7 @@ function initMarkers () {
             }
 
             if(typeof cbxname !== 'undefined')
-            checkbox = '<br><h2><label><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /> '+langue['ui-found']+'</label></h2>';
+            checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
             switch (mtype) {
                 case 0 : // Img (txt+cb)
@@ -762,6 +765,15 @@ $(document).ready(function() {
     });
 
     $(document).on('change', 'input[type="checkbox"]', function() {
+
+        var cbxid = $(this).data('id');
+
+        if ($(this).is(':checked')) {
+            $('#cbxtxt'+cbxid).html(langue['ui-found']);
+        } else {
+            $('#cbxtxt'+cbxid).html(langue['ui-tofind']);
+        }
+    
         if(userLocal) {
           saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
         } else {

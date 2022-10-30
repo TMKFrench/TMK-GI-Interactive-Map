@@ -1,6 +1,7 @@
 var langFR = {
     // UI
     'ui-found': 'Trouvé',
+    'ui-tofind': 'À trouver',
     'ui-load': ' marqueurs chargés',
     'ui-succes': 'Succès : ',
     'ui-click': 'Vous avez cliqué sur la map à ',
@@ -171,6 +172,7 @@ var langFR = {
     'cat147': 'Quand la musique sonne',
     'cat148': 'Quand la fête enivre',
     'cat149': 'Quand le contrecoup arrive',
+    'cat150': 'Sceau sacré',
 
     // Succès
 
@@ -481,10 +483,22 @@ var langFR = {
     'pano58': '',
     'pano59': 'Jardin de la pensée profonde',
     'pano60': '',
-    'pano61': '',
+    'pano61': 'Port entre les deux arbres',
     'pano62': 'Frontière sous le haut mur',
     'pano63': '',
     'pano64': '',
+    'pano65': '',
+    'pano66': '',
+    'pano67': '',
+    'pano68': 'Abris de réfugiés',
+    'pano69': '',
+    'pano70': 'Oasis de Thamud',
+    'pano71': 'Tours de trahison',
+    'pano72': '',
+    'pano73': '',
+    'pano74': '',
+    'pano75': '',
+    'pano76': '',
 
         // Mines souterraines
 
@@ -581,7 +595,7 @@ var langFR = {
     'gyro26': '<b>Gyrocristal Radiant n°</b>',
     'gyro27': '<b>Gyrocristal Radiant n°78</b>',
     'gyro28': '<b>Gyrocristal Radiant n°80</b>',
-    'gyro29': '<b>Gyrocristal Radiant n°</b>',
+    'gyro29': '<b>Gyrocristal Radiant n°76</b>',
     'gyro30': '<b>Gyrocristal Radiant n°</b>',
     'gyro31': '<b>Gyrocristal Radiant n°79</b>',
     'gyro32': '<b>Gyrocristal Radiant n°</b>',
@@ -1048,12 +1062,27 @@ var langFR = {
     'com412': 'Ramassez les plantes pour faire apparaître les ennemis qu\'il faut éliminer pour déverrouiller le Dendroculus',
     'com413': 'Tuez les ennemis puis prenez les dendrogranums pour détruire la pierre dendro avec une attaque chargée. Activez le totem avec une attaque <a style="color:#A5C83B;">DENDRO</a>',
     'com414': 'Prenez les dendrogranums pour détruire la pierre dendro avec une attaque chargée',
-    'com415': 'Détruisez la partie supérieure de la Siccité et le totem pour faire baisser le niveau de l\'eau afin de récupérer le Dendroculus'
+    'com415': 'Détruisez la partie supérieure de la Siccité et le totem pour faire baisser le niveau de l\'eau afin de récupérer le Dendroculus',
+    'com416': 'Accessible pendant la quête « Pépinière dans un rêve - Le monde des aranaras »',
+    'com417': 'Détruisez le bloc Dendro à l\'aide des dendrogranums, suivez la sentinelle, puis combatez-la pour faire apparaître le coffre',
+    'com418': 'Prenez les dendrogranums, puis tirez sur les attrape-rêves Dendro pour libérer le Dendroculus',
+    'com419': 'Chargez le champignon rebondissant avec une attaque <a style="color:#CC80FF;">ELECTRO</a> et utilisez-le pour atteindre le dendroculus',
+    'com420': 'Activer les totems avec une attaque de type <a style="color:#A5C83B;">DENDRO</a> pour déverrouiller le coffre',
+    'com421': 'Tuez les ennemis puis activez les totems avec une attaque <a style="color:#A5C83B;">DENDRO</a> pour faire apparaître le coffre',
+    'com422': 'Activer les totems dans l\'ordre donné avec une attaque de type <a style="color:#A5C83B;">DENDRO</a> pour faire apparaître le coffre',
+    'com423': 'Accessible après avoir éliminé la siccité',
+    'com424': 'Prenez les dendrogranums, puis tirez sur les attrape-rêves Dendro et tuez tous les ennemis pour faire apparaître le coffre',
+    'com425': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur le champignon <a style="color:#A5C83B;">DENDRO</a> pour faire apparaître l\'interrupteur. Activez-le et tuez tous les ennemis pour faire apparaître le coffre',
+    'com426': 'Prenez les dendrogranums, puis tirez sur les Rochers Dendro pour déverrouiller le coffre',
+    'com427': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur la graine des trois yànas pour faire apparaître la torche. Activez les 4 torches avec une attaque <a style="color:red;">PYRO</a> pour déverrouiller le coffre',
+    'com428': 'Activez la porte Fantasmatique en jouant la mélodie à l\'aide de la Lyre ancienne. Collectez les graines fantasmatiques dans le temps imparti et rapportez-les à la porte pour faire apparaître le coffre',
+    'com429': 'Accessible en volant depuis la montagne à l\'Ouest'
 };
 
 var langEN = {
     // UI
     'ui-found': 'Found',
+    'ui-tofind': 'To find',
     'ui-load': ' markers loaded',
     'ui-succes': 'Achievement : ',
     'ui-click': 'You\'ve clicked on map at ',
@@ -1069,7 +1098,7 @@ var langEN = {
     'ui-info': 'Information',
     'ui-mergeteyvat': 'You\'re about to merge Teyvat map local markers to your Discord save !!!\nProceed ?',
     'ui-mergeenka': 'You\'re about to merge Enkanomiya map local markers to your Discord save !!!\nProceed ?',
-    'ui-merge': 'You\'re about to merge Chasm underground mines map local markers to your Discord save !!!\nProceed ?',
+    'ui-mergegouffre': 'You\'re about to merge Chasm underground mines map local markers to your Discord save !!!\nProceed ?',
     'ui-mergedone': 'Merge done. Refreshing...',
     'ui-deco': 'Log out from ',
     'ui-todo': 'Screen or video is coming soon !!!',
@@ -1224,6 +1253,7 @@ var langEN = {
     'cat147': 'When the Music Sounds',
     'cat148': 'The Feast in Full Swing',
     'cat149': 'The Afterparty',
+    'cat150': 'Sacred Seal',
 
     // Succès
 
@@ -1529,15 +1559,27 @@ var langEN = {
     'pano53': '',
     'pano54': '',
     'pano55': '',
-    'pano56': 'Cité de toutes les connaissances',
-    'pano57': 'Ville au-dessus de la forêt',
+    'pano56': 'The City Where All Wisdom Resides',
+    'pano57': 'The City Above the Forest',
     'pano58': '',
-    'pano59': '',
+    'pano59': 'The Garden of Deep Thought',
     'pano60': '',
-    'pano61': '',
+    'pano61': 'The Harbor Betwixt the Two Trees',
     'pano62': 'The Frontier Beneath the High Wall',
     'pano63': '',
     'pano64': '',
+    'pano65': '',
+    'pano66': '',
+    'pano67': '',
+    'pano68': 'Refugee Shelters',
+    'pano69': '',
+    'pano70': 'Thamud Oasis',
+    'pano71': 'Towers of Betrayal',
+    'pano72': '',
+    'pano73': '',
+    'pano74': '',
+    'pano75': '',
+    'pano76': '',
 
         // Mines souterraines
 
@@ -1635,7 +1677,7 @@ var langEN = {
     'gyro26': '<b>Radiant Spincrystal n°</b>',
     'gyro27': '<b>Radiant Spincrystal n°78</b>',
     'gyro28': '<b>Radiant Spincrystal n°80</b>',
-    'gyro29': '<b>Radiant Spincrystal n°</b>',
+    'gyro29': '<b>Radiant Spincrystal n°76</b>',
     'gyro30': '<b>Radiant Spincrystal n°</b>',
     'gyro31': '<b>Radiant Spincrystal n°79</b>',
     'gyro32': '<b>Radiant Spincrystal n°</b>',
@@ -2102,5 +2144,19 @@ var langEN = {
     'com412': 'Collect the plants to reveal the enemies that must be eliminated to unlock the Dendroculus',
     'com413': 'Kill all enemies then take dendrogranums to break the dendro stone with a charged attack. Activate the totem with a <a style="color:#A5C83B;">DENDRO</a> attack',
     'com414': 'Use dendrogranums to break the dendro stone with a charged attack',
-    'com415': 'Destroy upper part of the withering and activate the DENDRO totem to lower the water level and reach the Dendroculus'
+    'com415': 'Destroy upper part of the withering and activate the DENDRO totem to lower the water level and reach the Dendroculus',
+    'com416': 'Accessible during the quest « Dream Nursery - The World of Aranara »',
+    'com417': 'Destroy the Dendro Rock with Dendrogranum, follow the Ruin Sentinel, then fight it to make the chest appear',
+    'com418': 'Take the dendrogranums, then shoot the dendro dreamcatchers to release the Dendroculus',
+    'com419': 'Charge the Bouncy mushroom with an <a style="color:#CC80FF;">ELECTRO</a> attack and use it to reach the dendroculus',
+    'com420': 'Activate all the totems with a <a style="color:#A5C83B;">DENDRO</a> type attack to unlock the chest',
+    'com421': 'Kill all enemies then activate the totems with a <a style="color:#A5C83B;">DENDRO</a> attack to make the chest appear',
+    'com422': 'Activate all the totems in the given order with a <a style="color:#A5C83B;">DENDRO</a> type attack to make the chest appear',
+    'com423': 'Accessible after eliminate the Withering',
+    'com424': 'Take the dendrogranums, then shoot the dendro dreamcatchers then kill all enemies to make the chest appear',
+    'com425': 'Make an <a style="color:#CC80FF;">ELECTRO</a> attack on the <a style="color:#A5C83B;">DENDRO</a> Mushroom to reveal the switch. Use it then kill all enemies to make the chest appear',
+    'com426': 'Take the dendrogranums, then shoot the Dendro Rocks to unlock the chest',
+    'com427': 'Make an <a style="color:#CC80FF;">ELECTRO</a> attack on the Tri-Yanas seed to reveal the torch. Activate them with a <a style="color:red;">PYRO</a> attack to unlock the chest',
+    'com428': 'Activate the Fantasmal Gate playing the melody with the Ancient Lyre. Collect all the Fantasmal seeds in time then bring them back to the gate to make the chest appear',
+    'com429': 'Accessible by flying from the West mountain'
 };

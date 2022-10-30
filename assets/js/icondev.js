@@ -18,3 +18,6 @@ var padisachideeIcon = L.icon({iconUrl:'media/icones/padisachidee.png', iconSize
 var pechezaytunIcon = L.icon({iconUrl:'media/icones/pechezaytun.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var rosesumIcon = L.icon({iconUrl:'media/icones/rosesum.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var viparyasIcon = L.icon({iconUrl:'media/icones/viparyas.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var noixajilenakhIcon = L.icon({iconUrl:'media/icones/noixajilenakh.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var scarabeeIcon = L.icon({iconUrl:'media/icones/scarabee.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var quandongIcon = L.icon({iconUrl:'media/icones/quandong.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});

@@ -9,7 +9,7 @@ RewriteRule ^(.*)$ https://genshin.tmkfrench.fr/$1 [R=301,L]
   Deny from all
 </Files>
 
-<Files "tmkmapusers.db">
+<Files "*.db">
   Order Allow,Deny
   Deny from all
 </Files>

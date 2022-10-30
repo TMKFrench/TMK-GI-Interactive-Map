@@ -17,12 +17,13 @@ if($method == 'POST' && $action == 'add') {
     $mdata = json_decode($_POST['data']);
     $db->insert('dev_markers', [
         'uid' => $mdata[0],
-        'mgroup' => $mdata[1],
-        'x' => $mdata[2],
-        'y' => $mdata[3]
+        'mid' => $mdata[1],
+        'mgroup' => $mdata[2],
+        'x' => $mdata[3],
+        'y' => $mdata[4]
     ]);
     // echo var_dump($mdata);    
-    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' ajouté";
+    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' '{$mdata[4]}' ajouté";
     die();
 
 } elseif($method == 'POST' && $action == 'delete') {
@@ -60,6 +61,7 @@ if($method == 'POST' && $action == 'add') {
     foreach($markers as $m =>$marker) {
         $map[$m] = [
             'uid' => $marker->uid,
+            'mid' => $marker->mid,
             'mgroup' => $marker->mgroup,
             'x' => $marker->x,
             'y' => $marker->y,

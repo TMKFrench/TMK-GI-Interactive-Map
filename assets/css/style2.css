@@ -316,6 +316,65 @@ a:-any-link {
   text-shadow: 2px 2px 3px #978980;
 }
 
+.switch {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: 20px;
+  overflow: hidden;
+}
+
+.switch input {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 0;
+  height: 0;
+}
+
+.switch input + span.cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 40px;
+  background: red;
+  border-radius: 20px;
+}
+
+.switch input + span.cursor::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all .3s;
+}
+
+.switch input:checked + span.cursor {
+  background: green;
+}
+
+.switch input:checked + span.cursor::before {
+  left: 22px;
+}
+
+.switch input:checked + span.cursor + span.texte {
+  color: green;
+}
+
+.switch span.texte {
+  font-size: 18px;
+  color: red;
+  padding-left: 44px;
+}
+
 body #menu {
   display: none;
   width: 320px;
