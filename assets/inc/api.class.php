@@ -20,32 +20,32 @@ class api {
 
     // Liste des markers par map
     private $liste_markers_map = [
-        self::MAP_TEYVAT => "teyvat",
-        self::MAP_ENKANOMIYA => "enka",
-        self::MAP_GOUFFRE => "gouffre",
-        self::MAP_SE => "se"
+        self::MAP_TEYVAT 		=> "teyvat", // Nom des marqueurs Teyvat
+        self::MAP_ENKANOMIYA 	=> "enka", // Nom des marqueurs enkanomiya
+        self::MAP_GOUFFRE 		=> "gouffre", // Nom des marqueurs gouffre
+        self::MAP_SE 			=> "se" // Nom des marqueurs spécial édition
     ];
 
     // Table chargement pour chaque map
     private $liste_chargement = [
-    	self::MAP_TEYVAT 		=> ["menu" => "menut", "btn" => "btnt",	"region" => "region",	"chest" => "chest",	"markers" => "markersteyvat"],
-    	self::MAP_ENKANOMIYA 	=> ["menu" => "menue", "btn" => "btne", "region" => "",			"chest" => "",		"markers" => "markersenka"],
-    	self::MAP_GOUFFRE 		=> ["menu" => "menugo","btn" => "btngo","region" => "",			"chest" => "",		"markers" => "markersgouffre"],
-    	self::MAP_SE 			=> ["menu" => "menuse","btn" => "btnse","region" => "",			"chest" => "",		"markers" => "markersse"],
+      self::MAP_TEYVAT 		=> ["menu" => "menut", "btn" => "btnt",	"region" => "region",	"chest" => "chest",	"markers" => "markersteyvat"],
+      self::MAP_ENKANOMIYA 	=> ["menu" => "menue", "btn" => "btne", "region" => "",			"chest" => "",		"markers" => "markersenka"],
+      self::MAP_GOUFFRE 	=> ["menu" => "menugo","btn" => "btngo","region" => "",			"chest" => "",		"markers" => "markersgouffre"],
+      self::MAP_SE 			=> ["menu" => "menuse","btn" => "btnse","region" => "",			"chest" => "",		"markers" => "markersse"],
     ];
 
     use _fn;
-    private $method;
-    private $config;
-    private $db;
-    private $dbuser;
-    private $path_info;
-    private $request;
-    private $root;
-    private $map;
-    private $action;
-    private $id;
-    private $code;
+    private $method; // Méthode employée (GET ou POST)
+    private $config; // Contenu du fichier fichier Config Discord
+    private $db; // Accès à la BDD
+    private $dbuser; // Info utilisateur récupéré
+    private $path_info; // Info requête API dans URL
+    private $request; // Info de requête exploité
+    private $root; // Root du site (host https)
+    private $map; // Map détectée
+    private $action; // Action à faire
+    private $id; // Identifiant de l'objet à traiter
+    private $code; // Code retour Discord
 
     /**
      *
@@ -83,11 +83,11 @@ class api {
             if (count($this->request) >= 2) {
                 $this->map = self::nettoyage(array_shift($this->request));
                 if (empty($this->map) || !in_array($this->map,$this->liste_map)) {
-                	return " (no map)";
+                  return " (no map)";
                 }
                 $this->action = self::nettoyage(array_shift($this->request));
                 if (empty($this->action)) {
-                	return " (no action)";
+                  return " (no action)";
                 }
                 $this->id = self::sanitize(self::nettoyage(array_shift($this->request)));
                 return true;
@@ -202,12 +202,12 @@ class api {
                                 'last_login' => date('Y-m-d H:i:s')
                             ]);
                         } else {
-                            $this->db->update('users', [ 'last_login' => date('Y-m-d H:i:s') ], [ 'uid' => $user['uid'] ]);
+                            $this->setToDbUser(["last_login" => date('Y-m-d H:i:s')], $user["uid"]);
                         }
                         foreach ($this->liste_chargement[$this->map] as $champ => $contenu) {
-                        	if (!empty($contenu)) {
-                        		$user[$champ] = $this->getFromDbUser($contenu);
-                        	}
+                          if (!empty($contenu)) {
+                            $user[$champ] = $this->getFromDbUser($contenu);
+                          }
                         }
 
                         $user['users'] = $dbCountUsers->total;
@@ -258,7 +258,7 @@ class api {
                             $menu = $this->getFromDbUser($db_menu);
                             if (!in_array($this->id, $menu)) {
                                 $menu[] = $this->id;
-                                $this->db->update('users', [$db_menu => json_encode($menu)], ['uid' => $user['uid']]);
+                                $this->setToDbUser([$db_menu => $menu], $user["uid"]);
                             }
                             return $this->response($menu);
                         } else {
@@ -285,7 +285,7 @@ class api {
                             $menu = $this->getFromDbUser($db_menu);
                             if (in_array($this->id, $menu)) {
                                 unset($menu[array_search($this->id,$menu)]);
-                                $this->db->update('users', [$db_menu => json_encode($menu)], ['uid' => $user['uid']]);
+                                $this->setToDbUser([$db_menu => $menu], $user["uid"]);
                             }
                             return $this->response($menu);
                         } else {
@@ -312,7 +312,7 @@ class api {
                             $btn = $this->getFromDbUser($db_btn);
                             if (!in_array($this->id, $btn)) {
                                 $btn[] = $this->id;
-                                $this->db->update('users', [$db_btn => json_encode($btn)], ['uid' => $user['uid']]);
+                                $this->setToDbUser([$db_btn => $btn], $user["uid"]);
                             }
                             return $this->response($btn);
                         } else {
@@ -339,7 +339,7 @@ class api {
                             $btn = $this->getFromDbUser($db_btn);
                             if (in_array($this->id, $btn)) {
                                 unset($btn[array_search($this->id,$btn)]);
-                                $this->db->update('users', [$db_btn => json_encode($btn)], ['uid' => $user['uid']]);
+                                $this->setToDbUser([$db_btn => $btn], $user["uid"]);
                             }
                             return $this->response($btn);
                         } else {
@@ -364,7 +364,7 @@ class api {
                         $user["region"] = $this->getFromDbUser("region");
                         if (!in_array($this->id, $user["region"])) {
                             $user["region"][] = $this->id;
-                            $this->db->update('users', ["region" => json_encode($user["region"])], ['uid' => $user['uid']]);
+                            $this->setToDbUser(["region" => $user["region"]], $user["uid"]);
                         }
                         return $this->response(["region" => $user["region"]]);
                     } else {
@@ -386,7 +386,7 @@ class api {
                         $user["region"] = $this->getFromDbUser("region");
                         if (in_array($this->id, $user["region"])) {
                             unset($user["region"][array_search($this->id,$user["region"])]);
-                            $this->db->update('users', ["region" => json_encode($user["region"])], ['uid' => $user['uid']]);
+                            $this->setToDbUser(["region" => $user["region"]], $user["uid"]);
                         }
                         return $this->response(["region" => $user["region"]]);
                     } else {
@@ -408,7 +408,7 @@ class api {
                         $user["chest"] = $this->getFromDbUser("chest");
                         if (!in_array($this->id, $user["chest"])) {
                             $user["chest"][] = $this->id;
-                            $this->db->update('users', ["chest" => json_encode($user["chest"])], ['uid' => $user['uid']]);
+                            $this->setToDbUser(["chest" => $user["chest"]], $user["uid"]);
                         }
                         return $this->response(["chest" => $user["chest"]]);
                     } else {
@@ -430,7 +430,7 @@ class api {
                         $user["chest"] = $this->getFromDbUser("chest");
                         if (in_array($this->id, $user["chest"])) {
                             unset($user["chest"][array_search($this->id,$user["chest"])]);
-                            $this->db->update('users', ["chest" => json_encode($user["chest"])], ['uid' => $user['uid']]);
+                            $this->setToDbUser(["chest" => $user["chest"]], $user["uid"]);
                         }
                         return $this->response(["chest" => $user["chest"]]);
                     } else {
@@ -451,11 +451,28 @@ class api {
                     if (is_object($this->dbuser)) {
                         $user["updatemv3"] = $this->getFromDbUser("updatemv3");
                         if (!in_array($this->liste_markers_map[$this->map],$user["updatemv3"])) {
-                            $user["updatemv3"][] = $this->liste_markers_map[$this->map];
-                            $this->db->update("users",["markers".$this->liste_markers_map[$this->map] => $_POST["newm"]],['uid' => $user['uid']]);
+                          	if (!empty($_POST["newm"]) && !empty($_POST["oldm"])) {
+                          		$newm = json_decode($_POST["newm"],true);
+                          		$n1 = (json_last_error() == JSON_ERROR_NONE);
+                          		$oldm = json_decode($_POST["oldm"],true);
+                          		$n2 = (json_last_error() == JSON_ERROR_NONE);
+                          		if ($n1 && $n2) {
+                          			$user["updatemv3"][] = $this->liste_markers_map[$this->map];
+                          			$this->setToDbUser([
+                          					"markers".$this->liste_markers_map[$this->map] => $newm,
+                          					"markers" => $oldm,
+                          					"updatemv3" => $user["updatemv3"]
+                          			], $user["uid"]);
+                          			return $this->response([]);
+                          		} else {
+                          			$this->responseError("Data seem's to be not good !");
+                          		}
+                          	} else {
+                          		$this->responseError("Data seem's to be not good !");
+                          	}
+                        } else {
+                        	return $this->response([]); // Déjà fait ...
                         }
-                        $this->db->update("users", ["markers" => $_POST["oldm"], 'updatemv3' => json_encode($user["updatemv3"])], ['uid' => $user['uid']]);
-                        return $this->response([]);
                     } else {
                         $this->responseError("User not found in db");
                     }
@@ -476,7 +493,7 @@ class api {
                         $user[$markers] = $this->getFromDbUser($markers);
                         if (!in_array($this->id, $user[$markers])) {
                             $user[$markers][] = $this->id;
-                            $this->db->update('users', [$markers => json_encode($user[$markers])], ['uid' => $user['uid']]);
+                            $this->setToDbUser([$markers => $user[$markers]], $user["uid"]);
                         }
                         return $this->response([$markers => $user[$markers]]);
                     } else {
@@ -491,71 +508,71 @@ class api {
              * Suppression d'un marqueur
              */
             case "removemarker":
-            	if (isset($_SESSION["user"])){
-            		$user = $_SESSION["user"];
-            		$this->getUserFromDb($user['uid']);
-            		if (is_object($this->dbuser)) {
-            			$markers = "markers".$this->liste_markers_map[$this->map];
-            			$user[$markers] = $this->getFromDbUser($markers);
-            			if (in_array($this->id, $user[$markers])) {
-            				unset($user[$markers][array_search($this->id,$user[$markers])]);
-            				$this->db->update('users', [$markers => json_encode($user[$markers])], ['uid' => $user['uid']]);
-            			}
-            			return $this->response([$markers => $user[$markers]]);
-            		} else {
-            			$this->responseError("User not found in db");
-            		}
-            	} else {
-            		$this->responseError("Not logged-in or not identified");
-            	}
+              if (isset($_SESSION["user"])){
+                $user = $_SESSION["user"];
+                $this->getUserFromDb($user['uid']);
+                if (is_object($this->dbuser)) {
+                  $markers = "markers".$this->liste_markers_map[$this->map];
+                  $user[$markers] = $this->getFromDbUser($markers);
+                  if (in_array($this->id, $user[$markers])) {
+                    unset($user[$markers][array_search($this->id,$user[$markers])]);
+                    $this->setToDbUser([$markers => $user[$markers]], $user["uid"]);
+                  }
+                  return $this->response([$markers => $user[$markers]]);
+                } else {
+                  $this->responseError("User not found in db");
+                }
+              } else {
+                $this->responseError("Not logged-in or not identified");
+              }
             break;
 
             /**
              * Reset des marqueurs des Maps + spécial edition
              */
             case "resetsemap":
-            	$map = self::MAP_SE;
+              $map = self::MAP_SE;
             case "resetmarkers":
-            	$map = !isset($map)?self::MAP_SE:$this->map;
-            	if (isset($_SESSION["user"])){
-            		$user = $_SESSION["user"];
-            		$this->getUserFromDb($user['uid']);
-            		if (is_object($this->dbuser)) {
-            			$markers = "markers".$this->liste_markers_map[$map];
-            			$user[$markers] = [];
-           				$this->db->update('users', [$markers => json_encode([])], ['uid' => $user['uid']]);
-            			return $this->response([$markers => $user[$markers]]);
-            		} else {
-            			$this->responseError("User not found in db");
-            		}
-            	} else {
-            		$this->responseError("Not logged-in or not identified");
-            	}
+            	$map = (!isset($map))?$this->map:self::MAP_SE;
+              if (isset($_SESSION["user"])){
+                $user = $_SESSION["user"];
+                $this->getUserFromDb($user['uid']);
+                if (is_object($this->dbuser)) {
+                  $markers = "markers".$this->liste_markers_map[$map];
+                  $user[$markers] = [];
+                  $this->setToDbUser([$markers => []], $user["uid"]);
+                  return $this->response([$markers => $user[$markers]]);
+                } else {
+                  $this->responseError("User not found in db");
+                }
+              } else {
+                $this->responseError("Not logged-in or not identified");
+              }
             break;
 
             /**
              * Merge des marqueurs
              */
             case "mergemarkers":
-            	if (isset($_SESSION["user"])){
-            		$user = $_SESSION["user"];
-            		$this->getUserFromDb($user['uid']);
-            		if (is_object($this->dbuser) && isset($_POST["data"])) {
-            			$new_markers = json_decode($_POST["data"]);
-            			if (json_last_error() == JSON_ERROR_NONE) {
-            				$markers = "markers".$this->liste_markers_map[$this->map];
-            				$user[$markers] = $this->getFromDbUser($markers);
-            				$this->db->update('users', [$markers => json_encode($new_markers)], ['uid' => $user['uid']]);
-            				return $this->response([]);
-            			} else {
-            				$this->responseError("Data seem's to be not good !");
-            			}
-            		} else {
-            			$this->responseError("User not found in db");
-            		}
-            	} else {
-            		$this->responseError("Not logged-in or not identified");
-            	}
+              if (isset($_SESSION["user"])){
+                $user = $_SESSION["user"];
+                $this->getUserFromDb($user['uid']);
+                if (is_object($this->dbuser) && isset($_POST["data"])) {
+                  $new_markers = json_decode($_POST["data"]);
+                  if (json_last_error() == JSON_ERROR_NONE) {
+                    $markers = "markers".$this->liste_markers_map[$this->map];
+                    $user[$markers] = $this->getFromDbUser($markers);
+                    $this->setToDbUser([$markers => $new_markers], $user["uid"]);
+                    return $this->response([]);
+                  } else {
+                    $this->responseError("Data seem's to be not good !");
+                  }
+                } else {
+                  $this->responseError("User not found in db");
+                }
+              } else {
+                $this->responseError("Not logged-in or not identified");
+              }
             break;
         }
     }
@@ -570,12 +587,27 @@ class api {
     }
 
     /**
-     * Récupération d'une valeur de l'objet user récupéré en base
+     * Récupération d'une valeur du tableau user récupéré en base
      * @param string $valeur
      * @return array|mixed
      */
     private function getFromDbUser(string $valeur,$default=[]) {
         return ($this->dbuser) ? (is_null($this->dbuser->{$valeur})?$default:(empty($this->dbuser->{$valeur})?$default:json_decode($this->dbuser->{$valeur},true))):$default;
+    }
+
+    /**
+     * Enregistre en base le tableau pour un utilisateur
+     * @param string $colonne
+     * @param array $valeur
+     * @param string $uid
+     * @return bool|NULL
+     */
+    private function setToDbUser(array $donnees,string $uid):?bool {
+    	foreach ($donnees as $colonne => $valeur) {
+      		$maj = $this->db->update('users', [$colonne => json_encode($valeur)], ['uid' => $uid]);
+      		if (!$maj) return false;
+    	}
+    	return true;
     }
 
     /**
