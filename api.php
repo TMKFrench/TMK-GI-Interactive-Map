@@ -7,7 +7,7 @@ $db = new SQLite3Database('tmkmap.db');
 @session_start();
 
 $method = $_SERVER['REQUEST_METHOD'];
-$path_info = isset($_SERVER['ORIG_PATH_INFO'])?$_SERVER['ORIG_PATH_INFO']:'';
+$path_info = isset($_SERVER['ORIG_PATH_INFO'])?$_SERVER['ORIG_PATH_INFO']:$_SERVER['PATH_INFO'];
 $request = explode('/', trim($path_info,'/'));
 $root = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('api.php', '', $_SERVER['SCRIPT_NAME']);
 $map = preg_replace('/[^a-z0-9_]+/i','',array_shift($request));
@@ -126,13 +126,13 @@ if($method == 'GET' && $action == 'login') {
 
         if($map == 't') {
             $user['updatemv3'][] = 'teyvat';
-            $db->update('users', ['markersteyvat' => $_POST['newm']], ['uid' => $user['uid']]);            
+            $db->update('users', ['markersteyvat' => $_POST['newm']], ['uid' => $user['uid']]);
         } elseif ($map == 'e') {
             $user['updatemv3'][] = 'enka';
-            $db->update('users', ['markersenka' => $_POST['newm']], ['uid' => $user['uid']]);            
+            $db->update('users', ['markersenka' => $_POST['newm']], ['uid' => $user['uid']]);
         } elseif ($map == 'go') {
             $user['updatemv3'][] = 'gouffre';
-            $db->update('users', ['markersgouffre' => $_POST['newm']], ['uid' => $user['uid']]);            
+            $db->update('users', ['markersgouffre' => $_POST['newm']], ['uid' => $user['uid']]);
         }
         $db->update('users', ['markers' => $_POST['oldm'], 'updatemv3' => json_encode($user['updatemv3'])], ['uid' => $user['uid']]);
         echo 'Mise à jour marqueurs V3 effectuée';
@@ -141,7 +141,7 @@ if($method == 'GET' && $action == 'login') {
 
     echo json_encode(['error' => 'Utilisateur introuvable...']);
     die();
-    
+
 } elseif($method == 'POST' && $action == 'addmarker') {
     header('Content-Type: application/json');
 
@@ -331,14 +331,14 @@ if($method == 'GET' && $action == 'login') {
                     $k = array_search($id, $menu);
                     array_splice($menu, $k, 1);
                     $db->update('users', ['menue' => json_encode($menu)], ['uid' => $user['uid']]);
-                }                
+                }
             } elseif ($map == 'go') {
                 $menu = json_decode($dbUser->menugo);
                 if(in_array($id, $menu)) {
                     $k = array_search($id, $menu);
                     array_splice($menu, $k, 1);
                     $db->update('users', ['menugo' => json_encode($menu)], ['uid' => $user['uid']]);
-                }                
+                }
             } elseif ($map == 'se') {
                 $menu = json_decode($dbUser->menuse);
                 if(in_array($id, $menu)) {
@@ -401,14 +401,14 @@ if($method == 'GET' && $action == 'login') {
                     $k = array_search($id, $menu);
                     array_splice($menu, $k, 1);
                     $db->update('users', ['btne' => json_encode($menu)], ['uid' => $user['uid']]);
-                }                
+                }
             } elseif ($map == 'go') {
                 $menu = json_decode($dbUser->btngo);
                 if(in_array($id, $menu)) {
                     $k = array_search($id, $menu);
                     array_splice($menu, $k, 1);
                     $db->update('users', ['btngo' => json_encode($menu)], ['uid' => $user['uid']]);
-                }                
+                }
             } elseif ($map == 'se') {
                 $menu = json_decode($dbUser->btnse);
                 if(in_array($id, $menu)) {

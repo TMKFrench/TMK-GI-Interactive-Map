@@ -279,13 +279,13 @@ a:-any-link {
 }
 
 .accordion:after, .accordion2:after {
-  content: '\2B9F';
+  content: "\2B9F";
   float: right;
   margin-right: 7px;
 }
 
 .ouvert:after, .ouvert2:after {
-  content: "\2B9D";
+  content: '\2B9D';
 }
 
 .panel {
@@ -344,7 +344,7 @@ a:-any-link {
 }
 
 .switch input + span.cursor::before {
-  content: "";
+  content:"";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -370,9 +370,13 @@ a:-any-link {
 }
 
 .switch span.texte {
-  font-size: 18px;
+  font-size: 14px;
   color: red;
   padding-left: 44px;
+  line-height: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 20px;
 }
 
 body #menu {
