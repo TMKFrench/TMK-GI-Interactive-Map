@@ -4,25 +4,20 @@ trait _fn {
         return preg_replace('/[^a-z0-9_]+/i','',$valeur);
     }
 
-    static public function dd($d) {
-        echo "<pre>";
-        print_r($d);
-        echo "</pre>";
-        die();
+    static public function dd($d,$die=true) {
+        echo "<pre>".print_r($d,true)."</pre>";
+        if ($die) die();
     }
 
     static public function sanitize($d) {
-        $d = trim($d);
-        $d = stripslashes($d);
-        $d = htmlspecialchars($d);
-        return $d;
+        return trim(stripslashes(htmlspecialchars($d)));
     }
 
     static public function session($key, $default=NULL) {
         return array_key_exists($key, $_SESSION) ? $_SESSION[$key] : $default;
     }
 
-    static public function apiRequest($url, $post=false, $headers=array()) {
+    static public function discordApiRequest($url, $post=false, $headers=array()) {
         $verbose = fopen('php://temp', 'rw+');
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
