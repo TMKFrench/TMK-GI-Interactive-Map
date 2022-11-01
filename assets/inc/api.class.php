@@ -6,7 +6,6 @@ class api {
 	use _fn; // Utilisation des outils communs
 
 	const TMKMAP 			= "tmkmap.db"; // Base de données des utilisateurs
-	const CONFIGDISCORD 	= "config.ini"; // Configuration Discord SSO
 	const HITSFILE 			= "hits.txt"; // Statistiques d'accès
 	const MAP_TEYVAT 		= "t"; // Nom court de la map Teyvat
 	const MAP_ENKANOMIYA 	= "e"; // Nom court de la map Enkanomiya
@@ -34,7 +33,6 @@ class api {
 	];
 
 	private $method; // Méthode employée (GET ou POST)
-	private $config; // Contenu du fichier fichier Config Discord
 	private $db; // Accès à la BDD
 	private $dbuser; // Info utilisateur récupéré
 	private $path_info; // Info requête API dans URL
@@ -43,7 +41,8 @@ class api {
 	private $map; // Map détectée
 	private $action; // Action à faire
 	private $id; // Identifiant de l'objet à traiter
-	private $code;
+
+	private $discord; // Classe discord
 
 	/**
 	 * Constructeur de l'API
@@ -54,19 +53,22 @@ class api {
 		$this->method = $_SERVER ['REQUEST_METHOD'];
 		$this->path_info = isset ( $_SERVER ['ORIG_PATH_INFO'] ) ? $_SERVER ['ORIG_PATH_INFO'] : $_SERVER ['PATH_INFO'];
 		$this->root = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['HTTP_HOST'] . str_replace ( 'api.php', '', $_SERVER ['SCRIPT_NAME'] );
-		if (file_exists ( "config.ini" )) {
-			$this->config = parse_ini_file ( "config.ini", true );
-			$this->code = isset ( $_GET ["code"] ) ? $_GET ["code"] : null;
-			$this->db = new SQLite3Database ( self::TMKMAP );
-			if (! $this->db) {
-				throw new Exception ( "Impossible d'initialiser la base de donnees" );
-				die ();
-			}
-			if (in_array ( $this->method, [ "get","post" ] )) {
-				throw new Exception ( "Method not allowed" );
+		$this->db = new SQLite3Database ( self::TMKMAP );
+		if (! $this->db) {
+			throw new Exception ( "Impossible d'initialiser la base de donnees" );
+			die ();
+		}
+		if (in_array ( $this->method, [ "get","post" ] )) {
+			throw new Exception ( "Method not allowed" );
+		}
+		$init = $this->init();
+		if ($init === true) {
+			$this->discord = new discord_api($this->root,$this->map);
+			if (!is_object($this->discord)) {
+				throw new Exception ( "Discord API not ready" );
 			}
 		} else {
-			throw new Exception ( "Config Discord not found" );
+			throw new Exception("Initialisation error : ".$init);
 		}
 	}
 
@@ -76,7 +78,7 @@ class api {
 	 * @throws Exception
 	 * @return boolean
 	 */
-	public function init() {
+	private function init() {
 		if ($this->method) {
 			$this->request = explode ( '/', trim ( $this->path_info, '/' ) );
 			if (count ( $this->request ) >= 2) {
@@ -132,11 +134,7 @@ class api {
 			 */
 			case "login" :
 				if (! empty ( $this->map )) {
-					$params = array ('client_id' => $this->config ['discord'] ['client_id'],'redirect_uri' => $this->root . 'api/' . $this->map . '/code','response_type' => 'code','scope' => 'identify' );
-
-					// Redirect the user to Discord's authorization page
-					header ( 'Location: ' . $this->config ['discord'] ['url_authorize'] . '?' . http_build_query ( $params ) );
-					die ();
+					$this->discord->login();
 				} else {
 					$this->responseError ( "Map non valide" );
 				}
@@ -146,38 +144,14 @@ class api {
 			 * Récupération du token et de l'image Discord après Oauth2 Discord
 			 */
 			case "code" :
-				if (! is_null ( $this->code )) {
-					$token = self::discordApiRequest (
-						$this->config ['discord'] ['url_token'],
-						[
-							'grant_type' => 'authorization_code',
-							'client_id' => $this->config ['discord'] ['client_id'],
-							'client_secret' => $this->config ['discord'] ['client_secret'],
-							'redirect_uri' => $this->root . 'api/' . $this->map . '/code','code' => $this->code,'scope' => 'indentify'
-						]
-					);
-					if ($token && is_object($token) && property_exists ( $token, "access_token" )) {
-						$_SESSION ['access_token'] = $token->access_token;
+				$data = $this->discord->code();
+				if (is_array($data)) {
 
-						$user = self::discordApiRequest ( $this->config ['discord'] ['url_user'] );
-						if ($user && is_object($user) && property_exists($user,"id")) {
-							$data = [
-								'uid' => $user->id,'username' => $user->username . '#' . $user->discriminator,'avatar' => 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png',
-								'avatar_default' => 'https://cdn.discordapp.com/embed/avatars/' . ($user->discriminator % 5) . '.png',
-								'logout' => $this->root . 'api/' . $this->map . '/logout'
-							];
-
-							$_SESSION ['user'] = $data;
-							header ( 'Location: ' . $this->root );
-							die ();
-						} else {
-							$this->responseError ( "Disord user info not valid : " . $token->error );
-						}
-					} else {
-						$this->responseError ( "Token Disord no valid : " . $token->error );
-					}
+					$_SESSION ['user'] = $data;
+					header ( 'Location: ' . $this->root );
+					die();
 				} else {
-					$this->responseError ( "Discord code not valid" );
+					$this->responseError ( $data );
 				}
 			break;
 
@@ -223,6 +197,7 @@ class api {
 			 * Déconnexion de Discord et logout session
 			 */
 			case "logout" :
+				if (self::session("user")) $this->discord->revokeToken();
 				session_destroy ();
 				header ( 'Location: ' . $this->root );
 				die ();
