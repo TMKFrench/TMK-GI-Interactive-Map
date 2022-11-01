@@ -4,9 +4,7 @@ class discord_api {
 
 	use _fn;
 
-	const CONFIGDISCORD = "config.ini"; // Configuration Discord SSO
-
-	private $config; // Contenu du fichier fichier Config Discord
+	private $config; // Configuration SSO
 	private $code; // Code de retour OAuth
 	private $map; // Map en cours
 	private $root; // URL du site
@@ -14,17 +12,14 @@ class discord_api {
 	public function __construct(string $root,string $map) {
 		$this->root = $root;
 		$this->map = $map;
-		if (file_exists ( "config.ini" )) {
-			$this->config = parse_ini_file ( self::CONFIGDISCORD, true );
-			$this->code = isset ( $_GET ["code"] ) ? $_GET ["code"] : null;
-		} else {
-			throw new Exception ( "Config Discord not found" );
-		}
+		$this->config = self::loadConfig(); // Chargement du fichier de configuration SSO
+		$this->code = isset ( $_GET ["code"] ) ? $_GET ["code"] : null;
 	}
 
 	public function login() {
 		$params = [
-			'client_id' => $this->config ['discord'] ['client_id'],'redirect_uri' => $this->root . 'api/' . $this->map . '/code',
+			'client_id' => $this->config ['discord'] ['client_id'],
+			'redirect_uri' => $this->root . 'api/' . $this->map . '/code',
 			'response_type' => 'code',
 			'scope' => 'identify'
 		];
@@ -49,8 +44,6 @@ class discord_api {
 			);
 			if ($token && is_object($token) && property_exists ( $token, "access_token" )) {
 				$_SESSION ['discord_token'] = $token->access_token;
-				$_SESSION ['discord_refresh_token'] = $token->refresh_token;
-				$_SESSION ['discord_token_type'] = $token->token_type;
 
 				$user = $this->discordApiRequest ( $this->config ['discord'] ['url_user'] );
 				if ($user && is_object($user) && property_exists($user,"id")) {
@@ -58,7 +51,8 @@ class discord_api {
 						'uid' => $user->id,'username' => $user->username . '#' . $user->discriminator,
 						'avatar' => 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png',
 						'avatar_default' => 'https://cdn.discordapp.com/embed/avatars/' . ($user->discriminator % 5) . '.png',
-						'logout' => $this->root . 'api/' . $this->map . '/logout'
+						'logout' => $this->root . 'api/' . $this->map . '/logout',
+						'sso' => "discord"
 					];
 					return $data;
 				} else {
@@ -68,7 +62,7 @@ class discord_api {
 				return "Token Discord no valid : " . $token->error;
 			}
 		} else {
-			return "Discord code not valid";
+			return false;
 		}
 	}
 

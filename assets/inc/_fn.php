@@ -16,4 +16,12 @@ trait _fn {
     static public function session($key, $default=NULL) {
         return array_key_exists($key, $_SESSION) ? $_SESSION[$key] : $default;
     }
+
+    static public function loadConfig() {
+    	if (file_exists ( api::CONFIG )) {
+    		return parse_ini_file ( api::CONFIG, true );
+    	} else {
+    		throw new Exception("SSO config file not found");
+    	}
+    }
 }

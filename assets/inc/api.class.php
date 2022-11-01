@@ -5,6 +5,8 @@ class api {
 
 	use _fn; // Utilisation des outils communs
 
+	const CONFIG = "config.ini"; // Configuration Discord et Google SSO
+
 	const TMKMAP 			= "tmkmap.db"; // Base de données des utilisateurs
 	const HITSFILE 			= "hits.txt"; // Statistiques d'accès
 	const MAP_TEYVAT 		= "t"; // Nom court de la map Teyvat
@@ -43,6 +45,7 @@ class api {
 	private $id; // Identifiant de l'objet à traiter
 
 	private $discord; // Classe discord
+	private $google; // Classe google
 
 	/**
 	 * Constructeur de l'API
@@ -66,6 +69,10 @@ class api {
 			$this->discord = new discord_api($this->root,$this->map);
 			if (!is_object($this->discord)) {
 				throw new Exception ( "Discord API not ready" );
+			}
+			$this->google = new google_api($this->root,$this->map);
+			if (!is_object($this->google)) {
+				throw new Exception ( "Google API not ready" );
 			}
 		} else {
 			throw new Exception("Initialisation error : ".$init);
@@ -141,6 +148,17 @@ class api {
 			break;
 
 			/**
+			 * Login Oauth2 par Google
+			 */
+			case "loging" :
+				if (! empty ( $this->map )) {
+					$this->google->login();
+				} else {
+					$this->responseError ( "Map non valide" );
+				}
+			break;
+
+			/**
 			 * Récupération du token et de l'image Discord après Oauth2 Discord
 			 */
 			case "code" :
@@ -150,8 +168,29 @@ class api {
 					$_SESSION ['user'] = $data;
 					header ( 'Location: ' . $this->root );
 					die();
-				} else {
+				} elseif (!empty($data)) {
 					$this->responseError ( $data );
+				} else {
+					header ( 'Location: ' . $this->root );
+					die();
+				}
+			break;
+
+			/**
+			 * Récupération du token et de l'image Discord après Oauth2 Discord
+			 */
+			case "codeg" :
+				$data = $this->google->code();
+				if (is_array($data)) {
+
+					$_SESSION ['user'] = $data;
+					header ( 'Location: ' . $this->root );
+					die();
+				} elseif (!empty($data)) {
+					$this->responseError ( $data );
+				} else {
+					header ( 'Location: ' . $this->root );
+					die();
 				}
 			break;
 
@@ -168,12 +207,12 @@ class api {
 				}
 
 				$_SESSION ['visited'] = true;
-
-				if ($user = self::session ( 'user' )) {
+				$user = self::session ( 'user' );
+				if ($user) {
 					if (isset ( $user ['uid'] )) {
-						$this->getUserFromDb ( $user ['uid'] );
+						$this->getUserFromDb ( $user ['uid'], $user['sso'] );
 						if (! is_object ( $this->dbuser )) {
-							$this->db->insert ( 'users', [ 'uid' => $user ['uid'],'created_at' => date ( 'Y-m-d H:i:s' ),'last_login' => date ( 'Y-m-d H:i:s' ) ] );
+							$this->db->insert ( 'users', [ 'uid' => $user ['uid'],'created_at' => date ( 'Y-m-d H:i:s' ),'last_login' => date ( 'Y-m-d H:i:s' ), 'sso' => $user["sso"] ] );
 						} else {
 							$this->setToDbUser ( [ "last_login" => date ( 'Y-m-d H:i:s' ) ], $user ["uid"] );
 						}
@@ -197,7 +236,13 @@ class api {
 			 * Déconnexion de Discord et logout session
 			 */
 			case "logout" :
-				if (self::session("user")) $this->discord->revokeToken();
+				$user = self::session("user");
+				if ($user) {
+					switch ($user["sso"]) {
+						case "discord": $this->discord->revokeToken();break;
+						case "google": $this->google->revokeToken();break;
+					}
+				}
 				session_destroy ();
 				header ( 'Location: ' . $this->root );
 				die ();
@@ -319,7 +364,7 @@ class api {
 			case "updatemarkers" :
 				if (isset ( $_SESSION ["user"] )) {
 					$user = $_SESSION ["user"];
-					$this->getUserFromDb ( $user ['uid'] );
+					$this->getUserFromDb ( $user ['uid'] , $user["sso"]);
 					if (is_object ( $this->dbuser )) {
 						$user ["updatemv3"] = $this->getFromDbUser ( "updatemv3" );
 						if (! in_array ( $this->liste_markers_map [$this->map], $user ["updatemv3"] )) {
@@ -382,7 +427,7 @@ class api {
 				$map = (! isset ( $map )) ? $this->map : self::MAP_SE;
 				if (isset ( $_SESSION ["user"] )) {
 					$user = $_SESSION ["user"];
-					$this->getUserFromDb ( $user ['uid'] );
+					$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
 					if (is_object ( $this->dbuser )) {
 						$markers = "markers" . $this->liste_markers_map [$map];
 						$user [$markers] = [ ];
@@ -402,7 +447,7 @@ class api {
 			case "mergemarkers" :
 				if (isset ( $_SESSION ["user"] )) {
 					$user = $_SESSION ["user"];
-					$this->getUserFromDb ( $user ['uid'] );
+					$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
 					if (is_object ( $this->dbuser ) && isset ( $_POST ["data"] )) {
 						$new_markers = json_decode ( $_POST ["data"] );
 						if (json_last_error () == JSON_ERROR_NONE) {
@@ -432,7 +477,7 @@ class api {
 	private function addToData( string $colonne, string $value ) {
 		if (isset ( $_SESSION ["user"] )) {
 			$user = $_SESSION ["user"];
-			$this->getUserFromDb ( $user ['uid'] );
+			$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
 			if (is_object ( $this->dbuser )) {
 				$user [$colonne] = $this->getFromDbUser ( $colonne );
 				if (! in_array ( $value, $user [$colonne] )) {
@@ -456,7 +501,7 @@ class api {
 	private function removeFromData( string $colonne, string $value ) {
 		if (isset ( $_SESSION ["user"] )) {
 			$user = $_SESSION ["user"];
-			$this->getUserFromDb ( $user ['uid'] );
+			$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
 			if (is_object ( $this->dbuser )) {
 				$user [$colonne] = $this->getFromDbUser ( $colonne );
 				if (in_array ( $value, $user [$colonne] )) {
@@ -478,8 +523,8 @@ class api {
 	 * @param string $uid
 	 * @return string
 	 */
-	private function getUserFromDb( string $uid ) {
-		$this->dbuser = $this->db->get_row ( "SELECT * FROM users WHERE uid = {$uid}" );
+	private function getUserFromDb( string $uid, string $sso) {
+		$this->dbuser = $this->db->get_row ( "SELECT * FROM users WHERE uid = '".$uid."' AND sso = '".$sso."'" );
 	}
 
 	/**
