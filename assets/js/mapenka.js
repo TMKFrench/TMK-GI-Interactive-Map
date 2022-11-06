@@ -3,7 +3,7 @@
 // Fonctions Interaction sur la Map
 
     function onMapClick(e) {
-        var txt = mymap.project([e.latlng.lat, e.latlng.lng], map.getMaxZoom());
+        var txt = mymap.project([e.latlng.lat, e.latlng.lng], mymap.getMaxZoom());
         var x = Math.floor(txt.x);
         var y = Math.floor(txt.y);
         console.log(langue["ui-click"] + "[" + x + "," + y + "]");
@@ -328,13 +328,14 @@ function initMarkers () {
 };
 
     function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
-        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt="", minfo, micon, counternull=0;
+        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt, minfo, micon, counternull=0;
         var lgrp = window[grp + 'Group'];
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
             mtype = marq[0];
             minfo = marq[2];
             nfichier = filename + minfo.mid;
+            txt = "";
 
             if ((typeof minfo.icon !=='undefined') && (typeof minfo.under !=='undefined')) {
                 micon = window[minfo.icon +'u'];
@@ -348,7 +349,7 @@ function initMarkers () {
             checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
             if(typeof minfo.title !== 'undefined')
-            txt += '<br><h2>'+minfo.title+'</h2><br>';
+            txt += '<h2>'+minfo.title+'</h2>';
 
             switch (mtype) {
                 case 0 : // Img (txt+cb)
