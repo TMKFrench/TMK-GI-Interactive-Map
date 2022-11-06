@@ -173,6 +173,9 @@ var langFR = {
     'cat148': 'Quand la fête enivre',
     'cat149': 'Quand le contrecoup arrive',
     'cat150': 'Sceau sacré',
+    'cat151': 'Noix d\'ajilenakh',
+    'cat152': 'Scarabée',
+    'cat153': 'Quandong',
 
     // Succès
 
@@ -368,6 +371,10 @@ var langFR = {
     'queteh012': '<b>Estampe à Luhua</b><br><br>Aidez Vermeer à retrouver son materiel de peinture<br><br><span>Récompenses : 2x<img class="ico" src="media/icones/cdelicm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
     'quetet013': 'Du courage dans l\'aventure',
     'queteh013': '<b>Du courage dans l\'aventure</b><br><br>Permet de débloquer les missions quotidiennes de Sumeru<br><br><span>Récompenses : 10K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/conseil.png"/></span>',
+    'quetet014': 'Même les bêtes trébuchent',
+    'queteh014': '<b>Même les bêtes trébuchent</b><br><br>Aidez Elber à récupérer ses bêtes de somme<br><br><span>Récompenses : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetet015': 'Le prix',
+    'queteh015': '<b>Le prix</b><br><br>Aidez Alexandra et Przheva à fuir les Fatuis<br><br><span>Récompenses : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
 
         // Enkanomiya
 
@@ -489,7 +496,7 @@ var langFR = {
     'pano64': '',
     'pano65': '',
     'pano66': '',
-    'pano67': '',
+    'pano67': 'La terre aride où danse le sable',
     'pano68': 'Abris de réfugiés',
     'pano69': '',
     'pano70': 'Oasis de Thamud',
@@ -600,6 +607,12 @@ var langFR = {
     'gyro31': '<b>Gyrocristal Radiant n°79</b>',
     'gyro32': '<b>Gyrocristal Radiant n°</b>',
     'gyro33': '<b>Gyrocristal Radiant n°</b>',
+    'gyro34': '<b>Gyrocristal Radiant n°</b>',
+    'gyro35': '<b>Gyrocristal Radiant n°</b>',
+    'gyro36': '<b>Gyrocristal Radiant n°84</b>',
+    'gyro37': '<b>Gyrocristal Radiant n°</b>',
+    'gyro38': '<b>Gyrocristal Radiant n°</b>',
+    'gyro39': '<b>Gyrocristal Radiant n°</b>',
 
     // Offrandes perdues des Millelithes
 
@@ -642,6 +655,14 @@ var langFR = {
     'tonneau6': 'Tonneau n°6',
     'tonneau7': 'Tonneau n°7',
     'tonneau8': 'Tonneau n°8',
+
+    // Titres marqueurs spéciaux
+
+    'title001': 'Coffre du presse papiers mystérieux',
+    'title002': 'Porte phantasmatique',
+    'title003': 'Machine Saghira',
+    'title004': 'Sceau de pilier en pierre',
+    'title005': 'Siccité',
     
     // Coms
 
@@ -802,7 +823,7 @@ var langFR = {
     'com152': 'Casser les cristaux et ramenez une étoile<br>à chaque lanterne pour déverrouiller le coffre',
     'com153': 'Casser le cristal et ramenez l\'étoile<br>à la lanterne pour déverrouiller le coffre',
     'com154': 'Casser les cristaux et ramenez une étoile<br>à chaque lanterne pour déverrouiller la porte<br>et accéder au coffre',
-    'com155': 'Ramassez les fleurs sucrantes<br>pour faire apparaître la Fleur mensongère',
+    'com155': 'Ramassez les fleurs sucrantes pour faire apparaître la Fleur mensongère',
     'com156': 'Ramassez la menthe<br>pour faire apparaître la Fleur mensongère',
     'com157': 'Activer rapidement les totems avec les éléments<br>correspondants pour faire apparaitre le coffre',
     'com158': 'Utiliser un pilier <a style="color:darkorange;">GEO</a> à travers la fenêtre<br>pour faire apparaitre le coffre',
@@ -1076,7 +1097,23 @@ var langFR = {
     'com426': 'Prenez les dendrogranums, puis tirez sur les Rochers Dendro pour déverrouiller le coffre',
     'com427': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur la graine des trois yànas pour faire apparaître la torche. Activez les 4 torches avec une attaque <a style="color:red;">PYRO</a> pour déverrouiller le coffre',
     'com428': 'Activez la porte Fantasmatique en jouant la mélodie à l\'aide de la Lyre ancienne. Collectez les graines fantasmatiques dans le temps imparti et rapportez-les à la porte pour faire apparaître le coffre',
-    'com429': 'Accessible en volant depuis la montagne à l\'Ouest'
+    'com429': 'Accessible en volant depuis la montagne à l\'Ouest',
+    'com430': 'Utilisez l\'insigne de trèfle à proximité pour atteindre le tas de pierre',
+    'com431': 'Pour déverrouiller cet accès, empruntez l\'entrée de la grotte au SUD et suivez les instructions de la vidéo',
+    'com432': 'Pour déverrouiller cet accès, empruntez l\'entrée de la grotte à l\'EST et suivez la fée',
+    'com433': 'Accessible de 0h à 6h et de 12h à 18h ingame',
+    'com434': 'Accessible de 6h à 12h et de 18h à 0h ingame',
+    'com435': 'Utilisez le champignon rebondissant pour atteindre le coffre',
+    'com436': 'Utilisez la lentille pour repérer la zone de siccité',
+    'com437': 'Utilisez le levier pour ouvrir la grille et prendre le coffre',
+    'com438': 'Activez les 3 piliers avec une attaque <a style="color:#A5C83B;">DENDRO</a>, utilisez les dendrogranums pour briser le rocher DENDRO et tuer tous les ennemis pour déverrouiller le coffre',
+    'com439': 'Accessible en dehors du monde des rêves des aranaras',
+    'com440': 'Désactivez les pierres dendros avec une attaque <a style="color:red;">PYRO</a> pour libérer l\'ennemi qu\'il faut tuer',
+    'com441': 'Trouvez les 3 clés puis désactivez la machine. Tuez les ennemis qui interrompent le processus d\'arrêt pour faire apparaître le coffre',
+    'com442': 'Tuez les ennemis pour récupérer les dendrogranums et détruire le bloc Dendro avec une attaque chargée pour faire apparaître le tas de pierre',
+    'com443': 'Crevez la bulle pour faire apparaître le tas de pierre',
+    'com444': 'Récupérez les dendrogranums et détruisez le bloc Dendro avec une attaque chargée pour faire apparaître le tas de pierre',
+    'com445': 'Creusez pour faire apparaître le Défi'
 };
 
 var langEN = {
@@ -1254,6 +1291,9 @@ var langEN = {
     'cat148': 'The Feast in Full Swing',
     'cat149': 'The Afterparty',
     'cat150': 'Sacred Seal',
+    'cat151': 'Ajilenakh Nut',
+    'cat152': 'Scarab',
+    'cat153': 'Redcrest',
 
     // Succès
 
@@ -1449,6 +1489,10 @@ var langEN = {
     'queteh012': '<b>Luhua Landscape</b><br><br>Help Vermeer find his painting supplies<br><br><span>Rewards : 2x<img class="ico" src="media/icones/cdelicm.png"/> 1x<img class="ico" src="media/icones/cluxem.png"/> 50 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
     'quetet013': 'Adventure Takes Courage !',
     'queteh013': '<b>Adventure Takes Courage !</b><br><br>Unlock Sumeru\'s daily commissions<br><br><span>Rewards : 10K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/conseil.png"/></span>',
+    'quetet014': 'Even Beasts Stumble',
+    'queteh014': '<b>Even Beasts Stumble</b><br><br>Help Elber recover his beasts of burden<br><br><span>Rewards : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
+    'quetet015': 'The Price',
+    'queteh015': '<b>The Price</b><br><br>Help Alexandra and Przheva escape the Fatuis<br><br><span>Rewards : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
     
         // Enkanomiya
 
@@ -1570,7 +1614,7 @@ var langEN = {
     'pano64': '',
     'pano65': '',
     'pano66': '',
-    'pano67': '',
+    'pano67': 'The Barren Land Where Sand Dances',
     'pano68': 'Refugee Shelters',
     'pano69': '',
     'pano70': 'Thamud Oasis',
@@ -1682,6 +1726,12 @@ var langEN = {
     'gyro31': '<b>Radiant Spincrystal n°79</b>',
     'gyro32': '<b>Radiant Spincrystal n°</b>',
     'gyro33': '<b>Radiant Spincrystal n°</b>',
+    'gyro34': '<b>Radiant Spincrystal n°</b>',
+    'gyro35': '<b>Radiant Spincrystal n°</b>',
+    'gyro36': '<b>Radiant Spincrystal n°84</b>',
+    'gyro37': '<b>Radiant Spincrystal n°</b>',
+    'gyro38': '<b>Radiant Spincrystal n°</b>',
+    'gyro39': '<b>Radiant Spincrystal n°</b>',
 
     // Offrandes perdues des Millelithes
 
@@ -1724,6 +1774,14 @@ var langEN = {
     'tonneau6': 'Fecund Hamper n°6',
     'tonneau7': 'Fecund Hamper n°7',
     'tonneau8': 'Fecund Hamper n°8',
+    
+    // Titres marqueurs spéciaux
+
+    'title001': 'Mysterious Clipboard Chest',
+    'title002': 'Phantasmal Gate',
+    'title003': 'Saghira Machine',
+    'title004': 'Stone Pillar Seal',
+    'title005': 'The Withering',
     
     // Coms
 
@@ -1884,8 +1942,8 @@ var langEN = {
     'com152': 'Break the crystals and bring back a star<br>each lantern to unlock the chest',
     'com153': 'Break the crystal and bring back the star<br>to the lantern to unlock the chest',
     'com154': 'Break the crystals and bring back a star<br>each lantern to unlock the door<br>and access the chest',
-    'com155': 'Take the Sweet Flowers<br>to make the Whopperflower appear',
-    'com156': 'take the mint flower<br>to make the Whopperflower appear',
+    'com155': 'Take the Sweet Flowers to make the Whopperflower appear',
+    'com156': 'Take the mint flower to make the Whopperflower appear',
     'com157': 'Activate quickly the totems with corresponding<br>elements to make the chest appear',
     'com158': 'Use a <a style="color:darkorange;">GEO</a> pillar through the window<br> to reveal the chest',
     'com159': 'Kill the Geovishaps to reveal the chest',
@@ -2158,5 +2216,21 @@ var langEN = {
     'com426': 'Take the dendrogranums, then shoot the Dendro Rocks to unlock the chest',
     'com427': 'Make an <a style="color:#CC80FF;">ELECTRO</a> attack on the Tri-Yanas seed to reveal the torch. Activate them with a <a style="color:red;">PYRO</a> attack to unlock the chest',
     'com428': 'Activate the Fantasmal Gate playing the melody with the Ancient Lyre. Collect all the Fantasmal seeds in time then bring them back to the gate to make the chest appear',
-    'com429': 'Accessible by flying from the West mountain'
+    'com429': 'Accessible by flying from the West mountain',
+    'com430': 'Use the nearby Four-Leaf Sigil to reach the Rock pile',
+    'com431': 'To unlock this cave access, use the SOUTH cave entrance and follow video\'s instructions',
+    'com432': 'To unlock this cave access, use the EAST cave entrance and follow the seelie',
+    'com433': 'Accessible from 12am to 6am and from 12pm to 6pm ingame',
+    'com434': 'Accessible from 6am to 12pm and from 6pm to 12am ingame',
+    'com435': 'Use the Bouncy Mushroom to reach the chest',
+    'com436': 'Use the lens to find the Withering zone',
+    'com437': 'Use the switch to open the gate and take the chest',
+    'com438': 'Activate the 3 pillars with a <a style="color:#A5C83B;">DENDRO</a> attack, use the dendrogranums to break the Dendro rock and kill all enemies to unlock the chest',
+    'com439': 'Accessible outside of Aranara\'s dream world',
+    'com440': 'Disable the dendro stones with a <a style="color:red;">PYRO</a> attack to release the enemy that must be killed',
+    'com441': 'Find the 3 keys to disable the Saghira machine. Kill ennemy\'s waves that stop the process to make the chest appear',
+    'com442': 'Kill all enemies to collect the dendrogranums and destroy the Dendro rock with a charged attack, and reveal the rock pile',
+    'com443': 'Burst the bubble to reveal the rock pile',
+    'com444': 'Collect the dendrogranums and destroy the Dendro rock with a charged attack to reveal the rock pile',
+    'com445': 'Dig to make the Challenge appear'
 };

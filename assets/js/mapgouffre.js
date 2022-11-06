@@ -1,9 +1,12 @@
-// Genshin Impact Interactive Map routine (C)TMKFrench & LBM - Anthony
+// Genshin Impact Interactive Map routine (C)TMKFrench & LBM - Anthony & Mystral77 (New API)
 
 // Fonctions Interaction sur la Map
 
 function onMapClick(e) {
-    console.log(langue["ui-click"] + mymap.project([e.latlng.lat,e.latlng.lng], mymap.getMaxZoom()));
+    var txt = mymap.project([e.latlng.lat, e.latlng.lng], map.getMaxZoom());
+    var x = Math.floor(txt.x);
+    var y = Math.floor(txt.y);
+    console.log(langue["ui-click"] + "[" + x + "," + y + "]");
 }
 
 function unproject(coord) {
@@ -81,7 +84,7 @@ function saveDBUserMarkers(idm, checked) {
                 window.location.reload();
             };
 
-            currentMarker.setOpacity(.45);
+            currentMarker.setOpacity(.35);
             userMarkers = res.markers;
         });
     } else {
@@ -105,7 +108,7 @@ function saveLocalUserMarkers(idm, checked) {
       if(markers.indexOf(idm) < 0) {
         markers.push(idm);
       }
-      currentMarker.setOpacity(.45);
+      currentMarker.setOpacity(.35);
     } else {
       if(markers.indexOf(idm) >= 0) {
         markers.splice(markers.indexOf(idm), 1);
@@ -341,17 +344,20 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
         if(typeof cbxname !== 'undefined')
         checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
+        if(typeof minfo.title !== 'undefined')
+        txt += '<br><h2>'+minfo.title+'</h2><br>';
+
         switch (mtype) {
             case 0 : // Img (txt+cb)
-                txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
+                txt += (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
                 popup = '<a href="media/'+nfichier+'.jpg" data-lity><img class="thumb" src="media/'+nfichier+'.jpg"/></a>'+txt+checkbox;
                 break;
             case 3 : // Gif (txt+cb)
-                txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
+                txt += (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
                 popup = '<a href="media/'+nfichier+'.gif" data-lity><img class="thumb" src="media/'+nfichier+'.gif"/></a>'+txt+checkbox;
                 break;
             case 5 : // Video (txt+cb)
-                txt = (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
+                txt += (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
                 popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                 break;
             case 7 : // Todo
@@ -366,7 +372,8 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
                 // Have a break, have a Kitkat
         };
 
-        titlem = (typeof minfo.title !=='undefined') ? minfo.title : marktitle+" Id:"+minfo.mid;
+        titlem = (typeof minfo.title !=='undefined') ? minfo.title : marktitle;
+        titlem += " Id:"+minfo.mid;
 
         if(typeof cbxname !== 'undefined') {
             
@@ -399,7 +406,6 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
 
     console.log(marktitle + " : " + (marklist.length - counternull) + langue["ui-load"]);
     nbtmark += (marklist.length - counternull);
-    // console.log("nombre de marqueur Total chargés : " + nbtmark); // Pour debug
 };
 
 // Fonctions Interaction Map
@@ -531,26 +537,26 @@ $(document).ready(function() {
     // Récupération des info users
     $.get('api/go/user', function(res) {
         if(typeof res.users !== 'undefined')
-        //   $('#total-users').text(res.users);
         console.log("u: "+res.users);
 
         if(typeof res.visits !== 'undefined')
-        //   $('#total-visits').text(res.visits);
         console.log("v: "+res.visits);
       
         if(typeof res.login !== 'undefined') {
             $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
+            $('#goggle' + lgmenu).attr('href', res.loging).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
             initMarkers();
             localStorage.setItem('userMarkersGouffre',JSON.stringify(userMarkers));
             localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
-              reselectmenu();
+            reselectmenu();
         };
 
         if(typeof res.uid !== 'undefined') {
             $('#discord' + lgmenu)
-                .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
                 .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
                 .attr('href', res.logout);
+            $('#logincontainer' + lgmenu).toggleClass('hidden flex');
+            $('#loggedcontainer' + lgmenu).toggleClass('hidden flex');
             $('#local' + lgmenu).toggleClass('hidden flex');
             $('#distant' + lgmenu).toggleClass('hidden flex');
             userLocal = false;
@@ -567,7 +573,7 @@ $(document).ready(function() {
                         window.location.reload();
                     };
                 });
-              }
+            }
             reselectmenu(listatut, btnstatut);
         }
     });

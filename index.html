@@ -31,10 +31,17 @@
 				<div id="topmenuFR" class="bg-gray-50" style="position: sticky; top:0px; left: 0px; padding-bottom: 10px;">
 					<img src="media/banniere.jpg" class="mx-auto" />
 					<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Map Interactive by TMKFrench<br/><span id="totalFR" class="mx-auto my-0 text-xs text-center uppercase text-black">Chargement des marqueurs...</span></div>
-	
-					<div class="flex justify-items-stretch text-center m-4">
-						<a href="#!" id="discordFR" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
-							<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Se connecter avec Discord</a>
+					<div id="logincontainerFR" class="logincontainer bg-gray-50 m-4">
+						<h1 class="bg-gray-50">Connexion avec</h1>
+						<div class="flex justify-items-stretch text-center m-1">
+							<a href="#!" id="discordFR" class="flex p-1 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full mr-0.5" style="filter: grayscale(0); opacity: 1;">
+								<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Discord</a>
+							<a href="#!" id="goggleFR" class="flex p-1 border-2 border-blue-500 bg-white rounded text-black items-center justify-center w-full ml-0.5" style="filter: grayscale(0); opacity: 1;">
+								<img src="media/icones/google.png" class="h-6" alt="Google"></a>
+						</div>
+					</div>					
+					<div id="loggedcontainerFR" class="hidden justify-items-stretch text-center m-4">
+						<a href="#!" id="loggedFR" class="flex p-2 border border-gray-800 bg-gray-400 rounded text-gray-900 text-xs items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;"></a>
 					</div>
 					<div id="localFR" class="flex space-x-2 text-center m-4">
 						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
@@ -236,6 +243,9 @@
 						</ul>
 						<ul class="flex justify-items-start pt-1">
 							<li class="icone"><a href="#!" title="Viparyas"><img id="btnFRviparyas" class="matbtn jur" data-type="viparyas" src="media/icones/viparyasoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Noix d'ajilenakh"><img id="btnFRnoixajilenakh" class="matbtn jur" data-type="noixajilenakh" src="media/icones/noixajilenakhoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Scarabee"><img id="btnFRscarabee" class="matbtn jur" data-type="scarabee" src="media/icones/scarabeeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Quandong"><img id="btnFRquandong" class="matbtn jur" data-type="quandong" src="media/icones/quandongoff.png"/></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Animaux et Insectes</li>
@@ -254,9 +264,17 @@
 				<div id="topmenuEN" class="bg-gray-50" style="position: sticky; top:0px; left: 0px; padding-bottom: 10px;">
 					<img src="media/banniere.jpg" class="mx-auto" />
 					<div id="menutitle" class="mx-auto text-yellow-600 text-center font-extralight mt-2">Interactive Map by TMKFrench<br/><span id="totalEN" class="mx-auto my-0 text-xs text-center uppercase text-black">Loading Markers...</span></div>
-					<div class="flex justify-items-stretch text-center m-4">
-						<a href="#!" id="discordEN" class="flex p-2 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;">
-							<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Log with Discord</a>
+					<div id="logincontainerEN" class="logincontainer bg-gray-50 m-4">
+						<h1 class="bg-gray-50">Login with</h1>
+						<div class="flex justify-items-stretch text-center m-1">
+							<a href="#!" id="discordEN" class="flex p-1 border border-indigo-400 bg-indigo-400 rounded text-white items-center justify-center w-full mr-0.5" style="filter: grayscale(0); opacity: 1;">
+								<img src="media/icones/discord.png" class="h-6 mr-2" alt="Discord">Discord</a>
+							<a href="#!" id="goggleEN" class="flex p-1 border-2 border-blue-500 bg-white rounded text-black items-center justify-center w-full ml-0.5" style="filter: grayscale(0); opacity: 1;">
+								<img src="media/icones/google.png" class="h-6" alt="Google"></a>
+						</div>
+					</div>
+					<div id="loggedcontainerEN" class="hidden justify-items-stretch text-center m-4">
+						<a href="#!" id="loggedFR" class="flex p-2 border border-gray-800 bg-gray-400 rounded text-gray-900 text-xs items-center justify-center w-full" style="filter: grayscale(0); opacity: 1;"></a>
 					</div>
 					<div id="localEN" class="flex space-x-2 text-center m-4">
 						<a id="BtnInfo" href="#!" title="Infos" class="btninfo py-1 px-2 bg-yellow-700 rounded text-xs text-white w-full">Info</a>
@@ -456,6 +474,9 @@
 						</ul>
 						<ul class="flex justify-items-start pt-1">
 							<li class="icone"><a href="#!" title="Viparyas"><img id="btnENviparyas" class="matbtn jur" data-type="viparyas" src="media/icones/viparyasoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Ajilenakh Nut"><img id="btnENnoixajilenakh" class="matbtn jur" data-type="noixajilenakh" src="media/icones/noixajilenakhoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Scarab"><img id="btnENscarabee" class="matbtn jur" data-type="scarabee" src="media/icones/scarabeeoff.png"/></a></li>
+							<li class="icone"><a href="#!" title="Redcrest"><img id="btnENquandong" class="matbtn jur" data-type="quandong" src="media/icones/quandongoff.png"/></a></li>
 						</ul>
 					</div>
 					<li class="accordion title">Animals and Insects</li>
@@ -480,9 +501,10 @@
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Bienvenue sur notre Map interactive !</h3>
 		<p>Cliquez sur un marqueur de votre choix pour plus d'information.<br>Utilisez la molette de la souris pour zoomer et le menu pour afficher ou masquer les POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V7.0.3 du 26/10/2022</p>
-		<p class="mt-4">- Rajout de marqueurs de coffres, ressources, d'illustrations et vidéos.<br>
-						- Rajout des emplacements des Sceaux sacrés.
+		<p class="font-bold text-red-500 mt-4">Release V7.1.0 du 06/11/2022</p>
+		<p class="mt-4">- Ajout de la Connexion à l'aide des identifiants Google.<br>
+						- Rajout de marqueurs de coffres, ressources, d'illustrations et vidéos.<br>
+						- Rajout des catégories des Noix d'ajilenakh, Scarabées, Quandongs.
 		</p>
 		<p class="mt-4">Si vous voulez participer en m'envoyant de nouveaux emplacements, n'hésitez pas à me contacter :<br>
 			- par mail à tmkfrench@gmail.com<br>
@@ -494,16 +516,17 @@
 			<img class="m-auto" src="media/icones/fusion.png"/>
 		</p>
 		<p class="text-xl font-bold mt-4">Remerciements</p>
-		<p class="text-red-500 font-semibold"><a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc - MegaSun89 - Krakoun<br>Nymphalusia - Schtify</p>
+		<p class="text-red-500 font-semibold">Mystral77 - <a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc - MegaSun89 - Krakoun<br>Nymphalusia - Schtify</p>
 	</div>
 	<div id="infoEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
 		<h3>Welcome to our Interactive Map !</h3>
 		<p>Clic on a Marker of your choice for more information.<br>Use mouse wheel to zoom and the menu buttons to toggle POIs.</p>
-		<p class="font-bold text-red-500 mt-4">Release V7.0.3 of 10/26/2022</p>
-		<p class="mt-4">- Adding markers of chests, resources, illustrations and videos.<br>
-						- Adding markers of Sacred Seals.
+		<p class="font-bold text-red-500 mt-4">Release V7.1.0 of 11/06/2022</p>
+		<p class="mt-4">- Adding Google Login.<br>
+						- Adding markers of chests, resources, illustrations and videos.<br>
+						- Adding categories of Ajilenakh Nuts, Scarab, Redcrests.
 		</p>
 		<p class="mt-4">If you want to participate, giving me new location on map, feel free to contact me :<br>
 			- by mail at tmkfrench@gmail.com<br>
@@ -515,14 +538,15 @@
 			<img class="m-auto" src="media/icones/fusion2.png"/>
 		</p>
 		<p class="text-xl font-bold mt-4">Thanks to</p>
-		<p class="text-red-500 font-semibold"><a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc - MegaSun89 - Krakoun<br>Nymphalusia - Schtify</p>
+		<p class="text-red-500 font-semibold">Mystral77 - <a href="https://gaming.lebusmagique.fr" target="_blank" class="underline">Thoanny</a> - sena26tr - GSVJinx - Pride Stolz - Sylvain B.<br>Lionink - Tetrydjavoc - MegaSun89 - Krakoun<br>Nymphalusia - Schtify</p>
 	</div>
 	<div id="infomajFR" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 7.0.3 du 26/10/2022</h3>
-		<p class="mt-4">- Rajout de marqueurs de coffres, ressources, d'illustrations et vidéos.<br>
-			- Rajout des emplacements des Sceaux sacrés.
+		<h3 class="font-bold text-red-500 mt-4">Note de Mise à jour V 7.1.0 du 06/11/2022</h3>
+		<p class="mt-4">- Ajout de la Connexion à l'aide des identifiants Google.<br>
+						- Rajout de marqueurs de coffres, ressources, d'illustrations et vidéos.<br>
+						- Rajout des emplacements des Noix d'ajilenakh, Scarabées, Quandongs.
 		</p>
 	  <p class="mt-4 font-bold text-red-600">Pensez à recharger la Map avec les touches CTRL + F5<br>
 			pour mettre à jour le cache de votre navigateur et avoir<br><span class="text-red-600">la dernière version des marqueurs.</span>
@@ -531,9 +555,10 @@
 	<div id="infomajEN" class="lity-hide bg-white overflow-y-auto rounded text-center p-4 m-4 max-w-lg">
 		<img class="m-auto" src="media/logo.jpg"/>
 		<h4>TMKFrench - LGDC</h4>
-		<h3 class="font-bold text-red-500 mt-4">Update Note V 7.0.3 of 10/26/2022</h3>
-		<p class="mt-4">- Adding markers of chests, resources, illustrations and videos.<br>
-			- Adding markers of Sacred Seals.
+		<h3 class="font-bold text-red-500 mt-4">Update Note V 7.1.0 of 11/06/2022</h3>
+		<p class="mt-4">- Adding Google Login.<br>
+						- Adding markers of chests, resources, illustrations and videos.<br>
+						- Adding categories of Ajilenakh Nuts, Scarab, Redcrests.
 		</p>
 		<p class="mt-4 font-bold text-red-600">Think about refreshing Map with CTRL + F5<br>
 			to clear the browser cache and get <span class="text-red-600">the last markers update.</span>
@@ -585,7 +610,7 @@
 	</script>
 	<script type="text/javascript" src="assets/js/icon.js"></script>
 	<script type="text/javascript" src="assets/js/markers-teyvat.js"></script>
-	<script type="text/javascript" src="assets/js/map.js?v=7.0.2"></script>
+	<script type="text/javascript" src="assets/js/map.js?v=7.1.0"></script>
 
 </body>
 

@@ -316,7 +316,7 @@ a:-any-link {
 }
 
 .accordion:after, .accordion2:after {
-  content: '\2B9F';
+  content: "\2B9F";
   float: right;
   margin-right: 7px;
 }
@@ -338,6 +338,27 @@ a:-any-link {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 }
+
+.logincontainer {
+	position: relative;
+	margin-top: 10px;
+	height: 52px;
+	border: 2px outset black;
+	border-radius: 4px;
+	padding: 2px;
+	font-size: 12px;
+	font-weight: 600;
+	color: black;
+	h1 {
+		position: absolute;
+		width: auto;
+		margin-left: 0px;
+		top: -12px;
+		left: 10px;
+		padding: 0 5px;
+	}
+}
+
 
 #infoFR, #infomajFR, #infomajEN, #infoEN {
   h4 {
@@ -411,9 +432,13 @@ a:-any-link {
 		}
 	}
 	span.texte {
-		font-size: 18px;
+		font-size: 14px;
 		color: red;
 		padding-left: 44px;
+    line-height: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 20px;  
 	}
 }
 

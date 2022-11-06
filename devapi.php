@@ -23,7 +23,7 @@ if($method == 'POST' && $action == 'add') {
         'y' => $mdata[4]
     ]);
     // echo var_dump($mdata);
-    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' '{$mdata[4]}' ajouté";
+    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' '{$mdata[4]}' ajoutÃ©";
     die();
 
 } elseif($method == 'POST' && $action == 'delete') {
@@ -31,7 +31,7 @@ if($method == 'POST' && $action == 'add') {
     $uid = $_POST['data'];
     $db->delete('dev_markers', ['uid' => $uid]);
 
-    echo "Marker uid : '{$uid}' effacé";
+    echo "Marker uid : '{$uid}' effacÃ©";
     die();
 
 // } elseif($method == 'POST' && $action == 'addunder') {
@@ -41,7 +41,7 @@ if($method == 'POST' && $action == 'add') {
 //     $marker = $db->get_row("SELECT * FROM dev_markers WHERE uid = $muid");
 //     $db->update('dev_markers', ['under' => "true"], ['uid' => $muid]);
 
-//     echo "Marker uid : ".$_POST['data']." Under ajouté";
+//     echo "Marker uid : ".$_POST['data']." Under ajoutï¿½";
 //     die();
 
 // } elseif($method == 'POST' && $action == 'delunder') {
@@ -51,7 +51,7 @@ if($method == 'POST' && $action == 'add') {
 //     $marker = $db->get_row("SELECT * FROM dev_markers WHERE uid = $muid");
 //     $db->update('dev_markers', ['under' => ''], ['uid' => $muid]);
 
-//     echo "Marker uid : ".$_POST['data']." Under effacé";
+//     echo "Marker uid : ".$_POST['data']." Under effacï¿½";
 //     die();
 
 } elseif($method == 'POST' && $action == 'import') {

@@ -285,7 +285,7 @@ a:-any-link {
 }
 
 .ouvert:after, .ouvert2:after {
-  content: '\2B9D';
+  content: "\2B9D";
 }
 
 .panel {
@@ -300,6 +300,27 @@ a:-any-link {
 
 #menutitle span {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logincontainer {
+  position: relative;
+  margin-top: 10px;
+  height: 52px;
+  border: 2px outset black;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+}
+
+.logincontainer h1 {
+  position: absolute;
+  width: auto;
+  margin-left: 0px;
+  top: -12px;
+  left: 10px;
+  padding: 0 5px;
 }
 
 #infoFR h4, #infomajFR h4, #infomajEN h4, #infoEN h4 {
@@ -344,7 +365,7 @@ a:-any-link {
 }
 
 .switch input + span.cursor::before {
-  content:"";
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
