@@ -42,7 +42,7 @@ var countmarker = {};
 var mgroup = [
     'ferblanc','cristal','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
     'champsacra','champitoile','fruitharra','kalpalotus','nilotpalotus','padisachidee','pechezaytun','rosesum',
-    'viparyas','noixajilenakh','scarabee','quandong'
+    'viparyas','noixajilenakh','scarabee','quandong','aranara','aranara2'
 ];
 
 // Initialisation de la carte
@@ -72,10 +72,16 @@ function initmarkers() {
     // Depuis le fichiers JS
 
     mgroup.forEach(function(group) {
-        window['list'+group].forEach(function(marker) {
-            newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(map);
-        });
-        countmarker[""+group] = window['list'+group].length;
+        console.log(group);
+        // console.table(window['list'+group]);
+        if (window['list'+group]) {
+            window['list'+group].forEach(function(marker) {
+                newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(map);
+            });
+            countmarker[""+group] = window['list'+group].length;
+        } else {
+            countmarker[""+group] = 0;
+        };
     });
     // console.table(countmarker);
 
