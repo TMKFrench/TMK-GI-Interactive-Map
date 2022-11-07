@@ -229,7 +229,7 @@ class api {
 						$this->response ( $user );
 					}
 				}
-				$this->response ( [ 'login' => $this->root . 'api/' . $this->map . '/login','users' => $dbCountUsers->total,'visits' => $counter ] );
+				$this->response ( [ 'login' => $this->root . 'api/' . $this->map . '/login','loging' => $this->root . 'api/' . $this->map . '/loging', 'users' => $dbCountUsers->total,'visits' => $counter ] );
 			break;
 
 			/**
