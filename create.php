@@ -99,7 +99,7 @@ foreach($map as $group) {
             $js .= ",title:{$marker['title']}";
         };
         if(isset($marker['icon'])) {
-            $js .= ",icon:{$marker['icon']}";
+            $js .= ",icon:'{$marker['icon']}'";
         };
         if(isset($marker['under'])) {
             $js .= ",under:{$marker['under']}";

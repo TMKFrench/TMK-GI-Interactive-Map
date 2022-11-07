@@ -3,7 +3,7 @@
 $db = new SQLite3Database('devmarkers.db');
 
 $method = $_SERVER['REQUEST_METHOD'];
-$path_info = isset($_SERVER['ORIG_PATH_INFO'])?$_SERVER['ORIG_PATH_INFO']:''; // Ligne pour serveur 1and1
+$path_info = isset($_SERVER['ORIG_PATH_INFO'])?$_SERVER['ORIG_PATH_INFO']:$_SERVER['PATH_INFO']; // Ligne pour serveur 1and1
 // $path_info = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:''; // Ligne pour serveur local
 $request = explode('/', trim($path_info,'/'));
 // $root = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . str_replace('devapi.php', '', $_SERVER['SCRIPT_NAME']);
@@ -17,12 +17,13 @@ if($method == 'POST' && $action == 'add') {
     $mdata = json_decode($_POST['data']);
     $db->insert('dev_markers', [
         'uid' => $mdata[0],
-        'mgroup' => $mdata[1],
-        'x' => $mdata[2],
-        'y' => $mdata[3]
+        'mid' => $mdata[1],
+        'mgroup' => $mdata[2],
+        'x' => $mdata[3],
+        'y' => $mdata[4]
     ]);
-    // echo var_dump($mdata);    
-    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' ajouté";
+    // echo var_dump($mdata);
+    echo "Marker uid : '{$mdata[0]}' '{$mdata[1]}' '{$mdata[2]}' '{$mdata[3]}' '{$mdata[4]}' ajouté";
     die();
 
 } elseif($method == 'POST' && $action == 'delete') {
@@ -32,7 +33,7 @@ if($method == 'POST' && $action == 'add') {
 
     echo "Marker uid : '{$uid}' effacé";
     die();
-    
+
 // } elseif($method == 'POST' && $action == 'addunder') {
 //     header('Content-Type: application/json');
 
@@ -40,9 +41,9 @@ if($method == 'POST' && $action == 'add') {
 //     $marker = $db->get_row("SELECT * FROM dev_markers WHERE uid = $muid");
 //     $db->update('dev_markers', ['under' => "true"], ['uid' => $muid]);
 
-//     echo "Marker uid : ".$_POST['data']." Under ajouté";
+//     echo "Marker uid : ".$_POST['data']." Under ajout�";
 //     die();
-    
+
 // } elseif($method == 'POST' && $action == 'delunder') {
 //     header('Content-Type: application/json');
 
@@ -50,9 +51,9 @@ if($method == 'POST' && $action == 'add') {
 //     $marker = $db->get_row("SELECT * FROM dev_markers WHERE uid = $muid");
 //     $db->update('dev_markers', ['under' => ''], ['uid' => $muid]);
 
-//     echo "Marker uid : ".$_POST['data']." Under effacé";
+//     echo "Marker uid : ".$_POST['data']." Under effac�";
 //     die();
-    
+
 } elseif($method == 'POST' && $action == 'import') {
     header('Content-Type: application/json');
 
@@ -60,6 +61,7 @@ if($method == 'POST' && $action == 'add') {
     foreach($markers as $m =>$marker) {
         $map[$m] = [
             'uid' => $marker->uid,
+            'mid' => $marker->mid,
             'mgroup' => $marker->mgroup,
             'x' => $marker->x,
             'y' => $marker->y,

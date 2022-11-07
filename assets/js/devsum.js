@@ -1,12 +1,13 @@
 function onMapClick(e) {
     var txt = map.project([e.latlng.lat, e.latlng.lng], map.getMaxZoom());
     var uid = generateSerial(10);
+    var mid = countmarker[""+markertype] + 1;
     var x = Math.floor(txt.x);
     var y = Math.floor(txt.y);
-    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, icon: window[markertype+'Icon']}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
-  
+    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon']}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
+    countmarker[""+markertype] += 1;
     userMarkers.push(uid);
-    var datam = [uid, markertype, x, y];
+    var datam = [uid, mid, markertype, x, y];
     $.post('devapi/add', {data : JSON.stringify(datam)}, function(res) {
         console.table(datam);
     });
@@ -37,9 +38,11 @@ function updateCurrentMarker() {
 var currentMarker;
 var userMarkers = [];
 var markertype = 'ferblanc';
+var countmarker = {};
 var mgroup = [
     'ferblanc','cristal','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
-    'champsacra','champitoile','fruitharra','kalpalotus','nilotpalotus','padisachidee','pechezaytun','rosesum','viparyas'
+    'champsacra','champitoile','fruitharra','kalpalotus','nilotpalotus','padisachidee','pechezaytun','rosesum',
+    'viparyas','noixajilenakh','scarabee','quandong','aranara','aranara2'
 ];
 
 // Initialisation de la carte
@@ -69,22 +72,35 @@ function initmarkers() {
     // Depuis le fichiers JS
 
     mgroup.forEach(function(group) {
-        window['list'+group].forEach(function(marker) {
-            newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(map);
-        });
+        console.log(group);
+        // console.table(window['list'+group]);
+        if (window['list'+group]) {
+            window['list'+group].forEach(function(marker) {
+                newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(map);
+            });
+            countmarker[""+group] = window['list'+group].length;
+        } else {
+            countmarker[""+group] = 0;
+        };
     });
+    // console.table(countmarker);
 
     // Depuis la DB de dev
 
     $.post('devapi/import', function(res) {
         res.forEach(function(marker) {
-            newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid})
-            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
+            newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, mid: marker.mid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid})
+            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
             .on('click', updateCurrentMarker).addTo(map);
             userMarkers.push(marker.uid);
+            countmarker[""+marker.mgroup] += 1;
+            console.log("groupe : "+marker.mgroup+", Nombre : "+countmarker[""+marker.mgroup]);
         });
     });
-
+    // Object.keys(countmarker).forEach(function(key) {
+    //     console.log(key + " : " + countmarker[key]);
+    // })
+    // console.table(countmarker);
 };
 
 // Créer un marqueur au clic
@@ -100,11 +116,12 @@ $(document).ready(function() {
         var i=userMarkers.indexOf(currentMarker.options.uid);
         if( i >= 0) {
           userMarkers.splice(i, 1);
+        //   console.log(currentMarker.options.mid);
+          countmarker[""+currentMarker.options.type] += -1;
         }
   
-        $.post('devapi/delete', {data : currentMarker.options.uid}, function () {
-            console.log('Retrait du marker Id :'+currentMarker.options.uid);
-        });
+        $.post('devapi/delete', {data : currentMarker.options.uid}, function () {});
+        console.log('Retrait du marker Id :'+currentMarker.options.uid);
   
         map.removeLayer(currentMarker);
   

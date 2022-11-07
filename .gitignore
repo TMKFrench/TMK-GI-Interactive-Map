@@ -11,7 +11,7 @@
 *.sln.docstates
 media/*.jpg
 media/*.gif
-media/tilesteyvat301/
+media/tilesteyvat31/
 media/tilesgouffre/
 media/tilesenka/
 nextstage.png
@@ -26,6 +26,7 @@ update.php
 verif.php
 lbm/
 .hintrc
+indexold.html
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -350,6 +351,11 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 TMK-GI-Interactive-Map.code-workspace
+/.buildpath
+/hits.txt
+/.project
+/.settings/
+/hits.txt
 /.buildpath
 /.project
 /.settings

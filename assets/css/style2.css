@@ -279,7 +279,7 @@ a:-any-link {
 }
 
 .accordion:after, .accordion2:after {
-  content: '\2B9F';
+  content: "\2B9F";
   float: right;
   margin-right: 7px;
 }
@@ -302,6 +302,27 @@ a:-any-link {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.logincontainer {
+  position: relative;
+  margin-top: 10px;
+  height: 52px;
+  border: 2px outset black;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+}
+
+.logincontainer h1 {
+  position: absolute;
+  width: auto;
+  margin-left: 0px;
+  top: -12px;
+  left: 10px;
+  padding: 0 5px;
+}
+
 #infoFR h4, #infomajFR h4, #infomajEN h4, #infoEN h4 {
   text-align: center;
   font-size: 28px;
@@ -314,6 +335,69 @@ a:-any-link {
   font-weight: bold;
   color: #bf4646;
   text-shadow: 2px 2px 3px #978980;
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: 20px;
+  overflow: hidden;
+}
+
+.switch input {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 0;
+  height: 0;
+}
+
+.switch input + span.cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 40px;
+  background: red;
+  border-radius: 20px;
+}
+
+.switch input + span.cursor::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all .3s;
+}
+
+.switch input:checked + span.cursor {
+  background: green;
+}
+
+.switch input:checked + span.cursor::before {
+  left: 22px;
+}
+
+.switch input:checked + span.cursor + span.texte {
+  color: green;
+}
+
+.switch span.texte {
+  font-size: 14px;
+  color: red;
+  padding-left: 44px;
+  line-height: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 20px;
 }
 
 body #menu {
