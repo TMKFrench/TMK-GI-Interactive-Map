@@ -1,4 +1,7 @@
-<?php require 'assets/inc/_fn.php';
+<?php
+require_once "assets/inc/sqlite3database.class.php";
+require_once "assets/inc/mypdo.class.php";
+require_once "assets/inc/outils.class.php";
 
 $_map = $_GET['map'];
 if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $_map == "gouffre")) {
@@ -116,10 +119,9 @@ foreach($map as $group) {
 
     $js .= "\n];\n\n";
 };
-$fnbk = "assets/js/mkbk/markers{$_map} - ".date('Y-m-d H:i:s').".js";
+$fnbk = "assets/js/mkbk/markers{$_map} - ".date('Y-m-d_H-i-s').".js";
 $fn = "assets/js/markers{$_map}.js";
 file_put_contents($fnbk, $js);
 file_put_contents($fn, $js);
-dd("Fichier de backup $fnbk créé et $fn remplacé sur le serveur");
-
+outils::dd("Fichier de backup $fnbk créé et $fn remplacé sur le serveur");
 ?>
