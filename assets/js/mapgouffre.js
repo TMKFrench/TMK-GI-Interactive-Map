@@ -553,7 +553,7 @@ $(document).ready(function() {
         };
 
         if(typeof res.uid !== 'undefined') {
-            $('#discord' + lgmenu)
+            $('#logged' + lgmenu)
                 .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
                 .attr('href', res.logout);
             $('#logincontainer' + lgmenu).toggleClass('hidden flex');
