@@ -9,6 +9,7 @@ class google_api {
 	private $code; // Code de retour OAuth
 	private $map; // Map en cours
 	private $root; // URL du site
+	private $options = ["prompt" => "select_account"];
 
 	private $client;
 
@@ -17,7 +18,7 @@ class google_api {
 		$this->root = $root;
 		$this->map = $map;
 		$this->code = isset ( $_GET ["code"] ) ? $_GET ["code"] : null;
-		$this->client = new Google\Client();
+		$this->client = new Google\Client($this->options);
 		$this->client->setAuthConfig($this->config["google"]["config_file"]);
 	}
 
