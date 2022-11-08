@@ -751,10 +751,6 @@ $(document).ready(function() {
               .attr('href', res.logout);
           $('#logincontainer' + lgmenu).toggleClass('hidden flex');
           $('#loggedcontainer' + lgmenu).toggleClass('hidden flex');
-        //   $('#discord' + lgmenu)
-        //       .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
-        //       .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
-        //       .attr('href', res.logout);
           $('#local' + lgmenu).toggleClass('hidden flex');
           $('#distant' + lgmenu).toggleClass('hidden flex');
           userLocal = false;
