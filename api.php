@@ -17,6 +17,9 @@ function loadClass(string $class_name) {
 		if ( file_exists("assets/inc/".$class_name)) {
 			require_once "assets/inc/".$class_name;
 			return true;
+		} elseif (file_exists("assets/inc/".strtolower($class_name))) {
+			require_once "assets/inc/".strtolower($class_name);
+			return true;
 		} else {
 			return new Exception("Class ".$class_name." not found.");
 		}
