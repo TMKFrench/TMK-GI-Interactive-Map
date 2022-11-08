@@ -26,6 +26,13 @@ class api {
 		self::MAP_SE 			=> "se" // Nom des marqueurs spécial édition
 	];
 
+	private $liste_fichier_map = [
+		self::MAP_TEYVAT 		=> "index.html", // Nom du fichier pour Teyvat
+		self::MAP_ENKANOMIYA 	=> "enka.html", // Nom du fichier pour Enkanomiya
+		self::MAP_GOUFFRE 		=> "gouffre.html", // Nom du fichier pour Gouffre
+		self::MAP_SE 			=> "se.html" // Nom du fichier pour spécial édition
+	];
+
 	// Table chargement pour chaque map
 	private $liste_chargement = [
 		self::MAP_TEYVAT 		=> [ "menu" => "menut","btn" 	=> "btnt","region" 	=> "region","chest" => "chest","markers" 	=> "markersteyvat" ],
@@ -39,7 +46,7 @@ class api {
 	private $dbuser; // Info utilisateur récupéré
 	private $path_info; // Info requête API dans URL
 	private $request; // Info de requête exploité
-	private $root; // Root du site (host https)
+	private $root; // Root du site pour accès API (host https)
 	private $map; // Map détectée
 	private $action; // Action à faire
 	private $id; // Identifiant de l'objet à traiter
@@ -55,7 +62,7 @@ class api {
 		if (! session_id ()) @session_start ();
 		$this->method = $_SERVER ['REQUEST_METHOD'];
 		$this->path_info = isset ( $_SERVER ['ORIG_PATH_INFO'] ) ? $_SERVER ['ORIG_PATH_INFO'] : $_SERVER ['PATH_INFO'];
-		$this->root = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['HTTP_HOST'] . str_replace ( 'api.php', '', $_SERVER ['SCRIPT_NAME'] );
+		$this->root =  $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['HTTP_HOST'] . str_replace ( 'api.php', '', $_SERVER ['SCRIPT_NAME'] );
 		$this->db = new SQLite3Database ( self::TMKMAP );
 		if (! $this->db) {
 			throw new Exception ( "Impossible d'initialiser la base de donnees" );
@@ -140,10 +147,14 @@ class api {
 			 * Login Oauth2 par Discord
 			 */
 			case "login" :
-				if (! empty ( $this->map )) {
-					$this->discord->login();
+				if (is_null($this->getCurrentToken())) {
+					if (! empty ( $this->map )) {
+						$this->discord->login();
+					} else {
+						$this->responseError ( "Map non valide" );
+					}
 				} else {
-					$this->responseError ( "Map non valide" );
+					$this->responseError("Déjà connecté");
 				}
 			break;
 
@@ -151,10 +162,14 @@ class api {
 			 * Login Oauth2 par Google
 			 */
 			case "loging" :
-				if (! empty ( $this->map )) {
-					$this->google->login();
+				if (is_null($this->getCurrentToken())) {
+					if (! empty ( $this->map )) {
+						$this->google->login();
+					} else {
+						$this->responseError ( "Map non valide" );
+					}
 				} else {
-					$this->responseError ( "Map non valide" );
+					$this->responseError("Déjà connecté");
 				}
 			break;
 
@@ -166,7 +181,7 @@ class api {
 				if (is_array($data)) {
 
 					$_SESSION ['user'] = $data;
-					header ( 'Location: ' . $this->root );
+					header ( 'Location: ' . $this->getMapUrl() );
 					die();
 				} elseif (!empty($data)) {
 					$this->responseError ( $data );
@@ -184,7 +199,7 @@ class api {
 				if (is_array($data)) {
 
 					$_SESSION ['user'] = $data;
-					header ( 'Location: ' . $this->root );
+					header ( 'Location: ' . $this->getMapUrl() );
 					die();
 				} elseif (!empty($data)) {
 					$this->responseError ( $data );
@@ -236,6 +251,7 @@ class api {
 			 * Déconnexion de Discord et logout session
 			 */
 			case "logout" :
+				$url = $this->getMapUrl();
 				$user = self::session("user");
 				if ($user) {
 					switch ($user["sso"]) {
@@ -244,7 +260,7 @@ class api {
 					}
 				}
 				session_destroy ();
-				header ( 'Location: ' . $this->root );
+				header ( 'Location: ' . $url );
 				die ();
 			break;
 
@@ -552,6 +568,23 @@ class api {
 				return false;
 		}
 		return true;
+	}
+
+	private function getMapUrl() {
+		$url = $this->liste_fichier_map[self::MAP_TEYVAT];
+		if ($this->map) $url =  (isset($this->liste_fichier_map[$this->map]))?$this->liste_fichier_map[$this->map]:$this->liste_fichier_map[self::MAP_TEYVAT];
+		return $this->root.$url;
+	}
+
+	/**
+	 * Récupère le token en Session
+	 * @return string
+	 */
+	public function getCurrentToken() {
+		$liste = ["google_token","discord_token"];
+		$resultat = null;
+		foreach ($liste as $l) $resultat = (self::session($l))?(empty($resultat)?$l:"error"):$resultat;
+		return $resultat;
 	}
 
 	/**
