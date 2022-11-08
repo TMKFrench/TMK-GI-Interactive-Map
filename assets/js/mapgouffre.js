@@ -334,13 +334,11 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
         nfichier = filename + minfo.mid;
         txt = "";
 
-        if ((typeof minfo.icon !=='undefined') && (typeof minfo.under !=='undefined')) {
-            micon = window[minfo.icon +'u'];
-        } else if (typeof minfo.under !=='undefined') {
-            micon = window[markico +'u'];
+        if (typeof minfo.icon !=='undefined') {
+            micon = (typeof minfo.under !=='undefined') ? window[minfo.icon +'u'] : window[minfo.icon];
         } else {
-            micon = window[markico];
-        }
+            micon = (typeof minfo.under !=='undefined') ? window[markico +'u'] : window[markico];
+        };
 
         if(typeof cbxname !== 'undefined')
         checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';

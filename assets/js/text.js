@@ -176,6 +176,7 @@ var langFR = {
     'cat151': 'Noix d\'ajilenakh',
     'cat152': 'Scarabée',
     'cat153': 'Quandong',
+    'cat154': 'Aranara',
 
     // Succès
 
@@ -1294,6 +1295,7 @@ var langEN = {
     'cat151': 'Ajilenakh Nut',
     'cat152': 'Scarab',
     'cat153': 'Redcrest',
+    'cat154': 'Aranara',
 
     // Succès
 

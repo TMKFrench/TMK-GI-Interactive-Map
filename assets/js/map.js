@@ -237,7 +237,7 @@ var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localSto
 var userLocal = true;
 var teyvatarray = [
     'musiquesonne','feteenivre','contrecoup',
-    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre',
+    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre','aranara',
     'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
     'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
     'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
@@ -334,6 +334,7 @@ function initMarkers () {
     loadmarker(listpseculaire,"Pseculaire","pseculaire",langue.cat124,"pseculaire","pseculaire");
     loadmarker(listoffrandes,"Offrandes","offrandes",langue.cat128,"offrandes","offrandes");
     loadmarker(listsceausacre,"Sceausacre","sceausacre",langue.cat150,"sacredseal","sceausacre");
+    loadmarker(listaranara,"Aranara","aranara",langue.cat154,"aranara","aranara");
     loadmarker(listcordi,"Cordi","cordimond",langue.cat04+" Mondstadt","oc","cordi");
     loadmarker(listcordil,"Cordi","cordiliyu",langue.cat04+" Liyue","ocl","cordil");
     loadmarker(listcordii,"Cordi","cordiinaz",langue.cat04+" Inazuma","oci","cordii");
@@ -466,13 +467,11 @@ function initMarkers () {
             nfichier = filename + minfo.mid;
             txt = "";
 
-            if ((typeof minfo.icon !=='undefined') && (typeof minfo.under !=='undefined')) {
-                micon = window[minfo.icon +'u'];
-            } else if (typeof minfo.under !=='undefined') {
-                micon = window[markico +'u'];
+            if (typeof minfo.icon !=='undefined') {
+                micon = (typeof minfo.under !=='undefined') ? window[minfo.icon +'u'] : window[minfo.icon];
             } else {
-                micon = window[markico];
-            }
+                micon = (typeof minfo.under !=='undefined') ? window[markico +'u'] : window[markico];
+            };
 
             if(typeof cbxname !== 'undefined')
             checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
@@ -752,6 +751,10 @@ $(document).ready(function() {
               .attr('href', res.logout);
           $('#logincontainer' + lgmenu).toggleClass('hidden flex');
           $('#loggedcontainer' + lgmenu).toggleClass('hidden flex');
+        //   $('#discord' + lgmenu)
+        //       .toggleClass('bg-indigo-400 bg-gray-400 text-white text-gray-900 border-indigo-400 border-gray-800 text-xs')
+        //       .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
+        //       .attr('href', res.logout);
           $('#local' + lgmenu).toggleClass('hidden flex');
           $('#distant' + lgmenu).toggleClass('hidden flex');
           userLocal = false;
