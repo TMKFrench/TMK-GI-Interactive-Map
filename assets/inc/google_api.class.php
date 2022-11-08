@@ -65,7 +65,7 @@ class google_api {
 	public function revokeToken() {
 		$token = self::session("google_token");
 		if ($token) {
-			$this->client->revokeToken($_SESSION[$token]);
+			$this->client->revokeToken($token);
 		}
 	}
 
