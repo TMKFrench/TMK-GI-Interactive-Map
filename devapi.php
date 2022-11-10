@@ -1,4 +1,7 @@
-<?php require 'assets/inc/_fn.php';
+<?php 
+require_once "assets/inc/sqlite3database.class.php";
+require_once "assets/inc/mypdo.class.php";
+require_once "assets/inc/outils.class.php";
 
 $db = new SQLite3Database('devmarkers.db');
 
