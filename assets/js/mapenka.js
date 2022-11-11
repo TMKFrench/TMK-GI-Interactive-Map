@@ -136,9 +136,9 @@
         var content = e.popup.getContent();
     
         if($(content).find('input#mapbox').length > 0) {
-          if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('id') ) >= 0) {
-            $('input#mapbox[data-id="'+$(content).find('input#mapbox').first().data('id')+'"]').prop('checked', 'checked');
-            $('#cbxtxt'+$(content).find('input#mapbox').first().data('id')).html(langue['ui-found']);
+          if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('cbxid') ) >= 0) {
+            $('input#mapbox[data-cbxid="'+$(content).find('input#mapbox').first().data('cbxid')+'"]').prop('checked', 'checked');
+            $('#cbxtxt'+$(content).find('input#mapbox').first().data('cbxid')).html(langue['ui-found']);
           }
         }
       }
@@ -344,7 +344,7 @@ function initMarkers () {
             };
 
             if(typeof cbxname !== 'undefined')
-            checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-id="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
+            checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-cbxid="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
             if(typeof minfo.title !== 'undefined')
             txt += '<h2>'+minfo.title+'</h2>';
@@ -582,7 +582,7 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
-        var cbxid = $(this).data('id');
+        var cbxid = $(this).data('cbxid');
 
         if ($(this).is(':checked')) {
             $('#cbxtxt'+cbxid).html(langue['ui-found']);
@@ -591,9 +591,9 @@ $(document).ready(function() {
         }
     
         if(userLocal) {
-          saveLocalUserMarkers($(this).data('id'), $(this).is(':checked'));
+          saveLocalUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
         } else {
-          saveDBUserMarkers($(this).data('id'), $(this).is(':checked'));
+          saveDBUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
         }
   
       });

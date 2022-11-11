@@ -417,7 +417,8 @@ class api {
 				$markers = "markers" . $this->liste_markers_map [$this->map];
 				$retour = $this->addToData ( $markers, $this->id );
 				if (is_array ( $retour ))
-					return $this->response ( [ $markers => $retour ] );
+					// return $this->response ( [ $markers => $retour ] );
+					return $this->response ( [ 'markers' => $retour ] );
 				else
 					return $this->responseError ( $retour );
 			break;
@@ -429,7 +430,7 @@ class api {
 				$markers = "markers" . $this->liste_markers_map [$this->map];
 				$retour = $this->removeFromData ( $markers, $this->id );
 				if (is_array ( $retour ))
-					return $this->response ( [ $markers => $retour ] );
+					return $this->response ( [ 'markers' => $retour ] );
 				else
 					return $this->responseError ( $retour );
 			break;
