@@ -51,7 +51,6 @@ class discord_api {
 						'uid' => $user->id,'username' => $user->username . '#' . $user->discriminator,
 						'avatar' => 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png',
 						'avatar_default' => 'https://cdn.discordapp.com/embed/avatars/' . ($user->discriminator % 5) . '.png',
-						'logout' => $this->root . 'api/' . $this->map . '/logout',
 						'sso' => "discord"
 					];
 					return $data;

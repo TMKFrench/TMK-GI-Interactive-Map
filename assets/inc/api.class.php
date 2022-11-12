@@ -237,10 +237,11 @@ class api {
 							}
 						}
 
-						$user ['users'] = $dbCountUsers->total;
-						$user ['visits'] = $counter;
-						$user ['oldmarkers'] = $this->getFromDbUser ( "markers" );
-						$user ['updatemv3'] = $this->getFromDbUser ( "updatemv3" );
+						$user ['users'] 		= $dbCountUsers->total;
+						$user ['visits'] 		= $counter;
+						$user ['oldmarkers'] 	= $this->getFromDbUser ( "markers" );
+						$user ['updatemv3'] 	= $this->getFromDbUser ( "updatemv3" );
+						$user ['logout'] 		= $this->root . 'api/' . $this->map . '/logout';
 						$this->response ( $user );
 					}
 				}

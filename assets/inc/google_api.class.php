@@ -50,7 +50,6 @@ class google_api {
 					'username' => $infouser->name,
 					'avatar' => $infouser->picture,
 					'avatar_default' => '/media/icones/logog.png',
-					'logout' => $this->root . 'api/' . $this->map . '/logout',
 					'sso' => "google"
 				];
 				return $data;
