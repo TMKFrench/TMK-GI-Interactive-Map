@@ -7,6 +7,7 @@ var Teleport = L.icon({iconUrl:'media/icones/teleport.png', iconSize:[34, 40], i
 var Teleportu = L.icon({iconUrl:'media/icones/teleportu.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Tpbarge = L.icon({iconUrl:'media/icones/tpbarge.png', iconSize:[30, 30], iconAnchor:[15, 30], popupAnchor:[0, -30]});
 var Grotte = L.icon({iconUrl:'media/icones/grotte.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Grotteu = L.icon({iconUrl:'media/icones/grotteu.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Elecgate = L.icon({iconUrl:'media/icones/elecgate2.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Enkagate = L.icon({iconUrl:'media/icones/enkagate.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
 var Cyclejn = L.icon({iconUrl:'media/icones/cyclejn.png', iconSize:[30, 48], iconAnchor:[15, 48], popupAnchor:[0, -48]});
@@ -198,6 +199,8 @@ var Sceaupilier = L.icon({iconUrl:'media/icones/sceaupilier.png', iconSize:[34, 
 var Sceaupilieru = L.icon({iconUrl:'media/icones/sceaupilieru.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Siccite = L.icon({iconUrl:'media/icones/siccite.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Sicciteu = L.icon({iconUrl:'media/icones/sicciteu.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Ppapier = L.icon({iconUrl:'media/icones/ppapier.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Ppapieru = L.icon({iconUrl:'media/icones/ppapieru.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor:[2, 3], popupAnchor:[-3, -3]});
 
 

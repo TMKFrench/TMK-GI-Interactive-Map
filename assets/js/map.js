@@ -18,8 +18,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.1.0")) {
-            localStorage.Mapvers = "7.1.0";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.1.1")) {
+            localStorage.Mapvers = "7.1.1";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
