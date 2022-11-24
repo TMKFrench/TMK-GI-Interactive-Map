@@ -18,7 +18,8 @@ var Stele = L.icon({iconUrl:'media/icones/stele.png', iconSize:[30, 48], iconAnc
 var Peche = L.icon({iconUrl:'media/icones/peche2.png', iconSize:[48, 48], iconAnchor:[24, 48], popupAnchor:[0, -48]});
 var Succes = L.icon({iconUrl:'media/icones/succes2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
 var Quete = L.icon({iconUrl:'media/icones/quete.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
-var Pano = L.icon({iconUrl:'media/icones/pano2.png', iconSize:[30, 30], iconAnchor:[15, 15], popupAnchor:[0, -15]});
+var Pano = L.icon({iconUrl:'media/icones/pano2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Panou = L.icon({iconUrl:'media/icones/pano2u.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Anemo = L.icon({iconUrl:'media/icones/anemo2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Geocul = L.icon({iconUrl:'media/icones/geocul2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Eleccul = L.icon({iconUrl:'media/icones/eleccul2.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
@@ -201,6 +202,7 @@ var Siccite = L.icon({iconUrl:'media/icones/siccite.png', iconSize:[34, 40], ico
 var Sicciteu = L.icon({iconUrl:'media/icones/sicciteu.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Ppapier = L.icon({iconUrl:'media/icones/ppapier.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Ppapieru = L.icon({iconUrl:'media/icones/ppapieru.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Pepiniere = L.icon({iconUrl:'media/icones/pepiniere.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor:[2, 3], popupAnchor:[-3, -3]});
 
 

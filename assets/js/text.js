@@ -497,8 +497,8 @@ var langFR = {
     'pano60': '',
     'pano61': 'Port entre les deux arbres',
     'pano62': 'Frontière sous le haut mur',
-    'pano63': '',
-    'pano64': '',
+    'pano63': 'Varunastra<br><br><a style="color:red;">Accessible à la fin de la quête<br>Varuna Gatha « Pour la pluie sous la terre fertile »</a>',
+    'pano64': 'Fin des pluies<br><br><a style="color:red;">Accessible à la fin de la quête<br>Varuna Gatha « Pour la pluie sous la terre fertile »</a>',
     'pano65': '',
     'pano66': '',
     'pano67': 'La terre aride où danse le sable',
@@ -566,6 +566,7 @@ var langFR = {
     'defic': 'Ouvrez le coffre en ',
     'defip': 'Récupérez toutes les particules en ',
     'defib': 'Détruisez tous les barils en ',
+    'defibu': 'Détruisez toutes les bulles en ',
     'defis': ' secondes',
 
         // Sum22 - Briseur de vagues
@@ -610,7 +611,7 @@ var langFR = {
     'gyro29': '<b>Gyrocristal Radiant n°76</b>',
     'gyro30': '<b>Gyrocristal Radiant n°</b>',
     'gyro31': '<b>Gyrocristal Radiant n°79</b>',
-    'gyro32': '<b>Gyrocristal Radiant n°</b>',
+    'gyro32': '<b>Gyrocristal Radiant n°75</b>',
     'gyro33': '<b>Gyrocristal Radiant n°</b>',
     'gyro34': '<b>Gyrocristal Radiant n°</b>',
     'gyro35': '<b>Gyrocristal Radiant n°</b>',
@@ -667,13 +668,19 @@ var langFR = {
     'aradendro': 'Utilisez une attaque <a style="color:#A5C83B;">DENDRO</a> sur l\'aranara puis parlez-lui',
     'aralens': 'Chargez la lentille avec une attaque <a style="color:#CC80FF;">ELECTRO</a> puis cherchez l\'aranara avec celle-ci',
     'ara14': 'Donnez-lui 1 viparyas et 1 Champitoile',
+    'ara20': 'Donnez-lui 2 viparyas',
     'ara22': 'Donnez-lui 1 viparyas et 1 Pêche Zaytun',
     'ara31': 'Donnez-lui 1 viparyas et 1 Champitoile activé',
+    'ara36': 'Donnez-lui 1 viparyas et 1 Padisachidée',
     'ara40': 'Donnez-lui 1 viparyas et 1 Champignon sacramental',
     'ara42': 'Donnez-lui 1 viparyas et 1 Fruit harra',
     'ara45': 'Donnez-lui 1 viparyas et 1 Champitoile calciné',
+    'ara53': 'Donnez-lui 3 viparyas',
+    'ara59': 'Donnez-lui 1 viparyas',
     'ara66': 'Répondez 2 caisses',
+    'ara69': 'Cassez les caisses repérées',
     'ara70': 'Répondez 3',
+    'ara74': 'Choisissez la botte de foin',
     'ara76': 'Détruisez dans l\'ordre les tas de pierres puis les caisses',
 
     // Titres marqueurs spéciaux
@@ -683,6 +690,7 @@ var langFR = {
     'title003': 'Machine Saghira',
     'title004': 'Sceau de pilier en pierre',
     'title005': 'Siccité',
+    'title006': 'Pépinières sauvages',
 
     // Coffres
 
@@ -705,10 +713,10 @@ var langFR = {
     'br': '<br>',
     'nuit': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit sans fin</a><br>',
     'jour': '<a style="color:red;">IMPORTANT ! Accessible uniquement en mode Nuit Blanche</a><br>',
-    'com001': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a><br>et tuer les ennemis qui apparaissent',
-    'com002': 'Détruire les ronces avec une attaque type <a style="color:red;">FEU</a>',
+    'com001': 'Détruire les ronces avec une attaque <a style="color:red;">PYRO</a> et tuer les ennemis qui apparaissent',
+    'com002': 'Détruire les ronces avec une attaque <a style="color:red;">PYRO</a>',
     'com003': 'Tuer les ennemis pour déverrouiller le coffre',
-    'com004': 'Ramasser les 4 carottes puis<br>tuer les ennemis pour obtenir le coffre',
+    'com004': 'Ramasser les 4 carottes puis tuer les ennemis pour obtenir le coffre',
     'com005': 'Ramasser les 3 esprits du vent pour vous envoler<br>et passer par dessus le champ de force',
     'com006': 'Détruire les rochers pour accéder au coffre',
     'com007': 'Détruire le mur pour faire apparaître le coffre',
@@ -1145,7 +1153,7 @@ var langFR = {
     'com438': 'Activez les 3 piliers avec une attaque <a style="color:#A5C83B;">DENDRO</a>, utilisez les dendrogranums pour briser le rocher DENDRO et tuer tous les ennemis pour déverrouiller le coffre',
     'com439': 'Accessible en dehors du monde des rêves des aranaras',
     'com440': 'Désactivez les pierres dendros avec une attaque <a style="color:red;">PYRO</a> pour libérer l\'ennemi qu\'il faut tuer',
-    'com441': 'Trouvez les 3 clés puis désactivez la machine. Tuez les ennemis qui interrompent le processus d\'arrêt pour faire apparaître le coffre',
+    'com441': 'Trouvez les clés puis désactivez la machine. Tuez les ennemis qui interrompent le processus d\'arrêt pour faire apparaître le coffre',
     'com442': 'Tuez les ennemis pour récupérer les dendrogranums et détruire le bloc Dendro avec une attaque chargée pour faire apparaître le tas de pierre',
     'com443': 'Crevez la bulle pour faire apparaître le tas de pierre',
     'com444': 'Récupérez les dendrogranums et détruisez le bloc Dendro avec une attaque chargée pour faire apparaître le tas de pierre',
@@ -1157,7 +1165,12 @@ var langFR = {
     'com450': 'Se débloque pendant la quête Varuna Gatha - Fer en colère',
     'com451': 'Suivez le tapis de fleur jusqu\'au bout pour faire apparaître le coffre',
     'com452': 'Prenez le coffre ordinaire pour faire disparaître les lianes',
-    'com453': 'Utilisez le courant d\'air pour atteindre le dendroculus'
+    'com453': 'Utilisez le courant d\'air pour atteindre le dendroculus',
+    'com454': 'Se débloque pendant la quête Varuna Gatha - Pour la pluie sous la terre fertile',
+    'com455': 'Racourci pour débloquer le donjon Coordonnées du Soleil et de la Pluie',
+    'com456': 'Rapprochez-vous du coffre pour le déverrouiller',
+    'com457': 'Activer les totems dans l\'ordre donné avec une attaque de type <a style="color:red;">PYRO</a> pour faire apparaître le coffre',
+    'com458': '<br>Débloque l\'accès au donjon Jardin des piliers infinis'
 };
 
 var langEN = {
@@ -1659,8 +1672,8 @@ var langEN = {
     'pano60': '',
     'pano61': 'The Harbor Betwixt the Two Trees',
     'pano62': 'The Frontier Beneath the High Wall',
-    'pano63': '',
-    'pano64': '',
+    'pano63': 'Varunastra<br><br><a style="color:red;">Accessible at the end of the quest<br>Varuna Gatha « A Prayer for Rain on the Fecund Land »</a>',
+    'pano64': 'The Rain\'s End<br><br><a style="color:red;">Accessible at the end of the quest<br>Varuna Gatha « A Prayer for Rain on the Fecund Land »</a>',
     'pano65': '',
     'pano66': '',
     'pano67': 'The Barren Land Where Sand Dances',
@@ -1728,6 +1741,7 @@ var langEN = {
     'defic': 'Open the chest in ',
     'defip': 'Take all particles in ',
     'defib': 'Destroy all barrels in ',
+    'defibu': 'Destroy all bubbles in ',
     'defis': ' seconds',
 
         // Sum22 - Défis Briseur de vagues
@@ -1773,7 +1787,7 @@ var langEN = {
     'gyro29': '<b>Radiant Spincrystal n°76</b>',
     'gyro30': '<b>Radiant Spincrystal n°</b>',
     'gyro31': '<b>Radiant Spincrystal n°79</b>',
-    'gyro32': '<b>Radiant Spincrystal n°</b>',
+    'gyro32': '<b>Radiant Spincrystal n°75</b>',
     'gyro33': '<b>Radiant Spincrystal n°</b>',
     'gyro34': '<b>Radiant Spincrystal n°</b>',
     'gyro35': '<b>Radiant Spincrystal n°</b>',
@@ -1830,13 +1844,19 @@ var langEN = {
     'aradendro': 'Use a <a style="color:#A5C83B;">DENDRO</a> attack on the Aranara then talk to him',
     'aralens': 'Power up the lens with an <a style="color:#CC80FF;">ELECTRO</a> attack then use it to find the Aranara',
     'ara14': 'Give him 1 viparyas and 1 Starshroom',
+    'ara20': 'Give him 2 viparyas',
     'ara22': 'Give him 1 viparyas and 1 Zaytun Peach',
     'ara31': 'Give him 1 viparyas and 1 Vibrant Starshroom',
+    'ara36': 'Give him 1 viparyas and 1 Padisarah',
     'ara40': 'Give him 1 viparyas and 1 Rukkhashava Mushrooms',
     'ara42': 'Give him 1 viparyas and 1 Harra Fruit',
     'ara45': 'Give him 1 viparyas and 1 Scorched Starshroom',
+    'ara53': 'Give him 3 viparyas',
+    'ara59': 'Give him 1 viparyas',
     'ara66': 'Answer 2 crates',
+    'ara69': 'Break the tagged crates',
     'ara70': 'Answer 3',
+    'ara74': 'Choose the haystack',
     'ara76': 'Destroy the Rockpiles then the Crates',
 
     // Titres marqueurs spéciaux
@@ -1846,6 +1866,7 @@ var langEN = {
     'title003': 'Saghira Machine',
     'title004': 'Stone Pillar Seal',
     'title005': 'The Withering',
+    'title006': 'Nurseries in the Wilds',
     
     // Coffres
 
@@ -2308,7 +2329,7 @@ var langEN = {
     'com438': 'Activate the 3 pillars with a <a style="color:#A5C83B;">DENDRO</a> attack, use the dendrogranums to break the Dendro rock and kill all enemies to unlock the chest',
     'com439': 'Accessible outside of Aranara\'s dream world',
     'com440': 'Disable the dendro stones with a <a style="color:red;">PYRO</a> attack to release the enemy that must be killed',
-    'com441': 'Find the 3 keys to disable the Saghira machine. Kill ennemy\'s waves that stop the process to make the chest appear',
+    'com441': 'Find the keys to disable the Saghira machine. Kill ennemy\'s waves that stop the process to make the chest appear',
     'com442': 'Kill all enemies to collect the dendrogranums and destroy the Dendro rock with a charged attack, and reveal the rock pile',
     'com443': 'Burst the bubble to reveal the rock pile',
     'com444': 'Collect the dendrogranums and destroy the Dendro rock with a charged attack to reveal the rock pile',
@@ -2320,5 +2341,10 @@ var langEN = {
     'com450': 'Unlocks during the quest Varuna Gatha - Irate Iron Chunk',
     'com451': 'Follow the flower carpet to the end to make the chest appear',
     'com452': 'Take the common chest to make the vines disappear',
-    'com453': 'Use the air stream to reach the dendroculus'
+    'com453': 'Use the air stream to reach the dendroculus',
+    'com454': 'Unlocks during the quest Varuna Gatha - A Prayer for Rain on the Fecund Land',
+    'com455': 'Shortcut to unlock the Domain The Coordinates of Sun and Rain',
+    'com456': 'Get closer to the chest to unlock it',
+    'com457': 'Activate all the totems in the given order with a <a style="color:red;">PYRO</a> type attack to make the chest appear',
+    'com458': '<br>Unlock the Domain Garden of Endless Pillars'
 };

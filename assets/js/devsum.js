@@ -41,9 +41,9 @@ var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
     'ferblanc','cristal','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
-    'champsacra','champitoile','fruitharra','kalpalotus','nilotpalotus','padisachidee','pechezaytun','rosesum',
-    'viparyas','noixajilenakh','scarabee','quandong','aranara','aranara2'
-];
+    'champsacra','champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
+    'viparyas','noixajilenakh','scarabee','quandong'
+]; // ,'aranara','aranara2','kalpalotus'
 
 // Initialisation de la carte
 var map = new L.Map('devmap', {
