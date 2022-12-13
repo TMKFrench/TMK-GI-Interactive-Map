@@ -1,0 +1,96 @@
+html, body, #devmap {
+  width: 100%;
+  height: 100%;
+}
+
+#devmap {
+  cursor: pointer !important;
+  outline: 0;
+}
+
+#menu {
+  display: block;
+  height: 100%;
+  width: 320px;
+  background-color: grey;
+  padding: 0px 10px;
+  overflow-y: auto;
+}
+
+#menu > #selector {
+  padding-top: 5px;
+}
+
+#menu input[type="radio"] {
+  display: none;
+}
+
+#menu input[type="radio"] + label {
+  width: 100%;
+  height: 48px;
+  margin: 2px 0px;
+  padding: 5px 3px;
+  font-size: 1em;
+  vertical-align: middle;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  color: #4b5563;
+  background-color: #e8e2d7;
+  border: 1px solid #9ca3af;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+#menu input[type="radio"] + label img {
+  display: inline;
+  width: 32px;
+  margin: auto 2px;
+  vertical-align: middle;
+}
+
+#menu input[type="radio"] + label span {
+  display: inline-block;
+  align-items: center;
+  vertical-align: middle;
+}
+
+#menu input[type="radio"]:hover + label {
+  background-color: #9ca3af;
+  border-color: #2f3135;
+}
+
+#menu input[type="radio"]:checked + label {
+  background-color: #9ca3af;
+  border-color: #353638;
+  color: #000;
+}
+
+#title {
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+
+#map-wrap {
+  width: calc(100% - 320px);
+  background-color: #17181c;
+}
+
+#devmap {
+  background-color: #17181c;
+}
+
+.leaflet-popup {
+  width: auto;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  border-radius: 2px;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  overflow-wrap: break-word;
+  margin: 0px;
+  width: 250px;
+  text-align: center !important;
+}

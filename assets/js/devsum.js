@@ -4,7 +4,7 @@ function onMapClick(e) {
     var mid = countmarker[""+markertype] + 1;
     var x = Math.floor(txt.x);
     var y = Math.floor(txt.y);
-    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon']}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
+    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
     countmarker[""+markertype] += 1;
     userMarkers.push(uid);
     var datam = [uid, mid, markertype, x, y];
@@ -40,9 +40,9 @@ var userMarkers = [];
 var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
-    'ferblanc','cristal','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
+    'ferblanc','cristal','eclatcm','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
     'champsacra','champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
-    'viparyas','noixajilenakh','scarabee','quandong'
+    'viparyas','noixajilenakh','scarabee','quandong','anguille'
 ]; // ,'aranara','aranara2','kalpalotus'
 
 // Initialisation de la carte
