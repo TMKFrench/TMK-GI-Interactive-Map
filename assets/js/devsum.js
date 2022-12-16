@@ -44,6 +44,7 @@ var mgroup = [
     'champsacra','champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
 ]; // ,'aranara','aranara2','kalpalotus'
+var DBMarkers = L.layerGroup();
 
 // Initialisation de la carte
 var map = new L.Map('devmap', {
@@ -76,13 +77,14 @@ function initmarkers() {
         // console.table(window['list'+group]);
         if (window['list'+group]) {
             window['list'+group].forEach(function(marker) {
-                newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(map);
+                newmarker = L.marker(unproject(marker[1]), {icon : window[group+'Icon'], title: "Id: "+marker[2].mid, riseOnHover: true}).addTo(DBMarkers);
             });
             countmarker[""+group] = window['list'+group].length;
         } else {
             countmarker[""+group] = 0;
         };
     });
+    map.addLayer(DBMarkers);
     // console.table(countmarker);
 
     // Depuis la DB de dev
@@ -131,4 +133,11 @@ $(document).ready(function() {
         markertype = $(this).data('type');
     });
 
+    $('#dbmark').on('click', function () {
+        if ($(this).is(':checked')) {
+            map.removeLayer(DBMarkers);
+        } else {
+            map.addLayer(DBMarkers);
+        }
+    });
 });
