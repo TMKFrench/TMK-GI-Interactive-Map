@@ -8,8 +8,13 @@ function onMapClick(e) {
     countmarker[""+markertype] += 1;
     userMarkers.push(uid);
     var datam = [uid, mid, markertype, x, y];
-    $.post('devapi/add', {data : JSON.stringify(datam)}, function(res) {
-        console.table(datam);
+    $.post('api/dev/add', {data : datam}, function(res) {
+		if (typeof(res.ok) != "undefined")
+			console.log(res.ok)
+		else if (typeof(res.error) != "undefined")
+			alert("error "+res.error)
+		else
+			alert("unkown error")
     });
 };
 
@@ -17,12 +22,12 @@ function generateSerial(len) {
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     var string_length = len;
     var randomstring = '';
-  
+
     for (var x=0;x<string_length;x++) {
-  
+
        var rnum = Math.floor(Math.random() * chars.length);
         randomstring += chars.substring(rnum,rnum+1);
- 
+
     }
     return randomstring;
 }
@@ -89,7 +94,7 @@ function initmarkers() {
 
     // Depuis la DB de dev
 
-    $.post('devapi/import', function(res) {
+    $.get('api/dev/import', function(res) {
         res.forEach(function(marker) {
             newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, mid: marker.mid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid})
             .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
@@ -121,14 +126,18 @@ $(document).ready(function() {
         //   console.log(currentMarker.options.mid);
           countmarker[""+currentMarker.options.type] += -1;
         }
-  
-        $.post('devapi/delete', {data : currentMarker.options.uid}, function () {});
-        console.log('Retrait du marker Id :'+currentMarker.options.uid);
-  
-        map.removeLayer(currentMarker);
-  
+
+        $.post('api/dev/delete', {data : currentMarker.options.uid}, function (res) {
+			if (typeof(res.ok) != "undefined") {
+				console.log(res.ok)
+		        map.removeLayer(currentMarker);
+			} else if (typeof(res.error) != "undefined")
+				alert("error "+res.error)
+			else
+				alert("unkown error")
+		});
     });
-  
+
     $(document).on('change', 'input[type="radio"]', function() {
         markertype = $(this).data('type');
     });

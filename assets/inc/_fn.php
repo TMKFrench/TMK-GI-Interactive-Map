@@ -1,7 +1,7 @@
 <?php
 trait _fn {
     static public function nettoyage($valeur) {
-        return preg_replace('/[^a-z0-9_]+/i','',$valeur);
+        return preg_replace('/[^a-z0-9_-]+/i','',$valeur);
     }
 
     static public function dd($d,$die=true) {

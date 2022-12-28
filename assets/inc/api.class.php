@@ -8,14 +8,16 @@ class api {
 	const CONFIG = "config.ini"; // Configuration Discord et Google SSO
 
 	const TMKMAP 			= "tmkmap.db"; // Base de données des utilisateurs
+	const DEVMAP			= "devmarkers.db"; // Base de données des markers pour dev
 	const HITSFILE 			= "hits.txt"; // Statistiques d'accès
 	const MAP_TEYVAT 		= "t"; // Nom court de la map Teyvat
 	const MAP_ENKANOMIYA 	= "e"; // Nom court de la map Enkanomiya
 	const MAP_GOUFFRE 		= "go"; // Nom court de la map du Gouffre
 	const MAP_SE 			= "se"; // Nom court de la map Spécial Edition (généralement temporaire)
+	const MAP_DEV			= "dev"; // Nom court de la map dev
 
 	// Liste des menus
-	private $liste_map = [ self::MAP_TEYVAT,self::MAP_ENKANOMIYA,self::MAP_GOUFFRE // self::MAP_SE
+	private $liste_map = [ self::MAP_TEYVAT,self::MAP_ENKANOMIYA,self::MAP_GOUFFRE,self::MAP_DEV // self::MAP_SE
 	];
 
 	// Liste des markers par map
@@ -23,22 +25,25 @@ class api {
 		self::MAP_TEYVAT 		=> "teyvat", // Nom des marqueurs Teyvat
 		self::MAP_ENKANOMIYA 	=> "enka", // Nom des marqueurs enkanomiya
 		self::MAP_GOUFFRE 		=> "gouffre", // Nom des marqueurs gouffre
-		self::MAP_SE 			=> "se" // Nom des marqueurs spécial édition
+		self::MAP_SE 			=> "se", // Nom des marqueurs spécial édition
+		self::MAP_DEV			=> "dev" // Spécifique pour la map dev
 	];
 
 	private $liste_fichier_map = [
 		self::MAP_TEYVAT 		=> "index.html", // Nom du fichier pour Teyvat
 		self::MAP_ENKANOMIYA 	=> "enka.html", // Nom du fichier pour Enkanomiya
 		self::MAP_GOUFFRE 		=> "gouffre.html", // Nom du fichier pour Gouffre
-		self::MAP_SE 			=> "se.html" // Nom du fichier pour spécial édition
+		self::MAP_SE 			=> "se.html", // Nom du fichier pour spécial édition
+		self::MAP_DEV			=> "dev.html" // Nom du fichier pour la map dev
 	];
 
 	// Table chargement pour chaque map
 	private $liste_chargement = [
-		self::MAP_TEYVAT 		=> [ "menu" => "menut","btn" 	=> "btnt","region" 	=> "region","chest" => "chest","markers" 	=> "markersteyvat" ],
-		self::MAP_ENKANOMIYA 	=> [ "menu" => "menue","btn" 	=> "btne","region" 	=> "","chest" 		=> "","markers" 		=> "markersenka" ],
-		self::MAP_GOUFFRE 		=> [ "menu" => "menugo","btn" 	=> "btngo","region" => "","chest" 		=> "","markers" 		=> "markersgouffre" ],
-		self::MAP_SE 			=> [ "menu" => "menuse","btn" 	=> "btnse","region" => "","chest" 		=> "","markers" 		=> "markersse" ]
+		self::MAP_TEYVAT 		=> [ "menu" => "menut"	,"btn" 	=> "btnt"	,"region" => "region"	,"chest" => "chest","markers" => "markersteyvat" ],
+		self::MAP_ENKANOMIYA 	=> [ "menu" => "menue"	,"btn" 	=> "btne"	,"region" => ""			,"chest" => "",		"markers" => "markersenka" ],
+		self::MAP_GOUFFRE 		=> [ "menu" => "menugo"	,"btn" 	=> "btngo"	,"region" => ""			,"chest" => "",		"markers" => "markersgouffre" ],
+		self::MAP_SE 			=> [ "menu" => "menuse"	,"btn" 	=> "btnse"	,"region" => ""			,"chest" => "",		"markers" => "markersse" ],
+		self::MAP_DEV			=> [ "mneu" => ""		,"btn"	=> ""		,"region" => ""			,"chest" => "",		"markers" => ""]
 	];
 
 	private $method; // Méthode employée (GET ou POST)
@@ -50,6 +55,7 @@ class api {
 	private $map; // Map détectée
 	private $action; // Action à faire
 	private $id; // Identifiant de l'objet à traiter
+	private $data; // Données postées (pour map dev)
 
 	private $discord; // Classe discord
 	private $google; // Classe google
@@ -63,23 +69,30 @@ class api {
 		$this->method = $_SERVER ['REQUEST_METHOD'];
 		$this->path_info = isset ( $_SERVER ['ORIG_PATH_INFO'] ) ? $_SERVER ['ORIG_PATH_INFO'] : $_SERVER ['PATH_INFO'];
 		$this->root =  $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['HTTP_HOST'] . str_replace ( 'api.php', '', $_SERVER ['SCRIPT_NAME'] );
-		$this->db = new SQLite3Database ( self::TMKMAP );
-		if (! $this->db) {
-			throw new Exception ( "Impossible d'initialiser la base de donnees" );
-			die ();
-		}
 		if (in_array ( $this->method, [ "get","post" ] )) {
 			throw new Exception ( "Method not allowed" );
 		}
 		$init = $this->init();
 		if ($init === true) {
-			$this->discord = new discord_api($this->root,$this->map);
-			if (!is_object($this->discord)) {
-				throw new Exception ( "Discord API not ready" );
+			switch ($this->map) {
+				case self::MAP_DEV:
+					$this->db = new SQLite3Database ( self::DEVMAP );
+				break;
+				default:
+					$this->db = new SQLite3Database ( self::TMKMAP );
+					$this->discord = new discord_api($this->root,$this->map);
+					if (!is_object($this->discord)) {
+						throw new Exception ( "Discord API not ready" );
+					}
+					$this->google = new google_api($this->root,$this->map);
+					if (!is_object($this->google)) {
+						throw new Exception ( "Google API not ready" );
+					}
+				break;
 			}
-			$this->google = new google_api($this->root,$this->map);
-			if (!is_object($this->google)) {
-				throw new Exception ( "Google API not ready" );
+			if (! $this->db) {
+				throw new Exception ( "Impossible d'initialiser la base de donnees" );
+				die ();
 			}
 		} else {
 			throw new Exception("Initialisation error : ".$init);
@@ -105,6 +118,9 @@ class api {
 					return " (no action)";
 				}
 				$this->id = self::sanitize ( self::nettoyage ( array_shift ( $this->request ) ) );
+				if (isset($_POST["data"])) {
+					$this->data = (is_array($_POST["data"]))?array_map(fn($v) => self::sanitize(self::nettoyage($v)),$_POST["data"]):self::sanitize(self::nettoyage($_POST["data"]));
+				}
 				return true;
 			} else {
 				return " (wrong request form)";
@@ -141,6 +157,27 @@ class api {
 			 */
 			case "test" :
 				die ( "test ok" );
+			break;
+
+			/**
+			 * Permet de récupérer les markers en base de données et de les envoyer
+			 */
+			case "import" :
+				$map = [];
+				$markers = $this->db->get_rows('SELECT * FROM dev_markers');
+				foreach($markers as $m =>$marker) {
+					$map[$m] = [
+						'uid' => $marker->uid,
+						'mid' => $marker->mid,
+						'mgroup' => $marker->mgroup,
+						'x' => $marker->x,
+						'y' => $marker->y,
+					];
+					// if(isset($marker->under)) {
+					//     $map[$m] = ['under' => $marker->under];
+					// };
+				}
+				$this->response($map);
 			break;
 
 			/**
@@ -281,6 +318,36 @@ class api {
 	 */
 	private function processPost() {
 		switch ($this->action) {
+
+			/**
+			 * Ajout d'un marker en base pour la map dev
+			 */
+			case "add":
+				if ($this->map == self::MAP_DEV && !empty($this->data) && is_array($this->data)) {
+					$this->db->insert('dev_markers', [
+						'uid' 		=> $this->data[0],
+						'mid' 		=> $this->data[1],
+						'mgroup'	=> $this->data[2],
+						'x' 		=> $this->data[3],
+						'y' 		=> $this->data[4]
+					]);
+					$this->response(["ok" => "marker ".$this->data['uid']." ajouté"]);
+				} else {
+					$this->responseError("Wrong map");
+				}
+			break;
+
+			/**
+			 * Suppression d'un marker en base pour la map dev
+			 */
+			case "delete":
+				if ($this->map == self::MAP_DEV && !empty($this->data)) {
+					$this->db->delete('dev_markers', ['uid' => $this->data]);
+					$this->response(["ok" => "marker ".$this->data." effacé"]);
+				} else {
+					$this->responseError("Wrong map");
+				}
+			break;
 
 			/**
 			 * Ajout du menu en base pour l'utilisateur
