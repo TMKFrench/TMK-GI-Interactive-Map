@@ -4,7 +4,7 @@ function onMapClick(e) {
     var mid = countmarker[""+markertype] + 1;
     var x = Math.floor(txt.x);
     var y = Math.floor(txt.y);
-    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
+    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><span class="under-point py-2 px-4 text-xs w-full text-center"><input type="checkbox">Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
     countmarker[""+markertype] += 1;
     userMarkers.push(uid);
     var datam = [uid, mid, markertype, x, y];
@@ -96,8 +96,8 @@ function initmarkers() {
 
     $.get('api/dev/import', function(res) {
         res.forEach(function(marker) {
-            newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, mid: marker.mid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid})
-            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
+            newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, mid: marker.mid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid, under: marker.under})
+            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox" '+((marker.under)?"checked='checked'":"")+'>Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
             .on('click', updateCurrentMarker).addTo(map);
             userMarkers.push(marker.uid);
             countmarker[""+marker.mgroup] += 1;
@@ -137,6 +137,18 @@ $(document).ready(function() {
 				alert("unkown error")
 		});
     });
+
+    $(document).on('click', 'input.under-point',function() {
+		$.post('api/dev/under',{data : [currentMarker.options.uid, currentMarker.options.under]}, function (res) {
+			if (typeof(res.ok) != "undefined") {
+				console.log(res.ok)
+				currentMarker.options.under = (currentMarker.options.under)?false:true;
+			} else if (typeof(res.error) != "undefined")
+				alert("error "+res.error)
+			else
+				alert("unkown error")
+		});
+	});
 
     $(document).on('change', 'input[type="radio"]', function() {
         markertype = $(this).data('type');

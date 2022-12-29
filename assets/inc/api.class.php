@@ -167,15 +167,13 @@ class api {
 				$markers = $this->db->get_rows('SELECT * FROM dev_markers');
 				foreach($markers as $m =>$marker) {
 					$map[$m] = [
-						'uid' => $marker->uid,
-						'mid' => $marker->mid,
-						'mgroup' => $marker->mgroup,
-						'x' => $marker->x,
-						'y' => $marker->y,
+						'uid' 	=> $marker->uid,
+						'mid' 	=> $marker->mid,
+						'mgroup'=> $marker->mgroup,
+						'x' 	=> $marker->x,
+						'y' 	=> $marker->y,
+						'under' => (property_exists($marker,"under")?(($marker->under == "o")?true:false):false)
 					];
-					// if(isset($marker->under)) {
-					//     $map[$m] = ['under' => $marker->under];
-					// };
 				}
 				$this->response($map);
 			break;
@@ -329,7 +327,8 @@ class api {
 						'mid' 		=> $this->data[1],
 						'mgroup'	=> $this->data[2],
 						'x' 		=> $this->data[3],
-						'y' 		=> $this->data[4]
+						'y' 		=> $this->data[4],
+						'under'		=> 'n'
 					]);
 					$this->response(["ok" => "marker ".$this->data['uid']." ajouté"]);
 				} else {
@@ -344,6 +343,19 @@ class api {
 				if ($this->map == self::MAP_DEV && !empty($this->data)) {
 					$this->db->delete('dev_markers', ['uid' => $this->data]);
 					$this->response(["ok" => "marker ".$this->data." effacé"]);
+				} else {
+					$this->responseError("Wrong map");
+				}
+			break;
+
+			case "under":
+				if ($this->map == self::MAP_DEV && !empty($this->data)) {
+					if ($this->data[0]) {
+						$this->db->update('dev_markers',["under" => (($this->data[1] == "true")?"n":"o")],["uid" => $this->data[0]]);
+						$this->response(["ok" => "under changé"]);
+					} else {
+						$this->responseError("No Uid");
+					}
 				} else {
 					$this->responseError("Wrong map");
 				}
