@@ -4,10 +4,11 @@ function onMapClick(e) {
     var mid = countmarker[""+markertype] + 1;
     var x = Math.floor(txt.x);
     var y = Math.floor(txt.y);
-    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><span class="under-point py-2 px-4 text-xs w-full text-center"><input type="checkbox">Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
+    var under = false;
+    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid, under: under}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox">Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
     countmarker[""+markertype] += 1;
     userMarkers.push(uid);
-    var datam = [uid, mid, markertype, x, y];
+    var datam = [uid, mid, markertype, x, y, under];
     $.post('api/dev/add', {data : datam}, function(res) {
 		if (typeof(res.ok) != "undefined")
 			console.log(res.ok)

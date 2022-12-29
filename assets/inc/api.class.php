@@ -330,7 +330,7 @@ class api {
 						'y' 		=> $this->data[4],
 						'under'		=> 'n'
 					]);
-					$this->response(["ok" => "marker ".$this->data['uid']." ajouté"]);
+					$this->response(["ok" => "marker ".$this->data[0]." ajouté"]);
 				} else {
 					$this->responseError("Wrong map");
 				}
@@ -348,6 +348,9 @@ class api {
 				}
 			break;
 
+			/**
+			 * Changement de l'état "under" d'un marker
+			 */
 			case "under":
 				if ($this->map == self::MAP_DEV && !empty($this->data)) {
 					if ($this->data[0]) {
