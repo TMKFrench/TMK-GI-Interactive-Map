@@ -400,6 +400,12 @@ a:-any-link {
   height: 20px;
 }
 
+#title2 {
+  font-size: medium;
+  text-align: center;
+  padding-top: 5px;
+}
+
 body #menu {
   display: none;
   width: 320px;

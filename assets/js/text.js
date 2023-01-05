@@ -1232,6 +1232,7 @@ var langFR = {
     'com500': 'Vous pourrez obtenir ce coffre après avoir déterrer celui montrer dans l\'encart',
     'com501': 'Ramenez les 3 fées environnantes pour déverrouiller le coffre',
     'com502': 'Activez les 7 marques des Bois d\'Apam pour faire apparaître le coffre',
+    'com503': 'Accessible pendant la quête Soutra d\'Agnihotra - Le chapitre final<br>',
 };
 
 var langEN = {
@@ -2465,4 +2466,5 @@ var langEN = {
     'com500': 'You can get this chest after digging up the one shown in the insert',
     'com501': 'Bring back the 3 surrounding seelies to unlock the chest',
     'com502': 'Activate the 7 tags of Apam Woods to make the chest appear',
+    'com503': 'Unlocks during the quest Agnihotra Sutra - The Final Chapter<br>',
 };

@@ -17,6 +17,12 @@
         currentMarker = this;
     }
 
+    function clearGroup() {
+        teyvatarray.forEach(function(e){
+            window[e+'Group'].clearLayers();
+        });        
+    }
+
     function checkinfo(e) {
         if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.1.1")) {
             localStorage.Mapvers = "7.1.1";
@@ -83,8 +89,13 @@
                     alert('Vous avez été déconnecté. La page va se rafraîchir.');
                     window.location.reload();
                 };
+
+                if (hideMarkers) {
+                    currentMarker.setOpacity(0);
+                } else {
+                    currentMarker.setOpacity(0.35);
+                };
     
-                currentMarker.setOpacity(.35);
                 userMarkers = res.markers;
             });
         } else {
@@ -108,7 +119,11 @@
           if(markers.indexOf(idm) < 0) {
             markers.push(idm);
           }
-          currentMarker.setOpacity(.35);
+          if (hideMarkers) {
+            currentMarker.setOpacity(0);
+        } else {
+            currentMarker.setOpacity(0.35);
+        };
         } else {
           if(markers.indexOf(idm) >= 0) {
             markers.splice(markers.indexOf(idm), 1);
@@ -235,6 +250,7 @@ var currentMarker;
 var userMarkers = getUserMarkers();
 var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
+var hideMarkers = false;
 var teyvatarray = [
     'musiquesonne','feteenivre','contrecoup',
     'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre','aranara',
@@ -308,6 +324,7 @@ BoutonMenu.addTo(mymap);
     // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
 
 function initMarkers () {
+    nbtmark = 0
     // loadmarker(listmusiquesonne,"Panierabondance","musiquesonne",langue.cat147,"musiquesonne");
     // loadmarker(listfeteenivre,"Panierabondance","feteenivre",langue.cat148,"feteenivre");
     // loadmarker(listcontrecoup,"Panierabondance","contrecoup",langue.cat149,"contrecoup");
@@ -525,7 +542,12 @@ function initMarkers () {
             };
 
             if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
-                curmarker.setOpacity(0.35);
+                if (hideMarkers) {
+                    curmarker.setOpacity(0);
+                } else {
+                    curmarker.setOpacity(0.35);
+                };
+
                 if(userMarkers.indexOf(minfo.id) < 0) {
                     userMarkers.push(minfo.id);
                     olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
@@ -780,6 +802,13 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
+        if ($(this).hasClass('hideswitch')) {
+            hideMarkers = ($(this).is(':checked')) ? true : false;
+            clearGroup();
+            initMarkers();
+            return;
+        };
+        
         var cbxid = $(this).data('cbxid');
 
         if ($(this).is(':checked')) {
