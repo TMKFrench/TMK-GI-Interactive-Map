@@ -328,7 +328,7 @@ class api {
 						'mgroup'	=> $this->data[2],
 						'x' 		=> $this->data[3],
 						'y' 		=> $this->data[4],
-						'under'		=> 'n'
+						'under'		=> null
 					]);
 					$this->response(["ok" => "marker ".$this->data[0]." ajouté"]);
 				} else {
@@ -354,7 +354,7 @@ class api {
 			case "under":
 				if ($this->map == self::MAP_DEV && !empty($this->data)) {
 					if ($this->data[0]) {
-						$this->db->update('dev_markers',["under" => (($this->data[1] == "true")?"n":"o")],["uid" => $this->data[0]]);
+						$this->db->update('dev_markers',["under" => (($this->data[1] == "true")?null:"true")],["uid" => $this->data[0]]);
 						$this->response(["ok" => "under changé"]);
 					} else {
 						$this->responseError("No Uid");
