@@ -17,6 +17,12 @@ function onMarkerClick(e) {
     currentMarker = this;
 }
 
+function clearGroup() {
+    teyvatarray.forEach(function(e){
+        window[e+'Group'].clearLayers();
+    });        
+}
+
 function checkinfo(e) {
     if (!localStorage.getItem('Mapversgouffre') || !(localStorage.Mapversgouffre === "2.0.0")) {
         localStorage.Mapversgouffre = "2.0.0";
@@ -84,7 +90,12 @@ function saveDBUserMarkers(idm, checked) {
                 window.location.reload();
             };
 
-            currentMarker.setOpacity(.35);
+            if (hideMarkers) {
+                currentMarker.setOpacity(0);
+            } else {
+                currentMarker.setOpacity(0.35);
+            };
+    
             userMarkers = res.markers;
         });
     } else {
@@ -105,16 +116,21 @@ function saveLocalUserMarkers(idm, checked) {
     var markers = getUserMarkers();
 
     if(checked) {
-      if(markers.indexOf(idm) < 0) {
-        markers.push(idm);
-      }
-      currentMarker.setOpacity(.35);
+        if(markers.indexOf(idm) < 0) {
+            markers.push(idm);
+        };
+
+        if (hideMarkers) {
+            currentMarker.setOpacity(0);
+        } else {
+            currentMarker.setOpacity(0.35);
+        };
     } else {
-      if(markers.indexOf(idm) >= 0) {
-        markers.splice(markers.indexOf(idm), 1);
-      }
-      currentMarker.setOpacity(1);
-    }
+        if(markers.indexOf(idm) >= 0) {
+            markers.splice(markers.indexOf(idm), 1);
+        };
+        currentMarker.setOpacity(1);
+    };
 
     localStorage.setItem('userMarkersGouffre', JSON.stringify(markers));
     userMarkers = JSON.stringify(markers);
@@ -224,6 +240,7 @@ var mymap;
 var userMarkers = getUserMarkers();
 var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
+var hideMarkers = false;
 var listatut = [];
 var btnstatut = [];
 var teyvatarray = [
@@ -392,7 +409,12 @@ function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
         };
 
         if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
-            curmarker.setOpacity(0.35);
+            if (hideMarkers) {
+                curmarker.setOpacity(0);
+            } else {
+                curmarker.setOpacity(0.35);
+            };
+
             if(userMarkers.indexOf(minfo.id) < 0) {
                 userMarkers.push(minfo.id);
                 olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
@@ -579,6 +601,13 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
+        if ($(this).hasClass('hideswitch')) {
+            hideMarkers = ($(this).is(':checked')) ? true : false;
+            clearGroup();
+            initMarkers();
+            return;
+        };
+        
         var cbxid = $(this).data('cbxid');
 
         if ($(this).is(':checked')) {

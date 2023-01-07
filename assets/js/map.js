@@ -116,20 +116,21 @@
         var markers = getUserMarkers();
     
         if(checked) {
-          if(markers.indexOf(idm) < 0) {
-            markers.push(idm);
-          }
-          if (hideMarkers) {
-            currentMarker.setOpacity(0);
+            if(markers.indexOf(idm) < 0) {
+                markers.push(idm);
+            };
+
+            if (hideMarkers) {
+                currentMarker.setOpacity(0);
+            } else {
+                currentMarker.setOpacity(0.35);
+            };
         } else {
-            currentMarker.setOpacity(0.35);
+            if(markers.indexOf(idm) >= 0) {
+                markers.splice(markers.indexOf(idm), 1);
+            };
+            currentMarker.setOpacity(1);
         };
-        } else {
-          if(markers.indexOf(idm) >= 0) {
-            markers.splice(markers.indexOf(idm), 1);
-          }
-          currentMarker.setOpacity(1);
-        }
     
         localStorage.setItem('userMarkersTeyvat', JSON.stringify(markers));
         userMarkers = JSON.stringify(markers); //??? pkoi ?
