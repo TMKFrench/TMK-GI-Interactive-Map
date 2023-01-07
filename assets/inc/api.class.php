@@ -172,7 +172,7 @@ class api {
 						'mgroup'=> $marker->mgroup,
 						'x' 	=> $marker->x,
 						'y' 	=> $marker->y,
-						'under' => (property_exists($marker,"under")?(($marker->under == "o")?true:false):false)
+						'under' => (property_exists($marker,"under")?(($marker->under == "true")?true:false):false)
 					];
 				}
 				$this->response($map);
