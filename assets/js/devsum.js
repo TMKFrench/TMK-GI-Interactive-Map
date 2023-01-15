@@ -5,7 +5,7 @@ function onMapClick(e) {
     var x = Math.floor(txt.x);
     var y = Math.floor(txt.y);
     var under = false;
-    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid, under: under}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox" id="devbox" data-cbxid="'+uid+'" /> Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
+    L.marker([e.latlng.lat, e.latlng.lng], {uid: uid, type: markertype, icon: window[markertype+'Icon'], title: "Id: "+uid, under: under}).bindPopup('<input type="text" value="['+x+','+y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+uid+' MID : '+mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox" id="devbox'+uid+'" data-cbxid="'+uid+'" /> Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350}).on('click', updateCurrentMarker).addTo(map);
     countmarker[""+markertype] += 1;
     userMarkers.push(uid);
     var datam = [uid, mid, markertype, x, y, under];
@@ -42,13 +42,9 @@ function updateCurrentMarker() {
 }
 
 function popUpOpen(e) {
-    var content = e.popup.getContent();
-
-    if($(content).find('input#devbox').length > 0) {
-      if(underMarkers.indexOf( $(content).find('input#devbox').first().data('cbxid') ) >= 0) {
-        $('input#devbox[data-cbxid="'+$(content).find('input#devbox').first().data('cbxid')+'"]').prop('checked', 'checked');
-      }
-    }
+    let uid = e.popup._source.options.uid
+    let checkbox = $("#devbox"+uid)
+    if ((checkbox) && (e.popup._source.options.under)) checkbox.prop('checked', 'checked')
 }
 
 var currentMarker;
@@ -61,7 +57,6 @@ var mgroup = [
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
 ]; // ,'aranara','aranara2','kalpalotus'
 var DBMarkers = L.layerGroup();
-var underMarkers = [];
 
 // Initialisation de la carte
 var map = new L.Map('devmap', {
@@ -110,14 +105,12 @@ function initmarkers() {
         res.forEach(function(marker) {
 			// console.log(marker.under)
             newmarker = L.marker(unproject([marker.x, marker.y]), {uid: marker.uid, mid: marker.mid, icon: window[marker.mgroup+'Icon'], title: "Id: "+marker.uid, under: marker.under})
-            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox" id="devbox" data-cbxid="'+marker.uid+'" /> Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
+            .bindPopup('<input type="text" value="['+marker.x+','+marker.y+']" class="py-2 px-4 border rounded text-xs w-full text-center" onclick="select()" /><br><span class="py-2 px-4 text-xs w-full text-center"> UID : '+marker.uid+' MID : '+marker.mid+'</span><br><span class="py-2 px-4 text-xs w-full text-center"><input class="under-point" type="checkbox" id="devbox'+marker.uid+'" data-cbxid="'+marker.uid+'" /> Under</span><br /><a class="delete-point underline mt-2 font-bold inline-block" style="color:red!important;" href="#!">Supprimer</a>', {maxHeight : 350, minWidth : 350})
             .on('click', updateCurrentMarker).addTo(map);
             userMarkers.push(marker.uid);
-            if (marker.under) {
-                underMarkers.push(marker.uid);
-            }
             countmarker[""+marker.mgroup] += 1;
             console.log("groupe : "+marker.mgroup+", Nombre : "+countmarker[""+marker.mgroup]);
+            if (marker.under) newmarker._icon.style.filter = "drop-shadow(0 0 7px red)";
         });
     });
     // Object.keys(countmarker).forEach(function(key) {
@@ -160,12 +153,7 @@ $(document).ready(function() {
 			if (typeof(res.ok) != "undefined") {
 				console.log(res.ok)
 				currentMarker.options.under = (currentMarker.options.under)?false:true;
-                if (currentMarker.options.under) {
-                    if (underMarkers.indexOf(currentMarker.options.uid) <0) {underMarkers.push(currentMarker.options.uid)};
-                } else {
-                    underMarkers.splice(underMarkers.indexOf(currentMarker.options.uid), 1);
-                }
-				// console.log(currentMarker.getElement());
+				currentMarker._icon.style.filter = (currentMarker.options.under)?"drop-shadow(0 0 7px red)":"none"
 			} else if (typeof(res.error) != "undefined")
 				alert("error "+res.error)
 			else
