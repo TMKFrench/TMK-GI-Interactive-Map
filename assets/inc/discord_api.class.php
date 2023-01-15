@@ -73,9 +73,11 @@ class discord_api {
 	}
 
 	private function discordApiRequest($url, $post=false, $headers=array()) {
-		$verbose = fopen('php://temp', 'rw+');
+		$verbose = fopen('php://temp', 'w+');
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_VERBOSE, true);
 		curl_setopt($ch, CURLOPT_STDERR , $verbose);
@@ -87,17 +89,19 @@ class discord_api {
 		if (isset($_SESSION['discord_token']) && !empty($_SESSION["discord_token"])) $headers[] = 'Authorization: Bearer ' . $_SESSION['discord_token'];
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		$response = curl_exec($ch);
-		fclose($verbose);
 		if (empty($response)) {
 			rewind($verbose);
 			$fh = fopen("logs/".uniqid("log-curl-discord").".log", "w");
 			if ($fh) {
-				fwrite($fh, $verbose);
+				$content = stream_get_contents($verbose);
+				fwrite($fh, $content );
 				unset($verbose);
 				fclose($fh);
 			}
+			if ($verbose) fclose($verbose);
 			throw new Exception(curl_error($ch));
 		}
+		if ($verbose) fclose($verbose);
 		$retour = json_decode($response);
 		if (json_last_error() == JSON_ERROR_NONE) {
 			return $retour;
