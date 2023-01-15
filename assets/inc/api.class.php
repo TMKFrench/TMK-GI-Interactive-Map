@@ -189,7 +189,8 @@ class api {
 						$this->responseError ( "Map non valide" );
 					}
 				} else {
-					$this->responseError("Déjà connecté");
+					header ( 'Location: ' . $this->root );
+					die();
 				}
 			break;
 
@@ -204,7 +205,8 @@ class api {
 						$this->responseError ( "Map non valide" );
 					}
 				} else {
-					$this->responseError("Déjà connecté");
+					header ( 'Location: ' . $this->root );
+					die();
 				}
 			break;
 
