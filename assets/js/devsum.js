@@ -52,6 +52,7 @@ var userMarkers = [];
 var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
+    'statue','teleport','dendrocul','cdefis','cfees','panos','sanctus',
     'ferblanc','cristal','eclatcm','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
     'champsacra','champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
@@ -65,14 +66,14 @@ var map = new L.Map('devmap', {
     zoomControl: false
 });
 
-L.tileLayer('media/tilesteyvat31/{z}/{x}/{y}.png', {
+L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
     noWrap: true,
-    errorTileUrl : 'media/tilesteyvat31/empty.png'
+    errorTileUrl : 'media/tilesteyvat34/empty.png'
 }).addTo(map);
 
 // map.zoomControl.setPosition('topright');
@@ -110,7 +111,7 @@ function initmarkers() {
             userMarkers.push(marker.uid);
             countmarker[""+marker.mgroup] += 1;
             console.log("groupe : "+marker.mgroup+", Nombre : "+countmarker[""+marker.mgroup]);
-            if (marker.under) newmarker._icon.style.filter = "drop-shadow(0 0 7px red)";
+            if (marker.under) newmarker._icon.style.filter = "drop-shadow(0 0 5px red)";
         });
     });
     // Object.keys(countmarker).forEach(function(key) {
@@ -153,7 +154,7 @@ $(document).ready(function() {
 			if (typeof(res.ok) != "undefined") {
 				console.log(res.ok)
 				currentMarker.options.under = (currentMarker.options.under)?false:true;
-				currentMarker._icon.style.filter = (currentMarker.options.under)?"drop-shadow(0 0 7px red)":"none"
+				currentMarker._icon.style.filter = (currentMarker.options.under)?"drop-shadow(0 0 5px red)":"none"
 			} else if (typeof(res.error) != "undefined")
 				alert("error "+res.error)
 			else
