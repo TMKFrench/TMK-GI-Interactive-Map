@@ -252,6 +252,7 @@ var userMarkers = getUserMarkers();
 var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
 var hideMarkers = false;
+var underGround = false;
 var teyvatarray = [
     'musiquesonne','feteenivre','contrecoup',
     'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre','aranara',
@@ -278,7 +279,7 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-L.tileLayer('media/tilesteyvat31/{z}/{x}/{y}.png', {
+L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
@@ -554,6 +555,9 @@ function initMarkers () {
                     olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
                 }
             }
+
+            if (underGround && (grp !=="grotte") && !(minfo.under)) 
+            curmarker.setOpacity(0);
             
             curmarker.addTo(lgrp);
 
@@ -803,10 +807,28 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
-        if ($(this).hasClass('hideswitch')) {
-            hideMarkers = ($(this).is(':checked')) ? true : false;
-            clearGroup();
-            initMarkers();
+        if ($(this).hasClass('option')) {
+            switch ($(this).data('option')) {
+                case "hideswitch":
+                    hideMarkers = ($(this).is(':checked')) ? true : false;
+                    clearGroup();
+                    initMarkers();
+                    break;
+
+                case "underground":
+                    underGround = ($(this).is(':checked')) ? true : false;
+                    if (underGround) {
+                        $('.leaflet-layer').css("opacity", 0.35);
+                    } else {
+                        $('.leaflet-layer').css("opacity", 1);
+                    }
+                    clearGroup();
+                    initMarkers();
+                    break;
+                    
+                default:
+                    break;
+            }
             return;
         };
         

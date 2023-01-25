@@ -12,6 +12,7 @@
 media/*.jpg
 media/*.gif
 media/tilesteyvat31/
+media/tilesteyvat34/
 media/tilesgouffre/
 media/tilesenka/
 nextstage.png
@@ -27,6 +28,7 @@ verif.php
 lbm/
 .hintrc
 indexold.html
+devmarkers.db
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
