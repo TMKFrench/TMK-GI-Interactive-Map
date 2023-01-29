@@ -24,8 +24,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.1.1")) {
-            localStorage.Mapvers = "7.1.1";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.2.0")) {
+            localStorage.Mapvers = "7.2.0";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -279,14 +279,29 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
+teyvatMap = L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
-    noWrap: true
-}).addTo(mymap);
+    noWrap: true,
+});
+teyvatMap.addTo(mymap);
+
+// Overlays Undergrounds
+
+var overlaysBounds = [[[11112,11996],[11812,12572]],[[11252,12616],[11637,13171]],[[11853,12823],[12293,13307]],[[12054,13421],[12311,13582]],[[10270,12781],[10801, 13642]],
+[[11633,13715],[12000,14377]],[[11513,14328],[11983,14855]],[[11819,15394],[12363,16060]],[[12398,15869],[12702,16089]],[[11632,16261],[12319,16900]],[[11170,15546],[11654,15785]],
+[[10435,15675],[10988,16193]],[[10775,16184],[11498,16774]],[[9450,13662],[10031,14150]],[[9653,14815],[10246,15276]],[[9374,14533],[10132,15213]],[[8376,13378],[8743,13993]],
+[[8429,13886],[8704,14251]],[[8214,14378],[8993,14968]],[[8588,15440],[9287,15940]],[[8964,16692],[9664,16994]],[[9585,16736],[10090,17207]],[[6415,13520],[7315,14010]],
+[[4852,13443],[5469,14123]],[[5095,13758],[5985,14465]],[[6048,14768],[6773,15446]],[[5488,14413],[6152,15309]],[[6741,14517],[7669,15601]],[[4208,14543],[5118,15378]],
+[[4886,15375],[5790,16088]],[[5481,16033],[5788,16257]],[[4349,17190],[6058,18917]],[[4571,16317],[5457,17287]],[[4310,17108],[4708,18217]],[[5065,17878],[5523,18716]],
+[[4480,18130],[5338,19048]],[[4347,18573],[4620,19158]],[[5226,19175],[5774,19348]],[[6522,19181],[7030,19855]],[[6995,19115],[7540,19871]],[[6970,17393],[8020,18380]],[[8158,17857],[8558,18346]]];
+
+for (let i=1; i<= overlaysBounds.length; i++) {
+    window['sumeruUnderground'+i] = L.imageOverlay('media/overlays/sumeru'+i+'.png', L.latLngBounds([unproject(overlaysBounds[i-1][0])], [unproject(overlaysBounds[i-1][1])]),{opacity:0}).addTo(mymap);
+};
 
 mymap.zoomControl.setPosition('topright')
 mymap.setMaxBounds(new L.latLngBounds(unproject([2048,4096]), unproject([28672,28672])));
@@ -818,9 +833,15 @@ $(document).ready(function() {
                 case "underground":
                     underGround = ($(this).is(':checked')) ? true : false;
                     if (underGround) {
-                        $('.leaflet-layer').css("opacity", 0.35);
+                        teyvatMap.setOpacity(0.35);
+                        for (let i=1; i<= overlaysBounds.length; i++) {
+                            window['sumeruUnderground'+i].setOpacity(1); 
+                        };
                     } else {
-                        $('.leaflet-layer').css("opacity", 1);
+                        teyvatMap.setOpacity(1);
+                        for (let i=1; i<= overlaysBounds.length; i++) {
+                            window['sumeruUnderground'+i].setOpacity(0);
+                        };
                     }
                     clearGroup();
                     initMarkers();
@@ -838,15 +859,15 @@ $(document).ready(function() {
             $('#cbxtxt'+cbxid).html(langue['ui-found']);
         } else {
             $('#cbxtxt'+cbxid).html(langue['ui-tofind']);
-        }
+        };
     
         if(userLocal) {
           saveLocalUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
         } else {
           saveDBUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
-        }
+        };
   
-      });
+    });
 
     $(window).resize(function() {
         var heightmenu = window.innerHeight - $("#topmenu" + lgmenu).outerHeight(true);

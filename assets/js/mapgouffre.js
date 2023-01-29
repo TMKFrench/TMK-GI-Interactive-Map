@@ -601,10 +601,17 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
-        if ($(this).hasClass('hideswitch')) {
-            hideMarkers = ($(this).is(':checked')) ? true : false;
-            clearGroup();
-            initMarkers();
+        if ($(this).hasClass('option')) {
+            switch ($(this).data('option')) {
+                case "hideswitch":
+                    hideMarkers = ($(this).is(':checked')) ? true : false;
+                    clearGroup();
+                    initMarkers();
+                    break;
+
+                default:
+                    break;
+            }
             return;
         };
         
