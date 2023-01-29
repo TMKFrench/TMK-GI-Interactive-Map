@@ -411,7 +411,12 @@ function initMarkers () {
             };
 
             if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
-                curmarker.setOpacity(0.35);
+                if (hideMarkers) {
+                    curmarker.setOpacity(0);
+                } else {
+                    curmarker.setOpacity(0.35);
+                };
+
                 if(userMarkers.indexOf(minfo.id) < 0) {
                     userMarkers.push(minfo.id);
                     olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
@@ -598,10 +603,17 @@ $(document).ready(function() {
 
     $(document).on('change', 'input[type="checkbox"]', function() {
 
-        if ($(this).hasClass('hideswitch')) {
-            hideMarkers = ($(this).is(':checked')) ? true : false;
-            clearGroup();
-            initMarkers();
+        if ($(this).hasClass('option')) {
+            switch ($(this).data('option')) {
+                case "hideswitch":
+                    hideMarkers = ($(this).is(':checked')) ? true : false;
+                    clearGroup();
+                    initMarkers();
+                    break;
+
+                default:
+                    break;
+            }
             return;
         };
         
