@@ -12,7 +12,7 @@
 class MyPDO extends PDO {
     private $queryString;
 
-    public function query(string $query, ?int $fetchMode = null, mixed ...$fetchModeArgs) {
+    public function query(/* ... */) {
         $args = func_get_args();
         $this->queryString = func_get_arg(0);
 
