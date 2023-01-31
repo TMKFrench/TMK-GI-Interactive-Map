@@ -91,7 +91,7 @@
                 };
 
                 if (hideMarkers) {
-                    currentMarker.setOpacity(0);
+                    currentMarker.setIcon(Null);
                 } else {
                     currentMarker.setOpacity(0.35);
                 };
@@ -121,7 +121,7 @@
             };
 
             if (hideMarkers) {
-                currentMarker.setOpacity(0);
+                currentMarker.setIcon(Null);
             } else {
                 currentMarker.setOpacity(0.35);
             };
@@ -152,7 +152,7 @@
         var content = e.popup.getContent();
         
         if($(content).find('input#mapbox').length > 0) {
-          if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('cbxid') ) >= 0) {
+          if(userMarkers.indexOf( ""+$(content).find('input#mapbox').first().data('cbxid') ) >= 0) {
             $('input#mapbox[data-cbxid="'+$(content).find('input#mapbox').first().data('cbxid')+'"]').prop('checked', 'checked');
             $('#cbxtxt'+$(content).find('input#mapbox').first().data('cbxid')).html(langue['ui-found']);
           }
@@ -560,7 +560,7 @@ function initMarkers () {
 
             if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
                 if (hideMarkers) {
-                    curmarker.setOpacity(0);
+                    curmarker.setIcon(Null);
                 } else {
                     curmarker.setOpacity(0.35);
                 };
