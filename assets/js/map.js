@@ -12,7 +12,7 @@
     function unproject(coord) {
         return mymap.unproject(coord, mymap.getMaxZoom());
       }
-    
+
     function onMarkerClick(e) {
         currentMarker = this;
     }
@@ -20,7 +20,7 @@
     function clearGroup() {
         teyvatarray.forEach(function(e){
             window[e+'Group'].clearLayers();
-        });        
+        });
     }
 
     function checkinfo(e) {
@@ -70,7 +70,7 @@
             if(servmarkers.indexOf(e)<0)
                 servmarkers.push(e);
         });
-    
+
         $.post('api/t/mergemarkers', {data : JSON.stringify(servmarkers)}, function(res) {
             if(typeof(res.error) !== 'undefined') {
                 alert('Vous avez été déconnecté. La page va se rafraîchir.');
@@ -80,7 +80,7 @@
         alert(langue["ui-mergedone"]);
         window.location.reload();
     };
-    
+
     function saveDBUserMarkers(idm, checked) {
 
         if(checked) {
@@ -95,7 +95,7 @@
                 } else {
                     currentMarker.setOpacity(0.35);
                 };
-    
+
                 userMarkers = res.markers;
             });
         } else {
@@ -104,17 +104,17 @@
                     alert('Vous avez été déconnecté. La page va se rafraîchir.');
                     window.location.reload();
                 };
-    
+
                 currentMarker.setOpacity(1);
                 userMarkers = res.markers;
             });
         };
     };
-    
+
     function saveLocalUserMarkers(idm, checked) {
-    
+
         var markers = getUserMarkers();
-    
+
         if(checked) {
             if(markers.indexOf(idm) < 0) {
                 markers.push(idm);
@@ -131,26 +131,50 @@
             };
             currentMarker.setOpacity(1);
         };
-    
+
         localStorage.setItem('userMarkersTeyvat', JSON.stringify(markers));
         userMarkers = JSON.stringify(markers); //??? pkoi ?
     };
-    
+
+    function getUserOptions(option) {
+		var options = sanityze(localStorage.getItem('userOptions'));
+		options = (options)?JSON.parse(options):{}
+		if (option)
+			return (options[option])?options[option]:null;
+		else
+			return options;
+	}
+
+	function setUserOptions(option,valeur) {
+		var options = getUserOptions()
+		if (valeur) {
+			options[option] = valeur;
+		} else {
+			if (options[option])
+				delete options[option]
+		}
+		if (Object.keys(options).length)
+			localStorage.setItem('userOptions', JSON.stringify(options))
+		else
+			localStorage.removeItem('userOptions')
+		return true
+	}
+
     function getUserMarkers() {
         var markers = sanityze(localStorage.getItem('userMarkersTeyvat'));
-    
+
         if(!markers) {
           markers = [];
         } else {
           markers = JSON.parse(markers);
         }
-    
+
         return markers;
     };
-    
+
     function popUpOpen(e) {
         var content = e.popup.getContent();
-        
+
         if($(content).find('input#mapbox').length > 0) {
           if(userMarkers.indexOf( $(content).find('input#mapbox').first().data('cbxid') ) >= 0) {
             $('input#mapbox[data-cbxid="'+$(content).find('input#mapbox').first().data('cbxid')+'"]').prop('checked', 'checked');
@@ -158,7 +182,7 @@
           }
         }
     }
-    
+
     function resetmarkers() {
         if(userLocal) {
             localStorage.removeItem('userMarkersTeyvat');
@@ -173,7 +197,7 @@
         alert(langue["ui-reset"]);
         window.location.reload();
     };
-    
+
     function loadusermarkers(lstmrk) {
         if (lstmrk[0] == "v2") {
             var i = 1, cbx, markers = [];
@@ -196,7 +220,7 @@
         alert(langue["ui-import"]);
         window.location.reload();
     };
-    
+
     function reselectmenu(itemdb, btndb, regiondb, chestdb){
 
         if (!localStorage.getItem("menuclear") || !(localStorage.menuclear === "1")) {
@@ -243,7 +267,7 @@
             });
         });
     };
-    
+
 // Variables générales
 
 var mymap;
@@ -333,9 +357,9 @@ var BoutonMenu = L.easyButton({
             }
         }]
     });
-    
+
 BoutonMenu.addTo(mymap);
-    
+
 // Initialisation des marqueurs
 
     // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
@@ -542,7 +566,7 @@ function initMarkers () {
             titlem += " Id:"+minfo.mid;
 
             if(typeof cbxname !== 'undefined') {
-                
+
                 if (mtype == 11) {
                     curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
                     counternull += 1;
@@ -571,9 +595,9 @@ function initMarkers () {
                 }
             }
 
-            if (underGround && (grp !=="grotte") && !(minfo.under)) 
+            if (underGround && (grp !=="grotte") && !(minfo.under))
             curmarker.setOpacity(0);
-            
+
             curmarker.addTo(lgrp);
 
         };
@@ -591,17 +615,17 @@ function initMarkers () {
 
     $('.itembtn').on('click', function(e){
         e.preventDefault();
-  
+
         var type = $(this).data('type');
         $(this).toggleClass('active');
         if($(this).hasClass('active')) {
             mymap.addLayer(window[type+'Group']);
             if(!userLocal)
-            $.post('api/t/addmenu/'+type);  
+            $.post('api/t/addmenu/'+type);
         } else {
             mymap.removeLayer(window[type+'Group']);
             if(!userLocal)
-            $.post('api/t/removemenu/'+type);  
+            $.post('api/t/removemenu/'+type);
         };
 
         if(userLocal) {
@@ -661,7 +685,7 @@ function initMarkers () {
                 mymap.removeLayer(window[chest + type + 'Group']);
             }
         });
-        
+
         if(!userLocal) {
             if (regionstate) {
                 $.post('api/t/addregion/'+type);
@@ -686,7 +710,7 @@ function initMarkers () {
             $(this).toggleClass('active');
             mymap.addLayer(window[ndf+'Group']);
             if(!userLocal)
-                $.post('api/t/addbtn/'+ndf);  
+                $.post('api/t/addbtn/'+ndf);
         } else {
             $(this).attr('src', "media/icones/" + ndf + "off.png");
             $(this).toggleClass('active');
@@ -736,7 +760,7 @@ function initMarkers () {
              mergesave(userMarkers);
          }
     });
-     
+
     $('.btnsave').on('click', function() {
         var arr1 = ['v3teyvat'];
         var save = arr1.concat(userMarkers);
@@ -774,19 +798,24 @@ $(document).ready(function() {
     $.get('api/t/user', function(res) {
         if(typeof res.users !== 'undefined')
         console.log("u: "+res.users);
-  
+
         if(typeof res.visits !== 'undefined')
         console.log("v: "+res.visits);
-  
+
         if(typeof res.login !== 'undefined') {
           $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
           $('#goggle' + lgmenu).attr('href', res.loging).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
           initMarkers();
           localStorage.setItem('userMarkersTeyvat',JSON.stringify(userMarkers));
           localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
+          let options = getUserOptions()
+          if (options.oemt)
+			  $("#hidemarkFR").prop("checked",true).trigger("change")
+          if (options.oeau)
+			  $("#undergroundFR").prop("checked",true).trigger("change")
           reselectmenu();
         }
-  
+
         if(typeof res.uid !== 'undefined') {
           $('#logged' + lgmenu)
               .html('<strong>'+langue["ui-deco"]+'</strong><img src="'+res.avatar+'" onerror="this.src=\''+res.avatar_default+'\'" class="mr-1 ml-1 h-6 rounded-full" /><strong>'+res.username+'</strong>')
@@ -812,6 +841,19 @@ $(document).ready(function() {
                 };
             });
           }
+          $.post('api/t/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
+            if(typeof(res.error) !== 'undefined') {
+                alert('Vous avez été déconnecté. La page va se rafraîchir.');
+               	window.location.reload();
+            };
+            if (res["oemt"] == "true") {
+				$("#hidemarkFR").prop("checked",true).trigger("change");
+			}
+			if (res["oeau"] == "true") {
+				$("#undergroundFR").prop("checked",true).trigger("change");
+			}
+			// TODO : gérer l'arrichage des régions
+	      });
           reselectmenu(itemload, btnload, regionload, chestload);
         }
     });
@@ -826,6 +868,11 @@ $(document).ready(function() {
             switch ($(this).data('option')) {
                 case "hideswitch":
                     hideMarkers = ($(this).is(':checked')) ? true : false;
+                    if (userLocal) {
+                    	setUserOptions('oemt', hideMarkers);
+                    } else {
+						$.post('api/t/putoption', {data : JSON.stringify({'oemt':hideMarkers})})
+					}
                     clearGroup();
                     initMarkers();
                     break;
@@ -835,7 +882,7 @@ $(document).ready(function() {
                     if (underGround) {
                         teyvatMap.setOpacity(0.35);
                         for (let i=1; i<= overlaysBounds.length; i++) {
-                            window['sumeruUnderground'+i].setOpacity(1); 
+                            window['sumeruUnderground'+i].setOpacity(1);
                         };
                     } else {
                         teyvatMap.setOpacity(1);
@@ -843,16 +890,21 @@ $(document).ready(function() {
                             window['sumeruUnderground'+i].setOpacity(0);
                         };
                     }
+                    if (userLocal) {
+						setUserOptions('oeau', underGround);
+					} else {
+                    	$.post('api/t/putoption', {data : JSON.stringify({'oeau':underGround})})
+                	}
                     clearGroup();
                     initMarkers();
                     break;
-                    
+
                 default:
                     break;
             }
             return;
         };
-        
+
         var cbxid = $(this).data('cbxid');
 
         if ($(this).is(':checked')) {
@@ -860,20 +912,20 @@ $(document).ready(function() {
         } else {
             $('#cbxtxt'+cbxid).html(langue['ui-tofind']);
         };
-    
+
         if(userLocal) {
           saveLocalUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
         } else {
           saveDBUserMarkers($(this).data('cbxid'), $(this).is(':checked'));
         };
-  
+
     });
 
     $(window).resize(function() {
         var heightmenu = window.innerHeight - $("#topmenu" + lgmenu).outerHeight(true);
         $("#MarkerSelect" + lgmenu).css("max-height", heightmenu + 'px');
     });
-  
+
 });
     checkinfo();
 

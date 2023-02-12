@@ -56,6 +56,7 @@ class api {
 	private $action; // Action à faire
 	private $id; // Identifiant de l'objet à traiter
 	private $data; // Données postées (pour map dev)
+	private $options; // Gestion des options des utilisateurs
 
 	private $discord; // Classe discord
 	private $google; // Classe google
@@ -88,6 +89,7 @@ class api {
 					if (!is_object($this->google)) {
 						throw new Exception ( "Google API not ready" );
 					}
+					$this->options = new options($this->db);
 				break;
 			}
 			if (! $this->db) {
@@ -363,6 +365,44 @@ class api {
 					}
 				} else {
 					$this->responseError("Wrong map");
+				}
+			break;
+
+			case "getoption":
+				if (isset ( $_SESSION ["user"] )) {
+					$user = $_SESSION ["user"];
+					$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
+					if (is_object ( $this->dbuser )) {
+						$this->options->init($this->dbuser->uid, $this->dbuser->sso);
+						$options = $this->options->getOption(json_decode($_POST["data"]),$this->id);
+						if (is_null($options))
+							$options = [];
+						elseif (is_string($options))
+							$options = [$options];
+						elseif (is_object($options))
+							$options = (Array)$options;
+						$this->response($options);
+					} else {
+						$this->responseError("User not found in db");
+					}
+				} else {
+					$this->responseError("Not logged-in or not identified");
+				}
+			break;
+
+			case "putoption":
+				if (isset ( $_SESSION ["user"] )) {
+					$user = $_SESSION ["user"];
+					$this->getUserFromDb ( $user ['uid'] , $user["sso"] );
+					if (is_object ( $this->dbuser )) {
+						$this->options->init($this->dbuser->uid, $this->dbuser->sso);
+						$this->options->putOption(json_decode($_POST["data"],true),$this->id);
+						$this->response(["ok"]);
+					} else {
+						$this->responseError("User not found in db");
+					}
+				} else {
+					$this->responseError("Not logged-in or not identified");
 				}
 			break;
 
