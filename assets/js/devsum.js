@@ -52,9 +52,9 @@ var userMarkers = [];
 var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
-    'statue','teleport','dendrocul','cdefis','cfees','panos','sanctus',
+    'pupe','viandemyst',
     'ferblanc','cristal','eclatcm','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
-    'champsacra','champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
+    'champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
 ]; // ,'aranara','aranara2','kalpalotus'
 var DBMarkers = L.layerGroup();

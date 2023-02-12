@@ -32,3 +32,5 @@ var dendroculIcon = L.icon({iconUrl:'media/icones/dendrocul2.png', iconSize:[25,
 var cdefisIcon = L.icon({iconUrl:'media/icones/cdefi.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var cfeesIcon = L.icon({iconUrl:'media/icones/cfee.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var sanctusIcon = L.icon({iconUrl:'media/icones/sanctus.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var pupeIcon = L.icon({iconUrl:'media/icones/pupe.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var viandemystIcon = L.icon({iconUrl:'media/icones/viandemyst.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
