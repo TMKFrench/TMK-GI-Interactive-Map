@@ -18,7 +18,7 @@ media/tilesenka/
 nextstage.png
 Markerlbm.js
 config.ini
-tmkmap.db
+tmkmap*.db
 convertiontmk.html
 lbm.js
 populate.php
@@ -28,7 +28,8 @@ verif.php
 lbm/
 .hintrc
 indexold.html
-devmarkers.db
+*.db
+assets/js/mkbk/*.*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -360,4 +361,4 @@ TMK-GI-Interactive-Map.code-workspace
 /vendor/
 /code_secret_client_166255766343-e72jmeg4a97bgotb1l5tndhcjf1bv66g.apps.googleusercontent.com.json
 /code_secret_client_808795084346-ernnsvm2jpej00laitfiq02i5v80unmg.apps.googleusercontent.com.json
-/devmarkers.db
+*.db

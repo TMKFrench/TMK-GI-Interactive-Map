@@ -136,6 +136,30 @@ function saveLocalUserMarkers(idm, checked) {
     userMarkers = JSON.stringify(markers);
 };
 
+function getUserOptions(option) {
+    var options = sanityze(localStorage.getItem('userOptions'));
+    options = (options)?JSON.parse(options):{}
+    if (option)
+        return (options[option])?options[option]:null;
+    else
+        return options;
+}
+
+function setUserOptions(option,valeur) {
+    var options = getUserOptions()
+    if (valeur) {
+        options[option] = valeur;
+    } else {
+        if (options[option])
+            delete options[option]
+    }
+    if (Object.keys(options).length)
+        localStorage.setItem('userOptions', JSON.stringify(options))
+    else
+        localStorage.removeItem('userOptions')
+    return true
+}
+
 function getUserMarkers() {
     var markers = sanityze(localStorage.getItem('userMarkersGouffre'));
 
@@ -569,6 +593,9 @@ $(document).ready(function() {
             initMarkers();
             localStorage.setItem('userMarkersGouffre',JSON.stringify(userMarkers));
             localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
+            let options = getUserOptions()
+            if (options.oemt)
+                $('#hidemark' + lgmenu).prop("checked",true).trigger("change")
             reselectmenu();
         };
 
@@ -595,6 +622,16 @@ $(document).ready(function() {
                     };
                 });
             }
+            $.post('api/go/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
+                if(typeof(res.error) !== 'undefined') {
+                    alert('Vous avez été déconnecté. La page va se rafraîchir.');
+                       window.location.reload();
+                };
+                if (res["oemt"] == "true") {
+                    $('#hidemark' + lgmenu).prop("checked",true).trigger("change");
+                }
+                // TODO : gérer l'arrichage des régions
+              });
             reselectmenu(listatut, btnstatut);
         }
     });
@@ -605,6 +642,11 @@ $(document).ready(function() {
             switch ($(this).data('option')) {
                 case "hideswitch":
                     hideMarkers = ($(this).is(':checked')) ? true : false;
+                    if (userLocal) {
+                    	setUserOptions('oemt', hideMarkers);
+                    } else {
+						$.post('api/go/putoption', {data : JSON.stringify({'oemt':hideMarkers})})
+					}
                     clearGroup();
                     initMarkers();
                     break;

@@ -177,6 +177,9 @@ var langFR = {
     'cat152': 'Scarabée',
     'cat153': 'Quandong',
     'cat154': 'Aranara',
+    'cat155': 'Tas de Sable',
+    'cat156': 'Pupe graisseuse des sables',
+    'cat157': 'Viande mysterieuse',
 
     // Succès
 
@@ -305,7 +308,13 @@ var langFR = {
     'succesh065': 'Vainquez Azhdaha sous toutes ses formes élémentaires',
     'succest066': 'Touche finale',
     'succesh066': 'Vainquez Azhdaha sans utilser de bouclier',
-
+    'succest067': 'Attention, ça glisse !',
+    'succesh067': 'Au cours de la mission quotidienne Cours, Hilmi, cours ! à Suméru, laissez gagner Hilmi à la course',
+    'succest068': 'Géant ver, écrase tout !',
+    'succesh068': 'Détruisez un rocher érodé à l\'aide de l\'attaque d\'un Wenut',
+    'succest069': '« Hôpital Break »',
+    'succesh069': 'Évadez-vous des sous-sol de Dar al-shifa en suivant les traces d\'Abbas',
+    
         // Enkanomiya
 
     'succeset001': 'Atterrissage d\'urgence',
@@ -396,6 +405,8 @@ var langFR = {
     'queteh024': 'Permet de débloquer la Mélodie de la nouvelle pousse sur la Lyre ancienne<br><br><span>Récompenses : 40 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 4x<img class="ico" src="media/icones/minmystique.png"/></span>',
     'quetet025': 'La mélodie qui révèle le sentier bestial',
     'queteh025': 'Permet de débloquer la Mélodie du Sentier bestial sur la Lyre ancienne<br><br><span>Récompenses : 40 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 4x<img class="ico" src="media/icones/minmystique.png"/></span>',
+    'quetet026': 'Le meilleur usage d\'un hameçon',
+    'queteh026': '<span>Récompenses : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
 
         // Enkanomiya
 
@@ -500,12 +511,12 @@ var langFR = {
     'pano47': 'Ancien champ de bataille du Vallon Fuao',
     'pano48': 'Mâchoire de la grande mine',
     'pano49': 'La terre de Mawtiyima<br><br><a style="color:red;">Accessible à la fin de la quête<br>Soutra d\'Agnihotra - Le chapitre final</a>',
-    'pano50': '',
+    'pano50': 'Petit jardin d\'Aranaga<br><br><a style="color:red;">Accessible à la fin de la quête<br>Soutra d\'Agnihotra - Le chapitre final des souvenirs</a>',
     'pano51': 'Mémoire du Palais d\'Alcazarzaray',
-    'pano52': '',
-    'pano53': '',
-    'pano54': '',
-    'pano55': '',
+    'pano52': 'Le monde des aranaras<br><br><a style="color:red;">Accessible à la fin de la quête des Aranaras et dans le monde des rêves</a>',
+    'pano53': 'Pépinière des rêves perdus<br><br><a style="color:red;">Accessible à la fin de la quête des Aranaras</a>',
+    'pano54': 'Un minuscule rêve<br><br><a style="color:red;">Accessible à la fin de la quête des Aranaras</a>',
+    'pano55': 'Les nouvelles pousses du jardin<br><br><a style="color:red;">Accessible à la fin de la quête des Aranaras</a>',
     'pano56': 'Cité de toutes les connaissances',
     'pano57': 'Ville au-dessus de la forêt',
     'pano58': 'Village au bord de la rivière',
@@ -527,7 +538,24 @@ var langFR = {
     'pano74': '',
     'pano75': 'Mausolée du roi Deshret',
     'pano76': '',
-
+    'pano77': '',
+    'pano78': '',
+    'pano79': '',
+    'pano80': '',
+    'pano81': '',
+    'pano82': '',
+    'pano83': 'Les souterrains des Wenuts',
+    'pano84': 'Les canaux d\'un bleu lunaire',
+    'pano85': '',
+    'pano86': '',
+    'pano87': '',
+    'pano88': 'La faille des ruines cachées',
+    'pano89': '',
+    'pano90': '',
+    'pano91': 'Le palais abandonné par les dieux',
+    'pano92': '',
+    'pano93': '',
+    
         // Mines souterraines
 
     'panogo1': 'Tunnel bloqué',
@@ -1163,7 +1191,7 @@ var langFR = {
     'com424': 'Prenez les dendrogranums, puis tirez sur les attrape-rêves Dendro et tuez tous les ennemis pour faire apparaître le coffre',
     'com425': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur le champignon <a style="color:#A5C83B;">DENDRO</a> pour faire apparaître l\'interrupteur. Activez-le et tuez tous les ennemis pour faire apparaître le coffre',
     'com426': 'Prenez les dendrogranums, puis tirez sur les Rochers Dendro pour déverrouiller le coffre',
-    'com427': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur la graine des trois yànas pour faire apparaître la torche. Activez les 4 torches avec une attaque <a style="color:red;">PYRO</a> pour déverrouiller le coffre',
+    'com427': 'Effectuez une attaque <a style="color:#CC80FF;">ELECTRO</a> sur la graine des trois yànas pour faire apparaître la/les torche(s). Activez les 4 torches avec une attaque <a style="color:red;">PYRO</a> pour déverrouiller le coffre',
     'com428': 'Activez la porte Fantasmatique en jouant la mélodie à l\'aide de la Lyre ancienne. Collectez les graines fantasmatiques dans le temps imparti et rapportez-les à la porte pour faire apparaître le coffre',
     'com429': 'Accessible en volant depuis la montagne à l\'Ouest',
     'com430': 'Utilisez l\'insigne de trèfle à proximité pour atteindre le tas de pierre',
@@ -1268,6 +1296,15 @@ var langFR = {
     'com529': 'Utilisez la lyre ancienne sur la fleur pour faire apparaître le dendroculus',
     'com530': 'Utilisez la lyre ancienne sur la fleur pour faire disparaître le champ de force',
     'com531': 'Approchez vous du pilier de pierre pour récupérer le dendroculus',
+    'com532': 'Accessible après avoir débloqué la zone Vanarana d\'antan',
+    'com533': 'Utilisez l\'insigne de trèfle à proximité pour atteindre le coffre',
+    'com534': 'Apparaît lorsque vous ramassez le tas de pierre',
+    'com535': 'Se débloque depuis l\'interieur',
+    'com536': 'Accessible pendant la quête Jusqu\'à la guérison de la vana<br>',
+    'com537': 'Faites tourner les portes pour accéder au coffre',
+    'com538': 'Activer le totem avec une attaque de type <a style="color:#A5C83B;">DENDRO</a> et utilisez les insignes de trèfle à proximité pour passer par dessus le mur invisible',
+    'com539': 'Accessible 1 jour apres la fin la quête Soutra d\'Agnihotra - Le chapitre final<br>',
+    'com540': 'Activez les 3 pousses à l\'aide de la Lyre ancienne, puis à l\'aide d\'attaques chargées, activez les 3 attrape-rêves dendro pour supprimer le champ de force<br>',
 };
 
 var langEN = {
@@ -1449,6 +1486,9 @@ var langEN = {
     'cat152': 'Scarab',
     'cat153': 'Redcrest',
     'cat154': 'Aranara',
+    'cat155': 'Sand Pile',
+    'cat156': 'Sand Grease Pipa',
+    'cat157': 'Mysterious Meat',
 
     // Succès
 
@@ -1577,6 +1617,12 @@ var langEN = {
     'succesh065': 'Defeat Azhdaha in all its elemental forms',
     'succest066': 'The Finishing Touch',
     'succesh066': 'Defeat Azhdaha without any shield',
+    'succest067': 'One Step Too Far',
+    'succesh067': 'During the Daily commission Run, Hilmi, Run! in Sumeru, let Hilmi win the race',
+    'succest068': 'Flat Out',
+    'succesh068': 'Have a Wenut destroy a weathered rock',
+    'succest069': 'One Flew Over the Sick Man\'s Rest',
+    'succesh069': 'Escape from the basements of Dar al-Shifa by following in the footsteps of Abbas',
 
         // Enkanomiya
 
@@ -1668,6 +1714,8 @@ var langEN = {
     'queteh024': 'Unlocks The Rhythm of the Sprout Vintage Lyre\'s song<br><br><span>Rewards : 40 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 4x<img class="ico" src="media/icones/minmystique.png"/></span>',
     'quetet025': 'The Rhythm that Reveals the Beastly Trail',
     'queteh025': 'Unlocks The Rhythm of the Beastly Trail Vintage Lyre\'s song<br><br><span>Rewards : 40 <img class="ico" src="media/icones/primo.png"/> 30K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/> 4x<img class="ico" src="media/icones/minmystique.png"/></span>',
+    'quetet026': 'Cost-Effective Hook',
+    'queteh026': '<span>Rewards : 20K <img class="ico" src="media/icones/mora.png"/> 3x<img class="ico" src="media/icones/lecon.png"/></span>',
     
         // Enkanomiya
 
@@ -1772,12 +1820,12 @@ var langEN = {
     'pano47': 'The Ancient Battlefield of Fuao Vale',
     'pano48': 'Mouth of the Great Mine',
     'pano49': 'The Land of Mawtiyima<br><br><a style="color:red;">Accessible at the end of the quest<br>Agnihotra Sutra - The Final Chapter</a>',
-    'pano50': '',
+    'pano50': 'Aranaga\'s Little Garden<br><br><a style="color:red;">Accessible at the end of the quest<br>Agnihotra Sutra - Memory\'s Final Chapter</a>',
     'pano51': 'Memory of Alcazarzaray',
-    'pano52': '',
-    'pano53': '',
-    'pano54': '',
-    'pano55': '',
+    'pano52': 'The World of the Aranara<br><br><a style="color:red;">Accessible at the end of the Aranara\'s quest</a>',
+    'pano53': 'Nursery of Lost Dreams<br><br><a style="color:red;">Accessible at the end of the Aranara\'s quest</a>',
+    'pano54': 'The Littlest Dream<br><br><a style="color:red;">Accessible at the end of the Aranara\'s quest</a>',
+    'pano55': 'The Garden\'s New Sprouts<br><br><a style="color:red;">Accessible at the end of the Aranara\'s quest</a>',
     'pano56': 'The City Where All Wisdom Resides',
     'pano57': 'The City Above the Forest',
     'pano58': 'The Village by the River',
@@ -1799,6 +1847,23 @@ var langEN = {
     'pano74': '',
     'pano75': 'The Mausoleum of King Deshret',
     'pano76': '',
+    'pano77': '',
+    'pano78': '',
+    'pano79': '',
+    'pano80': '',
+    'pano81': '',
+    'pano82': '',
+    'pano83': 'Wenut Tunnels',
+    'pano84': 'The Moonblue Canals',
+    'pano85': '',
+    'pano86': '',
+    'pano87': '',
+    'pano88': 'The Gap of the Hidden Ruins',
+    'pano89': '',
+    'pano90': '',
+    'pano91': 'The Palace Abandoned by the Gods',
+    'pano92': '',
+    'pano93': '',
 
         // Mines souterraines
 
@@ -2540,4 +2605,13 @@ var langEN = {
     'com529': 'Use the Vintage Lyre on the flower to make the dendroculus appear',
     'com530': 'Use the Vintage Lyre on the flower to make the forcefield disappear',
     'com531': 'Stay close from the dendro pillar to get the dendroculus',
+    'com532': 'Accessible after unlock The Old Vanarana area',
+    'com533': 'Use the nearby Four-Leaf Sigil to reach the chest',
+    'com534': 'Appears when you pick up the stone pile',
+    'com535': 'Unlock from inside',
+    'com536': 'Unlocks during the quest Until Vana is Healed<br>',
+    'com537': 'Rotate the doors to access the chest',
+    'com538': 'Activate the totem with a <a style="color:#A5C83B;">DENDRO</a> attack and use nearby Four-leaf sigils to jump over the invisible wall',
+    'com539': 'Unlocks 1 day after the end of the quest Agnihotra Sutra - The Final Chapter<br>',
+    'com540': 'Activate the 3 sprouts using the Vintage Lyre, then with charged attacks, activate the 3 dendro dreamcatchers to turn off the force field<br>',
 };

@@ -43,7 +43,7 @@ class api {
 		self::MAP_ENKANOMIYA 	=> [ "menu" => "menue"	,"btn" 	=> "btne"	,"region" => ""			,"chest" => "",		"markers" => "markersenka" ],
 		self::MAP_GOUFFRE 		=> [ "menu" => "menugo"	,"btn" 	=> "btngo"	,"region" => ""			,"chest" => "",		"markers" => "markersgouffre" ],
 		self::MAP_SE 			=> [ "menu" => "menuse"	,"btn" 	=> "btnse"	,"region" => ""			,"chest" => "",		"markers" => "markersse" ],
-		self::MAP_DEV			=> [ "mneu" => ""		,"btn"	=> ""		,"region" => ""			,"chest" => "",		"markers" => ""]
+		self::MAP_DEV			=> [ "menu" => ""		,"btn"	=> ""		,"region" => ""			,"chest" => "",		"markers" => ""]
 	];
 
 	private $method; // Méthode employée (GET ou POST)

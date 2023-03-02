@@ -24,8 +24,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.2.0")) {
-            localStorage.Mapvers = "7.2.0";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.2.1")) {
+            localStorage.Mapvers = "7.2.1";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -279,7 +279,7 @@ var hideMarkers = false;
 var underGround = false;
 var teyvatarray = [
     'musiquesonne','feteenivre','contrecoup',
-    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','pseculaire','offrandes','sceausacre','aranara',
+    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','tasdesable','pseculaire','offrandes','sceausacre','aranara',
     'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
     'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
     'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
@@ -291,7 +291,7 @@ var teyvatarray = [
     'halampe','chrysantheme','lyscalla','tombaie','bacrochet','pissenlit','cecilia','chanemo',
     'qingxin','muguet','piment','lysverni','fsoie','bambou','lotus','lapis','jade','perle','conque',
     'amethyste','anguille','cfluo','corail','dendro','famakumo','fcerisier','ganoderma','hsanglot','herbem','melonl','moelle','scarabuto',
-    'fruitharra','pechezaytun','rosesum','viparyas','nilotpalotus','kalpalotus','champsacra','padisachidee','champitoile','noixajilenakh','scarabee','quandong',
+    'fruitharra','pechezaytun','rosesum','viparyas','nilotpalotus','kalpalotus','champsacra','padisachidee','champitoile','noixajilenakh','scarabee','quandong','pupe','viandemyst',
     'grenouille','lezard','papillon','luciole','crabe'];
 var nbtmark = 0;
 var langue, lgmenu;
@@ -389,6 +389,7 @@ function initMarkers () {
     loadmarker(listgyroc,"Gyroc","gyroc",langue.cat122,"gyroc","gyroc");
     loadmarker(listsceaugeo,"Sceaugeo","sceaugeo",langue.cat30,"sg","sceaugeo");
     loadmarker(listtasdepierre,"Tasdepierre","tasdepierre",langue.cat123,"tas2pierre","tasdepierre");
+    loadmarker(listtasdesable,"Tasdesable","tasdesable",langue.cat155,"tas2sable","tasdesable");
     loadmarker(listpseculaire,"Pseculaire","pseculaire",langue.cat124,"pseculaire","pseculaire");
     loadmarker(listoffrandes,"Offrandes","offrandes",langue.cat128,"offrandes","offrandes");
     loadmarker(listsceausacre,"Sceausacre","sceausacre",langue.cat150,"sacredseal","sceausacre");
@@ -506,6 +507,8 @@ function initMarkers () {
     loadmarker(listnoixajilenakh,"Noixajilenakh","noixajilenakh",langue.cat151);
     loadmarker(listscarabee,"Scarabee","scarabee",langue.cat152);
     loadmarker(listquandong,"Quandong","quandong",langue.cat153);
+    loadmarker(listpupe,"Pupe","pupe",langue.cat156);
+    loadmarker(listviandemyst,"Viandemyst","viandemyst",langue.cat157);
     loadmarker(listgrenouille,"Grenouille","grenouille",langue.cat27);
     loadmarker(listlezard,"Lezard","lezard",langue.cat28);
     loadmarker(listpapillon,"Papillon","papillon",langue.cat42);
@@ -810,9 +813,9 @@ $(document).ready(function() {
           localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
           let options = getUserOptions()
           if (options.oemt)
-			  $("#hidemarkFR").prop("checked",true).trigger("change")
+			  $('#hidemark' + lgmenu).prop("checked",true).trigger("change")
           if (options.oeau)
-			  $("#undergroundFR").prop("checked",true).trigger("change")
+			  $('#underground' + lgmenu).prop("checked",true).trigger("change")
           reselectmenu();
         }
 
@@ -847,10 +850,10 @@ $(document).ready(function() {
                	window.location.reload();
             };
             if (res["oemt"] == "true") {
-				$("#hidemarkFR").prop("checked",true).trigger("change");
+				$('#hidemark' + lgmenu).prop("checked",true).trigger("change");
 			}
 			if (res["oeau"] == "true") {
-				$("#undergroundFR").prop("checked",true).trigger("change");
+				$('#underground' + lgmenu).prop("checked",true).trigger("change");
 			}
 			// TODO : gérer l'arrichage des régions
 	      });
