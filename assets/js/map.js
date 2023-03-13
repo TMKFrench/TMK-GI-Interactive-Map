@@ -303,7 +303,7 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-teyvatMap = L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
+teyvatMap = L.tileLayer('media/tilesteyvat341/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
@@ -389,7 +389,7 @@ function initMarkers () {
     loadmarker(listgyroc,"Gyroc","gyroc",langue.cat122,"gyroc","gyroc");
     loadmarker(listsceaugeo,"Sceaugeo","sceaugeo",langue.cat30,"sg","sceaugeo");
     loadmarker(listtasdepierre,"Tasdepierre","tasdepierre",langue.cat123,"tas2pierre","tasdepierre");
-    loadmarker(listtasdesable,"Tasdesable","tasdesable",langue.cat155,"tas2sable","tasdesable");
+    loadmarker(listtasdesable,"Tasdesable","tasdesable",langue.cat155,"tas2sable");
     loadmarker(listpseculaire,"Pseculaire","pseculaire",langue.cat124,"pseculaire","pseculaire");
     loadmarker(listoffrandes,"Offrandes","offrandes",langue.cat128,"offrandes","offrandes");
     loadmarker(listsceausacre,"Sceausacre","sceausacre",langue.cat150,"sacredseal","sceausacre");

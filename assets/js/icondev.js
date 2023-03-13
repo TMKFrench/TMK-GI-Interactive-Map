@@ -34,3 +34,4 @@ var cfeesIcon = L.icon({iconUrl:'media/icones/cfee.png', iconSize:[25, 30], icon
 var sanctusIcon = L.icon({iconUrl:'media/icones/sanctus.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var pupeIcon = L.icon({iconUrl:'media/icones/pupe.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var viandemystIcon = L.icon({iconUrl:'media/icones/viandemyst.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var sceausacreIcon = L.icon({iconUrl:'media/icones/sceausacre.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});

@@ -52,7 +52,7 @@ var userMarkers = [];
 var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
-    'pupe','viandemyst',
+    'pupe','viandemyst','sceausacre',
     'ferblanc','cristal','eclatcm','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
     'champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
