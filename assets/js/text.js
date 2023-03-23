@@ -180,6 +180,13 @@ var langFR = {
     'cat155': 'Tas de Sable',
     'cat156': 'Pupe graisseuse des sables',
     'cat157': 'Viande mysterieuse',
+    'cat158': 'Fleur mensongère Electro',
+    'cat159': 'Sentinelle des ruines',
+    'cat160': 'Electro Mage',
+    'cat161': 'Suivante des Fatui',
+    'cat162': 'Loup de faille',
+    'cat163': 'Nobushi',
+    'cat164': 'Spectre',
 
     // Succès
 
@@ -1325,6 +1332,8 @@ var langFR = {
     'com557': 'Prenez les dendrogranums, puis tirez avec une attaque chargée sur le rocher Dendro pour libérer le Dendroculus',
     'com558': 'Détruisez le mur pour faire apparaître le Dendroculus',
     'com559': 'Activez le totem avec une attaque <a style="color:#32D7A0;">ANEMO</a> puis utilisez les insignes à 4 feuilles pour atteindre le Dendroculus',
+    'com560': 'Cette zone se débloque avec la quête<br>Le sommeil d\'or - Perdu dans les sables',
+    'com561': 'Accessible pendant et après la quête<br>Le sommeil d\'or - Perdu dans les sables<br>',
 };
 
 var langEN = {
@@ -1509,6 +1518,13 @@ var langEN = {
     'cat155': 'Sand Pile',
     'cat156': 'Sand Grease Pipa',
     'cat157': 'Mysterious Meat',
+    'cat158': 'Electro Whopperflower',
+    'cat159': 'Ruin Sentinel',
+    'cat160': 'Electro Abyss Mage',
+    'cat161': 'Fatui Mirror Maiden',
+    'cat162': 'Wolf of the Rift',
+    'cat163': 'Nobushi',
+    'cat164': 'Specter',
 
     // Succès
 
@@ -2653,5 +2669,7 @@ var langEN = {
     'com556': 'Have a Wenut destroy the weathered rock to make the rockpile appear',
     'com557': 'Take the dendrogranums, then shoot the Dendro rock with a charged attack to release the Dendroculus',
     'com558': 'Destroy the wall to make the Dendroculus appear',
-    'com559': 'Activate the totem with an <a style="color:#32D7A0;">ANEMO</a> attack then use the Four-leafs sigils to reach the Dendroculus'
+    'com559': 'Activate the totem with an <a style="color:#32D7A0;">ANEMO</a> attack then use the Four-leafs sigils to reach the Dendroculus',
+    'com560': 'Unlocks with the quest<br>Golden Slumber - Lost in the Sands',
+    'com561': 'Accessible during and after the quest<br>Golden Slumber - Lost in the Sands<br>',
 };

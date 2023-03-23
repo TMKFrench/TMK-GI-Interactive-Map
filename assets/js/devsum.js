@@ -66,7 +66,7 @@ var map = new L.Map('devmap', {
     zoomControl: false
 });
 
-L.tileLayer('media/tilesteyvat34/{z}/{x}/{y}.png', {
+L.tileLayer('media/tilesteyvat341/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,

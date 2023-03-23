@@ -23,6 +23,37 @@
         });
     }
 
+    function updatenbtmark() {
+        var num = 0, r, c; 
+
+        $('.itembtn').each(function(){
+            if ($(this).hasClass('active')) {
+                num += window['list' + $(this).data('type')].length;
+            };
+        });
+    
+        $('.matbtn').each(function(){
+            if ($(this).hasClass('active')) {
+                num += window['list' + $(this).data('type')].length;
+            };
+        });
+    
+        $('.region' + lgmenu).each(function() {
+            if ($(this).hasClass('active')) {
+                r = $(this).data('type');
+                $('.chest' + lgmenu).each(function(){
+                    if ($(this).hasClass('active')) {
+                        c = $(this).data('type');
+                        if (typeof window['list' + c + r] !=='undefined')
+                            num += window['list' + c + r].length;
+                    };
+                });
+            };
+        });
+    
+        $('#total' + lgmenu).text(num +" / "+ totalMarkers + langue['ui-load']);
+    }
+
     function checkinfo(e) {
         if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.2.1")) {
             localStorage.Mapvers = "7.2.1";
@@ -105,6 +136,9 @@
                     window.location.reload();
                 };
 
+                if (hideMarkers)
+                    currentMarker.setIcon(currentMarker.options.grpicon);
+
                 currentMarker.setOpacity(1);
                 userMarkers = res.markers;
             });
@@ -117,7 +151,7 @@
 
         if(checked) {
             if(markers.indexOf(idm) < 0) {
-                markers.push(idm);
+                markers.push(""+idm);
             };
 
             if (hideMarkers) {
@@ -127,8 +161,12 @@
             };
         } else {
             if(markers.indexOf(idm) >= 0) {
-                markers.splice(markers.indexOf(idm), 1);
+                markers.splice(markers.indexOf(""+idm), 1);
             };
+
+            if (hideMarkers)
+                currentMarker.setIcon(currentMarker.options.grpicon);
+
             currentMarker.setOpacity(1);
         };
 
@@ -241,13 +279,11 @@
         if(item){
             item.forEach(function(element) {
                 $("#btn" + lgmenu + element).addClass('active');
-                mymap.addLayer(window[element + 'Group']);
             });
         };
         if (btn){
             btn.forEach(function(element) {
                 $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
-                mymap.addLayer(window[element + 'Group']);
             });
         };
         if (region){
@@ -261,11 +297,8 @@
             });
         };
 
-        region.forEach(function(region){
-            chest.forEach(function(chest) {
-                mymap.addLayer(window[chest + region + 'Group']);
-            });
-        });
+        initMarkers(item,btn,region,chest);
+        updatenbtmark();
     };
 
 // Variables générales
@@ -277,22 +310,6 @@ var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localSto
 var userLocal = true;
 var hideMarkers = false;
 var underGround = false;
-var teyvatarray = [
-    'musiquesonne','feteenivre','contrecoup',
-    'statue','teleport','tpbarge','grotte','elecgate','peche','succes','quete','pano','anemo','geocul','eleccul','dendrocul','agate','gyroc','sceaugeo','tasdepierre','tasdesable','pseculaire','offrandes','sceausacre','aranara',
-    'cordimond','cdelicmond','cprecmond','cluxemond','cdefimond','cfeemond','cfeeemond','cetrmond',
-    'cordiliyu','cdelicliyu','cprecliyu','cluxeliyu','cdefiliyu','cfeeliyu','cfeeeliyu','cetrliyu',
-    'cordiinaz','cdelicinaz','cprecinaz','cluxeinaz','cdefiinaz','cfeeinaz','cfeeeinaz','cetrinaz',
-    'cordisume','cdelicsume','cprecsume','cluxesume','cdefisume','cfeesume','cfeeesume','cetrsume',
-    'sanctum','sanctul','sanctui','sanctus',
-    'betrang','bgivre','brocheux','bshaman','bviandu','fmens','chasseur','colosse','gardien','geosaure','magea','magel','frap','merc','mitrail','pilleur','usurier',
-    'ferblanc','argetoile','cristal','electrocris','eclatcm','artefact','dent','noyauc',
-    'ffeu','fbrume','gdloup','pomme','carotte','radis',
-    'halampe','chrysantheme','lyscalla','tombaie','bacrochet','pissenlit','cecilia','chanemo',
-    'qingxin','muguet','piment','lysverni','fsoie','bambou','lotus','lapis','jade','perle','conque',
-    'amethyste','anguille','cfluo','corail','dendro','famakumo','fcerisier','ganoderma','hsanglot','herbem','melonl','moelle','scarabuto',
-    'fruitharra','pechezaytun','rosesum','viparyas','nilotpalotus','kalpalotus','champsacra','padisachidee','champitoile','noixajilenakh','scarabee','quandong','pupe','viandemyst',
-    'grenouille','lezard','papillon','luciole','crabe'];
 var nbtmark = 0;
 var langue, lgmenu;
 
@@ -362,179 +379,83 @@ BoutonMenu.addTo(mymap);
 
 // Initialisation des marqueurs
 
-    // Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
+function reloadMarkers () {
+    var item=[], btn=[], region=[], chest=[];
 
-function initMarkers () {
-    nbtmark = 0
-    // loadmarker(listmusiquesonne,"Panierabondance","musiquesonne",langue.cat147,"musiquesonne");
-    // loadmarker(listfeteenivre,"Panierabondance","feteenivre",langue.cat148,"feteenivre");
-    // loadmarker(listcontrecoup,"Panierabondance","contrecoup",langue.cat149,"contrecoup");
-    loadmarker(liststatue,"Statue","statue",langue.cat01,"statue");
-    loadmarker(listteleport,"Teleport","teleport",langue.cat02,"tp");
-    loadmarker(listtpbarge,"Tpbarge","tpbarge",langue.cat79,"tpb");
-    loadmarker(listgrotte,"Grotte","grotte",langue.cat146,"cave");
-    loadmarker(listelecgate,"Elecgate","elecgate",langue.cat93,"egate");
-    loadmarker(listpeche,"Peche","peche",langue.cat94,"peche");
-    loadmarker(listsucces,"Succes","succes",langue.cat46,"succes","succes");
-    loadmarker(listquete,"Quete","quete",langue.cat118,"quete","quete");
-    loadmarker(listpano,"Pano","pano",langue.cat03,"pano","pano");
-    loadmarker(listpanol,"Pano","pano",langue.cat03,"panol","panol");
-    loadmarker(listpanoi,"Pano","pano",langue.cat03,"panoi","panoi");
-    loadmarker(listpanos,"Pano","pano",langue.cat03,"panos","panos");
-    loadmarker(listanemo,"Anemo","anemo",langue.cat10,"anemo","anemo");
-    loadmarker(listgeocul,"Geocul","geocul",langue.cat29,"geoc","geocul");
-    loadmarker(listeleccul,"Eleccul","eleccul",langue.cat80,"eleccul","eleccul");
-    loadmarker(listdendrocul,"Dendrocul","dendrocul",langue.cat136,"dendroculus","dendrocul");
-    loadmarker(listagate,"Agate","agate",langue.cat47,"agate","agate");
-    loadmarker(listgyroc,"Gyroc","gyroc",langue.cat122,"gyroc","gyroc");
-    loadmarker(listsceaugeo,"Sceaugeo","sceaugeo",langue.cat30,"sg","sceaugeo");
-    loadmarker(listtasdepierre,"Tasdepierre","tasdepierre",langue.cat123,"tas2pierre","tasdepierre");
-    loadmarker(listtasdesable,"Tasdesable","tasdesable",langue.cat155,"tas2sable");
-    loadmarker(listpseculaire,"Pseculaire","pseculaire",langue.cat124,"pseculaire","pseculaire");
-    loadmarker(listoffrandes,"Offrandes","offrandes",langue.cat128,"offrandes","offrandes");
-    loadmarker(listsceausacre,"Sceausacre","sceausacre",langue.cat150,"sacredseal","sceausacre");
-    loadmarker(listaranara,"Aranara","aranara",langue.cat154,"aranara","aranara");
-    loadmarker(listcordi,"Cordi","cordimond",langue.cat04+" Mondstadt","oc","cordi");
-    loadmarker(listcordil,"Cordi","cordiliyu",langue.cat04+" Liyue","ocl","cordil");
-    loadmarker(listcordii,"Cordi","cordiinaz",langue.cat04+" Inazuma","oci","cordii");
-    loadmarker(listcordis,"Cordi","cordisume",langue.cat04+" Sumeru","ocs","cordis");
-    loadmarker(listcdelic,"Cdelic","cdelicmond",langue.cat05+" Mondstadt","dc","cdelic");
-    loadmarker(listcdelicl,"Cdelic","cdelicliyu",langue.cat05+" Liyue","dcl","cdelicl");
-    loadmarker(listcdelici,"Cdelic","cdelicinaz",langue.cat05+" Inazuma","dci","cdelici");
-    loadmarker(listcdelics,"Cdelic","cdelicsume",langue.cat05+" Sumeru","dcs","cdelics");
-    loadmarker(listcprec,"Cprec","cprecmond",langue.cat06+" Mondstadt","pc","cprec");
-    loadmarker(listcprecl,"Cprec","cprecliyu",langue.cat06+" Liyue","pcl","cprecl");
-    loadmarker(listcpreci,"Cprec","cprecinaz",langue.cat06+" Inazuma","pci","cpreci");
-    loadmarker(listcprecs,"Cprec","cprecsume",langue.cat06+" Sumeru","pcs","cprecs");
-    loadmarker(listcluxe,"Cluxe","cluxemond",langue.cat07+" Mondstadt","lc","cluxe");
-    loadmarker(listcluxel,"Cluxe","cluxeliyu",langue.cat07+" Liyue","lcl","cluxel");
-    loadmarker(listcluxei,"Cluxe","cluxeinaz",langue.cat07+" Inazuma","lci","cluxei");
-    loadmarker(listcluxes,"Cluxe","cluxesume",langue.cat07+" Sumeru","lcs","cluxes");
-    loadmarker(listcdefi,"Cdefi","cdefimond",langue.cat08+" Mondstadt","defi","cdefi");
-    loadmarker(listcdefil,"Cdefi","cdefiliyu",langue.cat08+" Liyue","defil","cdefil");
-    loadmarker(listcdefii,"Cdefi","cdefiinaz",langue.cat08+" Inazuma","defii","cdefii");
-    loadmarker(listcdefis,"Cdefi","cdefisume",langue.cat08+" Sumeru","defis","cdefis");
-    loadmarker(listcfee,"Cfee","cfeemond",langue.cat09+" Mondstadt","","cfee");
-    loadmarker(listcfeel,"Cfee","cfeeliyu",langue.cat09+" Liyue","","cfeel");
-    loadmarker(listcfeei,"Cfee","cfeeinaz",langue.cat09+" Inazuma","","cfeei");
-    loadmarker(listcfees,"Cfee","cfeesume",langue.cat09+" Sumeru","","cfees");
-    loadmarker(listcetr,"Cetr","cetrinaz",langue.cat99+" Inazuma","cei","cetr");
-    loadmarker(listcetrs,"Cetr","cetrsume",langue.cat99+" Sumeru","ces","cetrs");
-    loadmarker(listcfeee,"Cfeee","cfeeeinaz",langue.cat88,"cfeee","cfeee");
-    loadmarker(listsanctum,"Sanctum","sanctum",langue.cat70,"sanctum","sanctum");
-    loadmarker(listsanctul,"Sanctul","sanctul",langue.cat71,"sanctul","sanctul");
-    loadmarker(listsanctui,"Sanctui","sanctui",langue.cat91,"sanctui","sanctui");
-    loadmarker(listsanctus,"Sanctus","sanctus",langue.cat145,"sanctus","sanctus");
-    loadmarker(listbetrang,"Betrang","betrang",langue.cat49,"betrang");
-    loadmarker(listbgivre,"Bgivre","bgivre",langue.cat67,"bgivre");
-    loadmarker(listbrocheux,"Brocheux","brocheux",langue.cat65,"brocheux");
-    loadmarker(listbshaman,"Bshaman","bshaman",langue.cat61);
-    loadmarker(listbviandu,"Bviandu","bviandu",langue.cat51,"bviandu");
-    loadmarker(listfmcryo,"Fmcryo","fmens",langue.cat53,"fmcryo");
-    loadmarker(listfmpyro,"Fmpyro","fmens",langue.cat54,"fmpyro");
-    loadmarker(listchasseur,"Chasseur","chasseur",langue.cat66,"chasseur");
-    loadmarker(listcolosse,"Colosse","colosse",langue.cat75,"colosse");
-    loadmarker(listgardien,"Gardien","gardien",langue.cat52,"gardien");
-    loadmarker(listgeosaure,"Geosaure","geosaure",langue.cat55,"geosaure");
-    loadmarker(listmagecryo,"Magecryo","magea",langue.cat56,"magec");
-    loadmarker(listmagehydro,"Magehydro","magea",langue.cat57,"mageh");
-    loadmarker(listmagepyro,"Magepyro","magea",langue.cat58,"magep");
-    loadmarker(listmagecl,"Magecl","magel",langue.cat59,"magecl");
-    loadmarker(listmageel,"Mageel","magel",langue.cat60,"mageel");
-    loadmarker(listfrapa,"Frapa","frap",langue.cat68,"frapa");
-    loadmarker(listfrape,"Frape","frap",langue.cat69,"frape");
-    loadmarker(listmercg,"Mercg","merc",langue.cat72,"mercg");
-    loadmarker(listmercp,"Mercp","merc",langue.cat73,"mercp");
-    loadmarker(listmitrailc,"Mitrailc","mitrail",langue.cat62,"mitc");
-    loadmarker(listmitrailh,"Mitrailh","mitrail",langue.cat63,"mith");
-    loadmarker(listpilleur,"Pilleur","pilleur",langue.cat77,"pilleur");
-    loadmarker(listusurier,"Usurier","usurier",langue.cat50,"usurier");
-    loadmarker(listferblanc,"Ferblanc","ferblanc",langue.cat25);
-    loadmarker(listargetoile,"Argetoile","argetoile",langue.cat48);
-    loadmarker(listcristal,"Cristal","cristal",langue.cat11);
-    loadmarker(listelectroc,"Electrocris","electrocris",langue.cat12);
-    loadmarker(listeclatcm,"Eclatcm","eclatcm",langue.cat26);
-    loadmarker(listdent,"Dent","dent",langue.cat78,"dent");
-    loadmarker(listartefact,"Artefact","artefact",langue.cat76);
-    loadmarker(listlapis,"Lapis","lapis",langue.cat41);
-    loadmarker(listjade,"Jade","jade",langue.cat39);
-    loadmarker(listnoyauc,"Noyauc","noyauc",langue.cat44);
-    loadmarker(listperle,"Perle","perle",langue.cat32);
-    loadmarker(listconque,"Conque","conque",langue.cat40);
-    loadmarker(listamethyste,"Amethyste","amethyste",langue.cat84);
-    loadmarker(listffeu,"Ffeu","ffeu",langue.cat14);
-    loadmarker(listfbrume,"Fbrume","fbrume",langue.cat13);
-    loadmarker(listgdloup,"Gdloup","gdloup",langue.cat45);
-    loadmarker(listpomme,"Pomme","pomme",langue.cat15);
-    loadmarker(listcarotte,"Carotte","carotte",langue.cat16);
-    loadmarker(listradis,"Radis","radis",langue.cat17);
-    loadmarker(listhalampe,"Halampe","halampe",langue.cat20);
-    loadmarker(listchrysantheme,"Chrysantheme","chrysantheme",langue.cat21);
-    loadmarker(listlyscalla,"Lyscalla","lyscalla",langue.cat22);
-    loadmarker(listtombaie,"Tombaie","tombaie",langue.cat18);
-    loadmarker(listbacrochet,"Bacrochet","bacrochet",langue.cat24);
-    loadmarker(listpissenlit,"Pissenlit","pissenlit",langue.cat19);
-    loadmarker(listchanemo,"Chanemo","chanemo",langue.cat74)
-    loadmarker(listcecilia,"Cecilia","cecilia",langue.cat23);
-    loadmarker(listqingxin,"Qingxin","qingxin",langue.cat34);
-    loadmarker(listmuguet,"Muguet","muguet",langue.cat35,"muguet");
-    loadmarker(listpiment,"Piment","piment",langue.cat36);
-    loadmarker(listlysverni,"Lysverni","lysverni",langue.cat37);
-    loadmarker(listfsoie,"Fsoie","fsoie",langue.cat38);
-    loadmarker(listbambou,"Bambou","bambou",langue.cat31);
-    loadmarker(listlotus,"Lotus","lotus",langue.cat33);
-    loadmarker(listanguille,"Anguille","anguille",langue.cat95);
-    loadmarker(listcfluo,"Cfluo","cfluo",langue.cat98);
-    loadmarker(listdendro,"Dendro","dendro",langue.cat90);
-    loadmarker(listfamakumo,"Famakumo","famakumo",langue.cat96);
-    loadmarker(listfcerisier,"Fcerisier","fcerisier",langue.cat85);
-    loadmarker(listganoderma,"Ganoderma","ganoderma",langue.cat81);
-    loadmarker(listhsanglot,"Hsanglot","hsanglot",langue.cat86);
-    loadmarker(listherbem,"Herbem","herbem",langue.cat82);
-    loadmarker(listmelonl,"Melonl","melonl",langue.cat83);
-    loadmarker(listmoelle,"Moelle","moelle",langue.cat92);
-    loadmarker(listcorail,"Corail","corail",langue.cat97);
-    loadmarker(listscarabuto,"Scarabuto","scarabuto",langue.cat87);
-    loadmarker(listchampsacra,"Champsacra","champsacra",langue.cat143);
-    loadmarker(listchampitoile,"Champitoile","champitoile",langue.cat119);
-    loadmarker(listfruitharra,"Fruitharra","fruitharra",langue.cat137);
-    loadmarker(listkalpalotus,"Kalpalotus","kalpalotus",langue.cat142);
-    loadmarker(listnilotpalotus,"Nilotpalotus","nilotpalotus",langue.cat141);
-    loadmarker(listpadisachidee,"Padisachidee","padisachidee",langue.cat144);
-    loadmarker(listpechezaytun,"Pechezaytun","pechezaytun",langue.cat138);
-    loadmarker(listrosesum,"Rosesum","rosesum",langue.cat139);
-    loadmarker(listviparyas,"Viparyas","viparyas",langue.cat140);
-    loadmarker(listnoixajilenakh,"Noixajilenakh","noixajilenakh",langue.cat151);
-    loadmarker(listscarabee,"Scarabee","scarabee",langue.cat152);
-    loadmarker(listquandong,"Quandong","quandong",langue.cat153);
-    loadmarker(listpupe,"Pupe","pupe",langue.cat156);
-    loadmarker(listviandemyst,"Viandemyst","viandemyst",langue.cat157);
-    loadmarker(listgrenouille,"Grenouille","grenouille",langue.cat27);
-    loadmarker(listlezard,"Lezard","lezard",langue.cat28);
-    loadmarker(listpapillon,"Papillon","papillon",langue.cat42);
-    loadmarker(listluciole,"Luciole","luciole",langue.cat43);
-    loadmarker(listcrabe,"Crabe","crabe",langue.cat64);
+    $('.itembtn').each(function(){
+        if ($(this).hasClass('active') && (item.indexOf($(this).data('type')) < 0)) {
+            item.push($(this).data('type'));
+        };
+    });
 
-    $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
+    $('.matbtn').each(function(){
+        if ($(this).hasClass('active') && (btn.indexOf($(this).data('type')) < 0)) {
+            btn.push($(this).data('type'));
+        };
+    });
+
+    $('.region' + lgmenu).each(function(){
+        if ($(this).hasClass('active') && (region.indexOf($(this).data('type')) < 0)) {
+            region.push($(this).data('type'));
+        };
+    });
+
+    $('.chest' + lgmenu).each(function(){
+        if ($(this).hasClass('active') && (chest.indexOf($(this).data('type')) < 0)) {
+            chest.push($(this).data('type'));
+        };
+    });
+
+    initMarkers(item,btn,region,chest);
+    updatenbtmark();
 };
 
-    function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
-        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt, minfo, micon, counternull=0;
-        var lgrp = window[grp + 'Group'];
+function initMarkers (item,btn,region,chest) {
+
+    if(item){
+        item.forEach(function(element) {
+            loadmarker(initDatas[element]);
+            mymap.addLayer(window[element + 'Group']);
+        });
+    };
+
+    if (btn){
+        btn.forEach(function(element) {
+            loadmarker(initDatas[element]);
+            mymap.addLayer(window[element + 'Group']);
+        });
+    };
+
+    region.forEach(function(r){
+        chest.forEach(function(c) {
+            if(typeof window[c + r + 'Group'] !=='undefined') {
+                loadmarker(initDatas[c + r]);
+                mymap.addLayer(window[c + r + 'Group']);
+            };
+        });
+    });
+};
+
+//    function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
+    function loadmarker(data) {
+        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt, minfo, micon;
+        var lgrp = window[data.Grp + 'Group'];
+        var marklist = window['list' + data.List];
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
             mtype = marq[0];
             minfo = marq[2];
-            nfichier = filename + minfo.mid;
+            nfichier = data.Filename + minfo.mid;
             txt = "";
+            let skip = false, skipu = false;
 
             if (typeof minfo.icon !=='undefined') {
                 micon = (typeof minfo.under !=='undefined') ? window[minfo.icon +'u'] : window[minfo.icon];
             } else {
-                micon = (typeof minfo.under !=='undefined') ? window[markico +'u'] : window[markico];
+                micon = (typeof minfo.under !=='undefined') ? window[data.Icon +'u'] : window[data.Icon];
             };
 
-            if(typeof cbxname !== 'undefined')
+            if(typeof data.Cbx !== 'undefined')
             checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-cbxid="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
             if(typeof minfo.title !== 'undefined')
@@ -554,59 +475,48 @@ function initMarkers () {
                     popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 7 : // Todo
-                    txt = "<br><h1><b>"+marktitle+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";
+                    txt = "<br><h1><b>"+data.Title+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";
                     popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
-                    break;
-                case 11 : // null (+cb)
-                    popup = '<h1>'+minfo.text+checkbox+'</h1>';
                     break;
                 case 12 : // sans popup (sauf temporaire)
                     popup = '<h1>'+checkbox+'</h1>';
                     // Have a break, have a Kitkat
             };
 
-            titlem = (typeof minfo.title !=='undefined') ? minfo.title : marktitle;
+            titlem = (typeof minfo.title !=='undefined') ? minfo.title : data.Title;
             titlem += " Id:"+minfo.mid;
 
-            if(typeof cbxname !== 'undefined') {
-
-                if (mtype == 11) {
-                    curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
-                    counternull += 1;
-                } else {
-                    curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
-                }
+            if(typeof data.Cbx !== 'undefined') {
+                    curmarker = L.marker(unproject(marq[1]), {icon: micon, grpicon: micon, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
             } else {
                 if (mtype !== 12) {
                     curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).bindPopup(popup, popupOptions);
                 } else {
                     curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true});
                 }
-
             };
 
-            if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
+            if((olduserMarkers.indexOf(data.Cbx+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
                 if (hideMarkers) {
-                    curmarker.setIcon(Null);
+                    skip = true;
                 } else {
                     curmarker.setOpacity(0.35);
                 };
 
                 if(userMarkers.indexOf(minfo.id) < 0) {
                     userMarkers.push(minfo.id);
-                    olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
+                    olduserMarkers.splice(olduserMarkers.indexOf(data.Cbx+minfo.mid), 1);
                 }
             }
 
-            if (underGround && (grp !=="grotte") && !(minfo.under))
-            curmarker.setOpacity(0);
-
-            curmarker.addTo(lgrp);
+            skipu = (underGround && (data.Grp !=="grotte") && !(minfo.under)) ? true : false;
+            // curmarker.setOpacity(0);
+            if (!(skip || skipu))
+                curmarker.addTo(lgrp);
 
         };
 
-        console.log(marktitle + " : " + (marklist.length - counternull) + langue["ui-load"]);
-        nbtmark += (marklist.length - counternull);
+        console.log(data.Title + " : " + marklist.length + langue["ui-load"]);
     };
 
 // Fonctions Interaction Map
@@ -622,11 +532,15 @@ function initMarkers () {
         var type = $(this).data('type');
         $(this).toggleClass('active');
         if($(this).hasClass('active')) {
+            loadmarker(initDatas[type]);
             mymap.addLayer(window[type+'Group']);
+            updatenbtmark();
             if(!userLocal)
             $.post('api/t/addmenu/'+type);
         } else {
             mymap.removeLayer(window[type+'Group']);
+            window[type+'Group'].clearLayers();
+            updatenbtmark();
             if(!userLocal)
             $.post('api/t/removemenu/'+type);
         };
@@ -650,10 +564,16 @@ function initMarkers () {
         var cheststate = ($(obj).hasClass('active')) ? true : false
         $('.region' + lgmenu).each(function(){
             region = $(this).data('type');
-            if($(this).hasClass('active') && cheststate) {
-                mymap.addLayer(window[type + region + 'Group']);
-            } else {
-                mymap.removeLayer(window[type + region + 'Group']);
+            if(typeof window[type + region + 'Group'] !=='undefined') {
+                if($(this).hasClass('active') && cheststate) {
+                    loadmarker(initDatas[type + region]);
+                    mymap.addLayer(window[type + region + 'Group']);
+                    updatenbtmark();
+                } else {
+                    mymap.removeLayer(window[type + region + 'Group']);
+                    window[type + region +'Group'].clearLayers();
+                    updatenbtmark();
+                };
             };
         });
 
@@ -682,11 +602,17 @@ function initMarkers () {
         var regionstate = ($(obj).hasClass('active')) ? true : false
         $('.chest' + lgmenu).each(function(){
             chest = $(this).data('type');
-            if($(this).hasClass('active') && regionstate) {
-                mymap.addLayer(window[chest + type + 'Group']);
-            } else {
-                mymap.removeLayer(window[chest + type + 'Group']);
-            }
+            if(typeof window[chest + type + 'Group'] !=='undefined') {
+                if($(this).hasClass('active') && regionstate) {
+                    loadmarker(initDatas[chest + type]);
+                    mymap.addLayer(window[chest + type + 'Group']);
+                    updatenbtmark();
+                } else {
+                    mymap.removeLayer(window[chest + type + 'Group']);
+                    window[chest + type +'Group'].clearLayers();
+                    updatenbtmark();
+                };
+            };
         });
 
         if(!userLocal) {
@@ -708,16 +634,19 @@ function initMarkers () {
 
     $('.matbtn').on('click', function() {
         var ndf = $(this).data('type');
-        if (!($(this).hasClass('active'))) {
+        $(this).toggleClass('active');
+        if ($(this).hasClass('active')) {
             $(this).attr('src', "media/icones/" + ndf + "on.png");
-            $(this).toggleClass('active');
+            loadmarker(initDatas[ndf]);
             mymap.addLayer(window[ndf+'Group']);
+            updatenbtmark();
             if(!userLocal)
                 $.post('api/t/addbtn/'+ndf);
         } else {
             $(this).attr('src', "media/icones/" + ndf + "off.png");
-            $(this).toggleClass('active');
             mymap.removeLayer(window[ndf+'Group']);
+            window[ndf+'Group'].clearLayers();
+            updatenbtmark();
             if(!userLocal)
                 $.post('api/t/removebtn/'+ndf);
         };
@@ -808,15 +737,22 @@ $(document).ready(function() {
         if(typeof res.login !== 'undefined') {
           $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
           $('#goggle' + lgmenu).attr('href', res.loging).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
-          initMarkers();
+          let options = getUserOptions()
+          if (options.oemt) {
+			  $('#hidemark' + lgmenu).prop("checked",true)
+              hideMarkers = true;
+            };
+          if (options.oeau) {
+			  $('#underground' + lgmenu).prop("checked",true);
+              underGround = true;
+              teyvatMap.setOpacity(0.35);
+              for (let i=1; i<= overlaysBounds.length; i++) {
+                  window['sumeruUnderground'+i].setOpacity(1);
+              };
+            }
+          reselectmenu();
           localStorage.setItem('userMarkersTeyvat',JSON.stringify(userMarkers));
           localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
-          let options = getUserOptions()
-          if (options.oemt)
-			  $('#hidemark' + lgmenu).prop("checked",true).trigger("change")
-          if (options.oeau)
-			  $('#underground' + lgmenu).prop("checked",true).trigger("change")
-          reselectmenu();
         }
 
         if(typeof res.uid !== 'undefined') {
@@ -835,7 +771,26 @@ $(document).ready(function() {
           regionload = (res.region !== null) ? res.region : [];
           chestload = (res.chest !== null) ? res.chest : [];
           updatemv3 = (res.updatemv3 !== null) ? res.updatemv3 : [];
-          initMarkers();
+          $.post('api/t/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
+            if(typeof(res.error) !== 'undefined') {
+                alert('Vous avez été déconnecté. La page va se rafraîchir.');
+               	window.location.reload();
+            };
+            if (res["oemt"] == "true") {
+				$('#hidemark' + lgmenu).prop("checked",true);
+                hideMarkers = true;
+			}
+			if (res["oeau"] == "true") {
+				$('#underground' + lgmenu).prop("checked",true);
+                underGround = true;
+                teyvatMap.setOpacity(0.35);
+                for (let i=1; i<= overlaysBounds.length; i++) {
+                    window['sumeruUnderground'+i].setOpacity(1);
+                };
+			}
+			// TODO : gérer l'affichage des régions
+              reselectmenu(itemload, btnload, regionload, chestload);
+	      });
           if (updatemv3.indexOf('teyvat') < 0) {
             $.post('api/t/updatemarkers', {newm : JSON.stringify(userMarkers), oldm : JSON.stringify(olduserMarkers)}, function(res) {
                 if(typeof(res.error) !== 'undefined') {
@@ -844,20 +799,6 @@ $(document).ready(function() {
                 };
             });
           }
-          $.post('api/t/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
-            if(typeof(res.error) !== 'undefined') {
-                alert('Vous avez été déconnecté. La page va se rafraîchir.');
-               	window.location.reload();
-            };
-            if (res["oemt"] == "true") {
-				$('#hidemark' + lgmenu).prop("checked",true).trigger("change");
-			}
-			if (res["oeau"] == "true") {
-				$('#underground' + lgmenu).prop("checked",true).trigger("change");
-			}
-			// TODO : gérer l'arrichage des régions
-	      });
-          reselectmenu(itemload, btnload, regionload, chestload);
         }
     });
 
@@ -877,7 +818,7 @@ $(document).ready(function() {
 						$.post('api/t/putoption', {data : JSON.stringify({'oemt':hideMarkers})})
 					}
                     clearGroup();
-                    initMarkers();
+                    reloadMarkers();
                     break;
 
                 case "underground":
@@ -899,7 +840,7 @@ $(document).ready(function() {
                     	$.post('api/t/putoption', {data : JSON.stringify({'oeau':underGround})})
                 	}
                     clearGroup();
-                    initMarkers();
+                    reloadMarkers();
                     break;
 
                 default:

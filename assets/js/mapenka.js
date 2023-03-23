@@ -23,6 +23,29 @@
         });        
     }
 
+    function updatenbtmark() {
+        var num = 0; 
+
+        $('.itembtn').each(function(){
+            var type = [], obj;
+            type = $(this).data('type').split(",");
+            obj = $(this);
+            type.forEach(function(elem) {
+                if (obj.hasClass('active')) {
+                    num += window['list' + elem].length;
+                };
+            });
+        });
+    
+        $('.matbtn').each(function(){
+            if ($(this).hasClass('active')) {
+                num += window['list' + $(this).data('type')].length;
+            };
+        });
+    
+        $('#total' + lgmenu).text(num +" / "+ totalMarkers + langue['ui-load']);
+    }
+
     function checkinfo(e) {
         if (!localStorage.getItem('Mapversenka') || !(localStorage.Mapversenka === "2.0.0")) {
             localStorage.Mapversenka = "2.0.0";
@@ -91,7 +114,7 @@
                 };
     
                 if (hideMarkers) {
-                    currentMarker.setOpacity(0);
+                    currentMarker.setIcon(Null);
                 } else {
                     currentMarker.setOpacity(0.35);
                 };
@@ -105,6 +128,9 @@
                     window.location.reload();
                 };
     
+                if (hideMarkers)
+                currentMarker.setIcon(currentMarker.options.grpicon);
+
                 currentMarker.setOpacity(1);
                 userMarkers = res.markers;
             });
@@ -117,17 +143,21 @@
     
         if(checked) {
             if(markers.indexOf(idm) < 0) {
-                markers.push(idm);
+                markers.push(""+idm);
             };
             if (hideMarkers) {
-                currentMarker.setOpacity(0);
+                currentMarker.setIcon(Null);
             } else {
                 currentMarker.setOpacity(0.35);
             };
         } else {
             if(markers.indexOf(idm) >= 0) {
-                markers.splice(markers.indexOf(idm), 1);
+                markers.splice(markers.indexOf(""+idm), 1);
             };
+
+            if (hideMarkers)
+                currentMarker.setIcon(currentMarker.options.grpicon);
+
             currentMarker.setOpacity(1);
         };
     
@@ -222,57 +252,40 @@
         
     // IMPORTANT !!!!!! Penser à changer les valeurs de LocalStorage en cas de réutilisation du code pour une autre map !!!!!!!!!
 
-    function reselectmenu(ligne, btn){
+    function reselectmenu(lidb, btndb){
 
-        if (!userLocal) {
-    
-            if(ligne){
-                ligne.forEach(function(element) {
-                    $("#btn" + lgmenu + element).addClass('active');
-                    mymap.addLayer(window[element + 'Group']);
-                });
-            };
-            if (btn){
-                btnstatut.forEach(function(element) {
-                    $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
-                    mymap.addLayer(window[element + 'Group']);
-                });
-            };
-        } else {
-            var lilocal = (localStorage.MenumapgenshinLiEnka) ? JSON.parse(localStorage.MenumapgenshinLiEnka) : [];
-            var btnlocal = (localStorage.MenumapgenshinBtnEnka) ? JSON.parse(localStorage.MenumapgenshinBtnEnka) : [];
+        var lilocal = (localStorage.MenumapgenshinLiEnka) ? JSON.parse(localStorage.MenumapgenshinLiEnka) : [];
+        var btnlocal = (localStorage.MenumapgenshinBtnEnka) ? JSON.parse(localStorage.MenumapgenshinBtnEnka) : [];
+ 
+        var ligne = (userLocal) ? lilocal : lidb;
+        var btn = (userLocal) ? btnlocal : btndb;
 
-            if(lilocal){
-                lilocal.forEach(function(element) {
-                    $("#btn" + lgmenu + element).addClass('active');
-                    mymap.addLayer(window[element + 'Group']);
-                });
-            };
-            if (btnlocal){
-                btnlocal.forEach(function(element) {
-                    $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
-                    mymap.addLayer(window[element + 'Group']);
-                });
-            };
+        if(ligne){
+            ligne.forEach(function(element) {
+                $("#btn" + lgmenu + element).addClass('active');
+            });
         };
+
+        if (btn){
+            btn.forEach(function(element) {
+                $("#btn" + lgmenu + element).addClass('active').attr('src', "media/icones/" + element + "on.png");
+            });
+        };
+
+        initMarkers(ligne,btn);
+        updatenbtmark();
     };
 
 // Variables générales
 
 var mymap;
+var currentMarker;
 var userMarkers = getUserMarkers();
 var olduserMarkers = (localStorage.getItem('userMarkers')) ? JSON.parse(localStorage.userMarkers) : [] ;
 var userLocal = true;
 var hideMarkers = false;
 var listatut = [];
 var btnstatut = [];
-var teyvatarray = [
-    'teleport','enkagate','cyclejn','triangle','peche','succes','quete',
-    'clesigil1','clesigil2','clesigil3','clesigil4','clesigil5',
-    'cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc',
-    'ferblanc','amethyste','electrocris','noyauc','perle','corail',
-    'ffeu','fbrume','ganoderma','herbem',
-    'grenouille','crabe'];
 var nbtmark = 0;
 var langue, lgmenu;
 
@@ -328,62 +341,68 @@ BoutonMenu.addTo(mymap);
 
 // Initialisation des marqueurs
 
-// Chargement des Marqueurs marklist, markico, grp, marktitle, filename, cbxname
+function reloadMarkers () {
+    var item=[], btn=[];
 
-function initMarkers () {
-    loadmarker(listteleport,"Teleport","teleport",langue.cat02,"tpe");
-    loadmarker(listenkagate,"Enkagate","enkagate",langue.cat100,"egate");
-    loadmarker(listcyclejn,"Cyclejn","cyclejn",langue.cat101);
-    loadmarker(listtriangle,"Triangle","triangle",langue.cat102,"triangle","triangle");
-    loadmarker(listtrianglenocb,"Triangle","triangle",langue.cat102,"trianglenocb");
-    loadmarker(listsucces,"Succes","succes",langue.cat46,"succese","succese");
-    loadmarker(listquete,"Quete","quete",langue.cat118,"quetee","quetee");
-    loadmarker(listpeche,"Peche","peche",langue.cat94,"pechee");
-    loadmarker(listpierrekc,"Pierrekc","pierrekc",langue.cat103,"pierrekc","pierrekc");
-    loadmarker(listclesigil1,"Clesigil1","clesigil1",langue.cat104,"clesigil1-","clesigil1");
-    loadmarker(listclesigil2,"Clesigil2","clesigil2",langue.cat105,"clesigil2-","clesigil2");
-    loadmarker(listclesigil3,"Clesigil3","clesigil3",langue.cat106,"clesigil3-","clesigil3");
-    loadmarker(listclesigil4,"Clesigil4","clesigil4",langue.cat107,"clesigil4-","clesigil4");
-    loadmarker(listclesigil5,"Clesigil5","clesigil5",langue.cat108,"clesigil5-","clesigil5");
-    loadmarker(listcordi,"Cordi","cordi",langue.cat04,"oce","cordie");
-    loadmarker(listcdelic,"Cdelic","cdelic",langue.cat05,"dce","cdelice");
-    loadmarker(listcprec,"Cprec","cprec",langue.cat06,"pce","cprece");
-    loadmarker(listcluxe,"Cluxe","cluxe",langue.cat07,"lce","cluxee");
-    loadmarker(listcdefi,"Cdefi","cdefi",langue.cat08,"defie","cdefie");
-    loadmarker(listcfee,"Cfee","cfee",langue.cat09,"","cfeeenko");
-    loadmarker(listferblanc,"Ferblanc","ferblanc",langue.cat25);
-    loadmarker(listamethyste,"Amethyste","amethyste",langue.cat84);
-    loadmarker(listelectroc,"Electrocris","electrocris",langue.cat12);
-    loadmarker(listnoyauc,"Noyauc","noyauc",langue.cat44);
-    loadmarker(listperle,"Perle","perle",langue.cat32);
-    loadmarker(listcorail,"Corail","corail",langue.cat97);
-    loadmarker(listffeu,"Ffeu","ffeu",langue.cat14);
-    loadmarker(listfbrume,"Fbrume","fbrume",langue.cat13);
-    loadmarker(listganoderma,"Ganoderma","ganoderma",langue.cat81);
-    loadmarker(listherbem,"Herbem","herbem",langue.cat82);
-    loadmarker(listgrenouille,"Grenouille","grenouille",langue.cat27);
-    loadmarker(listcrabe,"Crabe","crabe",langue.cat64);
+    $('.itembtn').each(function(){
+        var type = [], obj;
+        type = $(this).data('type').split(",");
+        obj = $(this);
+        type.forEach(function(elem) {
+            if (obj.hasClass('active') && (item.indexOf(elem) < 0)) {
+                item.push(elem);
+            };
+        });
+    });
 
-    $('#total' + lgmenu).text(nbtmark + langue['ui-load']);
+    $('.matbtn').each(function(){
+        if ($(this).hasClass('active') && (btn.indexOf($(this).data('type')) < 0)) {
+            btn.push($(this).data('type'));
+        };
+    });
+
+    initMarkers(item,btn);
+    updatenbtmark();
 };
 
-    function loadmarker(marklist, markico, grp, marktitle, filename, cbxname) {
-        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt, minfo, micon, counternull=0;
-        var lgrp = window[grp + 'Group'];
+function initMarkers (item,btn) {
+
+    if(item){
+        item.forEach(function(element) {
+            loadmarker(initDatas[element]);
+            if(typeof window[element + 'Group'] !=="undefined")
+                mymap.addLayer(window[element + 'Group']);
+        });
+    };
+
+    if (btn){
+        btn.forEach(function(element) {
+            loadmarker(initDatas[element]);
+            mymap.addLayer(window[element + 'Group']);
+        });
+    };
+
+};
+
+    function loadmarker(data) {
+        var marq = [], nfichier, i, mtype, checkbox='', popup='', curmarker, txt, minfo, micon;
+        var lgrp = window[data.Grp + 'Group'];
+        var marklist = window['list' + data.List];
         for (i=0; i<marklist.length; i++) {
             marq = marklist[i];
             mtype = marq[0];
             minfo = marq[2];
-            nfichier = filename + minfo.mid;
+            nfichier = data.Filename + minfo.mid;
             txt = "";
+            let skip = false;
 
             if (typeof minfo.icon !=='undefined') {
                 micon = (typeof minfo.under !=='undefined') ? window[minfo.icon +'u'] : window[minfo.icon];
             } else {
-                micon = (typeof minfo.under !=='undefined') ? window[markico +'u'] : window[markico];
+                micon = (typeof minfo.under !=='undefined') ? window[data.Icon +'u'] : window[data.Icon];
             };
 
-            if(typeof cbxname !== 'undefined')
+            if(typeof data.Cbx !== 'undefined')
             checkbox = '<br><h2><label class="switch"><input type="checkbox" id="mapbox" data-cbxid="'+minfo.id+'" /><span class="cursor"></span><span id="cbxtxt'+minfo.id+'" class="texte">'+langue['ui-tofind']+'</span></label></h2>';
 
             if(typeof minfo.title !== 'undefined')
@@ -403,28 +422,19 @@ function initMarkers () {
                     popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
                     break;
                 case 7 : // Todo
-                    txt = "<br><h1><b>"+marktitle+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";
+                    txt = "<br><h1><b>"+data.Title+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";
                     popup = '<a href="media/todo.gif" class="items-center" data-lity><img class="thumb2" src="media/todo.gif"/></a>'+txt+checkbox;
-                    break;
-                case 11 : // null (+cb)
-                    popup = '<h1>'+minfo.text+checkbox+'</h1>';
                     break;
                 case 12 : // sans popup (sauf temporaire)
                     popup = '<h1>'+checkbox+'</h1>';
                     // Have a break, have a Kitkat
             };
 
-            titlem = (typeof minfo.title !=='undefined') ? minfo.title : marktitle;
+            titlem = (typeof minfo.title !=='undefined') ? minfo.title : data.Title;
             titlem += " Id:"+minfo.mid;
 
-            if(typeof cbxname !== 'undefined') {
-                
-                if (mtype == 11) {
-                    curmarker = L.marker(unproject(marq[1]), {icon: Null, title: ""}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
-                    counternull += 1;
-                } else {
-                    curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
-                }
+            if(typeof data.Cbx !== 'undefined') {
+                curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).on('click', onMarkerClick).bindPopup(popup, popupOptions);
             } else {
                 if (mtype !== 12) {
                     curmarker = L.marker(unproject(marq[1]), {icon: micon, title: titlem, riseOnHover: true}).bindPopup(popup, popupOptions);
@@ -434,25 +444,25 @@ function initMarkers () {
 
             };
 
-            if((olduserMarkers.indexOf(cbxname+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
+            if((olduserMarkers.indexOf(data.Cbx+minfo.mid) >= 0) || (userMarkers.indexOf(minfo.id) >=0)) {
                 if (hideMarkers) {
-                    curmarker.setOpacity(0);
+                    skip = true;
                 } else {
                     curmarker.setOpacity(0.35);
                 };
 
                 if(userMarkers.indexOf(minfo.id) < 0) {
                     userMarkers.push(minfo.id);
-                    olduserMarkers.splice(olduserMarkers.indexOf(cbxname+minfo.mid), 1);
+                    olduserMarkers.splice(olduserMarkers.indexOf(data.Cbx+minfo.mid), 1);
                 }
             }
             
-            curmarker.addTo(lgrp);
+            if (!skip)
+                curmarker.addTo(lgrp);
 
         };
 
-        console.log(marktitle + " : " + (marklist.length - counternull) + langue["ui-load"]);
-        nbtmark += (marklist.length - counternull);
+        console.log(data.Title + " : " + marklist.length + langue["ui-load"]);
     };
 
 // Fonctions Interaction Map
@@ -467,41 +477,54 @@ function initMarkers () {
     $('#menu a[data-type]').on('click', function(e){
         e.preventDefault();
   
-        var type = $(this).data('type');
-        $(this).toggleClass('active');
-        if($(this).hasClass('active')) {
-            mymap.addLayer(window[type+'Group']);
+        var type = [], obj;
+        type = $(this).data('type').split(",");
+        obj = $(this);
+        obj.toggleClass('active');
+        type.forEach(function(elem) {
+            if(obj.hasClass('active')) 
+                loadmarker(initDatas[elem]);
+        });
+        if(obj.hasClass('active')) {
+            mymap.addLayer(window[type[0]+'Group']);
+            updatenbtmark();
             if(!userLocal)
-                $.post('api/e/addmenu/'+type);
+                $.post('api/e/addmenu/'+type[0]);
         } else {
-            mymap.removeLayer(window[type+'Group']);
+            mymap.removeLayer(window[type[0]+'Group']);
+            window[type[0]+'Group'].clearLayers();
+            updatenbtmark();
             if(!userLocal)
-                $.post('api/e/removemenu/'+type);
+                $.post('api/e/removemenu/'+type[0]);
         };
 
         if(userLocal) {
             var listatut = [];
             $('#menu a[data-type]').each(function(){
-                if ($(this).hasClass('active') && (listatut.indexOf($(this).data('type')) < 0)) {
-                    listatut.push($(this).data('type'));
+                type = $(this).data('type').split(",");
+                if ($(this).hasClass('active') && (listatut.indexOf(type[0]) < 0)) {
+                    listatut.push(type[0]);
                 };
             });
             localStorage.MenumapgenshinLiEnka = JSON.stringify(listatut);
-            };
-        });
+        };
+    });
 
     $('.matbtn').on('click', function() {
         var ndf = $(this).data('type');
-        if (!($(this).hasClass('active'))) {
+        $(this).toggleClass('active');
+        if (($(this).hasClass('active'))) {
             $(this).attr('src', "media/icones/" + ndf + "on.png");
-            $(this).toggleClass('active');
+            loadmarker(initDatas[ndf]);
             mymap.addLayer(window[ndf+'Group']);
+            updatenbtmark();
             if(!userLocal)
                 $.post('api/e/addbtn/'+ndf);
         } else {
             $(this).attr('src', "media/icones/" + ndf + "off.png");
-            $(this).toggleClass('active');
             mymap.removeLayer(window[ndf+'Group']);
+            window[ndf+'Group'].clearLayers();
+            updatenbtmark();
             if(!userLocal)
                 $.post('api/e/removebtn/'+ndf);
         };
@@ -592,13 +615,14 @@ $(document).ready(function() {
         if(typeof res.login !== 'undefined') {
           $('#discord' + lgmenu).attr('href', res.login).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
           $('#goggle' + lgmenu).attr('href', res.loging).attr('target', (window.location !== window.parent.location) ? '_blank' : '_self');
-          initMarkers();
+          let options = getUserOptions()
+          if (options.oemt) {
+            $('#hidemark' + lgmenu).prop("checked",true);
+            hideMarkers = true;
+            };
+          reselectmenu();
           localStorage.setItem('userMarkersEnka',JSON.stringify(userMarkers));
           localStorage.setItem('userMarkers',JSON.stringify(olduserMarkers));
-          let options = getUserOptions()
-          if (options.oemt)
-			  $('#hidemark' + lgmenu).prop("checked",true).trigger("change")
-          reselectmenu();
         }
   
         if(typeof res.uid !== 'undefined') {
@@ -615,7 +639,18 @@ $(document).ready(function() {
           listatut = (res.menu !== null) ? res.menu : [];
           btnstatut = (res.btn !== null) ? res.btn : [];
           updatemv3 = (res.updatemv3 !== null) ? res.updatemv3 : [];
-          initMarkers();
+          $.post('api/e/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
+            if(typeof(res.error) !== 'undefined') {
+                alert('Vous avez été déconnecté. La page va se rafraîchir.');
+               	window.location.reload();
+            };
+            if (res["oemt"] == "true") {
+				$('#hidemark' + lgmenu).prop("checked",true);
+                hideMarkers = true;
+			}
+			// TODO : gérer l'arrichage des régions
+            reselectmenu(listatut, btnstatut);
+	      });
           if (updatemv3.indexOf('enka') < 0) {
             $.post('api/e/updatemarkers', {newm : JSON.stringify(userMarkers), oldm : JSON.stringify(olduserMarkers)}, function(res) {
                 if(typeof(res.error) !== 'undefined') {
@@ -624,17 +659,6 @@ $(document).ready(function() {
                 };
             });
           }
-          $.post('api/e/getoption', {data : JSON.stringify(['oemt','oeau','oear'])}, function(res) {
-            if(typeof(res.error) !== 'undefined') {
-                alert('Vous avez été déconnecté. La page va se rafraîchir.');
-               	window.location.reload();
-            };
-            if (res["oemt"] == "true") {
-				$('#hidemark' + lgmenu).prop("checked",true).trigger("change");
-			}
-			// TODO : gérer l'arrichage des régions
-	      });
-          reselectmenu(listatut, btnstatut);
         }
     });
 
@@ -650,7 +674,7 @@ $(document).ready(function() {
 						$.post('api/e/putoption', {data : JSON.stringify({'oemt':hideMarkers})})
 					}
                     clearGroup();
-                    initMarkers();
+                    reloadMarkers();
                     break;
 
                 default:

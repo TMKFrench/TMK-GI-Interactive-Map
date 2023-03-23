@@ -1,3 +1,43 @@
+// Layers
+
+var teyvatarray = ['teleport','lumen','lampe','peche','quete','succes','pano','cordi','cdelic','cprec','cluxe','cdefi','cfee','ferblanc','cristal','lapis','jade','noyauc','fbrume','gdloup','champitoile','grenouille','lezard','luciolichance','belette','artefact','tasdepierre','orbeprof','message','fossile',
+];
+
+// Initialisation des Markers
+
+var initDatas = {
+teleport:{List:'teleport', Icon:'Teleport', Grp:'teleport', Title:langue.cat02, Filename:'tpgo'},
+lumen:{List:'lumen', Icon:'Lumen', Grp:'lumen', Title:langue.cat116, Filename:'lumen', Cbx:'lumen'},
+lampe:{List:'lampe', Icon:'Lampe', Grp:'lampe', Title:langue.cat117},
+peche:{List:'peche', Icon:'Peche', Grp:'peche', Title:langue.cat94, Filename:'pechego'},
+quete:{List:'quete', Icon:'Quete', Grp:'quete', Title:langue.cat118, Filename:'quetego', Cbx:'quetego'},
+succes:{List:'succes', Icon:'Succes', Grp:'succes', Title:langue.cat46, Filename:'succesgo', Cbx:'succesgo'},
+pano:{List:'pano', Icon:'Pano', Grp:'pano', Title:langue.cat03, Filename:'panogo', Cbx:'panogo'},
+cordi:{List:'cordi', Icon:'Cordi', Grp:'cordi', Title:langue.cat04, Filename:'ocgo', Cbx:'cordigo'},
+cdelic:{List:'cdelic', Icon:'Cdelic', Grp:'cdelic', Title:langue.cat05, Filename:'dcgo', Cbx:'cdelicgo'},
+cprec:{List:'cprec', Icon:'Cprec', Grp:'cprec', Title:langue.cat06, Filename:'pcgo', Cbx:'cprecgo'},
+cluxe:{List:'cluxe', Icon:'Cluxe', Grp:'cluxe', Title:langue.cat07, Filename:'lcgo', Cbx:'cluxego'},
+cdefi:{List:'cdefi', Icon:'Cdefi', Grp:'cdefi', Title:langue.cat08, Filename:'defigo', Cbx:'cdefigo'},
+cfee:{List:'cfee', Icon:'Cfee', Grp:'cfee', Title:langue.cat09, Filename:'cfeego', Cbx:'cfeego'},
+ferblanc:{List:'ferblanc', Icon:'Ferblanc', Grp:'ferblanc', Title:langue.cat25},
+cristal:{List:'cristal', Icon:'Cristal', Grp:'cristal', Title:langue.cat11},
+lapis:{List:'lapis', Icon:'Lapis', Grp:'lapis', Title:langue.cat41},
+jade:{List:'jade', Icon:'Jade', Grp:'jade', Title:langue.cat39},
+noyauc:{List:'noyauc', Icon:'Noyauc', Grp:'noyauc', Title:langue.cat44},
+fbrume:{List:'fbrume', Icon:'Fbrume', Grp:'fbrume', Title:langue.cat13},
+gdloup:{List:'gdloup', Icon:'Gdloup', Grp:'gdloup', Title:langue.cat45},
+champitoile:{List:'champitoile', Icon:'Champitoile', Grp:'champitoile', Title:langue.cat119},
+grenouille:{List:'grenouille', Icon:'Grenouille', Grp:'grenouille', Title:langue.cat27},
+lezard:{List:'lezard', Icon:'Lezard', Grp:'lezard', Title:langue.cat28},
+luciolichance:{List:'luciolichance', Icon:'Luciolichance', Grp:'luciolichance', Title:langue.cat120},
+belette:{List:'belette', Icon:'Belette', Grp:'belette', Title:langue.cat121},
+artefact:{List:'artefact', Icon:'Artefact', Grp:'artefact', Title:langue.cat76},
+tasdepierre:{List:'tasdepierre', Icon:'Tasdepierre', Grp:'tasdepierre', Title:langue.cat123, Filename:'tas2pierrego', Cbx:'tasdepierrego'},
+orbeprof:{List:'orbeprof', Icon:'Orbeprof', Grp:'orbeprof', Title:langue.cat125, Filename:'orbeprof', Cbx:'orbeprof'},
+message:{List:'message', Icon:'Message', Grp:'message', Title:langue.cat126, Filename:'messagego', Cbx:'messagego'},
+fossile:{List:'fossile', Icon:'Fossile', Grp:'fossile', Title:langue.cat127, Filename:'fossile', Cbx:'fossile'},
+};
+
 // Liste des Marqueurs
 
 // Téléporteurs
@@ -142,12 +182,6 @@ var listnoyauc = [
 	[12,[ 6464, 6180],{id:'00184',mid:'01'}],[12,[ 6367, 6182],{id:'00185',mid:'02'}],[12,[ 7397, 6052],{id:'00186',mid:'03'}],[12,[ 6173, 7528],{id:'00306',mid:'04'}],[12,[ 6412, 7396],{id:'00307',mid:'05'}],[12,[ 8845, 8998],{id:'00308',mid:'06'}],[12,[ 7282, 7760],{id:'00415',mid:'07'}],[12,[ 7308, 7590],{id:'00416',mid:'08'}]
 ];
 
-// Fleurs de Feu
-
-var listffeu = [
-	
-];
-
 // Fleurs de Brume
 
 var listfbrume = [
@@ -184,12 +218,6 @@ var listlezard = [
 	[12,[ 6729, 6214],{id:'00209',mid:'01'}],[12,[ 6743, 5935],{id:'00210',mid:'02'}],[12,[ 7181, 6116],{id:'00320',mid:'03'}],[12,[ 6750, 7234],{id:'00321',mid:'04'}],[12,[ 9042, 7505],{id:'00322',mid:'05'}],[12,[ 8570, 6992],{id:'00323',mid:'06'}],[12,[ 8676, 8573],{id:'00324',mid:'07'}],[12,[ 8624, 8821],{id:'00325',mid:'08'}],[12,[ 8828, 9094],{id:'00326',mid:'09'}],[12,[ 8208, 7734],{id:'00327',mid:'10'}],
 	[12,[ 7785, 7408],{id:'00328',mid:'11'}],[12,[ 8068, 7822],{id:'00423',mid:'12'}],[12,[ 7574, 7716],{id:'00424',mid:'13'}],[12,[ 7867, 9117],{id:'00425',mid:'14'}],[12,[ 8626, 9320],{id:'00426',mid:'15'}],[12,[ 5652, 8658],{id:'00427',mid:'16'}],[12,[ 4904, 9002],{id:'00428',mid:'17'}],[12,[ 4627, 9195],{id:'00429',mid:'18'}],[12,[ 4939, 8342],{id:'00430',mid:'19'}],[12,[ 6418, 6113],{id:'00548',mid:'20'}],
 	[12,[ 6648, 6427],{id:'00552',mid:'21'}],[12,[ 8624, 9570],{id:'00557',mid:'22'}],[12,[ 6812, 8767],{id:'00558',mid:'23'}],[12,[ 6495, 8796],{id:'00559',mid:'24'}],[12,[ 5510, 8121],{id:'00560',mid:'25'}],[12,[ 4631, 8569],{id:'00561',mid:'26'}]
-];
-
-// Luciole
-
-var listluciole = [
-	
 ];
 
 // Luciolichance
@@ -241,3 +269,4 @@ var listfossile = [
 	[0,[ 8620, 5695],{id:'00613',mid:'01'}],[0,[ 7539, 6422],{id:'00614',mid:'02'}],[0,[ 7445, 7041],{id:'00615',mid:'03'}],[0,[ 7407, 7873],{id:'00616',mid:'04'}],[0,[ 5840, 8683],{id:'00617',mid:'05'}]
 ];
 
+var totalMarkers = 637;

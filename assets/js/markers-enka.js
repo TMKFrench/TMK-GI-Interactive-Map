@@ -1,3 +1,46 @@
+// Layers
+
+var teyvatarray = ['teleport','enkagate','cyclejn','triangle','peche','quete','succes','clesigil1','clesigil2','clesigil3','clesigil4','clesigil5','cordi','cdelic','cprec','cluxe','cdefi','cfee','pierrekc','ferblanc','amethyste','electroc','noyauc','perle','corail','ffeu','fbrume','ganoderma','herbem','grenouille','lezard','crabe',
+];
+
+// Initialisation des Markers
+
+var initDatas = {
+teleport:{List:'teleport', Icon:'Teleport', Grp:'teleport', Title:langue.cat02, Filename:'tpe'},
+enkagate:{List:'enkagate', Icon:'Enkagate', Grp:'enkagate', Title:langue.cat100, Filename:'egate'},
+cyclejn:{List:'cyclejn', Icon:'Cyclejn', Grp:'cyclejn', Title:langue.cat101},
+triangle:{List:'triangle', Icon:'Triangle', Grp:'triangle', Title:langue.cat102, Filename:'triangle', Cbx:'triangle'},
+trianglenocb:{List:'trianglenocb', Icon:'Triangle', Grp:'triangle', Title:langue.cat102, Filename:'trianglenocb'},
+peche:{List:'peche', Icon:'Peche', Grp:'peche', Title:langue.cat94, Filename:'pechee'},
+quete:{List:'quete', Icon:'Quete', Grp:'quete', Title:langue.cat118, Filename:'quetee', Cbx:'quetee'},
+succes:{List:'succes', Icon:'Succes', Grp:'succes', Title:langue.cat46, Filename:'succese', Cbx:'succese'},
+clesigil1:{List:'clesigil1', Icon:'Clesigil1', Grp:'clesigil1', Title:langue.cat104, Filename:'clesigil1-', Cbx:'clesigil1'},
+clesigil2:{List:'clesigil2', Icon:'Clesigil2', Grp:'clesigil2', Title:langue.cat105, Filename:'clesigil2-', Cbx:'clesigil2'},
+clesigil3:{List:'clesigil3', Icon:'Clesigil3', Grp:'clesigil3', Title:langue.cat106, Filename:'clesigil3-', Cbx:'clesigil3'},
+clesigil4:{List:'clesigil4', Icon:'Clesigil4', Grp:'clesigil4', Title:langue.cat107, Filename:'clesigil4-', Cbx:'clesigil4'},
+clesigil5:{List:'clesigil5', Icon:'Clesigil5', Grp:'clesigil5', Title:langue.cat108, Filename:'clesigil5-', Cbx:'clesigil5'},
+cordi:{List:'cordi', Icon:'Cordi', Grp:'cordi', Title:langue.cat04, Filename:'oce', Cbx:'cordie'},
+cdelic:{List:'cdelic', Icon:'Cdelic', Grp:'cdelic', Title:langue.cat05, Filename:'dce', Cbx:'cdelice'},
+cprec:{List:'cprec', Icon:'Cprec', Grp:'cprec', Title:langue.cat06, Filename:'pce', Cbx:'cprece'},
+cluxe:{List:'cluxe', Icon:'Cluxe', Grp:'cluxe', Title:langue.cat07, Filename:'lce', Cbx:'cluxee'},
+cdefi:{List:'cdefi', Icon:'Cdefi', Grp:'cdefi', Title:langue.cat08, Filename:'defie', Cbx:'defie'},
+cfee:{List:'cfee', Icon:'Cfee', Grp:'cfee', Title:langue.cat09, Cbx:'cfeeenko'},
+pierrekc:{List:'pierrekc', Icon:'Pierrekc', Grp:'pierrekc', Title:langue.cat103, Filename:'pierrekc', Cbx:'pierrekc'},
+ferblanc:{List:'ferblanc', Icon:'Ferblanc', Grp:'ferblanc', Title:langue.cat25},
+amethyste:{List:'amethyste', Icon:'Amethyste', Grp:'amethyste', Title:langue.cat84},
+electroc:{List:'electroc', Icon:'Electroc', Grp:'electroc', Title:langue.cat12},
+noyauc:{List:'noyauc', Icon:'Noyauc', Grp:'noyauc', Title:langue.cat44},
+perle:{List:'perle', Icon:'Perle', Grp:'perle', Title:langue.cat32},
+corail:{List:'corail', Icon:'Corail', Grp:'corail', Title:langue.cat97},
+ffeu:{List:'ffeu', Icon:'Ffeu', Grp:'ffeu', Title:langue.cat14},
+fbrume:{List:'fbrume', Icon:'Fbrume', Grp:'fbrume', Title:langue.cat13},
+ganoderma:{List:'ganoderma', Icon:'Ganoderma', Grp:'ganoderma', Title:langue.cat82},
+herbem:{List:'herbem', Icon:'Herbem', Grp:'herbem', Title:langue.cat82},
+grenouille:{List:'grenouille', Icon:'Grenouille', Grp:'grenouille', Title:langue.cat27},
+lezard:{List:'lezard', Icon:'Lezard', Grp:'lezard', Title:langue.cat28},
+crabe:{List:'crabe', Icon:'Crabe', Grp:'crabe', Title:langue.cat64},
+};
+
 // Liste des Marqueurs
 
 // Téléporteurs
@@ -235,3 +278,4 @@ var listcrabe = [
 	[12,[ 2356, 9819],{id:'00543',mid:'01'}],[12,[ 1648, 8868],{id:'00544',mid:'02'}]
 ];
 
+var totalMarkers = 544;

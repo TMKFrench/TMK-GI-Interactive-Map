@@ -14,7 +14,9 @@ if((isset($_map) && !empty($_map)) && ($_map == "teyvat" || $_map == "enka" || $
 $db = new SQLite3Database("markers$_map.db");
 
 $map = [];
+$layersarray = [];
 $nbtm = 0;
+$total = 0;
 $counter = 0;
 $i = 0;
 $uid = 0;
@@ -27,8 +29,19 @@ foreach($groups as $g => $group) {
     $map[$group->groupid] = [
         'id' => $group->groupid,
         'grouptitle' => $group->title,
+        'grpicon' => $group->grpicon,
+        'grpmrk' => $group->grpmrk,
+        'grptitle' => $group->grptitle,
         'markers' => [],
     ];
+
+    if($group->grpfilename) {
+        $map[$group->groupid]['grpfilename'] = $group->grpfilename;
+    };
+
+    if($group->grpcbx) {
+        $map[$group->groupid]['grpcbx'] = $group->grpcbx;
+    };
 };
 
 foreach($markers as $m => $marker) {
@@ -61,9 +74,27 @@ foreach($markers as $m => $marker) {
     };
 };
 
+$layers = "// Layers\n\nvar teyvatarray = [";
+$initmarkers = "// Initialisation des Markers\n\nvar initDatas = {\n";
 $js = "// Liste des Marqueurs\n\n";
 
 foreach($map as $group) {
+    if(!in_array($group['grpmrk'], $layersarray)) {
+        $layersarray[] = $group['grpmrk'];
+        $layers .= "'{$group['grpmrk']}',";
+    };
+
+    $initmarkers .= "{$group['id']}:{List:'{$group['id']}', Icon:'{$group['grpicon']}', Grp:'{$group['grpmrk']}', Title:{$group['grptitle']}";
+    if(isset($group['grpfilename'])) {
+        $initmarkers .= ", Filename:'{$group['grpfilename']}'";
+    };
+
+    if(isset($group['grpcbx'])) {
+        $initmarkers .= ", Cbx:'{$group['grpcbx']}'";
+    };
+
+    $initmarkers .= "},\n";
+
     if(isset($group['grouptitle']) && $group['grouptitle'] !="") {
         $js .= "{$group['grouptitle']}\n\n";
     };
@@ -71,6 +102,7 @@ foreach($map as $group) {
     $counter = 1;
     $i = 1;
     $nbtm = count($group['markers']);
+    $total += $nbtm;
 
     foreach($group['markers'] as $marker) {
 
@@ -119,9 +151,14 @@ foreach($map as $group) {
 
     $js .= "\n];\n\n";
 };
+
+$layers .= "\n];\n\n";
+$initmarkers .= "};\n\n";
+
 $fnbk = "assets/js/mkbk/markers{$_map} - ".date('Y-m-d_H-i-s').".js";
 $fn = "assets/js/markers{$_map}.js";
-file_put_contents($fnbk, $js);
-file_put_contents($fn, $js);
+$output = $layers . $initmarkers . $js . "var totalMarkers = {$total};";
+file_put_contents($fnbk, $output);
+file_put_contents($fn, $output);
 outils::dd("Fichier de backup $fnbk créé et $fn remplacé sur le serveur");
 ?>
