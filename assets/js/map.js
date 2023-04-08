@@ -327,6 +327,7 @@ teyvatMap = L.tileLayer('media/tilesteyvat341/{z}/{x}/{y}.jpg', {
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
     noWrap: true,
+    edgeBufferTiles: 1
 });
 teyvatMap.addTo(mymap);
 
@@ -472,7 +473,7 @@ function initMarkers (item,btn,region,chest) {
                     break;
                 case 5 : // Video (txt+cb)
                     txt += (typeof minfo.text !=='undefined') ? "<br><h1>"+minfo.text+"</h1>" : "";
-                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?rel=0" frameborder="0" allowfullscreen></iframe>'+txt+checkbox;
+                    popup = '<iframe width="480" height="270" src="//www.youtube.com/embed/'+minfo.video+'?autoplay=1&rel=0&loop=1&suggestedQuality=hd1080" frameborder="0" allowfullscreen="1"></iframe>'+txt+checkbox;
                     break;
                 case 7 : // Todo
                     txt = "<br><h1><b>"+data.Title+" "+minfo.mid+"</b><br>"+langue['ui-todo']+"</h1>";

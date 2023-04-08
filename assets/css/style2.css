@@ -138,6 +138,20 @@ html, body, #mapid {
   text-align: left;
 }
 
+.obelisk {
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-gap: 5px;
+  text-align: center;
+}
+
+.obelisk img {
+  width: 72px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .menulist {
   overflow-y: auto !important;
 }

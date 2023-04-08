@@ -213,6 +213,8 @@ var Sicciteu = L.icon({iconUrl:'media/icones/sicciteu.png', iconSize:[34, 40], i
 var Ppapier = L.icon({iconUrl:'media/icones/ppapier.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Ppapieru = L.icon({iconUrl:'media/icones/ppapieru.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Pepiniere = L.icon({iconUrl:'media/icones/pepiniere.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Obelisk = L.icon({iconUrl:'media/icones/obelisk.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
+var Obelisku = L.icon({iconUrl:'media/icones/obelisku.png', iconSize:[34, 40], iconAnchor:[17, 40], popupAnchor:[0, -40]});
 var Null = L.icon({iconUrl:'media/icones/null0.png', iconSize:[2, 2], iconAnchor:[2, 3], popupAnchor:[-3, -3]});
 
 

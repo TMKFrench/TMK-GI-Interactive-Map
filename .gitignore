@@ -31,6 +31,8 @@ lbm/
 indexold.html
 *.db
 assets/js/mkbk/*.*
+assets/js/*test.js
+test*.*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

@@ -627,6 +627,7 @@ $(document).ready(function() {
                 };
                 if (res["oemt"] == "true") {
                     $('#hidemark' + lgmenu).prop("checked",true);
+                    hideMarkers = true;
                 }
                 // TODO : gérer l'arrichage des régions
                 reselectmenu(listatut, btnstatut);

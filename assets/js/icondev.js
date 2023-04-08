@@ -1,7 +1,7 @@
 var ferblancIcon = L.icon({iconUrl:'media/icones/ferblanc.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var cristalIcon = L.icon({iconUrl:'media/icones/cristal.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var noyaucIcon = L.icon({iconUrl:'media/icones/noyauc.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
-var electrocIcon = L.icon({iconUrl:'media/icones/electrocris.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
+var electrocIcon = L.icon({iconUrl:'media/icones/electroc.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var artefactIcon = L.icon({iconUrl:'media/icones/artefact.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var ffeuIcon = L.icon({iconUrl:'media/icones/ffeu.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
 var fbrumeIcon = L.icon({iconUrl:'media/icones/fbrume.png', iconSize:[25, 30], iconAnchor:[12, 30], popupAnchor:[0, -30]});
