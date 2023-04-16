@@ -55,8 +55,8 @@
     }
 
     function checkinfo(e) {
-        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.2.1")) {
-            localStorage.Mapvers = "7.2.1";
+        if (!localStorage.getItem('Mapvers') || !(localStorage.Mapvers === "7.3.3")) {
+            localStorage.Mapvers = "7.3.3";
             if (localStorage.MapLng === "FR") {
                 var infobox = lity('#infomajFR');
             } else {
@@ -171,7 +171,8 @@
         };
 
         localStorage.setItem('userMarkersTeyvat', JSON.stringify(markers));
-        userMarkers = JSON.stringify(markers); //??? pkoi ?
+        // userMarkers = JSON.stringify(markers); //??? pkoi ?
+        userMarkers = markers;
     };
 
     function getUserOptions(option) {
@@ -320,7 +321,7 @@ mymap = L.map('mapid', {
     zoom : 3
 });
 
-teyvatMap = L.tileLayer('media/tilesteyvat341/{z}/{x}/{y}.jpg', {
+teyvatMap = L.tileLayer('media/tilesteyvat36/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
@@ -342,7 +343,7 @@ var overlaysBounds = [[[11112,11996],[11812,12572]],[[11252,12616],[11637,13171]
 [[4480,18130],[5338,19048]],[[4347,18573],[4620,19158]],[[5226,19175],[5774,19348]],[[6522,19181],[7030,19855]],[[6995,19115],[7540,19871]],[[6970,17393],[8020,18380]],[[8158,17857],[8558,18346]]];
 
 for (let i=1; i<= overlaysBounds.length; i++) {
-    window['sumeruUnderground'+i] = L.imageOverlay('media/overlays/sumeru'+i+'.png', L.latLngBounds([unproject(overlaysBounds[i-1][0])], [unproject(overlaysBounds[i-1][1])]),{opacity:0}).addTo(mymap);
+    window['sumeruUnderground'+i] = L.imageOverlay('media/overlays/sumeru'+i+'.png', L.latLngBounds([unproject([overlaysBounds[i-1][0][0]+1024,overlaysBounds[i-1][0][1]])], [unproject([overlaysBounds[i-1][1][0]+1024,overlaysBounds[i-1][1][1]])]),{opacity:0}).addTo(mymap);
 };
 
 mymap.zoomControl.setPosition('topright')

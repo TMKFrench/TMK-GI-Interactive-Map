@@ -162,7 +162,7 @@
         };
     
         localStorage.setItem('userMarkersEnka', JSON.stringify(markers));
-        userMarkers = JSON.stringify(markers);
+        userMarkers = markers;
     };
     
     function getUserOptions(option) {

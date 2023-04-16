@@ -141,7 +141,6 @@ html, body, #mapid {
 .obelisk {
   padding: 0 10px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-gap: 5px;
   text-align: center;
 }
@@ -150,6 +149,14 @@ html, body, #mapid {
   width: 72px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.ob4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ob5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .menulist {

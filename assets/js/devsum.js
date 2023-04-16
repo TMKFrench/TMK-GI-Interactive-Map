@@ -52,7 +52,7 @@ var userMarkers = [];
 var markertype = 'ferblanc';
 var countmarker = {};
 var mgroup = [
-    'pupe','viandemyst','sceausacre',
+    'pupe','viandemyst','sceausacre','teleport','dendrocul','cdefisume','cfeesume','pano',
     'ferblanc','cristal','eclatcm','noyauc','electroc','artefact','ffeu','fbrume','pomme','grenouille','lezard','crabe',
     'champitoile','fruitharra','nilotpalotus','padisachidee','pechezaytun','rosesum',
     'viparyas','noixajilenakh','scarabee','quandong','anguille'
@@ -66,14 +66,14 @@ var map = new L.Map('devmap', {
     zoomControl: false
 });
 
-L.tileLayer('media/tilesteyvat341/{z}/{x}/{y}.jpg', {
+L.tileLayer('media/tilesteyvat36/{z}/{x}/{y}.jpg', {
     attribution: '<a href="https://www.youtube.com/channel/UCbg8iC6Tw7de2URdwp3pyZQ/">TMK World</a>',
     maxZoom: 7,
     minZoom: 2,
     continuousWorld: true,
     maxBoundsViscosity: 0.8,
     noWrap: true,
-    errorTileUrl : 'media/tilesteyvat34/empty.png'
+    errorTileUrl : 'media/tilesteyvat36/empty.png'
 }).addTo(map);
 
 // map.zoomControl.setPosition('topright');

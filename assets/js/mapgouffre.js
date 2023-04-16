@@ -158,7 +158,7 @@ function saveLocalUserMarkers(idm, checked) {
     };
 
     localStorage.setItem('userMarkersGouffre', JSON.stringify(markers));
-    userMarkers = JSON.stringify(markers);
+    userMarkers = markers;
 };
 
 function getUserOptions(option) {

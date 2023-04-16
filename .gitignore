@@ -11,11 +11,11 @@
 *.sln.docstates
 media/*.jpg
 media/*.gif
-media/tilesteyvat31/
-media/tilesteyvat34/
-media/tilesteyvat341/
-media/tilesgouffre/
-media/tilesenka/
+media/tiles*/
+# media/tilesteyvat34/
+# media/tilesteyvat341/
+# media/tilesgouffre/
+# media/tilesenka/
 nextstage.png
 Markerlbm.js
 config.ini
@@ -33,6 +33,7 @@ indexold.html
 assets/js/mkbk/*.*
 assets/js/*test.js
 test*.*
+assets/inc/tmk.php
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

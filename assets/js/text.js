@@ -771,9 +771,11 @@ var langFR = {
 
     // Obélisque Primal
 
-    'obelisk01': '<div class="obelisk"><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sceau sacré : Tête de mouton"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sceau sacré : Serpent géant"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sceau sacré : Tête d\'oiseau"></div><div><img src="media/icones/ss-regne.png" title="Sceau sacré : Règne"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
-    'obelisk02': '<div class="obelisk"><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-brasleves.png" title="Sceau sacré : Bras levés"></div><div><img src="media/icones/ss-foret.png" title="Sceau sacré : Forêt"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sceau sacré : Tête de mouton"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sceau sacré : Serpent géant"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
-    'obelisk03': '<div class="obelisk"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sceau sacré : Coup de tonnerre"></div><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-dune.png" title="Sceau sacré : Dune"></div><div><img src="media/icones/ss-brasleves.png" title="Sceau sacré : Bras levés"></div><div><img src="media/icones/ss-soleillevant.png" title="Sceau sacré : Soleil levant"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk01': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sceau sacré : Tête de mouton"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sceau sacré : Serpent géant"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sceau sacré : Tête d\'oiseau"></div><div><img src="media/icones/ss-regne.png" title="Sceau sacré : Règne"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk02': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-brasleves.png" title="Sceau sacré : Bras levés"></div><div><img src="media/icones/ss-foret.png" title="Sceau sacré : Forêt"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sceau sacré : Tête de mouton"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sceau sacré : Serpent géant"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk03': '<div class="obelisk ob5"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sceau sacré : Coup de tonnerre"></div><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-dune.png" title="Sceau sacré : Dune"></div><div><img src="media/icones/ss-brasleves.png" title="Sceau sacré : Bras levés"></div><div><img src="media/icones/ss-soleillevant.png" title="Sceau sacré : Soleil levant"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk04': '<div class="obelisk ob4"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sceau sacré : Coup de tonnerre"></div><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sceau sacré : Tête d\'oiseau"></div><div><img src="media/icones/ss-burin.png" title="Sceau sacré : Burin"></div><div>2X</div><div>2X</div><div>1X</div><div>1X</div></div>',
+    'obelisk05': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sceau sacré : Vallée"></div><div><img src="media/icones/ss-brasleves.png" title="Sceau sacré : Bras levés"></div><div><img src="media/icones/ss-coup2tonnerre.png" title="Sceau sacré : Coup de tonnerre"></div><div><img src="media/icones/ss-ceremonie.png" title="Sceau sacré : Cérémonie"></div><div><img src="media/icones/ss-labeur.png" title="Sceau sacré : Labeur"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
 
     // Coms
 
@@ -1356,7 +1358,7 @@ var langFR = {
     'com574': 'Utilisez une attaque <a style="color:#32D7A0;">ANEMO</a> pour dispercer le tas de sable et faire apparaître le tas de pierre',
     'com575': 'Se débloque avec la quête<br>Le sommeil d\'or - Le secret d\'Al-Ahmar',
     'com576': 'Accessible pendant et après la quête<br>Le sommeil d\'or - Le secret d\'Al-Ahmar<br>',
-    'com577': '<a style="color:red;">Necessite d\'avoir débloqué « Cellule de lumière profuse » sur la Stèle des Sables écarlates</a><br>',
+    'com577': '<a style="color:red;">Nécessite d\'avoir débloqué « Cellule de lumière profuse » sur la Stèle des Sables écarlates</a><br>',
     'com578': 'Ramenez les braises primales pour faire apparaître le coffre',
     'com579': 'Brisez le mur pour libérer le passage',
     'com580': 'Utilisez la cellule de Véridicité pour révéler les torches<br>',
@@ -1372,6 +1374,13 @@ var langFR = {
     'com590': 'Utilisez la cellule de Véridicité pour révéler le chemin<br>',
     'com591': 'Orientez la cellule de lumière profuse correctement pour faire apparaître le coffre',
     'com592': 'Prenez le tas de pierre au pied de la tour pour créer un courant d\'air jusqu\'au Dendroculus',
+    'com593': 'Activez les 3 totems avec une attaque <a style="color:red;">PYRO</a> pour accéder au Dendroculus',
+    'com594': 'Orientez la cellule de lumière profuse correctement pour faire disparaître le mur invisible',
+    'com595': 'Terminez les défis à proximité pour déverrouiller les totems<br>',
+    'com596': 'Activez l\'interrupteur pour débloquer l\'accès à la salle superieure',
+    'com597': 'Changez la couleur du cristal en Bleu pour accéder au Dendroculus',
+    'com598': 'Grimpez au sommet du Mausolée et volez jusqu\'au Dendroculus',
+    'com599': 'Passez par le trou dans le mur',
 };
 
 var langEN = {
@@ -2147,9 +2156,11 @@ var langEN = {
 
     // Obélisque Primal
 
-    'obelisk01': '<div class="obelisk"><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sacred Seal : Sheep Head"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sacred Seal : Giant Serpent"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sacred Seal : Bird Head"></div><div><img src="media/icones/ss-regne.png" title="Sacred Seal : Right to Rule"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
-    'obelisk02': '<div class="obelisk"><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-brasleves.png" title="Sacred Seal : Raised Arm"></div><div><img src="media/icones/ss-foret.png" title="Sacred Seal : Forest"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sacred Seal : Sheep Head"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sacred Seal : Giant Serpent"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
-    'obelisk03': '<div class="obelisk"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sacred Seal : Thunderstrike"></div><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-dune.png" title="Sacred Seal : Dune"></div><div><img src="media/icones/ss-brasleves.png" title="Sacred Seal : Raised Arm"></div><div><img src="media/icones/ss-soleillevant.png" title="Sacred Seal : Sunrise"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk01': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sacred Seal : Sheep Head"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sacred Seal : Giant Serpent"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sacred Seal : Bird Head"></div><div><img src="media/icones/ss-regne.png" title="Sacred Seal : Right to Rule"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk02': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-brasleves.png" title="Sacred Seal : Raised Arm"></div><div><img src="media/icones/ss-foret.png" title="Sacred Seal : Forest"></div><div><img src="media/icones/ss-tete2mouton.png" title="Sacred Seal : Sheep Head"></div><div><img src="media/icones/ss-serpentgeant.png" title="Sacred Seal : Giant Serpent"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk03': '<div class="obelisk ob5"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sacred Seal : Thunderstrike"></div><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-dune.png" title="Sacred Seal : Dune"></div><div><img src="media/icones/ss-brasleves.png" title="Sacred Seal : Raised Arm"></div><div><img src="media/icones/ss-soleillevant.png" title="Sacred Seal : Sunrise"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
+    'obelisk04': '<div class="obelisk ob4"><div><img src="media/icones/ss-coup2tonnerre.png" title="Sacred Seal : Thunderstrike"></div><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-tetedoiseau.png" title="Sacred Seal : Bird Head"></div><div><img src="media/icones/ss-burin.png" title="Sacred Seal : Chisel Hammer"></div><div>2X</div><div>2X</div><div>1X</div><div>1X</div></div>',
+    'obelisk05': '<div class="obelisk ob5"><div><img src="media/icones/ss-vallee.png" title="Sacred Seal : Valley"></div><div><img src="media/icones/ss-brasleves.png" title="Sacred Seal : Raised Arm"></div><div><img src="media/icones/ss-coup2tonnerre.png" title="Sacred Seal : Thunderstrike"></div><div><img src="media/icones/ss-ceremonie.png" title="Sacred Seal : Ceremony"></div><div><img src="media/icones/ss-labeur.png" title="Sacred Seal : Labor"></div><div>2X</div><div>1X</div><div>1X</div><div>1X</div><div>1X</div></div>',
 
     // Coms
 
@@ -2748,4 +2759,11 @@ var langEN = {
     'com590': 'Use the Verity cell to reveal the path<br>',
     'com591': 'Aim the Everlight Cell correctly to make the chest appear',
     'com592': 'Take the rock pile at the base of the tower to create an air flow to reach the dendroculus',
+    'com593': 'Activate all 3 totems with an <a style="color:red;">PYRO</a> attack to reach the dendroculus',
+    'com594': 'Aim the Everlight Cell correctly to remove the invisible wall',
+    'com595': 'Complete the nearby challenges to unlock totems<br>',
+    'com596': 'Activate the switch to unlock access to the upper room',
+    'com597': 'Change the color of the crystal to Blue to access the dendroculus',
+    'com598': 'Climb to the top of the Mausoleum and fly to the dendroculus',
+    'com599': 'Go through the hole in the wall',
 };
